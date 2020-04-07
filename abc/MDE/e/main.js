@@ -39,7 +39,7 @@ function draw() {
 
     noFill()
     stroke(255, 0, 0)
-    ellipse(mouseX, mouseY, radius, radius)
+    //ellipse(mouseX, mouseY, radius, radius)
 }
 
 function windowResized() {
