@@ -4,7 +4,6 @@
  * Possibilità di sketch con audio da perfezionare
  */
 
-// funzione d’inizio
 
 let frameNumber = 0;
 let	cRadius
