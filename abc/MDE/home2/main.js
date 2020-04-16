@@ -4,7 +4,7 @@
  * Reference: https://p5js.org/reference/
  *
  * todo:
- * - Interattività: hover occhio sgranato, click = chiudi
+ * - Rendere univoco il clic per il point... non che "raccoglie" anche gli altri
  *
  */
 
@@ -45,31 +45,20 @@ function setup() {
                 return e.nome == currentOwner.nome //ritorna oggetti!
             })
             for(let c of ownerChilds){
-                sim.addPoint(random(width), random(height), 10, c.lettera, c.lettera)
+                sim.addPoint(random(width), random(height), 10, c.lettera, currentOwner.nome, c.lettera)
             }
             //--Aggiungo i childs----------------
 
             //--Aggiungo gli owners--------------
-            sim.addPointOwner(random(width), random(height), 10, currentOwner.nome, ownerChilds, currentOwner.nome)
+            sim.addPointOwner(random(width), random(height), 10, ownerChilds, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
             ownersList.push(currentOwner.nome)
             //--Aggiungo gli owners--------------
         }
     }
 
-
-
-    console.log(sim.points)
+    //console.log(sim.points)
 
     addLinks(sim.points)
-    /*
-    for (let i = 0; i < sim.points.length - 1; i++) {
-        let cP = sim.points[i]
-        let nP = sim.points[i + 1]
-        sim.addLink(cP, nP, 100, 0.1)
-    }
-
-    //sim.addLink(p1, p2, 100, 0.1)
-    */
 }
 
 function draw() {
@@ -95,6 +84,8 @@ function draw() {
 
     //console.log(sim.points[0])
     for (const p of sim.points) {
+        //p.attractNodes(sim.points)
+        //p.update()
         text(p.displayText, p.pos.x, p.pos.y)
         //ellipse(p.pos.x, p.pos.y, 5, 5)
     }
@@ -114,30 +105,28 @@ function windowResized() {
 }
 
 function addLinks(nodes){
+    //aggiungo i collegamenti fra lettere e owners,
+    //oppure metto in un array tutti gli owners e li uso dopo
     let ownersLinks = []
     for(let n of nodes){
-        if("owner" in n){             //se esiste la chiave "owner"
+        if(n.owner === undefined){                  //se esiste la chiave "owner"
             ownersLinks.push(n)
+        } else {                                    //se l'owner esiste
+            let ownerNode = nodes.filter((e)=>{     
+                return e.ownerId === n.owner
+            })
+            sim.addLink(ownerNode[0], n, 80, 0.002)
         }
     }
 
     //aggiungo i collegamenti fra owners
     for(let i= 0; i<ownersLinks.length-1; i++){
-        sim.addLink(ownersLinks[i], ownersLinks[i+1], 300,0.1)
+        sim.addLink(ownersLinks[i], ownersLinks[i+1], 400,0.002)
     }
-
-    /*
-    //non riesce a collegere i childs all'owner...
-    console.log(ownersLinks)
-    for(let o of ownersLinks){
-        for(let i = 0; i<o.childs.length; i++){
-            sim.addLink(o, o.childs[i], 50, 0.1)
-        }
-    }
-    */
 }
 
-
+//tutte le lettere uguali raggruppate...
+/*
 function addLinks1(nodes) {
     let visitedLetters = []
     let previous
@@ -167,6 +156,7 @@ function addLinks1(nodes) {
     }
 
 }
+*/
 
 function listener(p){
     currentSelection = p;

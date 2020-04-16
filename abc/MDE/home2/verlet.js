@@ -1,9 +1,11 @@
 
 // Classe "punto"
 class Point{
-    constructor(x, y, r, l, txt){
+    constructor(x, y, r, l, o, txt){
         this.pos = createVector(x, y)
         this.pre = createVector(x, y)
+        this.vel = createVector(0, 0)
+        this.maxVel = 10;
         this.radius = r
         this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
         this.pinned = false
@@ -11,13 +13,45 @@ class Point{
         this.cell_y = 0
         this.displayText = txt
         this.letter = l
+        this.owner = o
     }
+    update(){
+        this.vel.limit(this.maxVel)
+        this.pos.add(this.vel)
+
+        this.vel.mult(1 - 0.5);
+
+    }
+
+    attractNodes(nodeArray) {
+        for(let i = 0; i < nodeArray.length; i++){
+            let otherNode = nodeArray[i]
+            
+            if(otherNode === undefined){            //interrompi se ancora non ci sono nodi
+                break
+            }       
+            if(otherNode === this) {                //salta se i due nodi sono uguali
+                continue
+            }         
+
+            let d = this.pos.dist(otherNode.pos)
+            if (d > 0 && d < this.radius){
+                let s = pow(d/ this.radius, 1/ 1)   //attenzione, modificare!!
+                let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d
+                let df = this.pos.sub(otherNode.pos)
+                df.mult(f)
+
+                otherNode.vel.add(df)
+            }
+        }
+    }
+
 }
 class PointOwner extends Point {
-    constructor(x, y, r, o, c, txt){
-        super(x, y, r, undefined, txt)
-        this.owner = o
+    constructor(x, y, r, c, id, txt){
+        super(x, y, r, undefined, undefined, txt)
         this.childs = c
+        this.ownerId = id
     }
 }
 
@@ -69,14 +103,14 @@ class Sim {
         }
     }
 
-    addPoint(x, y, r, l, txt){
-        const p = new Point(x, y, r, l, txt)
+    addPoint(x, y, r, l, o, txt){
+        const p = new Point(x, y, r, l, o,  txt)
         this.points.push(p)
         return p
     }
 
-    addPointOwner(x, y, r, o, c, txt){
-        const p = new PointOwner(x, y, r, o, c, txt)
+    addPointOwner(x, y, r, c, id, txt){
+        const p = new PointOwner(x, y, r, c, id, txt)
         this.points.push(p)
         return p
     }
