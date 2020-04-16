@@ -5,7 +5,7 @@ class Point{
         this.pos = createVector(x, y)
         this.pre = createVector(x, y)
         this.vel = createVector(0, 0)
-        this.maxVel = 10;
+        this.maxVel = 0.1;
         this.radius = r
         this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
         this.pinned = false
@@ -15,15 +15,30 @@ class Point{
         this.letter = l
         this.owner = o
     }
+
+    display(){
+        fill(0)
+        noStroke()
+       //ellipse(this.pos.x, this.pos.y, 25, 25)
+        push()
+        textSize(22)
+        let asc = textAscent() * 0.8; // Calc ascent
+        let txtW = textWidth(this.displayText);
+        translate(-txtW/2, asc/2)
+        fill(255)
+        text(this.displayText, this.pos.x, this.pos.y)
+        pop()
+    }
+
     update(){
         this.vel.limit(this.maxVel)
         this.pos.add(this.vel)
 
-        this.vel.mult(1 - 0.5);
+        //this.vel.mult(1 - 0.9);
 
     }
 
-    attractNodes(nodeArray) {
+    attractNodes(nodeArray) {        
         for(let i = 0; i < nodeArray.length; i++){
             let otherNode = nodeArray[i]
             
@@ -34,16 +49,20 @@ class Point{
                 continue
             }         
 
-            let d = this.pos.dist(otherNode.pos)
+            let thisNodePos = this.pos.copy()
+            let otherNodePos = otherNode.pos.copy()
+            let d = thisNodePos.dist(otherNodePos)
+            d = constrain(d, 16, 90)                //costringo per non farli sparare ovunque
             if (d > 0 && d < this.radius){
-                let s = pow(d/ this.radius, 1/ 1)   //attenzione, modificare!!
+                let s = pow(d/ this.radius, 1)   //la forza di attrazione in base alla distanza?
                 let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d
-                let df = this.pos.sub(otherNode.pos)
+                let df = thisNodePos.sub(otherNodePos)
                 df.mult(f)
-
+                //console.log(df)
                 otherNode.vel.add(df)
             }
         }
+        
     }
 
 }

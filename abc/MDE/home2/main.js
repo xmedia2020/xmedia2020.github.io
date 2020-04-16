@@ -1,11 +1,11 @@
 /**
  * e
  * MDE
- * Reference: https://p5js.org/reference/
+ * Reference: http://www.generative-gestaltung.de/2/sketches/?02_M/M_6_1_03
  *
  * todo:
  * - Rendere univoco il clic per il point... non che "raccoglie" anche gli altri
- *
+ * - La distanza fra le singole lettere?
  */
 
 let json, data
@@ -45,18 +45,16 @@ function setup() {
                 return e.nome == currentOwner.nome //ritorna oggetti!
             })
             for(let c of ownerChilds){
-                sim.addPoint(random(width), random(height), 10, c.lettera, currentOwner.nome, c.lettera)
+                sim.addPoint(random(width), random(height), 20, c.lettera, currentOwner.nome, c.lettera)
             }
             //--Aggiungo i childs----------------
 
             //--Aggiungo gli owners--------------
-            sim.addPointOwner(random(width), random(height), 10, ownerChilds, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
+            sim.addPointOwner(random(width), random(height), 20, ownerChilds, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
             ownersList.push(currentOwner.nome)
             //--Aggiungo gli owners--------------
         }
     }
-
-    //console.log(sim.points)
 
     addLinks(sim.points)
 }
@@ -82,19 +80,19 @@ function draw() {
     noStroke()
     fill(255)
 
-    //console.log(sim.points[0])
+
     for (const p of sim.points) {
-        //p.attractNodes(sim.points)
-        //p.update()
-        text(p.displayText, p.pos.x, p.pos.y)
+        p.attractNodes(sim.points)
+        p.update()
+        p.display()
         //ellipse(p.pos.x, p.pos.y, 5, 5)
+    }
+    for (const l of sim.links) {
+        stroke(255, 255,255,40)
+        line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
     }
 
     stroke(255);
-
-    for (const l of sim.links) {
-        line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
-    }
 
     //noLoop()
 
@@ -115,13 +113,13 @@ function addLinks(nodes){
             let ownerNode = nodes.filter((e)=>{     
                 return e.ownerId === n.owner
             })
-            sim.addLink(ownerNode[0], n, 80, 0.002)
+            sim.addLink(ownerNode[0], n, 50, 0.02)
         }
     }
 
     //aggiungo i collegamenti fra owners
     for(let i= 0; i<ownersLinks.length-1; i++){
-        sim.addLink(ownersLinks[i], ownersLinks[i+1], 400,0.002)
+        sim.addLink(ownersLinks[i], ownersLinks[i+1], 500,0.02)
     }
 }
 
