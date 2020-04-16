@@ -1,11 +1,12 @@
 /**
- * e
+ * home
  * MDE
  * Reference: http://www.generative-gestaltung.de/2/sketches/?02_M/M_6_1_03
  *
  * todo:
+ * - Portare fuori da p5 l'elemento cliccato?
  * - Rendere univoco il clic per il point... non che "raccoglie" anche gli altri
- * - La distanza fra le singole lettere?
+ *
  */
 
 let json, data
@@ -30,9 +31,8 @@ function setup() {
         }
     }
     
-    //Ricavo gli "owner" dall'array e creo un oggetto PointOwner
-    //che contiene tutte le lettere prodotte da quell'owner in un array,
-    //così come creo l'oggetto Point, che corrisponde ai punti "figli"
+    // Ricavo gli "owner" dall'array 
+    // e creo gli le istanze di PointOwner e Point sulla base dell array.
     let ownersList = []
     for(let i=0; i<data.length; i++){
         let currentOwner = data[i]
@@ -50,7 +50,7 @@ function setup() {
             //--Aggiungo i childs----------------
 
             //--Aggiungo gli owners--------------
-            sim.addPointOwner(random(width), random(height), 20, ownerChilds, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
+            sim.addPointOwner(random(width), random(height), 20, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
             ownersList.push(currentOwner.nome)
             //--Aggiungo gli owners--------------
         }
@@ -68,18 +68,16 @@ function draw() {
             let d = dist(p.pos.x, p.pos.y, mouseX, mouseY)
             const treshold = 25
             if (d <= treshold && mouseIsPressed) {
-                listener(p)
+                listener(p)        //è questo un modo per portare fuori da p5 l'oggetto selezionato?
                 p.pos.x = mouseX
                 p.pos.y = mouseY
             }
-
         }
     }
 
     background(0)
     noStroke()
     fill(255)
-
 
     for (const p of sim.points) {
         p.attractNodes(sim.points)
@@ -91,23 +89,14 @@ function draw() {
         stroke(255, 255,255,40)
         line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
     }
-
-    stroke(255);
-
-    //noLoop()
-
-}
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight)
 }
 
 function addLinks(nodes){
     //aggiungo i collegamenti fra lettere e owners,
-    //oppure metto in un array tutti gli owners e li uso dopo
+    //metto in un array tutti gli owners e li uso dopo
     let ownersLinks = []
     for(let n of nodes){
-        if(n.owner === undefined){                  //se esiste la chiave "owner"
+        if(n.owner === undefined){
             ownersLinks.push(n)
         } else {                                    //se l'owner esiste
             let ownerNode = nodes.filter((e)=>{     
@@ -116,14 +105,26 @@ function addLinks(nodes){
             sim.addLink(ownerNode[0], n, 50, 0.02)
         }
     }
-
     //aggiungo i collegamenti fra owners
     for(let i= 0; i<ownersLinks.length-1; i++){
         sim.addLink(ownersLinks[i], ownersLinks[i+1], 500,0.02)
     }
 }
 
-//tutte le lettere uguali raggruppate...
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight)
+}
+
+function listener(p){
+    currentSelection = p;
+    console.log("stai premendo su: " + currentSelection)
+}
+
+
+
+
+
+//Altra modalità? tutte le lettere uguali raggruppate...
 /*
 function addLinks1(nodes) {
     let visitedLetters = []
@@ -156,8 +157,4 @@ function addLinks1(nodes) {
 }
 */
 
-function listener(p){
-    currentSelection = p;
-    console.log("stai premendo su: " + currentSelection)
-}
 

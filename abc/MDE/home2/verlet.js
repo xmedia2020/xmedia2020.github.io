@@ -52,10 +52,10 @@ class Point{
             let thisNodePos = this.pos.copy()
             let otherNodePos = otherNode.pos.copy()
             let d = thisNodePos.dist(otherNodePos)
-            d = constrain(d, 16, 90)                //costringo per non farli sparare ovunque
+            d = constrain(d, 16, 90)                                    //costringo per non farli sparare ovunque
             if (d > 0 && d < this.radius){
-                let s = pow(d/ this.radius, 1)   //la forza di attrazione in base alla distanza?
-                let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d
+                let s = pow(d/ this.radius, 1)                          //la forza di attrazione in base alla distanza?
+                let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d  //copiata da ref, non capisco ma funziona
                 let df = thisNodePos.sub(otherNodePos)
                 df.mult(f)
                 //console.log(df)
@@ -67,9 +67,9 @@ class Point{
 
 }
 class PointOwner extends Point {
-    constructor(x, y, r, c, id, txt){
+    //una classe che distingue i nodi degli owner, al quale saranno agganciati i punti
+    constructor(x, y, r, id, txt){
         super(x, y, r, undefined, undefined, txt)
-        this.childs = c
         this.ownerId = id
     }
 }
@@ -128,8 +128,8 @@ class Sim {
         return p
     }
 
-    addPointOwner(x, y, r, c, id, txt){
-        const p = new PointOwner(x, y, r, c, id, txt)
+    addPointOwner(x, y, r, id, txt){
+        const p = new PointOwner(x, y, r, id, txt)
         this.points.push(p)
         return p
     }
