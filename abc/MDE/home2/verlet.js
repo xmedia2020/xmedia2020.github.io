@@ -1,7 +1,7 @@
 
 // Classe "punto"
 class Point{
-    constructor(x, y, r, l){
+    constructor(x, y, r, l, txt){
         this.pos = createVector(x, y)
         this.pre = createVector(x, y)
         this.radius = r
@@ -9,7 +9,15 @@ class Point{
         this.pinned = false
         this.cell_x = 0
         this.cell_y = 0
+        this.displayText = txt
         this.letter = l
+    }
+}
+class PointOwner extends Point {
+    constructor(x, y, r, o, c, txt){
+        super(x, y, r, undefined, txt)
+        this.owner = o
+        this.childs = c
     }
 }
 
@@ -61,8 +69,14 @@ class Sim {
         }
     }
 
-    addPoint(x, y, r, l){
-        const p = new Point(x, y, r, l)
+    addPoint(x, y, r, l, txt){
+        const p = new Point(x, y, r, l, txt)
+        this.points.push(p)
+        return p
+    }
+
+    addPointOwner(x, y, r, o, c, txt){
+        const p = new PointOwner(x, y, r, o, c, txt)
         this.points.push(p)
         return p
     }

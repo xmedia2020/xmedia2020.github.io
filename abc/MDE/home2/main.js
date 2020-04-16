@@ -10,6 +10,7 @@
 
 let json, data
 let sim
+let currentSelection
 
 function preload() {
     json = loadJSON("dati.json")
@@ -21,7 +22,6 @@ function setup() {
     sim = new Sim()
     sim.gravity.y = 0.0
 
-
     for (let key in json) {
         if (!data) {
             data = [json[key]];
@@ -29,13 +29,35 @@ function setup() {
             data.push(json[key]);
         }
     }
+    
+    //Ricavo gli "owner" dall'array e creo un oggetto PointOwner
+    //che contiene tutte le lettere prodotte da quell'owner in un array,
+    //così come creo l'oggetto Point, che corrisponde ai punti "figli"
+    let ownersList = []
+    for(let i=0; i<data.length; i++){
+        let currentOwner = data[i]
 
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].lettera != "") {
-            sim.addPoint(random(width), random(height), 10, data[i].lettera)
+        let ownerIsVisited = ownersList.includes(currentOwner.nome)
+
+        if(!ownerIsVisited){
+            //--Aggiungo i childs----------------
+            let ownerChilds = data.filter((e)=>{
+                return e.nome == currentOwner.nome //ritorna oggetti!
+            })
+            for(let c of ownerChilds){
+                sim.addPoint(random(width), random(height), 10, c.lettera, c.lettera)
+            }
+            //--Aggiungo i childs----------------
+
+            //--Aggiungo gli owners--------------
+            sim.addPointOwner(random(width), random(height), 10, currentOwner.nome, ownerChilds, currentOwner.nome)
+            ownersList.push(currentOwner.nome)
+            //--Aggiungo gli owners--------------
         }
-
     }
+
+
+
     console.log(sim.points)
 
     addLinks(sim.points)
@@ -59,6 +81,7 @@ function draw() {
             let d = dist(p.pos.x, p.pos.y, mouseX, mouseY)
             const treshold = 25
             if (d <= treshold && mouseIsPressed) {
+                listener(p)
                 p.pos.x = mouseX
                 p.pos.y = mouseY
             }
@@ -72,7 +95,7 @@ function draw() {
 
     //console.log(sim.points[0])
     for (const p of sim.points) {
-        text(p.letter, p.pos.x, p.pos.y)
+        text(p.displayText, p.pos.x, p.pos.y)
         //ellipse(p.pos.x, p.pos.y, 5, 5)
     }
 
@@ -91,7 +114,27 @@ function windowResized() {
 }
 
 function addLinks(nodes){
-    
+    let ownersLinks = []
+    for(let n of nodes){
+        if("owner" in n){             //se esiste la chiave "owner"
+            ownersLinks.push(n)
+        }
+    }
+
+    //aggiungo i collegamenti fra owners
+    for(let i= 0; i<ownersLinks.length-1; i++){
+        sim.addLink(ownersLinks[i], ownersLinks[i+1], 300,0.1)
+    }
+
+    /*
+    //non riesce a collegere i childs all'owner...
+    console.log(ownersLinks)
+    for(let o of ownersLinks){
+        for(let i = 0; i<o.childs.length; i++){
+            sim.addLink(o, o.childs[i], 50, 0.1)
+        }
+    }
+    */
 }
 
 
@@ -101,7 +144,6 @@ function addLinks1(nodes) {
     for (let i = 0; i < nodes.length; i++) {
         console.log(visitedLetters)
         let current = nodes[i]
-        current.isMaster = true;
 
         let letterIsVisited = visitedLetters.includes(current.letter)
 
@@ -124,5 +166,10 @@ function addLinks1(nodes) {
         }
     }
 
+}
+
+function listener(p){
+    currentSelection = p;
+    console.log("stai premendo su: " + currentSelection)
 }
 
