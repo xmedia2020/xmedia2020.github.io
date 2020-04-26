@@ -1,7 +1,7 @@
 
 // Classe "punto"
 class Point{
-    constructor(x, y, r, l, o, txt){
+    constructor(x, y, r, l, o, txt, obj){
         this.pos = createVector(x, y)
         this.pre = createVector(x, y)
         this.vel = createVector(0, 0)
@@ -14,6 +14,7 @@ class Point{
         this.displayText = txt
         this.letter = l
         this.owner = o
+        this.obj = obj;
     }
 
     display(){
@@ -122,8 +123,8 @@ class Sim {
         }
     }
 
-    addPoint(x, y, r, l, o, txt){
-        const p = new Point(x, y, r, l, o,  txt)
+    addPoint(x, y, r, l, o, txt, obj){
+        const p = new Point(x, y, r, l, o,  txt, obj)
         this.points.push(p)
         return p
     }

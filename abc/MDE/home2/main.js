@@ -19,7 +19,8 @@ function preload() {
 
 
 function setup() {
-    createCanvas(windowWidth, windowHeight)
+    let cnv = createCanvas(windowWidth, (windowHeight/100)*90)
+    cnv.parent("canvas")
     sim = new Sim()
     sim.gravity.y = 0.0
 
@@ -28,6 +29,23 @@ function setup() {
             data = [json[key]];
         } else {
             data.push(json[key]);
+        }
+    }
+    console.log(data)
+    // Attacco un'oggetto identico, che poi passo nella fuzione
+    // updateData(letter) per poterlo mostrare nelle info.
+    // Probabilmente c'è una via migliore. È per non caricare due volte il json!
+    for(let i = 0; i<data.length; i++){
+        let current = data[i]
+        current.obj = {
+            letter:        current.lettera, 
+            name:           current.nome,
+            fullName:       current.nomeCompleto, 
+            path:           current.cartella,
+            date:           current.data,
+            input:          current.input, 
+            technique:      current.tecnica,
+            description:    current.descrizione 
         }
     }
     
@@ -45,7 +63,7 @@ function setup() {
                 return e.nome == currentOwner.nome //ritorna oggetti!
             })
             for(let c of ownerChilds){
-                sim.addPoint(random(width), random(height), 20, c.lettera, currentOwner.nome, c.lettera)
+                sim.addPoint(random(width), random(height), 20, c.lettera, currentOwner.nome, c.lettera, c.obj)
             }
             //--Aggiungo i childs----------------
 
@@ -68,7 +86,7 @@ function draw() {
             let d = dist(p.pos.x, p.pos.y, mouseX, mouseY)
             const treshold = 25
             if (d <= treshold && mouseIsPressed) {
-                listener(p)        //è questo un modo per portare fuori da p5 l'oggetto selezionato?
+                updateData(p.obj)        //è questo un modo per portare fuori da p5 l'oggetto selezionato?
                 p.pos.x = mouseX
                 p.pos.y = mouseY
             }
@@ -89,6 +107,7 @@ function draw() {
         stroke(255, 255,255,40)
         line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
     }
+
 }
 
 function addLinks(nodes){
