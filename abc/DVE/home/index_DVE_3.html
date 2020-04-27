@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <title>abc</title>
+        <meta name="description"                           content="abc ">
+        <meta name="author"                                content="SUPSI CV 2020">
+        <meta name="viewport"                              content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable"                content="yes">
+        <meta name="apple-mobile-web-app-capable"          content="yes">
+        <meta name="theme-color"                           content="black"> <!-- Chrome, Firefox OS and Opera -->
+        <meta name="msapplication-navbutton-color"         content="black"> <!-- Windows Phone -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- iOS Safari -->
+        <link rel="apple-touch-icon" sizes="192x192" href="icons/icon_192.png">
+        <link rel="shortcut icon"    sizes="32x32"   href="icons/icon_32.png">
+        <style type="text/css">
+            body {
+                background-color: rgb(250,250,250);
+                font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+
+
+            div.pixel {
+              width: 1vh;
+              height: 1vh;
+              position: absolute;
+              background-color: black;
+              transition: all 500ms ease-in-out;
+          }
+
+          div.pixel:hover {
+              border: solid 0.5px rgb(220, 220, 220);
+              background-color: white !important;
+              width: 12vh;
+              height: 16vh;
+              z-index: 1;
+              display: block;
+
+          }
+
+          div.pixel:hover  span{
+             display: block;
+             padding-right: 0.5em;
+          }
+
+          .pixel{
+            position: absolute;
+
+          }
+
+          .cartella{
+              display:none;
+              padding-left: 0.75em;
+              font-size: 0.5rem;
+          }
+          .nome{
+              padding-left: 0.75em;
+              padding-top: 0.5em;
+              display:none;
+              font-size: 0.5rem;
+              font-family: monospace;
+          }
+          .descrizione{
+              padding-left: 0.75em;
+              padding-right: 1.25em;
+              padding-top: 1em;
+              bottom: 0.5em;
+              font-size: 0.5rem;
+              display:none;
+              color: black;
+              font-family: monospace;
+          }
+          .data{
+              display:none;
+              font-size: 0.5rem;
+              padding-left: 0.75em;
+              padding-top: 1em;
+              color: rgb(220, 220, 220);
+          }
+          .lettera{
+              display:none;
+              font-family: "HelveticaNeue Bold", "Helvetica Neue Bold", Helvetica, Arial, sans-serif;
+              font-size: 2.5rem;
+              color: black;
+              position: absolute;
+              bottom:0.05rem;
+              pointer-events: none;
+              padding-top: 0.5em;
+              padding-left: 0.1em;
+              padding-bottom: 0.05em;
+              
+
+          }
+
+          #menu {
+          border: solid 0.5px rgb(220, 220, 220);
+          font-family: "HelveticaNeue Bold", "Helvetica Neue Bold", Helvetica, Arial, sans-serif;
+          background-color: white;
+          position: absolute;
+          padding-top: 1rem;
+          top:-1rem;
+          left:0;
+          padding-left: 2vw;
+          width: 98vw;
+          height: 4vh;
+          transition: all 500ms ease-in-out;
+         }
+
+          #menu:hover {
+        color: black;
+          background-color: white;
+          position: absolute;
+          padding-top: 1rem;
+          top:-2rem;
+          left:0;
+          padding-left: 2vw;
+          width: 98vw;
+          width: 100vw;
+          height: 16vh;
+          z-index: 1;
+         }
+
+          #titolo {
+          font-size: 1rem;
+          position: absolute;
+          left:0;
+          padding-left: 2vw;
+          width: 15vw;
+          height: 4vh;
+          transition: all 500ms ease-in-out;
+         }
+
+          #menu:hover h1#titolo{
+          
+          font-size: 2.5rem;
+          color:red;
+          position: absolute;
+          padding-top: 0.1rem;
+          top:1rem;
+          left:0;
+          padding-left: 2vw;
+          width: 20vw;
+          height: 10vh;
+          z-index: 1;
+         }
+
+          p#intro {
+          font-size: 0.7rem;
+          position: absolute;
+          left:20vw;
+          font-family: monospace;
+          padding-left: 2vw;
+          width: 15vw;
+          height: 4vh;
+          display: none;
+
+         }
+          #menu:hover p#intro {
+          padding-top: 0.1rem;
+          top:3rem;
+          left:20vw;
+          width:15vw;
+          padding-left: 2vw;
+          display: block;
+         }
+          #regole{
+          font-size: 0.7rem;
+          position: absolute;
+          left:40vw;
+          font-family: monospace;
+          padding-left: 2vw;
+          display: none;
+         }
+          #menu:hover #regole {
+          padding-top: 0.1rem;
+          top:3rem;
+          left:40vw;
+          padding-left: 2vw;
+          width: 20vw;
+          display: block;
+         }
+         #nomi{
+          font-size: 0.7rem;
+          position: absolute;
+          left:65vw;
+          font-family: monospace;
+          padding-left: 2vw;
+          display: none;
+         }
+          #menu:hover #nomi {
+          padding-top: 0.1rem;
+          top:3rem;
+          left:65vw;
+          padding-left: 2vw;
+          width: 20vw;
+          display: block;
+         }
+
+
+        </style>
+    </head>
+    <body>
+
+      <div id="menu">
+      <h1 id="titolo">Abecedario</h1>
+      <p id="intro">Si tratta di un progetto collettivo, ovvero un abecedario online.
+    Ogni studente contribuisce con caratteri progettati individualmente. È possibile trovare più di una variante per lettera dell’alfabeto.
+    </p>
+    <p id="regole">Molte le libertà, tre le regole:<br>
+      – Bianco e nero<br>
+      – Interattivo<br>
+      – Fullscreen
+    </p>
+    <p id="nomi">Docente: Andrea Gysin (AGY)<br>
+             Studenti: Alessia Morcelli (AMO), Alessandra Riva (ARI), Amina Zanda (AZA), Chiara Crivelli (CCR), Carlotta Gianni (CGI), Desirée Veschetti (DVE), Ilaria Dellea (IDE), Lara Ballerini (LBA), Mattia Dellamora (MDE), Olena Corzetto (OCO)
+    </p>
+    </div>
+  
+       
+        <ul id="output">
+
+            <!-- <div class="grid-row"><span class="nome"> AGY</span><span class="lettera"> O</span><span class="cartella"> o2</span><span class="descrizione"> Il ciclo for.</span><span class="data"> 17.03.2020</span></div> -->
+            
+        </ul>
+
+        <script src="dati.json"></script>
+        
+         <script type="text/javascript">
+            //console.table(dati)
+           
+            let dati
+
+            // Carichiamo il file esterno "dati.json"
+            // tramite la funzione "fetch(URL)"
+            fetch("dati.json").then(function(res){
+                return res.json()               // Una volta caricato viene "parsato" (trasformato in JSON)
+            }).then(function(json){
+                dati = ordina_per_lettera(json) // ordiniamo per data...
+                dati = ordina_per_nome(dati)    // ... e poi per autore!
+                render(dati)                    // Chiamiamo la funzione "render(dati)"
+                                                // con parametro i nostri dati ordinati...
+            })
+
+            // Questa funzione viene chiamata (vedi sopra)
+            // una volta che i nostri dati sono stati caricati.
+            // Il parametro sono i dati stessi (possono essere ordinati prima...s)
+            function render(dati){
+                const parent = document.querySelector("#output")
+                parent.innerHTML = ""
+
+                const BASE_FOLDER = "abc"
+                let nome = null
+                for (let i=0; i<dati.length; i++) {
+                    const el = document.createElement("div")
+                    el.classList.add("pixel")
+                    el.classList.add(dati[i].nome)
+                    el.style.left = getRandomInt(10,90) + "vw"
+                    el.style.top = getRandomInt(10,85) + "vh"
+                    
+                    //el.style.backgroundColor = "hsl(0, 0%,"+ getRandomInt(0,85)+ "%)"
+                    //el.style.backgroundColor = "hsl("+ getRandomInt(0,360)+", 100%, 50%)"
+                    //il click va aggiunto via JS visto che vogliamo il click attivo per tutto il "row"
+                    el.addEventListener("click", ()=> {
+                        const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
+                        window.location = url
+                    })
+
+                     el.addEventListener("mouseover", ()=> {
+                            //console.log(dati[i].nome)
+                             if(el.dataset.over == "false"){
+                                el.dataset.over = "true"
+                                document.querySelectorAll("."+dati[i].nome).forEach((r)=>{ 
+                                    r.style.backgroundColor = "red"
+                                })
+                            }else{
+                                el.dataset.over = "false"
+                                document.querySelectorAll("."+dati[i].nome).forEach((v)=>{
+                                  el.style.backgroundColor = "black"
+                                  v.style.backgroundColor = "black"
+
+                                })
+                            }
+                        })
+                    //console.log(el.dataset.over)
+
+
+                    let nome_out = dati[i].nome
+                    // if(nome === dati[i].nome){
+                    //   nome_out = "*"
+                    // } else {
+                    //   nome_out = dati[i].nome
+                    // }
+                    //nome = dati[i].nome
+
+                    el.innerHTML += "<span class='nome'>" + nome_out + "</p></span>"
+                    el.innerHTML += "<span class='lettera'> " + (dati[i].lettera || "&nbsp;")  + "</span>"
+                    //el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
+                    el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
+                    //el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
+                    parent.appendChild(el)
+                }
+            }
+
+            // --- FUNZIONI di SORT -------------------------------------------
+
+            function ordina_per_nome(dati) {
+                // Usiamo questa funzione per ordinare i dati in funzione dell'autore
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.nome >= b.nome         // maggiore e minore funziona anche con lettere dell'alfabeto
+                                                    // p.es
+                                                    // 'a' < 'b' (true)
+                                                    // 'd' < 'c' (false)
+                                                    // 'A' < 'a' (true, viene prima la maiuscola)
+                })
+                return dati_ordinati
+            }
+
+            function ordina_per_lettera(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.lettera >= b.lettera
+                })
+                return dati_ordinati
+            }
+
+            function ordina_per_data(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.data >= b.data
+                })
+                return dati_ordinati
+            }
+
+            // --- EVENTI -----------------------------------------------------
+
+            window.addEventListener("keypress", function(e){
+                if (e.key == '1') {
+                    dati = ordina_per_nome(dati)
+                    render(dati)
+                } else if (e.key == '2') {
+                    dati = ordina_per_lettera(dati)
+                    render(dati)
+                } else if (e.key == '3') {
+                    dati = ordina_per_data(dati)
+                    render(dati)
+                }
+               
+            })
+
+            function getRandomInt (min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+          
+
+
+        </script>  
+
+    </body>
+</html>
