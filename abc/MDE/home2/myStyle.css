@@ -11,6 +11,8 @@ body {
 	flex-direction: column;
 	font-size: 12px;
 	background-color: black;
+	padding-top: 10px!important;
+	padding-left: 10px!important;
 }
 
 li, ul, canvas, body {
@@ -38,6 +40,16 @@ li, ul, canvas, body {
 #info1{
 	width: 22%;
 	height: 100%;
+	padding-right: 15px;
+}
+
+#button{
+	max-width: 100%;
+	font-size: 1.6em;
+	background-color: white;
+	color: black;
+	padding: 2px;
+	margin-bottom: 5px;
 }
 
 #info2{

@@ -15,17 +15,23 @@ updateData({
 })
 
 function updateData(letter){
-	console.log(letter)
+	//console.log(letter)
 	divInfo1.innerHTML = ""
 	divInfo2.innerHTML = ""
 	divInfo3.innerHTML = ""
 
 	//--div1----------------------------------------------------
+	const button = document.createElement("a")
+	button.setAttribute("href", `/abc/${letter.name}/${letter.path}/index.html`)
+	button.innerHTML = `<div id="button">PLAY</div>`
+	divInfo1.appendChild(button)
+	
 	const el1 = document.createElement("ul")
 	el1.innerHTML += `<li>nome: ${letter.name}</li>`
 	el1.innerHTML += `<li>nome completo: ${letter.fullName}</li>`
 	el1.innerHTML += `<li>realizzato il: ${letter.date}</li>`
 	divInfo1.appendChild(el1)	
+
 
 	//--div2----------------------------------------------------
 	const el2 = document.createElement("ul")
