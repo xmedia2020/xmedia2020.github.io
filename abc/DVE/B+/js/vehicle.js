@@ -45,7 +45,6 @@ Vehicle.prototype.show = function() {
   textSize(this.size*2)
   textAlign(CENTER, CENTER)
   text(words[index],this.pos.x,this.pos.y)
-  //text(index,this.pos.x,this.pos.y)
 }
 
 
