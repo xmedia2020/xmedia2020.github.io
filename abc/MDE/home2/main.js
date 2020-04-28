@@ -15,6 +15,7 @@ let currentSelection
 let smthSelected = false;
 
 function preload() {
+    //json = loadJSON("dati.json")
     json = loadJSON("dati.json")
 }
 
