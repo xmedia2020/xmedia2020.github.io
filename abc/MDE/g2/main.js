@@ -89,7 +89,7 @@ function mouseMoved() {
 	let nMouseY = mouseY - (height/2-letterH/2)
 	if(values != undefined){
  	let matches = values.filter((e) => {
- 		if(e.b == 255){
+ 		if(e.b == 255){ 
  			let dx = e.x - nMouseX
  			let dy = e.y - nMouseY
  			if(dx>-radius && dx<radius && dy>-radius && dy<radius){
@@ -109,7 +109,7 @@ function mouseMoved() {
                     vy: 0,
                     diametro: 5, // diametro
                     dir: 0,
-                    life: 200, // contatore interno (meglio se multiplo di griglia)
+                    life: 150, // contatore interno (meglio se multiplo di griglia)
                     vel: floor(random(0, 3)) / 2,
                 }
 
