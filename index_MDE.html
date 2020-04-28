@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>home</title>
+    <meta name="description" content="home">
+    <meta name="author" content="Matt">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="black">
+    <meta name="msapplication-navbutton-color" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/icons/icon_192.png">
+    <link rel="shortcut icon" href="/icons/icon_32.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="myStyle.css">
+    <style>
+        html {
+    ox-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	background-color: black;
+	padding-top: 10px!important;
+	padding-left: 10px!important;
+}
+
+li, ul, canvas, body {
+	margin: 0;
+	padding: 0;
+
+}
+
+#info{
+	width: 100vw;
+	height:	10vh;
+	color: white;
+	display: flex;
+	padding: 0;
+	font-size: 1em;
+	/*padding: 10px;*/
+
+}
+
+#info li {
+	list-style-type: none;
+	margin-bottom: 5px;
+}
+
+#info1{
+	width: 22%;
+	height: 100%;
+	padding-right: 15px;
+}
+
+#button{
+	max-width: 100%;
+	font-size: 1.6em;
+	background-color: white;
+	color: black;
+	padding: 2px;
+	margin-bottom: 5px;
+}
+
+#info2{
+	width: 22%;
+	height: 100%;
+	padding-left: 15px;
+	border-left: 1px solid white;
+}
+
+#info3{
+	height: 100%;
+	padding-left: 15px;
+	border-left: 1px solid white;
+}
+
+#canvas{
+	width: 100vw;
+	height: 90vw;
+	max-height: 90vh;
+}
+    </style>
+</head>
+
+<body class="disable-select disable-scroll">
+    <div id="info">
+        <div id="info1"></div>
+        <div id="info2"></div>
+        <div id="info3"></div>
+    </div>
+    <div id="canvas">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="main.js"></script>
+    <script src="verlet.js"></script>
+    <script src="displayCard.js"></script>
+    <script type="text/javascript">
+    let json, data
+    let sim
+    let currentSelection
+    let smthSelected = false;
+
+    function preload() {
+        //json = loadJSON("dati.json")
+        json = loadJSON("dati.json")
+    }
+
+
+    function setup() {
+        let cnv = createCanvas(windowWidth, (windowHeight / 100) * 90)
+        cnv.parent("canvas")
+        sim = new Sim()
+        sim.gravity.y = 0.0
+
+        for (let key in json) {
+            if (!data) {
+                data = [json[key]];
+            } else {
+                data.push(json[key]);
+            }
+        }
+        // Attacco un'oggetto identico, che poi passo nella fuzione
+        // updateData(letter) per poterlo mostrare nelle info.
+        // Probabilmente c'è una via migliore. È per non caricare due volte il json!
+        for (let i = 0; i < data.length; i++) {
+            let current = data[i]
+            current.obj = {
+                letter: current.lettera,
+                name: current.nome,
+                fullName: current.nomeCompleto,
+                path: current.cartella,
+                date: current.data,
+                input: current.input,
+                technique: current.tecnica,
+                description: current.descrizione
+            }
+        }
+
+        // Ricavo gli "owner" dall'array 
+        // e creo gli le istanze di PointOwner e Point sulla base dell array.
+        let ownersList = []
+        for (let i = 0; i < data.length; i++) {
+            let currentOwner = data[i]
+
+            let ownerIsVisited = ownersList.includes(currentOwner.nome)
+
+            if (!ownerIsVisited) {
+                //--Aggiungo i childs----------------
+                let ownerChilds = data.filter((e) => {
+                    return e.nome == currentOwner.nome //ritorna oggetti!
+                })
+                for (let c of ownerChilds) {
+                    sim.addPoint(random(width), random(height), 20, c.lettera, currentOwner.nome, c.lettera, c.obj)
+                }
+                //--Aggiungo i childs----------------
+
+                //--Aggiungo gli owners--------------
+                sim.addPointOwner(random(width), random(height), 20, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
+                ownersList.push(currentOwner.nome)
+                //--Aggiungo gli owners--------------
+            }
+        }
+
+        addLinks(sim.points)
+        console.log(sim.points)
+    }
+
+    function draw() {
+        sim.update(1)
+        sim.bounds(40, 40, width - 40, height - 40)
+
+        if (mouseIsPressed) {
+            for (let p of sim.points) {
+                p.letterFill = 90
+                let d = dist(p.pos.x, p.pos.y, mouseX, mouseY)
+                const treshold = 25
+                if (d <= treshold && mouseIsPressed) {
+                    //se nulla è selezionato allora p lo diventa
+                    //e "accende l'interruttore"
+                    if (smthSelected == false) {
+                        p.isSelected = true;
+                    }
+                    //finchè non rilascio il mouse rimane true... funzione infondo
+                    smthSelected = true;
+
+                    //se l'elemento non è un'owner lo mando nella scheda di info
+                    if (p.owner != undefined) {
+                        updateData(p.obj)
+                    }
+                } else {
+                    //perchè non funziona? se clicco in un punto che è fuori dal treshold allora dovrebbe
+                    //mettere tutto in bianco...
+                    //p.letterFill = 255 
+                }
+                //a questo punto posso anche draggare coontrollando se il punto è selezionato,
+                //senza rimanere nella condizione "d <= treshold"... problematica
+                if (p.isSelected == true) {
+                    p.letterFill = 255
+                    p.pos.x = mouseX
+                    p.pos.y = mouseY
+                }
+            }
+        }
+
+        background(0)
+        noStroke()
+        fill(255)
+
+        for (const p of sim.points) {
+            p.attractNodes(sim.points)
+            p.update()
+            p.display()
+            //ellipse(p.pos.x, p.pos.y, 5, 5)
+        }
+        for (const l of sim.links) {
+            stroke(255, 255, 255, 40)
+            line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
+        }
+
+    }
+
+    function addLinks(nodes) {
+        //aggiungo i collegamenti fra lettere e owners,
+        //metto in un array tutti gli owners e li uso dopo
+        let ownersLinks = []
+        for (let n of nodes) {
+            if (n.owner === undefined) {
+                ownersLinks.push(n)
+            } else { //se l'owner esiste
+                let ownerNode = nodes.filter((e) => {
+                    return e.ownerId === n.owner
+                })
+                sim.addLink(ownerNode[0], n, 50, 0.02)
+            }
+        }
+        //aggiungo i collegamenti fra owners
+        for (let i = 0; i < ownersLinks.length - 1; i++) {
+            sim.addLink(ownersLinks[i], ownersLinks[i + 1], 500, 0.02)
+        }
+    }
+
+    function windowResized() {
+        resizeCanvas(windowWidth, windowHeight)
+    }
+
+    function listener(p) {
+        currentSelection = p;
+        console.log("stai premendo su: " + currentSelection)
+    }
+
+    function mouseReleased() {
+        smthSelected = false;
+        for (let p of sim.points) {
+            p.isSelected = false;
+        }
+    }
+
+    // add info to card
+
+    console.log("hellou")
+
+    const divInfo1 = document.querySelector("#info1")
+    const divInfo2 = document.querySelector("#info2")
+    const divInfo3 = document.querySelector("#info3")
+    updateData({
+        letter: " ",
+        name: " ",
+        fullName: " ",
+        path: " ",
+        date: " ",
+        input: " ",
+        technique: " ",
+        description: " "
+    })
+
+    function updateData(letter) {
+        //console.log(letter)
+        divInfo1.innerHTML = ""
+        divInfo2.innerHTML = ""
+        divInfo3.innerHTML = ""
+
+        //--div1----------------------------------------------------
+        const button = document.createElement("a")
+        button.setAttribute("href", `/abc/${letter.name}/${letter.path}/index.html`)
+        button.innerHTML = `<div id="button">PLAY</div>`
+        divInfo1.appendChild(button)
+
+        const el1 = document.createElement("ul")
+        el1.innerHTML += `<li>nome: ${letter.name}</li>`
+        el1.innerHTML += `<li>nome completo: ${letter.fullName}</li>`
+        el1.innerHTML += `<li>realizzato il: ${letter.date}</li>`
+        divInfo1.appendChild(el1)
+
+
+        //--div2----------------------------------------------------
+        const el2 = document.createElement("ul")
+        el2.innerHTML += `<li>percorso: /abc/${letter.name}/${letter.path}</li>`
+        el2.innerHTML += `<li>lettera: ${letter.letter}</li>`
+        el2.innerHTML += `<li>tecnica: ${letter.technique}</li>`
+        el2.innerHTML += `<li>input: ${letter.input}</li>`
+        divInfo2.appendChild(el2)
+
+        //--div3----------------------------------------------------
+        const el3 = document.createElement("ul")
+        el3.innerHTML += `<li>descrizione: ${letter.description}`
+        divInfo3.appendChild(el3)
+    }
+
+    //--Verlet Library--------------
+    
+// Classe "punto"
+class Point{
+    constructor(x, y, r, l, o, txt, obj){
+        this.pos = createVector(x, y)
+        this.pre = createVector(x, y)
+        this.vel = createVector(0, 0)
+        this.maxVel = 0.1;
+        this.radius = r
+        this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
+        this.pinned = false
+        this.cell_x = 0
+        this.cell_y = 0
+        this.displayText = txt
+        this.letter = l
+        this.owner = o
+        this.obj = obj;
+        this.letterFill = 255;
+        this.isSelected = false;
+    }
+
+    display(){
+        fill(0)
+        noStroke()
+       //ellipse(this.pos.x, this.pos.y, 25, 25)
+        push()
+        textSize(22)
+        let asc = textAscent() * 0.8; // Calc ascent
+        let txtW = textWidth(this.displayText);
+        translate(-txtW/2, asc/2)
+        fill(this.letterFill)
+        text(this.displayText, this.pos.x, this.pos.y)
+        pop()
+    }
+
+    update(){
+        this.vel.limit(this.maxVel)
+        this.pos.add(this.vel)
+
+        //this.vel.mult(1 - 0.9);
+
+    }
+
+    attractNodes(nodeArray) {        
+        for(let i = 0; i < nodeArray.length; i++){
+            let otherNode = nodeArray[i]
+            
+            if(otherNode === undefined){            //interrompi se ancora non ci sono nodi
+                break
+            }       
+            if(otherNode === this) {                //salta se i due nodi sono uguali
+                continue
+            }         
+
+            let thisNodePos = this.pos.copy()
+            let otherNodePos = otherNode.pos.copy()
+            let d = thisNodePos.dist(otherNodePos)
+            d = constrain(d, 16, 90)                                    //costringo per non farli sparare ovunque
+            if (d > 0 && d < this.radius){
+                let s = pow(d/ this.radius, 1)                          //la forza di attrazione in base alla distanza?
+                let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d  //copiata da ref, non capisco ma funziona
+                let df = thisNodePos.sub(otherNodePos)
+                df.mult(f)
+                //console.log(df)
+                otherNode.vel.add(df)
+            }
+        }
+        
+    }
+
+}
+class PointOwner extends Point {
+    //una classe che distingue i nodi degli owner, al quale saranno agganciati i punti
+    constructor(x, y, r, id, txt){
+        super(x, y, r, undefined, undefined, txt)
+        this.ownerId = id
+    }
+}
+
+// Classe "molla"
+class Link{
+    constructor(a, b, l, k){
+        this.a = a
+        this.b = b
+        this.length = l
+        this.k = k
+    }
+}
+
+class Sim {
+
+    constructor() {
+        this.points = []
+        this.links = []
+        this.friction = 0.9
+        this.gravity = createVector(0, 0)
+    }
+
+    update(steps){
+        // Punti
+        for (const p of this.points) {
+            if (p.pinned) continue
+            let v = p5.Vector.sub(p.pos, p.pre)
+            v.add(this.gravity)
+            v.mult(this.friction)
+            p.pre = p.pos.copy()
+            p.pos.add(v)
+        }
+
+        // Molle
+        const sub_step = 1.0 / steps
+        for (let i=0; i<steps; i++){
+            for (const l of this.links){
+                const v = p5.Vector.sub(l.a.pos, l.b.pos)
+                const m = v.mag()
+                v.mult((l.length - m) / m * l.k * sub_step)
+                if (!l.a.pinned) l.a.pos.add(v)
+                if (!l.b.pinned) l.b.pos.sub(v)
+            }
+        }
+
+        // Reset dei punti "pinned"
+        for (const p of this.points){
+            if (p.pinned) p.pos.set(p.pre.x, p.pre.y)
+        }
+    }
+
+    addPoint(x, y, r, l, o, txt, obj){
+        const p = new Point(x, y, r, l, o,  txt, obj)
+        this.points.push(p)
+        return p
+    }
+
+    addPointOwner(x, y, r, id, txt){
+        const p = new PointOwner(x, y, r, id, txt)
+        this.points.push(p)
+        return p
+    }
+
+    addLink(a, b, length = null, k = 0.1){
+        if(length === null){
+            length = p5.Vector.sub(a.pos, b.pos).mag()
+        }
+
+        const l = new Link(a, b, length, k)
+        this.links.push(l)
+        return l
+    }
+
+    // Per ora c'è solo il check del piano in fondo
+    bounds(x1, y1, x2, y2){
+        const damp = 0.8
+        for (const p of this.points){
+            if (p.pos.x >= x2){
+                 const d = (p.pos.x - p.pre.x) * damp
+                 p.pre.x = x2 + d
+                 p.pos.x = x2
+            } else if (p.pos.x <= x1) {
+                 const d = (p.pos.x - p.pre.x) * damp
+                 p.pre.x = x1 + d
+                 p.pos.x = x1
+            }
+
+            if (p.pos.y >= y2){
+                 const d = (p.pos.y - p.pre.y) * damp
+                 p.pre.y = y2 + d
+                 p.pos.y = y2
+            } else if (p.pos.y <= y1) {
+                 const d = (p.pos.y - p.pre.y) * damp
+                 p.pre.y = y1 + d
+                 p.pos.y = y1
+            }
+        }
+    }
+}
+
+
+
+
+    
+    </script>
+</body>
+
+</html>
