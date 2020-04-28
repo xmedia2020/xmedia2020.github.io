@@ -1,7 +1,7 @@
 
 // Classe "punto"
 class Point{
-    constructor(x, y, r, l, o, txt){
+    constructor(x, y, r, l, o, txt, obj){
         this.pos = createVector(x, y)
         this.pre = createVector(x, y)
         this.vel = createVector(0, 0)
@@ -14,6 +14,9 @@ class Point{
         this.displayText = txt
         this.letter = l
         this.owner = o
+        this.obj = obj;
+        this.letterFill = 255;
+        this.isSelected = false;
     }
 
     display(){
@@ -25,7 +28,7 @@ class Point{
         let asc = textAscent() * 0.8; // Calc ascent
         let txtW = textWidth(this.displayText);
         translate(-txtW/2, asc/2)
-        fill(255)
+        fill(this.letterFill)
         text(this.displayText, this.pos.x, this.pos.y)
         pop()
     }
@@ -122,8 +125,8 @@ class Sim {
         }
     }
 
-    addPoint(x, y, r, l, o, txt){
-        const p = new Point(x, y, r, l, o,  txt)
+    addPoint(x, y, r, l, o, txt, obj){
+        const p = new Point(x, y, r, l, o,  txt, obj)
         this.points.push(p)
         return p
     }
