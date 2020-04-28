@@ -12,7 +12,6 @@
 let json, data
 let sim
 let currentSelection
-let smthSelected = false;
 
 function preload() {
     json = loadJSON("dati.json")
@@ -20,7 +19,7 @@ function preload() {
 
 
 function setup() {
-    let cnv = createCanvas(windowWidth, (windowHeight / 100) * 90)
+    let cnv = createCanvas(windowWidth, (windowHeight/100)*90)
     cnv.parent("canvas")
     sim = new Sim()
     sim.gravity.y = 0.0
@@ -32,37 +31,38 @@ function setup() {
             data.push(json[key]);
         }
     }
+    console.log(data)
     // Attacco un'oggetto identico, che poi passo nella fuzione
     // updateData(letter) per poterlo mostrare nelle info.
     // Probabilmente c'è una via migliore. È per non caricare due volte il json!
-    for (let i = 0; i < data.length; i++) {
+    for(let i = 0; i<data.length; i++){
         let current = data[i]
         current.obj = {
-            letter: current.lettera,
-            name: current.nome,
-            fullName: current.nomeCompleto,
-            path: current.cartella,
-            date: current.data,
-            input: current.input,
-            technique: current.tecnica,
-            description: current.descrizione
+            letter:        current.lettera, 
+            name:           current.nome,
+            fullName:       current.nomeCompleto, 
+            path:           current.cartella,
+            date:           current.data,
+            input:          current.input, 
+            technique:      current.tecnica,
+            description:    current.descrizione 
         }
     }
-
+    
     // Ricavo gli "owner" dall'array 
     // e creo gli le istanze di PointOwner e Point sulla base dell array.
     let ownersList = []
-    for (let i = 0; i < data.length; i++) {
+    for(let i=0; i<data.length; i++){
         let currentOwner = data[i]
 
         let ownerIsVisited = ownersList.includes(currentOwner.nome)
 
-        if (!ownerIsVisited) {
+        if(!ownerIsVisited){
             //--Aggiungo i childs----------------
-            let ownerChilds = data.filter((e) => {
+            let ownerChilds = data.filter((e)=>{
                 return e.nome == currentOwner.nome //ritorna oggetti!
             })
-            for (let c of ownerChilds) {
+            for(let c of ownerChilds){
                 sim.addPoint(random(width), random(height), 20, c.lettera, currentOwner.nome, c.lettera, c.obj)
             }
             //--Aggiungo i childs----------------
@@ -75,7 +75,6 @@ function setup() {
     }
 
     addLinks(sim.points)
-    console.log(sim.points)
 }
 
 function draw() {
@@ -84,31 +83,10 @@ function draw() {
 
     if (mouseIsPressed) {
         for (let p of sim.points) {
-            p.letterFill = 90
             let d = dist(p.pos.x, p.pos.y, mouseX, mouseY)
             const treshold = 25
             if (d <= treshold && mouseIsPressed) {
-                //se nulla è selezionato allora p lo diventa
-                //e "accende l'interruttore"
-                if (smthSelected == false) {
-                    p.isSelected = true;
-                }
-                //finchè non rilascio il mouse rimane true... funzione infondo
-                smthSelected = true;
-
-                //se l'elemento non è un'owner lo mando nella scheda di info
-                if (p.owner != undefined) {
-                    updateData(p.obj)
-                }
-            } else {
-                //perchè non funziona? se clicco in un punto che è fuori dal treshold allora dovrebbe
-                //mettere tutto in bianco...
-                //p.letterFill = 255 
-            }
-            //a questo punto posso anche draggare coontrollando se il punto è selezionato,
-            //senza rimanere nella condizione "d <= treshold"... problematica
-            if (p.isSelected == true) {
-                p.letterFill = 255
+                updateData(p.obj)        //è questo un modo per portare fuori da p5 l'oggetto selezionato?
                 p.pos.x = mouseX
                 p.pos.y = mouseY
             }
@@ -126,29 +104,29 @@ function draw() {
         //ellipse(p.pos.x, p.pos.y, 5, 5)
     }
     for (const l of sim.links) {
-        stroke(255, 255, 255, 40)
+        stroke(255, 255,255,40)
         line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
     }
 
 }
 
-function addLinks(nodes) {
+function addLinks(nodes){
     //aggiungo i collegamenti fra lettere e owners,
     //metto in un array tutti gli owners e li uso dopo
     let ownersLinks = []
-    for (let n of nodes) {
-        if (n.owner === undefined) {
+    for(let n of nodes){
+        if(n.owner === undefined){
             ownersLinks.push(n)
-        } else { //se l'owner esiste
-            let ownerNode = nodes.filter((e) => {
+        } else {                                    //se l'owner esiste
+            let ownerNode = nodes.filter((e)=>{     
                 return e.ownerId === n.owner
             })
             sim.addLink(ownerNode[0], n, 50, 0.02)
         }
     }
     //aggiungo i collegamenti fra owners
-    for (let i = 0; i < ownersLinks.length - 1; i++) {
-        sim.addLink(ownersLinks[i], ownersLinks[i + 1], 500, 0.02)
+    for(let i= 0; i<ownersLinks.length-1; i++){
+        sim.addLink(ownersLinks[i], ownersLinks[i+1], 500,0.02)
     }
 }
 
@@ -156,17 +134,13 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
 }
 
-function listener(p) {
+function listener(p){
     currentSelection = p;
     console.log("stai premendo su: " + currentSelection)
 }
 
-function mouseReleased() {
-    smthSelected = false;
-    for (let p of sim.points) {
-        p.isSelected = false;
-    }
-}
+
+
 
 
 //Altra modalità? tutte le lettere uguali raggruppate...
@@ -201,3 +175,5 @@ function addLinks1(nodes) {
 
 }
 */
+
+

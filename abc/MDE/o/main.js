@@ -1,8 +1,7 @@
-const nr = 100
+const nr = 50
 const r = 200
 let off = 0.0
-const rings = 70
-
+const rings = 17
 function preload() {
     //img = loadImage("assets/k.png")
 }
@@ -24,12 +23,12 @@ function draw() {
             const offset = noise(x, y + j*0.03, off) * (_r*0.5)
 
             push()
-            //translate(((mouseX-width/2) * 0.00001 * j), ((mouseY-height/2) * 0.00001 * j))
+            translate(((mouseX-width/2) * 0.0001 * j), ((mouseY-height/2) * 0.0001 * j))
             x *= _r + offset 
             y *= _r + offset
 
             vertex(x, y)
-            off += 0.000007
+            off += 0.00007
         }
         pop()
         const startValue = 15
