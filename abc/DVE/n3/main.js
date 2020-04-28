@@ -1,6 +1,8 @@
 import * as GLU from './glsl_utils.js'
 import * as shader_sources from './demo_0.js'
 
+
+
 // -- Canvas ------------------------------------
 const canvas = document.createElement("canvas")
 canvas.style.width = '100vw'
@@ -10,7 +12,7 @@ canvas.id = 'canvas'
 //canvas.classList.add("canvas")
 //const myCanvas = document.querySelector(".canvas")
 
-const gl = canvas.getContext('webgl')
+const gl = canvas.getContext('webgl', {preserveDrawingBuffer: true})
 if(!gl){
     console.error("Unable to initialize WebGL")
 }
@@ -160,6 +162,11 @@ function exportCanvasAsPNG(id, fileName) {
     dlLink.click();
     document.body.removeChild(dlLink);
 }
+
+
+
+console.log(gl.getContextAttributes()) 
+
 
 
 // function keyPressed(){
