@@ -3,9 +3,9 @@
 <head>
   <title></title>
   <meta charset="utf-8">
-        <title>Indice ABC</title>
-        <meta name="description"                           content="Indice ABC ">
-        <meta name="author"                                content="Alessia">
+        <title>Abecedario</title>
+        <meta name="description"                           content="Abecedario">
+        <meta name="author"                                content="Lara">
         <meta name="viewport"                              content="width=device-width, initial-scale=1">
         <meta name="mobile-web-app-capable"                content="yes">
         <meta name="apple-mobile-web-app-capable"          content="yes">
@@ -212,7 +212,7 @@
             
             p {
               margin: 0;
-              font-size: 25vw;
+              font-size: 30vw;
               line-height: .75;
               position: relative;
               transform-origin: center center;
@@ -297,7 +297,7 @@
           }
           
           .list-group-item{
-            border-bottom: 1px solid grey;
+            /*border-bottom: 1px solid grey;*/
             padding-top: 10px;
           
           }
@@ -309,15 +309,30 @@
           a {
             color: white;
             text-decoration: none;
-          }     
+          } 
+          h1:hover .abc{
+            visibility:visible;
+          } 
+
+
+
+
+          
+
         </style>
        
 </head>
 <body>
   <header>
   <div class="header-top">
-    <h1>Abecedario</h1>
-    <!-- <p class="instructions" style="font-size: 15px; color: grey;">usa la tastiera per scorrere l'alfabeto oppure le frecce</p> -->
+    
+        <h1 onmouseover="mouseOver()" onmouseout="mouseOut()">Abecedario</h1>
+      </div>
+     
+      
+        <p id="abc" style="font-size: 13px; width: 35%; line-height: 1.2; color: grey; display: none; ">Si tratta di un progetto collettivo, ovvero un abecedario online. Ogni studente contribuisce con caratteri progettati individualmente. È possibile trovare più di una variante per lettera dell’alfabeto.</p>
+      
+    
   </div>
   
 
@@ -326,132 +341,132 @@
 <div class="carousel" >
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Aa</p>
+      <p >Aa</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Bb</p>
+      <p >Bb</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Cc</p>
+      <p >Cc</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Dd</p>
+      <p >Dd</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Ee</p>
+      <p >Ee</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Ff</p>
+      <p >Ff</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Gg</p>
+      <p >Gg</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Hh</p>
+      <p >Hh</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Ii</p>
+      <p >Ii</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Jj</p>
+      <p >Jj</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Kk</p>
+      <p >Kk</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Ll</p>
+      <p >Ll</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Mm</p>
+      <p >Mm</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Nn</p>
+      <p >Nn</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Oo</p>
+      <p >Oo</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Pp</p>
+      <p >Pp</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Qq</p>
+      <p >Qq</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Rr</p>
+      <p >Rr</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Ss</p>
+      <p >Ss</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Tt</p>
+      <p >Tt</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Uu</p>
+      <p >Uu</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Vv</p>
+      <p >Vv</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Ww</p>
+      <p >Ww</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Xx</p>
+      <p >Xx</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Yy</p>
+      <p >Yy</p>
     </div>
   </div>
   <div class="carousel-cell">
     <div class="inner">
-      <p style="font-size: 350px;">Zz</p>
+      <p >Zz</p>
     </div>
   </div>
 </div>
@@ -459,7 +474,7 @@
 <div class="type-tester" style=" margin-left:60px; margin-right: 60px;">
   
   
-  <h2>Sketch</h2>
+  
   <ul class="list-group list-group-flush">
   
   
@@ -473,6 +488,18 @@
 <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
 
 <script type="text/javascript">
+  function mouseOver() {
+    document.getElementById("abc").style.display = "inline-block";
+  }
+  
+  function mouseOut() {
+    document.getElementById("abc").style.display = "none";
+  }
+
+
+
+
+
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   
   let jsonData;
@@ -527,6 +554,10 @@
       wrapAround: true,
   });
   
+  $carousel.on( 'settle.flickity', function( event, index ) {
+    renderData(jsonData,alfabeto[index])
+  });
+
   // Add letter key codes to an array
   // to match them up to corresponding
   // flickity carousel cell index
