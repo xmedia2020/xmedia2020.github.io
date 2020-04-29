@@ -6,14 +6,15 @@
 <body>
     <audio id="audio" src="commento.mp3" controls></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
-    <button>BUTTON</button>s
+    <button>BUTTON</button>
     <script type="text/javascript">
 
         const player = document.getElementById("audio")
         const canvas = document.getElementById('canvas')
         const canvasCtx = canvas.getContext("2d")
 
-        player.addEventListener("click", function(e) {
+        //player.addEventListener("click", function(e) {
+        player.addEventListener('loadeddata', function(){
         	const audioContext = new (window.AudioContext || window.webkitAudioContext)()
         	const analyser = audioContext.createAnalyser()
         	const audioSourceNode = audioContext.createMediaElementSource(player)
