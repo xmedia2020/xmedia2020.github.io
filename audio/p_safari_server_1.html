@@ -1,28 +1,34 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Prova Safari Server</title>
+    <title>Prova Safari Server 1</title>
 </head>
 <body>
     <audio id="audio" src="commento.mp3" controls></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
+    <button>BUTTON</button>
     <script type="text/javascript">
 
         const player = document.getElementById("audio")
         const canvas = document.getElementById('canvas')
         const canvasCtx = canvas.getContext("2d")
 
-        player.addEventListener("click", function(e) {
+        //player.addEventListener("click", function(e) {
         	const audioContext = new (window.AudioContext || window.webkitAudioContext)()
         	const analyser = audioContext.createAnalyser()
         	const audioSourceNode = audioContext.createMediaElementSource(player)
         	window.analyser = analyser
             audioSourceNode.connect(analyser)
             analyser.connect(audioContext.destination)
-        })
+        //})
+
+        document.querySelector("button").onclick = function(){
+            player.play()
+        }
+
 
         function render() {
-        	if (window.hasOwnProperty("analyser")) {
+        	//if (window.hasOwnProperty("analyser")) {
                 let data = new Uint8Array(analyser.frequencyBinCount)
                 analyser.getByteFrequencyData(data)
                 canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
@@ -30,7 +36,7 @@
                     canvasCtx.fillStyle = "black";
                     canvasCtx.fillRect(i, -(canvas.height/255) * data[i], 1, canvas.height);
                 }
-            }
+            //}
             requestAnimationFrame(render);
         }
 
