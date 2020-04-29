@@ -1,40 +1,26 @@
 <!doctype html>
-
-<html lang="en">
+<html lang="en" >
 <head>
 	<meta charset="utf-8">
-
 	<title>i</title>
-	<meta name="description" content="Co">
-	<meta name="author" content="Ilaria">
-    <meta name="viewport" 								content="width=device-width, initial-scale=1">
+	<meta name="description" 							content="i">
+	<meta name="author"                       			content="Ilaria">
+	<meta name="viewport" 								content="width=device-width, initial-scale=1">
 	<meta name="mobile-web-app-capable" 				content="yes">
 	<meta name="apple-mobile-web-app-capable" 			content="yes">
 	<meta name="theme-color" 							content="black">
 	<meta name="msapplication-navbutton-color" 			content="black">
 	<meta name="apple-mobile-web-app-status-bar-style" 	content="black">
-    <link rel="apple-touch-icon" href="/icons/icon_192.png">
-	<link rel="shortcut icon"    href="/icons/icon_32.png">
-	<link rel="stylesheet"       href="/css/style.css">
-
+	<link rel="apple-touch-icon" href="../../../icons/icon_192.png">
+	<link rel="shortcut icon"    href="../../../icons/icon_32.png">
+	<link rel="stylesheet"       href="../../../css/style.css">
 </head>
 
-<body>
+<body class="disable-select disable-scroll">
 
-	<body class="disable-select disable-scroll">
-	
-	<script src="lib/p5.min.js"></script>
-	<script src="lib/p5.sound.js"></script>
-	<script src="lib/p5.dom.min.js"></script>
-	<script src="js/main.js"></script>
-
-		<script type="text/javascript">
-		// Per motivi sconosciuti è necessario inserire due volte questo listener:
-		document.ontouchmove = function(e){
-			e.preventDefault();
-		}
-		document.ontouchmove = function(e){
-		 	e.preventDefault();
-		} </script>
+	<script src="../../../js/lib/p5/p5.min.js"></script> 
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+	<script src="../../../js/common.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>
