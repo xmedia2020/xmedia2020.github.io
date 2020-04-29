@@ -57,7 +57,8 @@
               padding-left: 0.75em;
               padding-top: 0.5em;
               display:none;
-              font-size: 0.7rem;
+              font-size: 0.9rem;
+              /*display: block;*/
               font-family: monospace;
           }
           .descrizione{
@@ -251,6 +252,7 @@
                 const BASE_FOLDER = "abc"
                 let nome = null
                 for (let i=0; i<dati.length; i++) {
+
                     const el = document.createElement("div")
                     el.classList.add("pixel")
                     el.classList.add(dati[i].nome)
@@ -275,14 +277,20 @@
                             }else{
                                 el.dataset.over = "false"
                                 document.querySelectorAll("."+dati[i].nome).forEach((v)=>{
-                                  el.style.backgroundColor = "black"
-                                  v.style.backgroundColor = "black"
-
+                                  if(visit == " "){
+                                      document.querySelectorAll("."+dati[i].nome).forEach((e)=>{ 
+                                          e.style.backgroundColor = "grey"
+                                      })
+                                  } else{
+                                      v.style.backgroundColor = "black"
+                                      el.style.backgroundColor = "black"
+                                  }
                                 })
                             }
                         })
                     //console.log(el.dataset.over)
 
+                    const visit = localStorage.getItem(dati[i].nome + "/" + dati[i].cartella) == 1 ? " " : "*"
 
                     let nome_out = dati[i].nome
                     // if(nome === dati[i].nome){
@@ -296,8 +304,16 @@
                     el.innerHTML += "<span class='lettera'> " + (dati[i].lettera || "&nbsp;")  + "</span>"
                     //el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
                     el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
+                    //el.innerHTML += "<span class='visitato'> " + visit + "</span>"
                     //el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
                     parent.appendChild(el)
+
+                    console.log(visit)
+                    if(visit == " "){
+                      document.querySelectorAll("."+dati[i].nome).forEach((e)=>{ 
+                                    e.style.backgroundColor = "grey"
+                                })
+                    } 
                 }
             }
 
