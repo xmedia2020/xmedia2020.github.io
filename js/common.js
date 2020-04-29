@@ -51,7 +51,7 @@ function run() {
 
     // 3. Commento audio ---------------------------------------------------
 
-    const AUDIO_FILE = 'test.mp3'
+    const AUDIO_FILE = 'commento.mp3'
 
     const sound = new Audio(AUDIO_FILE)
     // const sound = document.createElement('audio');
