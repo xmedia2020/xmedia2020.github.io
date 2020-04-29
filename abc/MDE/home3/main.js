@@ -20,7 +20,7 @@ function preload() {
 
 
 function setup() {
-    let cnv = createCanvas(windowWidth, (windowHeight / 100) * 90)
+    let cnv = createCanvas(windowWidth, (windowHeight / 100) * 86)
     cnv.parent("canvas")
     sim = new Sim()
     sim.gravity.y = 0.0
@@ -41,9 +41,10 @@ function setup() {
         const n = {
             point:  p1,
             type:   1,
-            nome:   key,  
+            nome:   key,
+            fill:   255,   
         }
-        sim.addLink(root, p1, 200, 0.05)
+        sim.addLink(root, p1, 175, 0.05)
         nodes.push(n)
 
         for(const l of data[key]){
@@ -51,9 +52,10 @@ function setup() {
             const n = {
                 point:  p2,
                 type:   2,
-                data:   l,  
+                data:   l,
+                fill:   255,   
             }
-            sim.addLink(p1, p2, 70, 0.05)
+            sim.addLink(p1, p2, 52, 0.05)
             nodes.push(n)
         }
     }
@@ -107,7 +109,6 @@ function draw() {
 
     // punti
     noStroke()
-    fill(255)
     textSize(22)
     let asc = textAscent() * 0.8            //calcola ascend
     for (const n of nodes) {
@@ -115,12 +116,14 @@ function draw() {
             push()
             let txtW = textWidth(n.nome)
             translate(-txtW/2, asc/2)
+            fill(n.fill)
             text(n.nome, n.point.pos.x, n.point.pos.y)
             pop()
         } else if(n.type == 2){
             push()
             let txtW = textWidth(n.data.lettera)
             translate(-txtW/2, asc/2)
+            fill(n.fill)
             text(n.data.lettera, n.point.pos.x, n.point.pos.y)
             pop()
         }
@@ -138,11 +141,32 @@ function mousePressed(){
         const d = dist(mouseX-width/2, mouseY-height/2, n.point.pos.x, n.point.pos.y)
         if(d < 50){
             picked = n
-            console.log(picked)
+            console.log(`you have picked: ${picked}`)
+            if(n.type == 1){
+                //caso parent
+                for(const n of nodes){
+                    n.fill = 255
+                } 
+                updateData(null)
+            } else if (n.type == 2) {
+                //caso lettera
+                console.log("passo questo: " + n.data)
+                updateData(n.data)
+                for(const o of nodes){
+                    o.fill = 90
+                } 
+                n.fill = 255
+            }
             return
         }
     }
     console.log("background")
+    if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+    for(const n of nodes){
+        n.fill = 255
+    } 
+    updateData(null)
+    }
 }
 
 function mouseReleased(){

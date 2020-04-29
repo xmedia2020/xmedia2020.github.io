@@ -147,22 +147,20 @@
 		"cartella" 		: "06O",
 		"lettera"  		: "O",
 		"tecnica" 		: "P5JS",
-		"input"   		: "drag mouse",
+		"input"   		: "Click Mouse",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Particelle random creano un disegno"
+		"descrizione"	: "Genera una texture"
 	},
 {
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "02w2",
-		"lettera"  		: "W",
+		"cartella" 		: "07G",
+		"lettera"  		: "G",
 		"tecnica" 		: "P5JS",
-		"input"   		: "click mouse",
+		"input"   		: "Scroll",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Unisci i punti e crea la lettera"
+		"descrizione"	: "Scrolla la pagina"
 	},
-
-
 
 	{
 		"nome"  		: "ARI",
@@ -173,6 +171,16 @@
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
 		"descrizione"	: "Diverse “g” che ruotano ruotanti"
+	},
+{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "I1",
+		"lettera"  		: "I",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "“I” che ruotano ruotanti e giocano di scala"
 	},
 
 	{
@@ -286,6 +294,28 @@
 		"descrizione"	: "Cliccando ovunque sullo schermo cambierà la visualizzazione"
 	},	
 
+		{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "H",
+		"lettera"  		: "H",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse move",
+		"data"    		: "19.04.2020",
+		"descrizione"	: "Muovendo il mouse modifico e trasformo la lettera"
+	},
+
+			{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "J",
+		"lettera"  		: "J",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse click",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Clicca il mouse per bloccare la lettere nella sua forma corretta"
+	},	
+
 
 	{
 		"nome"  		: "CGI",
@@ -343,6 +373,17 @@
 	{
 		"nome"  		: "IDE",
 		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "H",
+		"lettera"  		: "H",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Click",
+		"data"    		: "24.04.2020",
+		"descrizione"	: "Risultato random associato al click del mouse"
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
 		"cartella" 		: "C",
 		"lettera"  		: "C",
 		"tecnica" 		: "P5JS",
@@ -370,7 +411,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse, Keyboard",
 		"data"    		: "25.03.2020",
-		"descrizione"	: "Il testo viene trasformato in punti, cliccando sul canvas cambi la lettera"
+		"descrizione"	: "Clicca sul canvas per cambiare lettera, muovi il cursore sulla lettera per spostare le letterine"
 	},
 	{
 		"nome"  		: "DVE",
@@ -380,17 +421,17 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "La lettera interagisce con il mouseX una volta cliccato sul canvas"
+		"descrizione"	: "Clicca sul canvas e muovi il cursore sull'asse X per interagire con il movimento degli archi"
 	},
 	{
 		"nome"  		: "DVE",
 		"nomeCompleto" 	: "Desirée Veschetti",
-		"cartella" 		: "n1",
+		"cartella" 		: "n3",
 		"lettera"  		: "n",
-		"tecnica" 		: "P5JS",
-		"input"   		: "",
+		"tecnica" 		: "Shader",
+		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Utilizzo della funzione copy()"
+		"descrizione"	: "Muovi il cursore per modificare il pattern e creare nuove lettere distorte"
 	},
 	{
 		"nome"  		: "DVE",
@@ -400,17 +441,17 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Spostandoci con il mouse vengono aggiunti o rimossi i raggi nelle N"
+		"descrizione"	: "Muovi il cursore per aggiungere e rimuovere raggi, tieni premuto per cambiare la dimensione del pattern"
 	},
 	{
 		"nome"  		: "DVE",
 		"nomeCompleto" 	: "Desirée Veschetti",
 		"cartella" 		: "R3",
-		"lettera"  		: "R",
+		"lettera"  		: "r",
 		"tecnica" 		: "P5JS",
 		"input"   		: "MousePressed",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Tenendo premuto possiamo creare lettere e forme random"
+		"descrizione"	: "Clicca sulle forme per cambiarle singolarmente, clicca sul canvas per cambiare tutto il disegno"
 	},
 	{
 		"nome"  		: "DVE",
@@ -420,7 +461,7 @@
 		"tecnica" 		: "jQuery, css",
 		"input"   		: "Scroll",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Scrolla la pagina per ricreare il disegno"
+		"descrizione"	: "Scrolla e ridimensiona la pagina per ricostruire o disfare le lettere composte da quadratini"
 	},
 
 	
@@ -432,29 +473,20 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostandoci con il mouse vengono aggiunti o rimossi i raggi nelle D"
+		"descrizione"	: "Spostando il mouse vengono aggiunti o rimossi i raggi nelle D"
 	},
 
 	{
 		"nome"  		: "LBA",
 		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "E1",
+		"cartella" 		: "E3",
 		"lettera"  		: "E",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Spostandoci con il mouse ruotiamo i raggi della E"
+		"descrizione"	: "Spostando mouse ruotano i raggi della E"
 	},
-	{
-		"nome"  		: "LBA",
-		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "E2",
-		"lettera"  		: "E",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
-		"data"    		: "23.03.2020",
-		"descrizione"	: "Spostandoci con il mouse ruotiamo i raggi della E"
-	},
+
 	{
 		"nome"  		: "LBA",
 		"nomeCompleto" 	: "Lara Ballerini",
@@ -463,29 +495,20 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "suono",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Creando rumore le linee si allungano formando una F"
+		"descrizione"	: "Parlando le linee si allungano formando una F"
 	},
 
 	{
 		"nome"  		: "LBA",
 		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "F2",
-		"lettera"  		: "F",
+		"cartella" 		: "H4",
+		"lettera"  		: "H",
 		"tecnica" 		: "P5.JS",
-		"input"   		: "suono",
+		"input"   		: "mouse",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Creando rumore le linee si allungano formando una F"
+		"descrizione"	: "Muovendo il mouse si crea una composizione che forma la lettera H"
 	},
-	{
-		"nome"  		: "LBA",
-		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "F3",
-		"lettera"  		: "F",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "Suono",
-		"data"    		: "30.03.2020",
-		"descrizione"	: "Creando rumore le linee si allungano formando una F"
-	},
+
 	{
 		"nome"  		: "LBA",
 		"nomeCompleto" 	: "Lara Ballerini",
@@ -494,7 +517,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostandoci con il mouse vengono aggiunti o rimossi i raggi nelle N"
+		"descrizione"	: "Spostando il mouse vengono aggiunti o rimossi i raggi nelle N"
 	},
 	{
 		"nome"  		: "LBA",
@@ -506,26 +529,7 @@
 		"data"    		: "17.03.2020",
 		"descrizione"	: "Muovendo il mouse si creano spicchi nell'anello"
 	},
-	{
-		"nome"  		: "LBA",
-		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "O5",
-		"lettera"  		: "O",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
-		"data"    		: "21.03.2020",
-		"descrizione"	: "Muovendo il mouse si spostano i raggi dei due anelli"
-	},
-	{
-		"nome"  		: "LBA",
-		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "O7",
-		"lettera"  		: "O",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
-		"data"    		: "21.03.2020",
-		"descrizione"	: "Spostando il mouse vengono aggiunti o rimossi gli anelli oppure si sposta il centro."
-	},
+
 	{
 		"nome"  		: "LBA",
 		"nomeCompleto" 	: "Lara Ballerini",
@@ -544,7 +548,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Spostandoci con il mouse possiamo ingradire, rimpicciolire o ruotare la Z "
+		"descrizione"	: "Spostando il mouse cambia dimensione e ruota la Z "
 	},
 	{
 		"nome"  		: "CCR",
@@ -555,16 +559,6 @@
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
 		"descrizione"	: "Muovendo il mouse possiamo variare l'asta centrale orizzontale della lettera E."
-	},
-	{
-		"nome"  		: "CCR",
-		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "R",
-		"lettera"  		: "R",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
-		"data"    		: "29.03.2020",
-		"descrizione"	: "Muovendo il mouse sull'asse orizzontale possiamo creare una distorsione della lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -589,32 +583,12 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "x",
-		"lettera"  		: "x",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
-		"data"    		: "23.03.2020",
-		"descrizione"	: "Il movimento del mouse permetterà di modificare l'intensità di rotazione."
-	},
-	{
-		"nome"  		: "CCR",
-		"nomeCompleto" 	: "Chiara Crivelli",
 		"cartella" 		: "Y",
 		"lettera"  		: "Y",
 		"tecnica" 		: "P5.JS, ML5.JS",
 		"input"   		: "movimento delle braccia",
 		"data"    		: "31.03.2020",
 		"descrizione"	: "Con il movimento delle braccia si riesce a modificare la forma della Y."
-	},
-	{
-		"nome"  		: "CCR",
-		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "i",
-		"lettera"  		: "i",
-		"tecnica" 		: "P5.JS, ML5.JS",
-		"input"   		: "movimento del viso",
-		"data"    		: "01.04.2020",
-		"descrizione"	: "Con il movimento della testa possiamo spostare il cerchio della i."
 	},
 	{
 		"nome"  		: "CCR",
@@ -649,14 +623,14 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "N",
-		"lettera"  		: "N",
+		"cartella" 		: "o6",
+		"lettera"  		: "o",
 		"tecnica" 		: "P5.JS",
-		"input"   		: "sound",
-		"data"    		: "06.04.2020",
-		"descrizione"	: "Attraverso il suono si crea la lettera N."
+		"input"   		: "mouse",
+		"data"    		: "26.04.2020",
+		"descrizione"	: "Attraverso il mouse modifico la o."
 	},
-		{
+	{
 		"nome"  		: "MDE",
 		"nomeCompleto" 	: "Mattia Dellamora",
 		"cartella" 		: "e",
@@ -696,56 +670,35 @@
 		"data"    		: "27.03.2020",
 		"descrizione"	: "La faccia si arrabbia insieme a te"
 	},
-
 	{
 		"nome"  		: "OCO",
 		"nomeCompleto" 	: "Olena Corzetto",
-		"cartella" 		: "o4",
-		"lettera"  		: "o",
-		"tecnica" 		: "P5JS",
-		"input"   		: "No",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "I cerchi si espandono"
-	},
-	{
-		"nome"  		: "OCO",
-		"nomeCompleto" 	: "Olena Corzetto",
-		"cartella" 		: "L_2",
-		"lettera"  		: "L",
+		"cartella" 		: "V",
+		"lettera"  		: "V",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "L che ruota con un punto fisso"
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Lettera V creata da due coni rotanti"
 	},
 	{
 		"nome"  		: "OCO",
 		"nomeCompleto" 	: "Olena Corzetto",
-		"cartella" 		: "L_3",
-		"lettera"  		: "L",
-		"tecnica" 		: "P5JS",
-		"input"   		: "No",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "L su forma geometrica ruotante"
-	},
-	{
-		"nome"  		: "OCO",
-		"nomeCompleto" 	: "Olena Corzetto",
-		"cartella" 		: "N_1",
-		"lettera"  		: "gattino",
+		"cartella" 		: "M",
+		"lettera"  		: "M",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "Parola coperta da cerchi che ruotano"
+		"data"    		: "25.04.2020",
+		"descrizione"	: "M su forma geometrica ruotante"
 	},
 	{
 		"nome"  		: "OCO",
 		"nomeCompleto" 	: "Olena Corzetto",
-		"cartella" 		: "piccoli_cani",
-		"lettera"  		: "gattino",
+		"cartella" 		: "a",
+		"lettera"  		: "a",
 		"tecnica" 		: "P5JS",
-		"input"   		: "No",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "Parole su forma geometrica ruotante"
+		"input"   		: "Mouse",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Si muove l'ombra della lettera a"
 	}
 
 ]
