@@ -6,6 +6,7 @@
 <body>
     <audio id="audio" src="commento.mp3" controls></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
+    <button>BUTTON</button>s
     <script type="text/javascript">
 
         const player = document.getElementById("audio")
@@ -20,6 +21,10 @@
             audioSourceNode.connect(analyser)
             analyser.connect(audioContext.destination)
         })
+
+        document.querySelector("button").onclick = function(){
+            player.play()
+        }
 
         function render() {
         	if (window.hasOwnProperty("analyser")) {
