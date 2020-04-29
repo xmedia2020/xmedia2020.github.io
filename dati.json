@@ -80,6 +80,16 @@
 		"descrizione"	: "Dimostrazione di una semplice simulazione."
 	},
 	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "feedback",
+		"lettera"  		: "M",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Feedback (non shader)."
+	},
+	{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
 		"cartella" 		: "04A",
