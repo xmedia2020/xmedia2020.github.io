@@ -32,7 +32,7 @@
             .grid-container {
                 width: 85%;
                 display: grid;
-                grid-template-columns: 1fr 1fr 4fr 12fr 1fr;
+                grid-template-columns: 1fr 1fr 4fr 12fr 0.25fr 1fr;
                 grid-gap: 0px;
             }
 
@@ -64,15 +64,27 @@
                 border-right: none !important;
             }
             .data {
-                color: rgb(0,0,0,0.2);
+                /*color: rgb(0,0,0,0.2);*/
                 border-right: none !important;
-                font-size: 0.5rem;
+                font-size: 0.75rem;
             }
 
             .info{
                 margin:0 0 2rem 0.5rem;
                 padding:0;
                 color: orange;
+            }
+
+            .visitato{
+                border-right: none !important;
+            }
+
+            .visitato a{
+                text-decoration: none;
+                color:black;
+            }
+            .visitato a:visited{
+                color:white;
             }
 
         </style>
@@ -118,14 +130,15 @@
                     const el = document.createElement("div")
                     el.classList.add("grid-row")
                     // il click va aggiunto via JS visto che vogliamo il click attivo per tutto il "row"
+                    const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                     el.addEventListener("click", ()=> {
-                        const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                         window.location = url
                     })
                     el.innerHTML += "<span class='nome'> " + dati[i].nome + "</span>"
                     el.innerHTML += "<span class='lettera'> " + (dati[i].lettera || "&nbsp;")  + "</span>"
                     el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
                     el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
+                    el.innerHTML += "<span class='visitato'><a href='"+url+"'>*</a></span>"
                     el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
                     parent.appendChild(el)
                 }
