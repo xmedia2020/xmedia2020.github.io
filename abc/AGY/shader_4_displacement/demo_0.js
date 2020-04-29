@@ -18,7 +18,7 @@ void main() {
     float a = u_resolution.x / u_resolution.y;
     float center_x = (a - 1.0) / 2.0;
     v_texCoord.x = a_texCoord.x * a - center_x;
-    v_texCoord.y = 1.0 - a_texCoord.y;    // raddriziamo la Y qui...
+    v_texCoord.y = 1.0 - a_texCoord.y;  // raddriziamo la Y qui...
     gl_Position = vec4(a_position, 0.0, 1.0);
 }
 

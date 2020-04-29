@@ -2,7 +2,6 @@
 //
 // -------------------------------------------------------
 // Shader helpers
-// from https://codepen.io/jlfwong/pen/GqmroZ
 export function compileShader(gl, shaderSource, shaderType){
     var shader = gl.createShader(shaderType)
     gl.shaderSource(shader, shaderSource)
@@ -32,7 +31,6 @@ export function getUniformLocation(gl, program, name) {
 
 // -------------------------------------------------------
 // Rect buffer as two triangles
-// from https://webglfundamentals.org/webgl/lessons/webgl-image-processing.html
 export function setRect(gl, x, y, width, height) {
     const x1 = x;
     const x2 = x + width;
@@ -57,11 +55,6 @@ export function loadTexture(gl, url, callback) { // AG: added a callback
         return (value & (value - 1)) == 0
     }
 
-    // Because images have to be download over the internet
-    // they might take a moment until they are ready.
-    // Until then put a single pixel in the texture so we can
-    // use it immediately. When the image has finished downloading
-    // we'll update the texture with the contents of the image.
     const level = 0
     const internalFormat = gl.RGBA
     const width = 1
