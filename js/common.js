@@ -53,10 +53,10 @@ function run() {
 
     const AUDIO_FILE = 'commento.mp3'
 
-    const sound = new Audio(AUDIO_FILE)
-    // const sound = document.createElement('audio');
-    // sound.src = AUDIO_FILE
-    sound.crossorigin = "anonymous"
+    //const sound = new Audio(AUDIO_FILE)
+    const sound = document.createElement('audio');
+    sound.src = AUDIO_FILE
+    // sound.crossorigin = "anonymous"
 
     // Bottone
     const play_btn = document.createElement('button')
@@ -69,15 +69,14 @@ function run() {
             sound.pause()
         } else {
             this.dataset.playing = 'true'
-            sound.load()            // Safari FIX
-            sound.currentTime = 0.0 // FF is ok with just this...
             sound.play()
         }
     })
 
     sound.addEventListener('ended', (e)=>{
         play_btn.dataset.playing = 'false'
-        sound.load()            // Safari??
+        sound.load()            // Safari FIX
+        sound.currentTime = 0.0 // FF is ok with just this...
         sound.currentTime = 0.0 // Non funziona su safari...?
     })
 
