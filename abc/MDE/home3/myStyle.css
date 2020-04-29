@@ -1,0 +1,114 @@
+html {
+    ox-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+	font-family: Helvetica, Sans-Serif;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	background-color: black;
+/*	padding-top: 5px!important;
+*/	/*padding-left: 10px!important;*/
+}
+
+li, ul, canvas, body,p, td, tr, table {
+	margin: 0;
+	padding: 0;
+
+}
+a {
+	color: white;
+}
+
+#info{
+	width: 100vw;
+	height:	14vh;
+	color: white;
+	display: flex;
+	padding: 0;
+	font-size: 1em;
+	border-bottom: 1px solid #444;
+	padding: 10px 10px 0px 10px;
+	vertical-align: top;
+	z-index: 3;
+}
+
+#info li {
+	list-style-type: none;
+	margin-bottom: 5px;
+}
+#info table{
+	border:none;
+	/*border: 1px solid white;*/
+	width: 100%;
+	vertical-align: top;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+#info td {
+	vertical-align: top;
+	padding-bottom: 2px;
+}
+#info tr {
+
+}
+
+#letter {
+	width: 10%;
+	font-size: 6.854em;
+	letter-spacing: -0.09em;
+	padding-left: 10px;
+}
+
+#info1{
+	width: 12%;
+	height: 100%;
+	vertical-align: top;
+	padding-right: 15px;
+	padding-top: 10px;
+}
+
+#button{
+	max-width: 100%;
+	font-size: 1.6em;
+	color: white;
+	padding: 2px;
+	margin-bottom: 5px;
+}
+
+#info2{
+	width: 22%;
+	height: 100%;
+	padding-left: 15px;
+	padding-top: 10px;
+	/*border-left: 1px solid white;*/
+}
+#info1 td .fix{
+	width: 10%!important;
+}
+
+#play{
+	width: 52%;
+	height: 100%;
+	padding-left: 0px;
+	padding-right: 40px;
+	text-align: right;
+	font-size: 6.854em;
+}
+
+#selectLetter{
+	width: 100%;
+	font-size: 6.854em;
+	color:#444;
+	letter-spacing: -0.04em
+}
+
+#canvas{
+	width: 100vw;
+	height: 88vw;
+	max-height: 90vh;
+}

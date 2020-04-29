@@ -26,12 +26,9 @@ function setup() {
     sim = new Sim()
     sim.gravity.y = 0.0
 
+    data = []
     for (let key in json) {
-        if (!data) {
-            data = [json[key]];
-        } else {
-            data.push(json[key]);
-        }
+        data.push(json[key]);
     }
     // Attacco un'oggetto identico, che poi passo nella fuzione
     // updateData(letter) per poterlo mostrare nelle info.
@@ -83,6 +80,7 @@ function draw() {
     sim.update(1)
     sim.bounds(40, 40, width - 40, height - 40)
 
+    //spostare nella funzione mousePressed
     if (mouseIsPressed) {
         for (let p of sim.points) {
             p.letterFill = 90
