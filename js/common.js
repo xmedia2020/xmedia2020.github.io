@@ -62,10 +62,8 @@ function run() {
         return dati_ordinati
     }
 
-
-
-
     // --- Output -------------------------------------------
+
     function init_menu(dati, current_index) {
         const menu = document.createElement("div")
         menu.classList.add("minimenu")
@@ -90,8 +88,8 @@ function run() {
 
         menu.innerHTML = html
 
-        //const sound = new Audio(AUDIO_FILE)
         const sound = menu.querySelector("audio");
+        // const sound = new Audio(AUDIO_FILE)
         // const AUDIO_FILE = 'commento.mp3'
         // sound.src = AUDIO_FILE
         // menu.appendChild(sound)
