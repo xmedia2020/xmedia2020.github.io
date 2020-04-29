@@ -41,13 +41,6 @@ function run() {
     const link = document.createElement("a")
     link.innerHTML =  "← index"
     link.href = "../../../index.html"
-    link.style.cssText = CSS.a
-    link.addEventListener("mouseenter", (e) => {
-
-    })
-    link.addEventListener("mouseleave", (e) => {
-
-    })
 
     // 2. Micro navigazione ------------------------------------------------
     const parent = document.body
