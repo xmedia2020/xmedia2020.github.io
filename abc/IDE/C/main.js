@@ -5,7 +5,7 @@ function setup() {
   background(0)
 
   for (let i = 0; i < 100; i++) {
-    punti[i] = new crescita(random(width), random(height))
+    punti[i] = new crescita(random(width)+2, random(height))
   }
 }
 
@@ -19,7 +19,7 @@ function draw() {
 
 function crescita(x, y) {
   this.pos = createVector(x, y)
-  this.angle = 0.01
+  this.angle = 2
   this.s = 20
 
   this.update = function() {
@@ -41,17 +41,14 @@ function crescita(x, y) {
   this.show = function() {
   
     stroke(255)
-    textSize(mouseY)
+    textSize(mouseX)
     text("C", this.pos.x, this.pos.y)
     
   }
 
 }
 
-// -- EVENTI ----------------------------------
-
 function windowResized(){
-	
 	resizeCanvas(windowWidth, windowHeight)
 }
 
