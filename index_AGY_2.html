@@ -130,16 +130,20 @@
                     const el = document.createElement("div")
                     el.classList.add("grid-row")
                     // il click va aggiunto via JS visto che vogliamo il click attivo per tutto il "row"
-                    const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                     el.addEventListener("click", ()=> {
+                        const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                         window.location = url
                     })
+
+                    const v = localStorage.getItem(dati[i].nome + "/" + dati[i].cartella) == 1 ? " " : "*"
+
                     el.innerHTML += "<span class='nome'> " + dati[i].nome + "</span>"
                     el.innerHTML += "<span class='lettera'> " + (dati[i].lettera || "&nbsp;")  + "</span>"
                     el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
                     el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
-                    el.innerHTML += "<span class='visitato'><a href='"+url+"'>*</a></span>"
+                    el.innerHTML += "<span class='visitato'> " + v + "</span>"
                     el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
+
                     parent.appendChild(el)
                 }
             }

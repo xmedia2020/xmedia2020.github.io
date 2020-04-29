@@ -17,9 +17,6 @@ window.addEventListener("load", run)
 
 function run() {
 
-    const HASH = location.hash.substr(1)
-
-
     fetch("/dati.json").then(function(res){
         return res.json()
     }).then(function(json){
@@ -29,9 +26,11 @@ function run() {
         dati = ordina_per_nome(dati)    // ... e poi per autore!
 
         const url_chunks = location.pathname.split("/")
-        const nome       = url_chunks[url_chunks.length - 3].toUpperCase()
-        const cartella   = url_chunks[url_chunks.length - 2].toUpperCase()
-        const current_index = dati.findIndex(e => (e.nome.toUpperCase() == nome && e.cartella.toUpperCase() == cartella))
+        const nome       = url_chunks[url_chunks.length - 3]
+        const cartella   = url_chunks[url_chunks.length - 2]
+        const current_index = dati.findIndex(e => (e.nome == nome && e.cartella == cartella))
+
+        window.localStorage.setItem(nome + "/" + cartella, 1) // la pagina è stata visitata, marchiamolo nel local storage
 
         init_menu(dati, current_index)
     })
