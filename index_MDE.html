@@ -100,10 +100,6 @@ li, ul, canvas, body {
     <div id="canvas">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="main.js"></script>
-    <script src="verlet.js"></script>
-    <script src="displayCard.js"></script>
     <script type="text/javascript">
     let json, data
     let sim
@@ -111,7 +107,6 @@ li, ul, canvas, body {
     let smthSelected = false;
 
     function preload() {
-        //json = loadJSON("dati.json")
         json = loadJSON("dati.json")
     }
 
@@ -121,13 +116,10 @@ li, ul, canvas, body {
         cnv.parent("canvas")
         sim = new Sim()
         sim.gravity.y = 0.0
-
+        console.log(json)
+        data = []
         for (let key in json) {
-            if (!data) {
-                data = [json[key]];
-            } else {
-                data.push(json[key]);
-            }
+            data.push(json[key]);
         }
         // Attacco un'oggetto identico, che poi passo nella fuzione
         // updateData(letter) per poterlo mostrare nelle info.

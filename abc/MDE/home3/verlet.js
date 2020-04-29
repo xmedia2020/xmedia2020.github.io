@@ -1,81 +1,14 @@
 
 // Classe "punto"
 class Point{
-    constructor(x, y, r, l, o, txt, obj){
+    constructor(x, y, r){
         this.pos = createVector(x, y)
         this.pre = createVector(x, y)
-        this.vel = createVector(0, 0)
-        this.maxVel = 0.1;
         this.radius = r
         this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
         this.pinned = false
         this.cell_x = 0
         this.cell_y = 0
-        this.displayText = txt
-        this.letter = l
-        this.owner = o
-        this.obj = obj;
-        this.letterFill = 255;
-        this.isSelected = false;
-    }
-
-    display(){
-        fill(0)
-        noStroke()
-       //ellipse(this.pos.x, this.pos.y, 25, 25)
-        push()
-        textSize(22)
-        let asc = textAscent() * 0.8; // Calc ascent
-        let txtW = textWidth(this.displayText);
-        translate(-txtW/2, asc/2)
-        fill(this.letterFill)
-        text(this.displayText, this.pos.x, this.pos.y)
-        pop()
-    }
-
-    update(){
-        this.vel.limit(this.maxVel)
-        this.pos.add(this.vel)
-
-        //this.vel.mult(1 - 0.9);
-
-    }
-
-
-    attractNodes(nodeArray) {
-    /*        
-        for(let i = 0; i < nodeArray.length; i++){
-            let otherNode = nodeArray[i]
-            
-            if(otherNode === undefined){            //interrompi se ancora non ci sono nodi
-                break
-            }       
-            if(otherNode === this) {                //salta se i due nodi sono uguali
-                continue
-            }         
-
-            let thisNodePos = this.pos.copy()
-            let otherNodePos = otherNode.pos.copy()
-            let d = thisNodePos.dist(otherNodePos)
-            d = constrain(d, 16, 90)                                    //costringo per non farli sparare ovunque
-            if (d > 0 && d < this.radius){
-                let s = pow(d/ this.radius, 1)                          //la forza di attrazione in base alla distanza?
-                let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d  //copiata da ref, non capisco ma funziona
-                let df = thisNodePos.sub(otherNodePos)
-                df.mult(f)
-                //console.log(df)
-                otherNode.vel.add(df)
-            }
-        }
-        */
-    }
-
-}
-class PointOwner extends Point {
-    //una classe che distingue i nodi degli owner, al quale saranno agganciati i punti
-    constructor(x, y, r, id, txt){
-        super(x, y, r, undefined, undefined, txt)
-        this.ownerId = id
     }
 }
 
@@ -127,14 +60,8 @@ class Sim {
         }
     }
 
-    addPoint(x, y, r, l, o, txt, obj){
-        const p = new Point(x, y, r, l, o,  txt, obj)
-        this.points.push(p)
-        return p
-    }
-
-    addPointOwner(x, y, r, id, txt){
-        const p = new PointOwner(x, y, r, id, txt)
+    addPoint(x, y, r){
+        const p = new Point(x, y, r)
         this.points.push(p)
         return p
     }
