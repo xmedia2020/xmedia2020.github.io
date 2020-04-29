@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <title>abcefghijklmnopqrst</title>
+        <meta name="description"                           content="abc ">
+        <meta name="author"                                content="SUPSI CV 2020">
+        <meta name="viewport"                              content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable"                content="yes">
+        <meta name="apple-mobile-web-app-capable"          content="yes">
+        <meta name="theme-color"                           content="black"> <!-- Chrome, Firefox OS and Opera -->
+        <meta name="msapplication-navbutton-color"         content="black"> <!-- Windows Phone -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- iOS Safari -->
+        <link rel="apple-touch-icon" sizes="192x192" href="icons/icon_192.png">
+        <link rel="shortcut icon"    sizes="32x32"   href="icons/icon_32.png">
+        <style type="text/css">
+
+            html {
+              box-sizing: border-box;
+            }
+            *, *:before, *:after {
+              box-sizing: inherit;
+            }
+
+            body {
+                background-color: white;
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 1rem;
+                padding:2rem;
+                margin:0;
+            }
+            ul {
+                margin:0;
+                padding:0;
+            }
+            li {
+                position: relative;
+                list-style-type: none;
+                border: solid 1px rgb(220, 220, 220);
+                color: rgb(220, 220, 220);
+                margin: 0 0 -1px -1px;
+                width:9rem;
+                height:11rem;
+                display:block;
+                float: left;
+                padding: 0.25rem 2rem 0 0.5rem;
+            }
+
+            .data {
+                font-size: 0.5rem;
+                display:block;
+                /*float: right;*/
+            }
+            .lettera {
+                font-family: "HelveticaNeue Bold", "Helvetica Neue Bold", Helvetica, Arial, sans-serif;
+                /*font-family: serif;*/
+                display:block;
+                font-size: 5rem;
+                color: black;
+                bottom:0.25rem;
+                position: absolute;
+                pointer-events: none;
+            }
+            .descrizione {
+                display:block;
+                font-size: 0.5rem;
+            }
+            .cartella {
+                display:block;
+                font-size: 0.5rem;
+            }
+            .nome {
+                display:block;
+                font-size: 0.5rem;
+            }
+            .link {
+                position: absolute;
+                width:100%;
+                height:100%;
+                top:0;
+                left:0;
+                display: block;
+            }
+            .link:hover {
+                background-color: rgb(0,0,0,0.05);
+            }
+
+            .info{
+                margin:0 0 2rem 0rem;
+                padding:0;
+                color: orange;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!--
+        <p class="info">
+            Nota: i tasti 1,2 e 3 riordinano la tabella per nome, lettera o data.<br>
+            Osservate come l’ordine del “sort” cambia il risultato:<br>
+            p.es.<br>
+            data->nome<br>
+            vs.<br>
+            lettera->nome
+        </p>
+        -->
+
+        <ul id="output"></ul>
+
+        <script type="text/javascript">
+
+            let dati
+
+            // Carichiamo il file esterno "dati.json"
+            // tramite la funzione "fetch(URL)"
+            fetch("dati.json").then(function(res){
+                return res.json()               // Una volta caricato viene "parsato" (trasformato in JSON)
+            }).then(function(json){
+                dati = ordina_per_lettera(json) // ordiniamo per data...
+                dati = ordina_per_nome(dati)    // ... e poi per autore!
+                render(dati)                    // Chiamiamo la funzione "render(dati)"
+                                                // con parametro i nostri dati ordinati...
+            })
+
+            // Questa funzione viene chiamata (vedi sopra)
+            // una volta che i nostri dati sono stati caricati.
+            // Il parametro sono i dati stessi (possono essere ordinati prima...s)
+            function render(dati){
+                const parent = document.querySelector("#output")
+                parent.innerHTML = ""
+
+                const BASE_FOLDER = "abc"
+                for (let i=0; i<dati.length; i++) {
+                    const el = document.createElement("li")
+                    const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
+                    el.innerHTML += "<a href=" + url + "><span class='link'></span></a>"
+                    el.innerHTML += "<span class='nome'>" + dati[i].nome + "</span>"
+                    el.innerHTML += "<span class='data'>" + dati[i].data + "</span>"
+                    el.innerHTML += "<span class='cartella'>" + dati[i].cartella + "</span>"
+                    el.innerHTML += "<span class='descrizione'>" + dati[i].descrizione + "</span>"
+                    el.innerHTML += "<span class='lettera'>" + (dati[i].lettera || "&nbsp;")  + "</span>"
+                    parent.appendChild(el)
+                }
+            }
+
+            // --- Funzioni di sort -------------------------------------------
+
+            function ordina_per_nome(dati) {
+                // Usiamo questa funzione per ordinare i dati in funzione dell'autore
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.nome >= b.nome         // maggiore e minore funziona anche con lettere dell'alfabeto
+                                                    // p.es
+                                                    // 'a' < 'b' (true)
+                                                    // 'd' < 'c' (false)
+                                                    // 'A' < 'a' (true, viene prima la maiuscola)
+                })
+                return dati_ordinati
+            }
+
+            function ordina_per_lettera(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.lettera >= b.lettera
+                })
+                return dati_ordinati
+            }
+
+            function ordina_per_data(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.data >= b.data
+                })
+                return dati_ordinati
+            }
+
+            // --- Eventi -----------------------------------------------------
+
+            window.addEventListener("keypress", function(e){
+                if (e.key == '1') {
+                    dati = ordina_per_nome(dati)
+                    render(dati)
+                } else if (e.key == '2') {
+                    dati = ordina_per_lettera(dati)
+                    render(dati)
+                } else if (e.key == '3') {
+                    dati = ordina_per_data(dati)
+                    render(dati)
+                }
+                // document.body.removeChild(document.querySelector(".info"))
+            })
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
