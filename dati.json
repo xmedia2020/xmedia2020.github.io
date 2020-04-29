@@ -137,7 +137,7 @@
 		"cartella" 		: "04A",
 		"lettera"  		: "A",
 		"tecnica" 		: "P5JS",
-		"input"   		: "",
+		"input"   		: "Muovi il mouse",
 		"data"    		: "24.03.2020",
 		"descrizione"	: "Particelle random creano un disegno"
 	},
@@ -149,7 +149,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click Mouse",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Genera una texture"
+		"descrizione"	: "Genera una texture come un tunnel"
 	},
 {
 		"nome"  		: "AMO",
@@ -159,7 +159,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Scroll",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Scrolla la pagina"
+		"descrizione"	: "Scrolla la pagina per creare la lettera"
 	},
 
 	{
@@ -373,11 +373,11 @@
 	{
 		"nome"  		: "IDE",
 		"nomeCompleto" 	: "Ilaria Dellea",
-		"cartella" 		: "H",
-		"lettera"  		: "H",
+		"cartella" 		: "W",
+		"lettera"  		: "W",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click",
-		"data"    		: "24.04.2020",
+		"data"    		: "30.03.2020",
 		"descrizione"	: "Risultato random associato al click del mouse"
 	},
 
@@ -390,6 +390,17 @@
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
 		"descrizione"	: "Elementi in movimento, variazione in dimensione"
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "i",
+		"lettera"  		: "i",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "20.04.2020",
+		"descrizione"	: "Forme tridimensionali in movimento"
 	},
 
 	{
@@ -409,7 +420,7 @@
 		"cartella" 		: "B+",
 		"lettera"  		: "B+",
 		"tecnica" 		: "P5JS",
-		"input"   		: "Mouse",
+		"input"   		: "Mouse, Keyboard",
 		"data"    		: "25.03.2020",
 		"descrizione"	: "Clicca sul canvas per cambiare lettera, muovi il cursore sulla lettera per spostare le letterine"
 	},
@@ -430,7 +441,7 @@
 		"lettera"  		: "n",
 		"tecnica" 		: "Shader",
 		"input"   		: "Mouse",
-		"data"    		: "25.04.2020",
+		"data"    		: "17.03.2020",
 		"descrizione"	: "Muovi il cursore per modificare il pattern e creare nuove lettere distorte"
 	},
 	{
@@ -449,7 +460,7 @@
 		"cartella" 		: "R3",
 		"lettera"  		: "r",
 		"tecnica" 		: "P5JS",
-		"input"   		: "Mouse",
+		"input"   		: "MousePressed",
 		"data"    		: "17.03.2020",
 		"descrizione"	: "Clicca sulle forme per cambiarle singolarmente, clicca sul canvas per cambiare tutto il disegno"
 	},
@@ -568,7 +579,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse e ridimensionamento della pagina",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Il mouse permette di modificare la forma della S."
+		"descrizione"	: "Il mouse modifica la forma della S."
 	},
 	{
 		"nome"  		: "CCR",
@@ -608,7 +619,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Attraverso il microfono e il mouse si modifica la M."
+		"descrizione"	: "Attraverso il microfono si modifica la M."
 	},
 	{
 		"nome"  		: "CCR",
