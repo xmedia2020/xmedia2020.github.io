@@ -568,7 +568,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse e ridimensionamento della pagina",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Ridimensionando la pagina possiamo modificare l'intensità delle linee che formeranno la nostra S. Il mouse ne varierà la dimensione."
+		"descrizione"	: "Il mouse permette di modificare la forma della S."
 	},
 	{
 		"nome"  		: "CCR",
@@ -606,9 +606,9 @@
 		"cartella" 		: "A",
 		"lettera"  		: "A",
 		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
+		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Attraverso il microfono si modifica la M."
+		"descrizione"	: "Attraverso il microfono e il mouse si modifica la M."
 	},
 	{
 		"nome"  		: "CCR",
@@ -618,7 +618,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Il click del mouse modifica le dorme nella lettera A."
+		"descrizione"	: "Il click del mouse modifica le forme nella lettera A."
 	},
 	{
 		"nome"  		: "CCR",

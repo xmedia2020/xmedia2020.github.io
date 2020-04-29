@@ -1,13 +1,18 @@
 import * as GLU from './glsl_utils.js'
 import * as shader_sources from './demo_0.js'
 
+
+
 // -- Canvas ------------------------------------
 const canvas = document.createElement("canvas")
 canvas.style.width = '100vw'
 canvas.style.height = '100vh'
 document.body.appendChild(canvas)
+canvas.id = 'canvas'
+//canvas.classList.add("canvas")
+//const myCanvas = document.querySelector(".canvas")
 
-const gl = canvas.getContext('webgl')
+const gl = canvas.getContext('webgl', {preserveDrawingBuffer: true})
 if(!gl){
     console.error("Unable to initialize WebGL")
 }
@@ -19,8 +24,6 @@ gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR) // gl.NEAREST?
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
-
-
 
 // -- Pointer -----------------------------------
 const pointer = {
@@ -123,3 +126,55 @@ function loop(t){
 
     requestAnimationFrame(loop)
 }
+
+
+// --Event----------------------------------
+
+window.addEventListener("keypress", function(e){
+    if (e.key == 's') {
+
+        exportCanvasAsPNG("canvas","pattern")
+        // const a = document.createElement("a")
+        
+        // //document.body.appendChild(a)
+
+        // a.href = myCanvas.toDataURL()
+        // a.download = "pattern.png"
+        // a.click()
+        // //document.body.removeChild(a)
+    }
+})
+
+function exportCanvasAsPNG(id, fileName) {
+
+    var canvasElement = document.getElementById(id);
+
+    var MIME_TYPE = "image/png";
+
+    var imgURL = canvasElement.toDataURL(MIME_TYPE);
+
+    var dlLink = document.createElement('a');
+    dlLink.download = fileName;
+    dlLink.href = imgURL;
+    dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
+
+    document.body.appendChild(dlLink);
+    dlLink.click();
+    document.body.removeChild(dlLink);
+}
+
+
+
+console.log(gl.getContextAttributes()) 
+
+
+
+// function keyPressed(){
+
+//     //if the key is a s
+//     // if(key == 's'){
+//         //save out to a file
+//         save("pattern");
+//     // }
+
+// }
