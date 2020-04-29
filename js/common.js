@@ -153,7 +153,7 @@ function run() {
             ctx.clearRect(0, 0, w, h)
             ctx.beginPath()
             for (let i=0; i<=buffer_data.length; i++){
-                const y = (buffer_data[i]-128) / 128.0 * h*2 + h/2
+                const y = (buffer_data[i]-128) / 128.0 * h*2 + h/2 + 0.5 // per avere la linea nitida spostiamo di 0.5px
                 ctx.lineTo(i, y)
             }
             ctx.stroke()
