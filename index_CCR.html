@@ -1,0 +1,355 @@
+<!-- posizione absotute info -->
+
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <title>abc</title>
+        <meta name="description"                           content="abc ">
+        <meta name="author"                                content="Chiara Crivelli">
+        <meta name="viewport"                              content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable"                content="yes">
+        <meta name="apple-mobile-web-app-capable"          content="yes">
+        <meta name="theme-color"                           content="black"> <!-- Chrome, Firefox OS and Opera -->
+        <meta name="msapplication-navbutton-color"         content="black"> <!-- Windows Phone -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- iOS Safari -->
+        <link rel="apple-touch-icon" sizes="192x192" href="icons/icon_192.png">
+        <link rel="shortcut icon"    sizes="32x32"   href="icons/icon_32.png">
+        <style type="text/css">
+
+            html {
+              box-sizing: border-box;
+            }
+            *, *:before, *:after {
+              box-sizing: inherit;
+            }
+
+            body {
+                background-color: white;
+                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                margin:0;
+            }
+
+            .hidden{
+                display: none !important;
+            }
+
+            .grid-container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 3fr 1fr;
+                grid-gap: 0px;
+                padding: 0rem 2rem 0rem 1.5rem;                
+
+            }
+
+            .grid-containerUp {
+                width: 100%;
+                background-color: white;
+                display: grid;
+                grid-template-columns: 1fr 1fr 4fr;
+                grid-gap: 0px;
+                color: rgba(0,0,0,0.2);
+                font-size: 0.9rem;
+                /*padding-bottom: 10px;*/
+                /*padding-top: 1rem;*/
+                padding: 0.5rem 2rem 0.5rem 1.5rem;                
+                /*text-align: center;*/
+            }
+
+            .grid-row {
+                display: contents;
+            }
+
+            .grid-row span {
+                border: solid 0.5px rgba(0,0,0,0.2);
+                padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+                transition: all 80ms;
+            }
+
+            .grid-row:hover span{
+                transition: all 0ms;
+                cursor:pointer;
+            }
+
+            .nome {
+                font-size: 1rem;
+                color: rgba(0,0,0,1);
+                background: white;
+                text-align: center;
+                /*background-color: black;*/
+            }
+
+            .nome:hover {
+                background: rgba(0,0,0,0.2);
+                color: black;
+            }
+
+            /*.nome:active{
+                background: rgba(0,0,0,0.2);
+            }*/
+
+            .lettera {
+                font-size: 1rem;
+                color: black;
+                text-align: center;
+            }
+
+            .lettera:active{
+                background: rgba(0,0,0,0.2);
+                color: black;
+            }
+
+            .lettera:hover {
+                background: rgba(0,0,0,0.2);
+                color: black;
+            }
+
+            .descrizione {
+                border-right: none !important;
+                font-size: 1rem;
+                color: rgb(0,0,0,1);
+                color: black;
+            }
+
+            .data {
+                color: black;
+                /*color: rgb(0,0,0,0.2);*/
+                border-left: none !important;
+                font-size: 0.5rem;
+                text-align: right;
+            }
+
+            .color {
+                color: black;
+            }
+
+            p#intro {
+                font-size: 1rem;
+                left:0vw;
+                padding-bottom: 1.5rem;
+                padding-left: 1.5rem;
+                line-height: 1.25;
+                border-bottom: solid 1px rgba(0,0,0,0.2);
+                margin:none;
+            }
+            
+            .autori {
+                font-size: 0.9rem;
+                left:0vw;
+                padding-bottom: 1rem;
+                padding-left: 1.5rem;
+                padding-right: 4rem;
+                line-height: 1.25;
+                color:rgba(0,0,0,0.2);
+            }
+
+            .dropbtn {
+                padding-top: 1.5rem;
+                padding-left: 1.5rem;
+                background-color: white;
+                text-align: left;
+                color: black;
+                left:0vw;
+                font-weight: bold;
+                font-size: 1rem;
+                border: none;
+                cursor: pointer;
+            }
+
+            .dropbtn:hover, .dropbtn:focus {
+                background-color: white;
+                color: rgb(0,0,0,0.2);
+            }
+
+            .dropdown {
+                margin: none;
+                position: relative;
+                display: inline-block;        
+            }
+
+            .dropdown-content {
+                display: none;
+                background-color: white;
+                width: 1000px;
+                overflow: auto;
+                /*padding-bottom: 20px;*/
+                padding-left: 5px;
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown a:hover {background-color: white;}
+
+            .show {display: block;}
+
+        </style>
+    </head>
+    <body>
+        <div id="menu">
+            <!-- quando clicco sil titolo mi apre la spiegazione -->
+            <!-- <h1 id="titolo">Abecedario</h1> -->
+             <!-- <p id="intro">Abecedario è un progetto collettivo con scopo la creazione di un abecedario online.</br> -->
+            <!-- Ogni studente contribuisce progettando delle lettera mediante l'utilizzo di librerie js.</br></p> -->
+
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">
+                    Abecedario
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                <p id="intro">
+                    Si tratta di un progetto collettivo, ovvero un abecedario online.</br>Ogni studente contribuisce con caratteri progettati individualmente.</br>È possibile avere più di una variante per lettera dell’alfabeto.</br>
+                    Molte le libertà, tre le regole:</br>
+                    - Bianco e nero</br>
+                    - Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</br>
+                    - Fullscreen<br>
+                </p>
+            </div>
+        </div>
+
+        <div class="grid-containerUp">
+            <div class="grid-item">Autore</div>
+            <div class="grid-item">Lettera</div>
+            <div class="grid-item">Descrizione</div>  
+            <!-- <div class="grid-item">Data</div> -->
+        </div>
+
+        <div id="output" class="grid-container"></div>
+
+        <div class="parent">
+            <div class="autori">
+                <p>Docente:Andrea Gysin<br>
+                Studenti: Alessia Morcelli, Alessandra Riva, Amina Zanda, Chiara Crivelli, Carlotta Gianni, Desirée Veschetti, Ilaria Dellea, Lara Ballerini, Mattia Dellamora, Olena Corzetto
+                </p>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+            window.onclick = function(event) {
+                if (!event.target.matches('.')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+              }
+            }
+
+
+//----------------------------------//
+            let dati
+
+            // Carichiamo il file esterno "dati.json"
+            // tramite la funzione "fetch(URL)"
+            fetch("dati.json").then(function(res){
+                return res.json()               // Una volta caricato viene "parsato" (trasformato in JSON)
+            }).then(function(json){
+                dati = ordina_per_lettera(json) // ordiniamo per data...
+                dati = ordina_per_nome(dati)    // ... e poi per autore!
+                render(dati)                    // Chiamiamo la funzione "render(dati)"
+                // render(datiLettera)
+                                                // con parametro i nostri dati ordinati...
+            })
+
+            // Questa funzione viene chiamata (vedi sopra)
+            function render(dati){
+                const parent = document.querySelector("#output")
+                parent.innerHTML = ""
+
+                const BASE_FOLDER = "abc"
+                let nome = null
+                for (let i=0; i<dati.length; i++) {
+                    const el = document.createElement("div")
+                    el.classList.add("grid-row")
+                    el.classList.add(dati[i].nome)
+                    // elLettera.classList.add(dati[i].lettera)
+
+                    el.addEventListener("click", (e)=> {
+                        const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
+                        window.location = url
+                    }) 
+
+                    let nome_out
+
+                    if (nome === dati[i].nome) {
+                        nome_out = ''
+                        // togli
+                        el.classList.add("hidden")
+                    } else {
+                        nome_out = dati[i].nome
+
+                        el.dataset.collapsed = "true"
+
+                        el.addEventListener("mouseover", (e)=> {
+                            // console.log(dati[i].nome)
+                            if(el.dataset.collapsed == "false"){
+                                el.dataset.collapsed = "true"
+                                document.querySelectorAll("."+dati[i].nome).forEach((r)=>{
+                                    if (r != el) r.classList.add("hidden")
+                                })                              
+                            }else{
+                                el.dataset.collapsed = "false"
+                                document.querySelectorAll("."+dati[i].nome).forEach((r)=>{
+                                    r.classList.remove("hidden")
+                                })
+                            }
+                        })
+                    }
+
+
+                    // per visualizzare i dati 
+                    nome = dati[i].nome
+                    el.innerHTML += "<span class='nome'> " + nome_out + "</span>"
+                    // el.innerHTML += "<span class='lettera'> "+ lettera_out + "</span>"
+                    el.innerHTML += "<span class='lettera'> "+ dati[i].lettera + "</span>"
+                    // el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
+                    el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
+                    el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
+                    parent.appendChild(el)
+                }
+            }
+
+            // --- FUNZIONI di SORT -------------------------------------------
+            // per ordinare i dati
+            function ordina_per_nome(dati) {
+                // Usiamo questa funzione per ordinare i dati in funzione dell'autore
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.nome >= b.nome         // maggiore e minore funziona anche con lettere dell'alfabeto
+                                                    // p.es
+                                                    // 'a' < 'b' (true)
+                                                    // 'd' < 'c' (false)
+                                                    // 'A' < 'a' (true, viene prima la maiuscola)
+                })
+                return dati_ordinati
+            }
+
+            function ordina_per_lettera(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.lettera >= b.lettera
+                })
+                return dati_ordinati
+            }
+
+            function ordina_per_data(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    return a.data >= b.data
+                })
+                return dati_ordinati
+            }
+
+        </script>
+    </body>
+</html>
