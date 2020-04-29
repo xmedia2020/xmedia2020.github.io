@@ -1,0 +1,52 @@
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+</head>
+<body>
+    <audio id="audio" src="commento.mp3" controls=""></audio>
+  <canvas id="canvas" style="background:black;width:512px;height:255px;"></canvas>
+
+
+  <script type="text/javascript">
+
+
+  const player = document.getElementById("audio");
+  var canvas = document.getElementById('canvas');
+  var canvasCtx = canvas.getContext("2d");
+
+
+  player.addEventListener("click", function(e) {
+  	var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  	var analyser = audioContext.createAnalyser();
+
+  	var audioSourceNode = audioContext.createMediaElementSource(player);
+
+  	window.analyser = analyser;
+
+    audioSourceNode.connect(analyser);
+    analyser.connect(audioContext.destination);
+  });
+
+  function render() {
+  	if (window.hasOwnProperty("analyser")) {
+    	var data = new Uint8Array(analyser.frequencyBinCount);
+
+      analyser.getByteFrequencyData(data);
+
+      canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0, l = data.length; i < l; i++) {
+        canvasCtx.fillStyle = "#ffffff";
+        canvasCtx.fillRect(i, -(canvas.height/255) * data[i], 1, canvas.height);
+      }
+    }
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
+
+
+</script>
+
+</body>
+</html>
