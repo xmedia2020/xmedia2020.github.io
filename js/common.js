@@ -12,121 +12,160 @@ document.ontouchmove = function(e){
     e.preventDefault()
 }
 
+
 window.addEventListener("load", run)
 
 function run() {
 
     const HASH = location.hash.substr(1)
-    const CSS  = {}
 
-    CSS.menu  = ""
-    CSS.menu +="width:10em;"
-    // CSS.menu +="height:2em;"
-    CSS.menu +="padding:0.5em;"
-    CSS.menu +="background-color:red;"
-    CSS.menu +="position:fixed;"
-    CSS.menu +="right:1em;"
-    CSS.menu +="top:1em;"
-    // CSS.menu +="text-align:center;"
-    // CSS.menu +="line-height:4.75em;"
-    // CSS.menu +="border-radius:50%;"
 
-    CSS.a     = ""
-    CSS.a    += "text-decoration:none;"
-    CSS.a    += "color:white;"
-    CSS.a    += "display:block;"
+    fetch("/dati.json").then(function(res){
+        return res.json()
+    }).then(function(json){
 
-    const menu = document.createElement("div")
-    menu.style.cssText = CSS.menu
+        let dati
+        dati = ordina_per_lettera(json) // ordiniamo per data...
+        dati = ordina_per_nome(dati)    // ... e poi per autore!
 
-    const link = document.createElement("a")
-    link.innerHTML =  "← ABC"
-    link.href = "../../../index.html"
-    link.style.cssText = CSS.a
+        const url_chunks = location.pathname.split("/")
+        const nome       = url_chunks[url_chunks.length - 3].toUpperCase()
+        const cartella   = url_chunks[url_chunks.length - 2].toUpperCase()
+        const current_index = dati.findIndex(e => (e.nome.toUpperCase() == nome && e.cartella.toUpperCase() == cartella))
 
-    // 2. Micro navigazione ------------------------------------------------
-    const parent = document.body
-    menu.appendChild(link)
-    parent.insertBefore(menu, document.body.firstChild)
-
-    // 3. Commento audio ---------------------------------------------------
-
-    const AUDIO_FILE = 'commento.mp3'
-
-    //const sound = new Audio(AUDIO_FILE)
-    const sound = document.createElement('audio');
-    sound.src = AUDIO_FILE
-    // sound.crossorigin = "anonymous"
-
-    // Bottone
-    const play_btn = document.createElement('button')
-    play_btn.innerHTML = "♫"
-    menu.appendChild(play_btn)
-
-    play_btn.addEventListener('click', function() {
-        if (this.dataset.playing == 'true') {
-            this.dataset.playing = 'false'
-            sound.pause()
-        } else {
-            this.dataset.playing = 'true'
-            sound.play()
-        }
+        init_menu(dati, current_index)
     })
 
-    sound.addEventListener('ended', (e)=>{
-        play_btn.dataset.playing = 'false'
-        sound.load()            // Safari FIX
-        sound.currentTime = 0.0 // FF is ok with just this...
-        sound.currentTime = 0.0 // Non funziona su safari...?
-    })
-
-    // Visualizer
-    const audio_ctx = new (window.AudioContext || window.webkitAudioContext)()
-    const audio_src = audio_ctx.createMediaElementSource(sound)
-
-    // const dest = audio_ctx.createGain()
-    // dest.gain.value = 1.0
-    // dest.connect(audio_ctx.destination)
-
-    //audio_src.connect(dest)
-
-    const analyser = audio_ctx.createAnalyser()
-    analyser.fftSize = 256
-
-
-    audio_src.connect(analyser)
-    analyser.connect(audio_ctx.destination)
-
-    const buffer_data = new Uint8Array(analyser.frequencyBinCount)
-
-    // Canvas
-    const canvas = document.createElement("canvas")
-    menu.appendChild(canvas)
-    const ctx = canvas.getContext('2d')
-    const w = buffer_data.length
-    const h = 24
-    canvas.width = w
-    canvas.height = h
-
-
-    function render() {
-        analyser.getByteTimeDomainData(buffer_data)
-
-        requestAnimationFrame(render)
-
-        ctx.strokeStyle = 'black'
-        ctx.fillStyle = 'yellow'
-        ctx.lineWidth = 1
-
-        ctx.fillRect(0, 0, w, h)
-        ctx.beginPath()
-        for (let i=0; i<=buffer_data.length; i++){
-            const y = (buffer_data[i] / 128.0) * h/2
-            ctx.lineTo(i, y)
-        }
-        ctx.stroke()
-
+    // --- Funzioni di sort -------------------------------------------
+    function ordina_per_nome(dati) {
+        // Usiamo questa funzione per ordinare i dati in funzione dell'autore
+        const dati_ordinati = dati.sort(function(a, b){
+            return a.nome >= b.nome         // maggiore e minore funziona anche con lettere dell'alfabeto
+                                            // p.es
+                                            // 'a' < 'b' (true)
+                                            // 'd' < 'c' (false)
+                                            // 'A' < 'a' (true, viene prima la maiuscola)
+        })
+        return dati_ordinati
     }
-    requestAnimationFrame(render)
 
+    function ordina_per_lettera(dati) {
+        const dati_ordinati = dati.sort(function(a, b){
+            return a.lettera >= b.lettera
+        })
+        return dati_ordinati
+    }
+
+    function ordina_per_data(dati) {
+        const dati_ordinati = dati.sort(function(a, b){
+            return a.data >= b.data
+        })
+        return dati_ordinati
+    }
+
+
+
+
+    // --- Output -------------------------------------------
+    function init_menu(dati, current_index) {
+        const menu = document.createElement("div")
+        menu.classList.add("minimenu")
+        const parent = document.body
+        parent.insertBefore(menu, document.body.firstChild)
+
+        const prev = dati[(current_index + dati.length - 1) % dati.length]
+        const next = dati[(current_index + 1) % dati.length]
+
+
+        let html = `
+            <ul>
+            <li><a class="btn btn_prev" href="/abc/${prev.nome + "/" + prev.cartella}"></a></li>
+            <li><a class="btn btn_next" href="/abc/${next.nome + "/" + next.cartella}"></a></li>
+            <li><a class="btn btn_home" href="/index.html"></a></li>
+            <li><span class="nome">${dati[current_index].nomeCompleto + " (" + dati[current_index].nome + ")"}<span></li>
+            <li><span class="btn btn_play"></span></li>
+            <li><canvas></canvas></li>
+            </ul>
+            <audio src="commento.mp3" type=""></audio>
+        `;
+
+        menu.innerHTML = html
+
+        //const sound = new Audio(AUDIO_FILE)
+        const sound = menu.querySelector("audio");
+        // const AUDIO_FILE = 'commento.mp3'
+        // sound.src = AUDIO_FILE
+        // menu.appendChild(sound)
+        // sound.crossorigin = "anonymous"
+        // sound.preload = "auto"
+
+        const play_btn = menu.querySelector(".btn_play");
+        play_btn.addEventListener('click', function() {
+            if (this.dataset.playing == 'true') {
+                this.dataset.playing = 'false'
+                sound.pause()
+            } else {
+                this.dataset.playing = 'true'
+                sound.play()
+            }
+        })
+
+        sound.addEventListener('ended', (e)=>{
+            play_btn.dataset.playing = 'false'
+            sound.load()            // Safari FIX
+            sound.currentTime = 0.0 // Non funziona su safari...?
+        })
+
+        // Visualizer
+        const audio_ctx = new (window.AudioContext || window.webkitAudioContext)()
+        const audio_src = audio_ctx.createMediaElementSource(sound)
+
+        // const dest = audio_ctx.createGain()
+        // dest.gain.value = 1.0
+        // dest.connect(audio_ctx.destination)
+
+        //audio_src.connect(dest)
+
+        const analyser = audio_ctx.createAnalyser()
+        analyser.fftSize = 256
+
+        audio_src.connect(analyser)
+        analyser.connect(audio_ctx.destination)
+
+        const buffer_data = new Uint8Array(analyser.frequencyBinCount)
+
+        // Canvas
+        const canvas = menu.querySelector("canvas")
+        const ctx = canvas.getContext('2d')
+        const w = buffer_data.length
+        const h = 24
+        canvas.width = w
+        canvas.height = h
+
+        function render() {
+            analyser.getByteTimeDomainData(buffer_data)
+
+            requestAnimationFrame(render)
+
+            ctx.strokeStyle = 'white'
+            ctx.fillStyle = 'white'
+            ctx.lineWidth = 1
+
+            ctx.clearRect(0, 0, w, h)
+            ctx.beginPath()
+            for (let i=0; i<=buffer_data.length; i++){
+                const y = (buffer_data[i]-128) / 128.0 * h*2 + h/2
+                ctx.lineTo(i, y)
+            }
+            ctx.stroke()
+
+            const rad = 2.5
+            const idx = Math.floor(sound.currentTime / sound.duration * (w-1)) || 0
+            const y = (buffer_data[idx]-128) / 128.0 * h*2 + h/2
+            ctx.beginPath()
+            ctx.ellipse(idx+rad, y, rad, rad, 0, 0, Math.PI * 2, false)
+            ctx.fill()
+        }
+        requestAnimationFrame(render)
+    }
 }
