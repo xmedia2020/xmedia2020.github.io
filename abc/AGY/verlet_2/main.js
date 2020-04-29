@@ -57,7 +57,7 @@ function setup(){
 
 function draw(){
 
-    if (mouseIsPressed) {
+    // if (mouseIsPressed) {
     	const mf = Math.min(width, height) * 0.2
         for (const a of sim.points) {
             const m = createVector(mouseX-width/2, mouseY-height/2)
@@ -68,7 +68,7 @@ function draw(){
                 a.pos.add(v)
             }
         }
-    }
+    // }
 
     sim.update(1)
 
