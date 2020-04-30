@@ -9,22 +9,37 @@
     <button>BUTTON</button>
     <script type="text/javascript">
 
+        window.AudioContext = window.AudioContext || window.webkitAudioContext
+
         const sound = document.getElementById("audio")
-        const canvas = document.getElementById('canvas')
-        const canvasCtx = canvas.getContext("2d")
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+        const audioContext = new AudioContext()
+
         const audioSourceNode = audioContext.createMediaElementSource(sound)
+
+
+        sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
+        sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
+        sound.addEventListener("canplay", e => console.log("3. canplay"))
+        sound.addEventListener("play", e => {
+            requestAnimationFrame(render);
+            console.log("4. play")
+        })
+        sound.addEventListener("ended", e => console.log("5. ended"))
+
+
+
         const analyser = audioContext.createAnalyser()
         analyser.fftSize = 256
         audioSourceNode.connect(analyser)
         analyser.connect(audioContext.destination)
 
-        requestAnimationFrame(render);
 
         document.querySelector("button").onclick = function(){
             sound.play()
         }
 
+        const canvas = document.getElementById('canvas')
+        const canvasCtx = canvas.getContext("2d")
         function render() {
             let data = new Uint8Array(analyser.frequencyBinCount)
             analyser.getByteTimeDomainData(data)
@@ -35,6 +50,7 @@
             }
             requestAnimationFrame(render);
         }
+
     </script>
 </body>
 </html>
