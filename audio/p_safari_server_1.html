@@ -8,7 +8,7 @@
     <audio id="audio" src="commento.mp3"></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 11</button>
+    <button>PLAY 12</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
@@ -16,19 +16,20 @@
         const audioContext = new AudioContext()
         let analyser
 
-        let once = false
+        let __once__ = false
 
         document.querySelector("button").onclick = function(){
-            player.load()
 
-            if(!once) {
+            if(!__once__) {
+                player.load()
                 const audioSourceNode = audioContext.createMediaElementSource(player)
                 analyser = audioContext.createAnalyser()
                 audioSourceNode.connect(analyser)
                 analyser.connect(audioContext.destination)
-                once = true
+                __once__ = true
             }
-
+            player.pause()
+            player.currentTime = 0
             player.play()
             requestAnimationFrame(render);
         }
@@ -46,7 +47,7 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             for (let i=0; i<data.length; i++) {
                 ctx.fillStyle = "black";
-               ctx.fillRect(i*2, 128, 1, (data[i]-128)*2);
+                ctx.fillRect(i*2, 128, 1, (data[i]-128)*2);
             }
 
             requestAnimationFrame(render);
