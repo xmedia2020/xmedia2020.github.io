@@ -65,20 +65,11 @@ function windowResized(){
 }
 
 function keyPressed(){
+	if (key == 's' || key == 'S') {
+		saveCanvas('L', 'png');
+	} else if (key == 'x' || key == 'X'){
+		setup()
+	}
 
-}
-
-function keyReleased(){
-
-}
-
-function mousePressed(){
-
-}
-
-function mouseReleased(){
-
-}
-
-function mouseMoved(){
+	return false;
 }
