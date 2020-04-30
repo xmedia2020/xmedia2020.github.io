@@ -12,7 +12,7 @@
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
-        const AUDIO_FILE = 'commento.m4a'
+        const AUDIO_FILE = 'test.mp3'
         const sound = new Audio(AUDIO_FILE)
         // sound.src = AUDIO_FILE
         // menu.appendChild(sound)
@@ -22,18 +22,14 @@
         //const sound = document.getElementById("audio")
         const audio_ctx = new AudioContext()
         const analyser  = audio_ctx.createAnalyser()
-
+        const audio_src = audio_ctx.createMediaElementSource(sound)
+        analyser.fftSize = 512
+        audio_src.connect(analyser)
+        analyser.connect(audio_ctx.destination)
 
         sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
         sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
-        sound.addEventListener("canplay", e => {
-            console.log("3. canplay")
-            const audio_src = audio_ctx.createMediaElementSource(sound)
-            analyser.fftSize = 512
-            audio_src.connect(analyser)
-            analyser.connect(audio_ctx.destination)
-            audio_src.connect(audio_ctx.destination)
-        })
+        sound.addEventListener("canplay", e => { console.log("3. canplay") })
         sound.addEventListener("play", e => {
             console.log("4. play")
             requestAnimationFrame(render);
@@ -42,6 +38,7 @@
 
 
         document.querySelector("button").onclick = function(){
+            sound.load()
             sound.play()
         }
 
