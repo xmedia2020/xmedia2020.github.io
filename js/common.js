@@ -83,7 +83,6 @@ function run() {
             <li><span class="btn btn_play"></span></li>
             <li><canvas></canvas></li>
             </ul>
-            <audio src="commento.mp3"></audio>
         `;
 
         menu.innerHTML = html
