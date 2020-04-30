@@ -8,62 +8,52 @@
     <!-- <audio id="audio" src="commento.mp3"></audio> -->
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 21</button>
+    <button>PLAY 22</button>
     <script type="text/javascript">
+
         window.AudioContext = window.AudioContext || window.webkitAudioContext
-
-        const AUDIO_FILE = 'commento.mp3'
-        const sound = new Audio(AUDIO_FILE)
-        sound.load() // This will trigger all sound events... so we can't use sound listeners
-
-        // const sound = document.getElementById("audio")
         const audio_ctx = new AudioContext()
-        let analyser
+        const sound = new Audio('commento.mp3')
+        sound.load()
+
+        let analyser, buffer
 
         sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
-        sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
-        sound.addEventListener("canplay", function(){
-                console.log("3. canplay")
-                analyser = audio_ctx.createAnalyser()
-                analyser.connect(audio_ctx.destination)
-                const audio_src = audio_ctx.createMediaElementSource(sound)
-                audio_src.connect(analyser)
-                requestAnimationFrame(render)
-        } )
-        sound.addEventListener("play", e => { console.log("4. play") })
-        sound.addEventListener("ended", e => console.log("5. ended"))
+        sound.addEventListener("loadeddata",     e => console.log("2. loadeddata"))
+        sound.addEventListener("canplay",        e => console.log("3. canplay"))
+        sound.addEventListener("canplaythrough", e => console.log("4. canplaythrough"))
+        sound.addEventListener("play",           e => console.log("5. play") )
+        sound.addEventListener("ended",          e => console.log("6. ended"))
 
         let __run_once__ = false
         document.querySelector("button").onclick = function(){
+            // QUIRK: analyser MUST be created after .load() for Safari (Version 13.1)
+            //             and MUST be created after "canplay" event (???)
             if(!__run_once__) {
-                __run_once__ = true // QUIRK: analyser MUST be created after .load() for Safari...!
-                                //        also wansn't able to put into a listener...
-                // analyser = audio_ctx.createAnalyser()
-                // analyser.connect(audio_ctx.destination)
-                // const audio_src = audio_ctx.createMediaElementSource(sound)
-                // audio_src.connect(analyser)
-                // requestAnimationFrame(render)
+                __run_once__ = true
+                analyser = audio_ctx.createAnalyser()
+                analyser.connect(audio_ctx.destination)
+                buffer = new Uint8Array(analyser.frequencyBinCount)
+                const audio_src = audio_ctx.createMediaElementSource(sound)
+                audio_src.connect(analyser)
+                requestAnimationFrame(render)
             }
             sound.currentTime = 0
             sound.play()
         }
 
+        // output
         const canvas = document.getElementById('canvas')
         const ctx = canvas.getContext("2d")
-
         canvas.width = 512
         canvas.height = 256
         function render() {
-
-            let data = new Uint8Array(analyser.frequencyBinCount)
-            analyser.getByteTimeDomainData(data)
-
+            analyser.getByteTimeDomainData(buffer)
             ctx.clearRect(0, 0, canvas.width, canvas.height)
-            for (let i=0; i<data.length; i++) {
+            for (let i=0; i<buffer.length; i++) {
                 ctx.fillStyle = "black";
-                ctx.fillRect(i*2, 128, 1, (data[i]-128)*2);
+                ctx.fillRect(i*2, 128, 1, (buffer[i]-128)*2);
             }
-
             requestAnimationFrame(render);
         }
 
