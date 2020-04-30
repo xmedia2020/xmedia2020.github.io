@@ -5,8 +5,10 @@
  * inspired by IG @duane_dalton
  * Mouse interaction
  */
- let size = 500
- let space = 20
+ const w = window.innerWidth;
+ const h = window.innerHeight;
+ let size = Math.min(w,h)*0.5
+ let space = size/32
 
 
 let punti = [{	p1x : 0,
@@ -60,8 +62,9 @@ function setup(){
 
 // funzione di loop
 function draw(){
+
 	//background(0)
-	
+
 	translate(width/2-size/2, height/2-size/2)
 
 		if(mouseIsPressed){
@@ -241,7 +244,11 @@ function keyPressed(){
 	if(key == 's'){
 		//save out to a file
 		save("letter");
+	} else	if(key == 'x'){
+		//save out to a file
+		setup()
 	}
+	return false
 
 }
 
@@ -253,6 +260,8 @@ function mousePressed(){
 
 
 }
+
+
 
 function mouseReleased(){
 
