@@ -110,7 +110,7 @@ function draw(){
     background(0)
     noStroke()
 	translate(width/2, height/2)
-    fill(255,255,255,95)
+    fill(255,255,255,98)
     for (const p of points) {
     	ellipse(p.x * 450, p.y * 450, d, 10)
     }
