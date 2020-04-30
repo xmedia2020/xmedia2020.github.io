@@ -158,38 +158,11 @@ function windowResized(){
 }
 
 function keyPressed(){
+  if (key == 's' || key == 'S') {
+    saveCanvas('S', 'png');
+  } else if (key == 'x' || key == 'X'){
+    setup()
+  }
 
+  return false;
 }
-
-function keyReleased(){
-
-}
-
-function mousePressed(){
-
-}
-
-function mouseReleased(){
-
-}
-
-function mouseMoved(){
-
-}
-
-// window.addEventListener("deviceorientation", function(event) {
-//     alpha = event.alpha;
-//     beta = event.beta;
-//     gamma = event.gamma;
-// });
-
-// window.addEventListener('devicemotion', function(e) {
-//     x = parseInt(e.accelerationIncludingGravity.x);
-//     y = parseInt(e.accelerationIncludingGravity.y);
-//     z = parseInt(e.accelerationIncludingGravity.z);
-// });
-
-// function touchStarted() {
-//     getAudioContext().resume();
-// }
-
