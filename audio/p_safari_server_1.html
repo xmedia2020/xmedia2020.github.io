@@ -8,17 +8,17 @@
     <audio id="audio" src="commento.mp3"></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 6</button>
+    <button>PLAY 7</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
         const player = document.getElementById("audio")
         const audioContext = new AudioContext()
+        const audioSourceNode = audioContext.createMediaElementSource(player)
         let analyser
 
         document.querySelector("button").onclick = function(){
             player.load()
-            const audioSourceNode = audioContext.createMediaElementSource(player)
             analyser = audioContext.createAnalyser()
             audioSourceNode.connect(analyser)
             analyser.connect(audioContext.destination)
@@ -27,9 +27,10 @@
         }
 
         const canvas = document.getElementById('canvas')
+        const ctx = canvas.getContext("2d")
+
         canvas.width = 512
         canvas.height = 256
-        const ctx = canvas.getContext("2d")
         function render() {
 
             let data = new Uint8Array(analyser.frequencyBinCount)
