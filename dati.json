@@ -431,7 +431,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostando il mouse vengono aggiunti o rimossi i raggi nelle D"
+		"descrizione"	: "Spostando il mouse cambia il numero di raggi e la dimensione della lettera “D”"
 	},
 
 	{
@@ -442,7 +442,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Spostando mouse ruotano i raggi della E"
+		"descrizione"	: "Muovendo il cursore cambia la prospettiva della lettera “E”"
 	},
 
 	{
@@ -453,13 +453,13 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "suono",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Parlando le linee si allungano formando una F"
+		"descrizione"	: "Creando suoni le linee si allungano formando la lettera “F”"
 	},
 
 	{
 		"nome"  		: "LBA",
 		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "H4",
+		"cartella" 		: "H1",
 		"lettera"  		: "H",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
@@ -475,17 +475,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostando il mouse vengono aggiunti o rimossi i raggi nelle N"
-	},
-	{
-		"nome"  		: "LBA",
-		"nomeCompleto" 	: "Lara Ballerini",
-		"cartella" 		: "o4",
-		"lettera"  		: "o",
-		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse",
-		"data"    		: "17.03.2020",
-		"descrizione"	: "Muovendo il mouse si creano spicchi nell'anello"
+		"descrizione"	: "Spostando il mouse si aggiungono o si rimuovono i raggi"
 	},
 
 	{
@@ -496,7 +486,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "21.03.2020",
-		"descrizione"	: "Spostando il mouse si muove il tunnel"
+		"descrizione"	: "Muovendo il cursore si muove il tunnel"
 	},
 	{
 		"nome"  		: "LBA",
@@ -506,7 +496,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Spostando il mouse cambia dimensione e ruota la Z "
+		"descrizione"	: "Spostando il mouse si cambia dimensione e si ruota la lettera “Z”"
 	},
 	{
 		"nome"  		: "CCR",
