@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <title>Prova Safari Server 2</title>
 </head>
 <body>
-    <!-- <audio id="audio" src="commento.mp3" type="audio/mpeg"></audio> -->
+    <audio id="audio" src="test.mp3" controls></audio>
     <canvas id="canvas" style="background-color:gray; width:512px; height:256px;"></canvas>
     <br>
     <button>PLAY</button>
@@ -12,20 +13,18 @@
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
-        const AUDIO_FILE = 'test.mp3'
-        const sound = new Audio(AUDIO_FILE)
+        // const AUDIO_FILE = 'test.mp3'
+        // const sound = new Audio(AUDIO_FILE)
         // sound.src = AUDIO_FILE
         // menu.appendChild(sound)
         // sound.crossorigin = "anonymous"
         // sound.preload = "auto"
 
-        //const sound = document.getElementById("audio")
+        const sound = document.getElementById("audio")
+
         const audio_ctx = new AudioContext()
         const analyser  = audio_ctx.createAnalyser()
         const audio_src = audio_ctx.createMediaElementSource(sound)
-        analyser.fftSize = 512
-        audio_src.connect(analyser)
-        analyser.connect(audio_ctx.destination)
 
         sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
         sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
@@ -40,6 +39,11 @@
         document.querySelector("button").onclick = function(){
             sound.load()
             sound.play()
+        analyser.fftSize = 512
+        audio_src.connect(analyser)
+        analyser.connect(audio_ctx.destination)
+
+
         }
 
         const canvas = document.getElementById('canvas')

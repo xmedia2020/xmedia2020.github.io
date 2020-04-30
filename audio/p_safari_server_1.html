@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Prova Safari Server 1</title>
+    <meta charset="utf-8">
+    <title>Prova Safari Server 2</title>
 </head>
 <body>
-    <audio id="audio" src="commento.mp3" ></audio>
+    <audio id="audio" src="commento.mp3"></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <button>BUTTON</button>
     <script type="text/javascript">
@@ -18,17 +19,17 @@
 
         document.querySelector("button").onclick = function(){
             player.load()
-        	const audioContext = new (window.AudioContext || window.webkitAudioContext)()
-        	const analyser = audioContext.createAnalyser()
-        	const audioSourceNode = audioContext.createMediaElementSource(player)
-        	window.analyser = analyser
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+            const analyser = audioContext.createAnalyser()
+            const audioSourceNode = audioContext.createMediaElementSource(player)
+            window.analyser = analyser
             audioSourceNode.connect(analyser)
             analyser.connect(audioContext.destination)
             player.play()
         }
 
         function render() {
-        	if (window.hasOwnProperty("analyser")) {
+            if (window.hasOwnProperty("analyser")) {
                 let data = new Uint8Array(analyser.frequencyBinCount)
                 analyser.getByteFrequencyData(data)
                 canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
@@ -42,5 +43,5 @@
 
         requestAnimationFrame(render);
     </script>
-</body>
-</html>
+
+</body></html>
