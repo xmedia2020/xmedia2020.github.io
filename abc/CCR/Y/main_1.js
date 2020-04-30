@@ -113,6 +113,13 @@ function mousePressed() {
 }
 
 function keyPressed(){
+    if (key == 's' || key == 'S') {
+        saveCanvas('Y', 'png');
+    } else if (key == 'x' || key == 'X'){
+        setup()
+    }
+
+    return false;
 }
 
 function windowResized(){
