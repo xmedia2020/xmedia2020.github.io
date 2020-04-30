@@ -8,7 +8,7 @@
     <!-- <audio id="audio" src="commento.mp3"></audio> -->
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 23</button>
+    <button>PLAY 24</button>
     <script type="text/javascript">
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext
@@ -29,7 +29,7 @@
             const audio_src = audio_ctx.createMediaElementSource(sound)
             audio_src.connect(analyser)
             requestAnimationFrame(render)
-        }
+        })
         sound.addEventListener("play",           e => console.log("5. play") )
         sound.addEventListener("ended",          e => console.log("6. ended"))
 
