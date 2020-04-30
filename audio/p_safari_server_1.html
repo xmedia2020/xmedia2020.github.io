@@ -7,8 +7,10 @@
 <body>
     <audio id="audio" src="commento.mp3"></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
-    <button>BUTTON</button>
+    <br>
+    <button>PLAY</button>
     <script type="text/javascript">
+        window.AudioContext = window.AudioContext || window.webkitAudioContext
 
         const player = document.getElementById("audio")
         const canvas = document.getElementById('canvas')
@@ -19,7 +21,7 @@
 
         document.querySelector("button").onclick = function(){
             player.load()
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+            const audioContext = new AudioContext()
             const analyser = audioContext.createAnalyser()
             const audioSourceNode = audioContext.createMediaElementSource(player)
             window.analyser = analyser
