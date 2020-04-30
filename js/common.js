@@ -107,6 +107,7 @@ function run() {
                 sound.pause()
             } else {
                 this.dataset.playing = 'true'
+                sound.load()
                 sound.play()
             }
         })
