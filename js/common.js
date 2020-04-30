@@ -62,9 +62,11 @@ function run() {
         return dati_ordinati
     }
 
-    // --- Output -------------------------------------------
 
     function init_menu(dati, current_index) {
+
+        // --- Output -------------------------------------------
+
         const menu = document.createElement("div")
         menu.classList.add("minimenu")
         const parent = document.body
@@ -87,56 +89,55 @@ function run() {
 
         menu.innerHTML = html
 
-        // Sound:
+         // --- Sound -------------------------------------------
+        window.AudioContext = window.AudioContext || window.webkitAudioContext // WebKit 2020 ?
 
-        window.AudioContext = window.AudioContext || window.webkitAudioContext // WebKit FIX
 
-        const sound = menu.querySelector("audio");
-        // const sound = new Audio(AUDIO_FILE)
-        // const AUDIO_FILE = 'commento.mp3'
-        // sound.src = AUDIO_FILE
-        // menu.appendChild(sound)
-        // sound.crossorigin = "anonymous"
-        // sound.preload = "auto"
+        const audio_ctx = new AudioContext()
+        const sound = new Audio('commento.mp3')
+        sound.load() // Must be called (Safari, See QUIRK note below)
 
-        const play_btn = menu.querySelector(".btn_play");
-        play_btn.addEventListener('click', function() {
-            if (this.dataset.playing == 'true') {
-                this.dataset.playing = 'false'
+
+        // sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
+        // sound.addEventListener("loadeddata",     e => console.log("2. loadeddata"))
+        // sound.addEventListener("canplay",        e => console.log("3. canplay"))
+        // sound.addEventListener("canplaythrough", e => console.log("4. canplaythrough"))
+        // sound.addEventListener("play",           e => console.log("5. play") )
+        sound.addEventListener("ended", e => {
+            // console.log("6. ended")
+            sound.currentTime = 0
+            play_btn.dataset.playing = 0
+        })
+
+        let analyser, buffer_data
+        const play_btn = menu.querySelector(".btn_play")
+
+        let __run_once__ = false
+        play_btn.addEventListener('click', e => {
+            // QUIRK: analyser MUST be created after .load() for Safari (Version 13.1)
+            //             and MUST be created after "canplay" event (???)
+            //             and MUST be created after "canplaythrough" event (???)
+            //             if it's sevred from GitHub.io (it works locally...)
+            if(!__run_once__) {
+                __run_once__ = true
+                analyser = audio_ctx.createAnalyser()
+                analyser.connect(audio_ctx.destination)
+                buffer_data = new Uint8Array(analyser.frequencyBinCount)
+                const audio_src = audio_ctx.createMediaElementSource(sound)
+                audio_src.connect(analyser)
+                requestAnimationFrame(render)
+            }
+            if (e.target.dataset.playing == 1) {
+                e.target.dataset.playing = 0
                 sound.pause()
             } else {
-                this.dataset.playing = 'true'
-                sound.load()
+                e.target.dataset.playing = 1
                 sound.play()
             }
         })
 
-        sound.addEventListener('ended', (e)=>{
-            play_btn.dataset.playing = 'false'
-            sound.load()            // Safari FIX
-            sound.currentTime = 0.0 // Non funziona su safari...?
-        })
 
-        sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
-        sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
-        sound.addEventListener("canplay", e => console.log("3. canplay"))
-        sound.addEventListener("play", e => {
-            requestAnimationFrame(render);
-            console.log("4. play")
-        })
-        sound.addEventListener("ended", e => console.log("5. ended"))
-
-        // Visualizer
-        const audio_ctx = new AudioContext()
-        const audio_src = audio_ctx.createMediaElementSource(sound)
-        const analyser = audio_ctx.createAnalyser()
-        analyser.fftSize = 256
-        const buffer_data = new Uint8Array(analyser.frequencyBinCount)
-
-        audio_src.connect(analyser)
-        analyser.connect(audio_ctx.destination)
-
-        // Canvas
+        // --- Canvas -------------------------------------------
         const canvas = menu.querySelector("canvas")
         const ctx = canvas.getContext('2d')
         const w = buffer_data.length
@@ -168,6 +169,5 @@ function run() {
             ctx.ellipse(idx+rad, y, rad, rad, 0, 0, Math.PI * 2, false)
             ctx.fill()
         }
-        requestAnimationFrame(render)
     }
 }

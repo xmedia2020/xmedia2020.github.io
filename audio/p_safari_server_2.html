@@ -8,7 +8,7 @@
     <!-- <audio id="audio" src="commento.mp3"></audio> -->
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 27</button>
+    <button>PLAY 29</button>
     <script type="text/javascript">
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext
@@ -26,6 +26,7 @@
         sound.addEventListener("ended",          e => {
             console.log("6. ended")
             sound.currentTime = 0
+            document.querySelector("button").dataset.playing = 0
         })
 
         let __run_once__ = false
@@ -44,10 +45,10 @@
                 requestAnimationFrame(render)
             }
             if (e.target.dataset.playing == 1) {
-                e.target.dataset.playing == 0
+                e.target.dataset.playing = 0
                 sound.pause()
             } else {
-                e.target.dataset.playing == 1
+                e.target.dataset.playing = 1
                 sound.play()
             }
         }
