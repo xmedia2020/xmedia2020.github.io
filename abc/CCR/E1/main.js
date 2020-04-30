@@ -78,7 +78,7 @@ function windowResized(){
 
 function keyPressed(){
 	if (key == 's' || key == 'S') {
-		saveCanvas('Z', 'png');
+		saveCanvas('E', 'png');
 	} else if (key == 'x' || key == 'X'){
 		setup()
 	}
