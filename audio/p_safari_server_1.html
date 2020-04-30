@@ -8,7 +8,7 @@
     <audio id="audio" src="commento.mp3"></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 9</button>
+    <button>PLAY 10</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
@@ -26,7 +26,7 @@
                 analyser = audioContext.createAnalyser()
                 audioSourceNode.connect(analyser)
                 analyser.connect(audioContext.destination)
-                once = false
+                once = true
             }
 
             player.play()
