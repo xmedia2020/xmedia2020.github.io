@@ -604,10 +604,10 @@
 		"nomeCompleto" 	: "Mattia Dellamora",
 		"cartella" 		: "e",
 		"lettera"  		: "e",
-		"tecnica" 		: "P5JS, hand drawn frames",
+		"tecnica" 		: "P5JS, cel animation",
 		"input"   		: "Mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Sistema di particelle animate, l'animazione accelera con il clic."
+		"descrizione"	: "Scorrendo con il mouse sopra l'area della lettera o cliccando, centina di occhi si aprono."
 	},
 	{
 		"nome"  		: "MDE",
@@ -616,8 +616,8 @@
 		"lettera"  		: "g",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
-		"data"    		: "23.03.2020",
-		"descrizione"	: "Sistema di particelle animate"
+		"data"    		: "29.03.2020",
+		"descrizione"	: "Passando con il mouse sopra l'area centrale dello schermo, si rivela la lettera che sta sotto."
 	},
 	{
 		"nome"  		: "MDE",
@@ -627,7 +627,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Lettura pixel dell'immagine, restituzione di forme animate"
+		"descrizione"	: "Le righe si dilatano e lasciano intravedere la lettera. Il mouse regola lo spessore della linea."
 	},
 	{
 		"nome"  		: "MDE",
@@ -635,9 +635,19 @@
 		"cartella" 		: "Y",
 		"lettera"  		: "Y",
 		"tecnica" 		: "P5JS, ML5",
-		"input"   		: "Face",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "La faccia si arrabbia insieme a te"
+		"input"   		: "Faccia",
+		"data"    		: "07.04.2020",
+		"descrizione"	: "Un volto disegnato si arrabbia insieme a te e imita le tue sopracciglia. (Caricamento lento!)"
+	},	
+	{
+		"nome"  		: "MDE",
+		"nomeCompleto" 	: "Mattia Dellamora",
+		"cartella" 		: "o",
+		"lettera"  		: "o",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "15.04.2020",
+		"descrizione"	: "La lettera o è un'entità viva, che segue il cursore del mouse nello schermo."
 	},
 	{
 		"nome"  		: "OCO",
