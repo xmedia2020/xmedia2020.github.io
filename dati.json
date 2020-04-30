@@ -577,7 +577,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Attraverso il microfono ed il movimento del mouse si modifica la M."
+		"descrizione"	: "Il click del mouse modifica le forme nella lettera A."
 	},
 	{
 		"nome"  		: "CCR",
@@ -587,7 +587,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Il click del mouse modifica le forme nella lettera A."
+		"descrizione"	: "Attraverso il microfono ed il movimento del mouse si modifica la M."
 	},
 	{
 		"nome"  		: "CCR",
