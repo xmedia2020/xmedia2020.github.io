@@ -2,42 +2,38 @@
 <html lang="it">
 <head>
     <meta charset="utf-8">
-    <title>Prova Safari Server 2</title>
+    <title>Prova Safari Server 1</title>
 </head>
 <body>
-    <audio id="audio" src="commento.mp3"></audio>
+    <!-- <audio id="audio" src="commento.mp3"></audio> -->
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 13</button>
+    <button>PLAY 15</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
-        const player = document.getElementById("audio")
-        const audioContext = new AudioContext()
+        const AUDIO_FILE = 'commento.mp3'
+        const player = new Audio(AUDIO_FILE)
+
+        // const player = document.getElementById("audio")
+        const audio_ctx = new AudioContext()
         let analyser
 
-        player.load()
-        const audioSourceNode = audioContext.createMediaElementSource(player)
-        analyser = audioContext.createAnalyser()
-        audioSourceNode.connect(analyser)
-        analyser.connect(audioContext.destination)
-
-        player.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
-        player.addEventListener("loadeddata", e => console.log("2. loadeddata"))
-        player.addEventListener("canplay", e => {
-            console.log("3. canplay")
-        })
-
-        player.addEventListener("play", e => {
-            console.log("4. play")
-            requestAnimationFrame(render);
-        })
-
-        player.addEventListener("ended", e => console.log("5. ended"))
-
+        let __once__ = false
 
         document.querySelector("button").onclick = function(){
-            // player.pause()
+            if(!__once__) {
+                                // QUIRK: analyser MUST be created after .load() for Safari...!
+                player.load()   // This will trigger all sound events... so we can't use sound listeners
+                analyser = audio_ctx.createAnalyser()
+                analyser.connect(audio_ctx.destination)
+
+                const audio_src = audio_ctx.createMediaElementSource(player)
+                audio_src.connect(analyser)
+
+                __once__ = true
+                requestAnimationFrame(render);
+            }
             player.currentTime = 0
             player.play()
         }
