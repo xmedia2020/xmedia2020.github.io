@@ -146,15 +146,20 @@ function run() {
         canvas.width = w
         canvas.height = h
 
+        ctx.strokeStyle = 'white'
+        ctx.fillStyle   = 'white'
+        ctx.lineWidth   = 1
+        ctx.beginPath()
+        ctx.moveTo(0, h/2, w, h/2)
+        ctx.lineTo(i, y)
+        ctx.stroke()
+
         function render() {
 
             requestAnimationFrame(render)
 
             analyser.getByteTimeDomainData(buffer_data)
 
-            ctx.strokeStyle = 'white'
-            ctx.fillStyle   = 'white'
-            ctx.lineWidth   = 1
             ctx.clearRect(0, 0, w, h)
             ctx.beginPath()
             for (let i=0; i<=buffer_data.length; i++){
