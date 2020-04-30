@@ -121,6 +121,7 @@ function run() {
             if(!__run_once__) {
                 __run_once__ = true
                 analyser = audio_ctx.createAnalyser()
+                analyser.fftSize = 256
                 analyser.connect(audio_ctx.destination)
                 buffer_data = new Uint8Array(analyser.frequencyBinCount)
                 const audio_src = audio_ctx.createMediaElementSource(sound)
@@ -140,7 +141,7 @@ function run() {
         // --- Canvas -------------------------------------------
         const canvas = menu.querySelector("canvas")
         const ctx = canvas.getContext('2d')
-        const w = buffer_data.length
+        const w = 128
         const h = 24
         canvas.width = w
         canvas.height = h
