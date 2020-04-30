@@ -8,15 +8,15 @@
     <!-- <audio id="audio" src="commento.mp3"></audio> -->
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 19</button>
+    <button>PLAY 20</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
         const AUDIO_FILE = 'commento.mp3'
-        const player = new Audio(AUDIO_FILE)
-        player.load() // This will trigger all sound events... so we can't use sound listeners
+        const sound = new Audio(AUDIO_FILE)
+        sound.load() // This will trigger all sound events... so we can't use sound listeners
 
-        // const player = document.getElementById("audio")
+        // const sound = document.getElementById("audio")
         const audio_ctx = new AudioContext()
         let analyser
 
@@ -34,13 +34,13 @@
                 analyser = audio_ctx.createAnalyser()
                 analyser.connect(audio_ctx.destination)
 
-                const audio_src = audio_ctx.createMediaElementSource(player)
+                const audio_src = audio_ctx.createMediaElementSource(sound)
                 audio_src.connect(analyser)
 
                 requestAnimationFrame(render);
             }
-            player.currentTime = 0
-            player.play()
+            sound.currentTime = 0
+            sound.play()
         }
 
         const canvas = document.getElementById('canvas')
