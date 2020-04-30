@@ -21,33 +21,35 @@
         sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
         sound.addEventListener("loadeddata",     e => console.log("2. loadeddata"))
         sound.addEventListener("canplay",        e => console.log("3. canplay"))
-        sound.addEventListener("canplaythrough", e => {
-            console.log("4. canplaythrough")
-            analyser = audio_ctx.createAnalyser()
-            analyser.connect(audio_ctx.destination)
-            buffer = new Uint8Array(analyser.frequencyBinCount)
-            const audio_src = audio_ctx.createMediaElementSource(sound)
-            audio_src.connect(analyser)
-            requestAnimationFrame(render)
-        })
+        sound.addEventListener("canplaythrough", e => console.log("4. canplaythrough"))
         sound.addEventListener("play",           e => console.log("5. play") )
-        sound.addEventListener("ended",          e => console.log("6. ended"))
+        sound.addEventListener("ended",          e => {
+            console.log("6. ended")
+            sound.currentTime = 0
+        })
 
         let __run_once__ = false
-        document.querySelector("button").onclick = function(){
+        document.querySelector("button").onclick = function(e){
             // QUIRK: analyser MUST be created after .load() for Safari (Version 13.1)
             //             and MUST be created after "canplay" event (???)
+            //             and MUST be created after "canplaythrough" event (???)
+            //             if it's sevred from GitHub.io (it works locally...)
             if(!__run_once__) {
                 __run_once__ = true
-                // analyser = audio_ctx.createAnalyser()
-                // analyser.connect(audio_ctx.destination)
-                // buffer = new Uint8Array(analyser.frequencyBinCount)
-                // const audio_src = audio_ctx.createMediaElementSource(sound)
-                // audio_src.connect(analyser)
-                // requestAnimationFrame(render)
+                analyser = audio_ctx.createAnalyser()
+                analyser.connect(audio_ctx.destination)
+                buffer = new Uint8Array(analyser.frequencyBinCount)
+                const audio_src = audio_ctx.createMediaElementSource(sound)
+                audio_src.connect(analyser)
+                requestAnimationFrame(render)
             }
-            sound.currentTime = 0
-            sound.play()
+            if (e.dataset.playing == 1) {
+                e.dataset.playing == 0
+                sound.pause()
+            } else {
+                e.dataset.playing == 1
+                sound.play()
+            }
         }
 
         // output
