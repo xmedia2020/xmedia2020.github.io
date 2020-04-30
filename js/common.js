@@ -75,7 +75,6 @@ function run() {
         const prev = dati[(current_index + dati.length - 1) % dati.length]
         const next = dati[(current_index + 1) % dati.length]
 
-
         let html = `
             <ul>
             <li><a class="btn btn_prev" href="/abc/${prev.nome + "/" + prev.cartella}"></a></li>
@@ -86,17 +85,15 @@ function run() {
             <li><canvas></canvas></li>
             </ul>
         `;
-
         menu.innerHTML = html
 
          // --- Sound -------------------------------------------
-        window.AudioContext = window.AudioContext || window.webkitAudioContext // WebKit 2020 ?
 
+        window.AudioContext = window.AudioContext || window.webkitAudioContext // WebKit 2020 ?
 
         const audio_ctx = new AudioContext()
         const sound = new Audio('commento.mp3')
         sound.load() // Must be called (Safari, See QUIRK note below)
-
 
         // sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
         // sound.addEventListener("loadeddata",     e => console.log("2. loadeddata"))
@@ -137,8 +134,8 @@ function run() {
             }
         })
 
-
         // --- Canvas -------------------------------------------
+
         const canvas = menu.querySelector("canvas")
         const ctx = canvas.getContext('2d')
         const w = 128
@@ -150,8 +147,8 @@ function run() {
         ctx.fillStyle   = 'white'
         ctx.lineWidth   = 1
         ctx.beginPath()
-        ctx.moveTo(0, h/2, w, h/2)
-        ctx.lineTo(i, y)
+        ctx.moveTo(0, h/2)
+        ctx.lineTo(w, h/2)
         ctx.stroke()
 
         function render() {
