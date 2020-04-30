@@ -5,7 +5,7 @@ function setup() {
   background(0)
 
   for (let i = 0; i < 100; i++) {
-    punti[i] = new crescita(random(width)+2, random(height))
+    punti[i] = new crescita(random(width), random(height))
   }
 }
 
@@ -41,8 +41,9 @@ function crescita(x, y) {
   this.show = function() {
   
     stroke(255)
-    textSize(mouseX)
-    text("C", this.pos.x, this.pos.y)
+    strokeWeight(1.5)
+    textSize((mouseX/6))
+    text("c", this.pos.x, this.pos.y)
     
   }
 
