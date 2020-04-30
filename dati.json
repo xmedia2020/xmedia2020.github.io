@@ -527,7 +527,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Il movimento del mouse può variare l'asta centrale orizzontale della lettera E."
+		"descrizione"	: "Il movimento del mouse varia l'asta centrale orizzontale della lettera E."
 	},
 	{
 		"nome"  		: "CCR",
@@ -557,7 +557,7 @@
 		"tecnica" 		: "P5.JS, ML5.JS",
 		"input"   		: "movimento delle braccia",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Il movimento delle braccia si modifica la forma della Y."
+		"descrizione"	: "Il movimento delle braccia modifica la forma della Y."
 	},
 	{
 		"nome"  		: "CCR",
