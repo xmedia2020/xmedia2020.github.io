@@ -527,7 +527,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Muovendo il mouse possiamo variare l'asta centrale orizzontale della lettera E."
+		"descrizione"	: "Il movimento del mouse può variare l'asta centrale orizzontale della lettera E."
 	},
 	{
 		"nome"  		: "CCR",
@@ -535,9 +535,9 @@
 		"cartella" 		: "S2",
 		"lettera"  		: "S",
 		"tecnica" 		: "P5.JS",
-		"input"   		: "mouse e ridimensionamento della pagina",
+		"input"   		: "mouse",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Il mouse modifica la forma della S."
+		"descrizione"	: "Il movimento del mouse modifica la forma della lettera S."
 	},
 	{
 		"nome"  		: "CCR",
@@ -547,7 +547,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "doppio touch",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Utilizzando il doppio touch possiamo modificare la dimensione dell'asta orizzontale della T."
+		"descrizione"	: "Con l'utilizzo del doppio touch l'asta orizzontale della T si modifica."
 	},
 	{
 		"nome"  		: "CCR",
@@ -557,7 +557,7 @@
 		"tecnica" 		: "P5.JS, ML5.JS",
 		"input"   		: "movimento delle braccia",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Con il movimento delle braccia si riesce a modificare la forma della Y."
+		"descrizione"	: "Il movimento delle braccia si modifica la forma della Y."
 	},
 	{
 		"nome"  		: "CCR",
@@ -567,7 +567,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Il mouse permette una moltiplicazione della L."
+		"descrizione"	: "Il movimento del mouse modifica la forma della lettera L."
 	},
 	{
 		"nome"  		: "CCR",
@@ -577,7 +577,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Attraverso il microfono si modifica la M."
+		"descrizione"	: "Attraverso il microfono ed il movimento del mouse si modifica la M."
 	},
 	{
 		"nome"  		: "CCR",
@@ -597,7 +597,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "26.04.2020",
-		"descrizione"	: "Attraverso il mouse modifico la o."
+		"descrizione"	: "Il movimento del mouse modifica la geometria della o."
 	},
 	{
 		"nome"  		: "MDE",
