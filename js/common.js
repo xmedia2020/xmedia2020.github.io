@@ -80,9 +80,11 @@ function run() {
             <li><a class="btn btn_prev" href="/abc/${prev.nome + "/" + prev.cartella}"></a></li>
             <li><a class="btn btn_next" href="/abc/${next.nome + "/" + next.cartella}"></a></li>
             <li><a class="btn btn_home" href="/index.html"></a></li>
-            <li><span class="nome">${dati[current_index].nomeCompleto + " (" + dati[current_index].nome + ")"}<span></li>
+            <li><span class="index"><sup>${(current_index + 1)}</sup>/<sub>${dati.length}<sub><span></li>
+            <li class="break"><span class="nome">${dati[current_index].nomeCompleto}<span></li>
+            <li class="unbreak"><span class="nome">${dati[current_index].nome}<span></li>
             <li><span class="btn btn_play"></span></li>
-            <li><canvas></canvas></li>
+            <li class="break"><canvas></canvas></li>
             </ul>
         `;
         menu.innerHTML = html

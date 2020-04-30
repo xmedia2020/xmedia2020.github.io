@@ -7,7 +7,7 @@ body {
 
 canvas{
 	display: block;
-    background-color: black;
+    /*background-color: black;*/
 }
 
 .disable-scroll{
@@ -84,6 +84,7 @@ canvas{
 
 .minimenu .nome{
     line-height: 24px;
+    display: inline-block;
 }
 
 .btn{
@@ -123,4 +124,20 @@ canvas{
     background-image: url("btn_play_hover.png");
 }
 
+ .minimenu .unbreak{
+    display: none;
+ }
+
+@media only screen
+and (max-width : 560px) {
+    .minimenu {
+        right: 0;
+    }
+    .minimenu .break{
+        display:none;
+    }
+    .minimenu .unbreak{
+        display:initial;
+    }
+}
 

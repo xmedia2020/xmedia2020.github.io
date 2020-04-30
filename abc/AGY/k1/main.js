@@ -25,7 +25,7 @@ function draw(){
 
 	//image(img, 0, 0)
 
-	const raggio = min(width, height) / 15
+	const raggio = min(width, height) / 10
 	const raggio2 = raggio * raggio 				// raggio al quadrato
 
 	for (const d of dots){
@@ -48,7 +48,7 @@ function draw(){
 
 function reset(arr, img){
 	arr.length = 0 	// tronca l’array senza peredere il riferimento
-	const grid = min(width, height) / 80
+	const grid = min(width, height) / 60
 	const ox = (width - (img.width-1) * grid) / 2
 	const oy = (height - (img.height-1) * grid) / 2
 	for(let j=0; j<img.height; j++){
