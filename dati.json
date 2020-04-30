@@ -313,19 +313,8 @@
 		"lettera"  		: "D",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
-		"data"    		: "03.04.2020",
-		"descrizione"	: "Stretch"
-	},
-
-	{
-		"nome"  		: "IDE",
-		"nomeCompleto" 	: "Ilaria Dellea",
-		"cartella" 		: "M",
-		"lettera"  		: "M",
-		"tecnica" 		: "css",
-		"input"   		: "Mouse",
-		"data"    		: "24.03.2020",
-		"descrizione"	: "Pattern modificabile attraverso il movimento del cursore"
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Lettera elastica"
 	},
 
 	{
@@ -336,7 +325,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Risultato random associato al click del mouse"
+		"descrizione"	: "Ad ogni click si genera una variazione random"
 	},
 
 	{
@@ -347,7 +336,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Elementi in movimento, variazione in dimensione"
+		"descrizione"	: "Elementi in crescita variabili tramite il movimento del mouse"
 	},
 
 	{
@@ -358,18 +347,18 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "20.04.2020",
-		"descrizione"	: "Forme tridimensionali in movimento"
+		"descrizione"	: "Forme 3D da allineare a comporre la lettera"
 	},
 
 	{
 		"nome"  		: "IDE",
 		"nomeCompleto" 	: "Ilaria Dellea",
-		"cartella" 		: "B",
-		"lettera"  		: "B",
+		"cartella" 		: "Q",
+		"lettera"  		: "Q",
 		"tecnica" 		: "P5JS",
-		"input"   		: "Microfono",
-		"data"    		: "24.03.2020",
-		"descrizione"	: "Spessore modificabile attraverso input audio"
+		"input"   		: "Mouse",
+		"data"    		: "26.04.2020",
+		"descrizione"	: "Intersezione di linee rotanti"
 	},
 
 	{
