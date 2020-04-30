@@ -7,7 +7,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "18.03.2020",
-		"descrizione"	: "Sistema di particelle pilotabili via mouse."
+		"descrizione"	: "Esempio di un sistema di particelle reattive al mouse e disposte nello spazio tramite un bitmap."
 	},
 	{
 		"nome"  		: "AGY",
@@ -17,7 +17,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "18.03.2020",
-		"descrizione"	: "Una lettera vettoriale (dimostrazione della bounding box)."
+		"descrizione"	: "Esempio di una figura vettoriale e calcolo della “bounding box”."
 	},
 	{
 		"nome"  		: "AGY",
@@ -47,7 +47,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Il ciclo for."
+		"descrizione"	: "Semplice esempui dell’utilizzo del ciclo “for” per duplicare una forma."
 	},
 	{
 		"nome"  		: "AGY",
@@ -57,7 +57,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "25.03.2020",
-		"descrizione"	: "Dimostrazione di un sistema di particelle."
+		"descrizione"	: "Sistema di particelle vincolate ad una griglia ortogonale."
 	},
 	{
 		"nome"  		: "AGY",
@@ -77,7 +77,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Dimostrazione di una semplice simulazione."
+		"descrizione"	: "Dimostrazione di una semplice ma efficace simulazione “Verlet”."
 	},
 	{
 		"nome"  		: "AGY",
@@ -87,7 +87,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Feedback (non shader)."
+		"descrizione"	: "Esempio di una “feedback loop” (non tramite shader)."
 	},
 	{
 		"nome"  		: "AMO",
@@ -627,7 +627,7 @@
 		"input"   		: "Faccia",
 		"data"    		: "07.04.2020",
 		"descrizione"	: "Un volto disegnato si arrabbia insieme a te e imita le tue sopracciglia. (Caricamento lento!)"
-	},	
+	},
 	{
 		"nome"  		: "MDE",
 		"nomeCompleto" 	: "Mattia Dellamora",
