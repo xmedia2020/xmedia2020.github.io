@@ -21,24 +21,24 @@
 
         //const sound = document.getElementById("audio")
         const audio_ctx = new AudioContext()
+        const analyser  = audio_ctx.createAnalyser()
 
-        const audio_src = audio_ctx.createMediaElementSource(sound)
 
         sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
         sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
-        sound.addEventListener("canplay", e => console.log("3. canplay"))
+        sound.addEventListener("canplay", e => {
+            console.log("3. canplay")
+            const audio_src = audio_ctx.createMediaElementSource(sound)
+            analyser.fftSize = 512
+            audio_src.connect(analyser)
+            analyser.connect(audio_ctx.destination)
+            audio_src.connect(audio_ctx.destination)
+        })
         sound.addEventListener("play", e => {
-            requestAnimationFrame(render);
             console.log("4. play")
+            requestAnimationFrame(render);
         })
         sound.addEventListener("ended", e => console.log("5. ended"))
-
-
-
-        const analyser = audio_ctx.createAnalyser()
-        analyser.fftSize = 512
-        audio_src.connect(analyser)
-        analyser.connect(audio_ctx.destination)
 
 
         document.querySelector("button").onclick = function(){
