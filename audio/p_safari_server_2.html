@@ -8,7 +8,7 @@
     <!-- <audio id="audio" src="commento.mp3"></audio> -->
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 17</button>
+    <button>PLAY 18</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
@@ -16,28 +16,24 @@
         const player = new Audio(AUDIO_FILE)
         player.load()   // This will trigger all sound events... so we can't use sound listeners
 
-        let analyser
         // const player = document.getElementById("audio")
         const audio_ctx = new AudioContext()
+        let analyser
 
-
-        player.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
-        player.addEventListener("loadeddata", e => console.log("2. loadeddata"))
-        player.addEventListener("canplay", e => {
-            console.log("3. canplay")
-            analyser = audio_ctx.createAnalyser()
-            analyser.connect(audio_ctx.destination)
-            const audio_src = audio_ctx.createMediaElementSource(player)
-            audio_src.connect(analyser)
-        })
-        player.addEventListener("play", e => {
-            requestAnimationFrame(render);
-            console.log("4. play")
-        })
-        player.addEventListener("ended", e => console.log("5. ended"))
+        let __once__ = false
 
         document.querySelector("button").onclick = function(){
-            requestAnimationFrame(render);
+            if(!__once__) {
+                                // QUIRK: analyser MUST be created after .load() for Safari...!
+                analyser = audio_ctx.createAnalyser()
+                analyser.connect(audio_ctx.destination)
+
+                const audio_src = audio_ctx.createMediaElementSource(player)
+                audio_src.connect(analyser)
+
+                __once__ = true
+                requestAnimationFrame(render);
+            }
             player.currentTime = 0
             player.play()
         }
