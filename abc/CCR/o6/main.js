@@ -61,3 +61,13 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
 
 }
+
+function keyPressed(){
+	if (key == 's' || key == 'S') {
+		saveCanvas('o', 'png');
+	} else if (key == 'x' || key == 'X'){
+		setup()
+	}
+
+	return false;
+}
