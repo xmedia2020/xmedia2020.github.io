@@ -46,12 +46,13 @@ canvas{
     font-family: "HelveticaNeue-Regular", "Helvetica Neue Regular", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 400;
     color: white;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 2em;
     width: auto;
     height: auto;
     background-color: black;
+    z-index: 10;
 }
 
 
