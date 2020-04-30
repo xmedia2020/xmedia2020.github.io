@@ -191,3 +191,13 @@ function mousePressed(){
         click=false;
     }
 }
+
+function keyPressed(){
+    if (key == 's' || key == 'S') {
+        saveCanvas('A', 'png');
+    } else if (key == 'x' || key == 'X'){
+        setup()
+    }
+
+    return false;
+}
