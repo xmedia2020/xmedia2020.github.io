@@ -114,3 +114,13 @@ function drawM(){
 function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
 }
+
+function keyPressed(){
+	if (key == 's' || key == 'S') {
+		saveCanvas('M', 'png');
+	} else if (key == 'x' || key == 'X'){
+		setup()
+	}
+
+	return false;
+}
