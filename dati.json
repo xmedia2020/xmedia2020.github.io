@@ -380,7 +380,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse, Keyboard",
 		"data"    		: "25.03.2020",
-		"descrizione"	: "Clicca sul canvas per cambiare lettera, muovi il cursore sulla lettera per spostare le letterine"
+		"descrizione"	: "Cliccando sul canvas cambia la lettera, muovendo il cursore sulla lettera si spostano le letterine."
 	},
 	{
 		"nome"  		: "DVE",
@@ -390,7 +390,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Clicca sul canvas e muovi il cursore sull'asse X per interagire con il movimento degli archi"
+		"descrizione"	: "Cliccando sul canvas e muovendo il cursore sull'asse X si interagisce con il movimento degli archi."
 	},
 	{
 		"nome"  		: "DVE",
@@ -400,7 +400,7 @@
 		"tecnica" 		: "Shader",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Muovi il cursore per modificare il pattern e creare nuove lettere distorte"
+		"descrizione"	: "Muovendo il cursore si modifica il pattern e crea nuove lettere distorte."
 	},
 	{
 		"nome"  		: "DVE",
@@ -410,7 +410,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Muovi il cursore per aggiungere e rimuovere raggi, tieni premuto per cambiare la dimensione del pattern"
+		"descrizione"	: "Muovendo il cursore si modificano i raggi, tenendo premuto cambia la dimensione del pattern."
 	},
 	{
 		"nome"  		: "DVE",
@@ -420,7 +420,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "MousePressed",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Clicca sulle forme per cambiarle singolarmente, clicca sul canvas per cambiare tutto il disegno"
+		"descrizione"	: "Cliccando le forme cambiano singolarmente, cliccando sul canvas cambia tutto il disegno."
 	},
 	{
 		"nome"  		: "DVE",
@@ -430,7 +430,7 @@
 		"tecnica" 		: "jQuery, css",
 		"input"   		: "Scroll",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Scrolla e ridimensiona la pagina per ricostruire o disfare le lettere composte da quadratini"
+		"descrizione"	: "Scrollando la pagina si ricostruiscono o si disfano le lettere composte da quadratini."
 	},
 
 
