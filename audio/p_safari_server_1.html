@@ -8,7 +8,7 @@
     <audio id="audio" src="commento.mp3"></audio>
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
-    <button>PLAY 10</button>
+    <button>PLAY 11</button>
     <script type="text/javascript">
         window.AudioContext = window.AudioContext || window.webkitAudioContext
 
@@ -41,7 +41,7 @@
         function render() {
 
             let data = new Uint8Array(analyser.frequencyBinCount)
-            analyser.getByteFrequencyData(data)
+            analyser.getByteTimeDomainData(data)
 
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             for (let i=0; i<data.length; i++) {
