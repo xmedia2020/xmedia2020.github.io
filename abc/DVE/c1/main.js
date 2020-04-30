@@ -1,59 +1,55 @@
 /**
  * c_01
  * Reference: https://p5js.org/reference/
- * Possibilità di sketch con audio da perfezionare
  */
 
 
 let frameNumber = 0;
 let	cRadius
-let d = 5
 let switchOn = false;
-// let mic
-// let micLevelSmooth = 0
+let radius
+let musica = 0
+let b = 2
+let	rot
+
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	// mic = new p5.AudioIn()
-	// //userStartAudio()
-	// mic.start();
   	frameRate(30);
 	smooth();
+	strokeCap(PROJECT)
+
 	
 	stroke(255);
-	strokeWeight(2);
+	strokeWeight(b);
+
 }
 
 function draw() {
-	// let micLevel = mic.getLevel()
-	// micLevelSmooth = micLevelSmooth + (micLevel - micLevelSmooth) * 0.08
-	//let scale = min(width, height) *0.7
-	
-	//let cRadius_smooth = scale * micLevelSmooth * 300.0 + 10
-	let	cRadius = floor(map(mouseX, 0, width, 0, 1000))
+
+
+	let	cRadius = floor(map(mouseX, 0, width, 400, 600))
+
 	background(0);
 	translate(width / 2, height / 2);
+
+	rot = floor(map(mouseY, 0, height, 50, 140))
 		
 	if(switchOn){
-		for(let radius = 100; radius < 250; radius += 10){
-			for(let deg = 320; deg > 360 * noise(cRadius * 0.025 + radius * 0.005); deg -= 1){
+		for(let radius = min(width,height)/6; radius < min(width,height)/3; radius += min(width,height)/50){
+			strokeWeight(b)
+			rotate(musica) //musica viva muller-brockmann
+		for(let deg = 320; deg > 360 * noise(cRadius * 0.025 + radius * 0.005); deg -= 1){
 			line(radius * cos(radians(deg)), radius * sin(radians(deg)), radius * cos(radians(deg + 1)), radius * sin(radians(deg + 1)));
 			}
-			//ellipse(radius * cos(radians(360 * noise(cRadius * 0.025 + radius * 0.005))), radius * sin(radians(360 * noise(cRadius * 0.025 + radius * 0.005))), d, d);
 		}
 
-		// for(let radius = 100; radius < 250; radius += 10){
-		// 	for(let deg = 320; deg > 360 * noise(cRadius_smooth * 0.025 + radius * 0.005); deg -= 1){
-		// 	line(radius * cos(radians(deg)), radius * sin(radians(deg)), radius * cos(radians(deg + 1)), radius * sin(radians(deg + 1)));
-		// 	}
-		// 	ellipse(radius * cos(radians(360 * noise(cRadius_smooth * 0.025 + radius * 0.005))), radius * sin(radians(360 * noise(cRadius_smooth * 0.025 + radius * 0.005))), d, d);
-		// }
 	} else {
-		for(let radius = 100; radius < 250; radius += 10){
+		for(let radius = min(width,height)/6; radius < min(width,height)/3; radius += min(width,height)/50){
+			strokeWeight(b)
 			for(let deg = 320; deg > 360 * noise(frameNumber * 0.025 + radius * 0.005); deg -= 1){
 			line(radius * cos(radians(deg)), radius * sin(radians(deg)), radius * cos(radians(deg + 1)), radius * sin(radians(deg + 1)));
 			}
-			//ellipse(radius * cos(radians(360 * noise(frameNumber * 0.025 + radius * 0.005))), radius * sin(radians(360 * noise(frameNumber * 0.025 + radius * 0.005))), d, d);
 		}
 	}
 	
@@ -67,12 +63,21 @@ function draw() {
 function windowResized(){
 	// importante: il canvas deve essere ridimensionato assieme alla finestra
 	resizeCanvas(windowWidth, windowHeight)
+	
 }
 
 function keyPressed(){
+	
+	if(key == 'b'){
+		musica = 741
+		b = min(width,height)/65
 
-
-
+	} else if (key == 'x'){
+		musica = 0
+		b = 2
+	} else if (key == 's'){
+		save("letter");
+	}
 
 }
 
