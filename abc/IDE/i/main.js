@@ -19,7 +19,7 @@ function draw() {
   rotateZ(mouseX * -0.01);
   rotateX(frameCount * 0.01);
   //rotateY(mouseY  * -0.01);
-  ambientMaterial(255,255,255,50);
+  ambientMaterial(255,255,255);
   box(150, 350, 50, 600);
   pop();
 
@@ -28,7 +28,7 @@ function draw() {
   rotateZ(mouseX * -0.01);
   rotateX(frameCount * 0.01);
   //rotateY(mouseY  * -0.01);
-  ambientMaterial(255,255,255,50);
+  ambientMaterial(255,255,255);
   torus(50, 20, 50, 600);
   pop();
 }
