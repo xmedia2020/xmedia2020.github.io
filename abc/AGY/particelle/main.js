@@ -80,5 +80,10 @@ function mouseMoved(){
 
 		particelle.push(part)
 	}
+	return false
 }
 
+function touchMoved(e){
+	mouseMoved(e)
+	return false
+}
