@@ -83,10 +83,14 @@ function run() {
             <li><span class="btn btn_play"></span></li>
             <li><canvas></canvas></li>
             </ul>
-            <audio src="commento.mp3" type=""></audio>
+            <audio src="commento.mp3"></audio>
         `;
 
         menu.innerHTML = html
+
+        // Sound:
+
+        window.AudioContext = window.AudioContext || window.webkitAudioContext // WebKit FIX
 
         const sound = menu.querySelector("audio");
         // const sound = new Audio(AUDIO_FILE)
@@ -113,23 +117,24 @@ function run() {
             sound.currentTime = 0.0 // Non funziona su safari...?
         })
 
+        sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
+        sound.addEventListener("loadeddata", e => console.log("2. loadeddata"))
+        sound.addEventListener("canplay", e => console.log("3. canplay"))
+        sound.addEventListener("play", e => {
+            requestAnimationFrame(render);
+            console.log("4. play")
+        })
+        sound.addEventListener("ended", e => console.log("5. ended"))
+
         // Visualizer
-        const audio_ctx = new (window.AudioContext || window.webkitAudioContext)()
+        const audio_ctx = new AudioContext()
         const audio_src = audio_ctx.createMediaElementSource(sound)
-
-        // const dest = audio_ctx.createGain()
-        // dest.gain.value = 1.0
-        // dest.connect(audio_ctx.destination)
-
-        //audio_src.connect(dest)
-
         const analyser = audio_ctx.createAnalyser()
         analyser.fftSize = 256
+        const buffer_data = new Uint8Array(analyser.frequencyBinCount)
 
         audio_src.connect(analyser)
         analyser.connect(audio_ctx.destination)
-
-        const buffer_data = new Uint8Array(analyser.frequencyBinCount)
 
         // Canvas
         const canvas = menu.querySelector("canvas")
@@ -140,14 +145,14 @@ function run() {
         canvas.height = h
 
         function render() {
-            analyser.getByteTimeDomainData(buffer_data)
 
             requestAnimationFrame(render)
 
-            ctx.strokeStyle = 'white'
-            ctx.fillStyle = 'white'
-            ctx.lineWidth = 1
+            analyser.getByteTimeDomainData(buffer_data)
 
+            ctx.strokeStyle = 'white'
+            ctx.fillStyle   = 'white'
+            ctx.lineWidth   = 1
             ctx.clearRect(0, 0, w, h)
             ctx.beginPath()
             for (let i=0; i<=buffer_data.length; i++){
