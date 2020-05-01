@@ -1,31 +1,14 @@
-/**
- * Template per P5JS
- * Reference: https://p5js.org/reference/
- */
- 
  
 //GLOBAL
-let fatherCircle = 150;
-let babyCircle = 50;
+let rectHeight;
+let rectWidht;
 
 
+let fatherCircle;
+let babyCircle;
 
-// 100% == 1
-// 50% == 0.5
-// 30% == 0.3
-let  paddingTop = 0.3;
-let  paddingBottom = 0.27;
-let  paddingLeft = 0.4;
-let  paddingRight = 0.4;
-
-
-
-// funzione d’inizio
 function setup(){
-	// creiamo un'applicazione della dimensione della finestra
 	createCanvas(windowWidth, windowHeight)
-	
-
 }
 
 function drawCircle(x, y){
@@ -39,6 +22,24 @@ function drawCircle(x, y){
 
 // funzione di loop
 function draw(){
+
+	//GLOBAL DIMENSION
+	rectHeight 	= height * 2/3
+	rectWidht 	= rectHeight * 0.20
+
+	fatherCircle = rectWidht * 2;
+	babyCircle = fatherCircle / 3;
+
+	//POSITION
+	// 100% == 1
+	// 50% == 0.5
+	// 30% == 0.3
+	let  paddingTop = ((height - rectHeight)/2)/height;
+	let  paddingBottom =  ((height - rectHeight)/2)/height;
+	let  paddingLeft = 0.5 - (fatherCircle/width);
+	let  paddingRight = 0.5 - (fatherCircle/width);
+
+
 	background(0)
 	translate(width/2, height/2)
 	
@@ -46,12 +47,9 @@ function draw(){
 
 	noStroke()
 
-
-
 	fill(255)
 	rectMode(CENTER)
-//	rotate(TAU / 8 + mouseX * 0.01)
-	rect(0, 0, 70, 330)
+	rect(0, 0, rectWidht, rectHeight)
 
 	// Draw Circle
 	if( mouseX < fatherCircle/2 + (width * paddingLeft)){
@@ -79,19 +77,14 @@ function draw(){
 	else if( mouseY < fatherCircle/2 + (height * paddingTop)){
 		drawCircle( mouseX, fatherCircle/2 + (height * paddingTop));
 	}
-	else if( mouseY > height - fatherCircle/2 - (height * paddingBottom)){
-		drawCircle( mouseX, height - fatherCircle/2 - (height * paddingBottom));
+		else if( mouseY > height - fatherCircle/2 - (height * paddingBottom)){
+			drawCircle( mouseX, height - fatherCircle/2 - (height * paddingBottom));
 	}
-	else{
-		drawCircle(mouseX , mouseY);
+			else{
+			drawCircle(mouseX , mouseY);
 	}
 	
 	pop()
-	
-	
-//	const scale = min(width, height) / 100
-//	const d = scale * 40 + sin(frameCount*0.01) * scale*10
-
 }
 
 
@@ -114,6 +107,5 @@ function keyPressed(){
   }
 
   return false;
-
 }
 
