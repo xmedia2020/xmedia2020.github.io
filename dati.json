@@ -205,18 +205,18 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Voice",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "La voce modifica il disegno"
+		"descrizione"	: "Alterazione del disegno tramite l'audio (parla o fa partire una canzone)."
 	},
 
 	{
 		"nome"  		: "AZA",
 		"nomeCompleto" 	: "Amina Zanda",
 		"cartella" 		: "b",
-		"lettera"  		: "b+",
+		"lettera"  		: "b",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse move",
 		"data"    		: "21.03.2020",
-		"descrizione"	: "Spostando il mouse modifico la lettera"
+		"descrizione"	: "Variazione della lettera tramite forme geometriche."
 	},
 
 	{
@@ -227,7 +227,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse move",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Spostando il mouse trasformo il cerchio iniziale"
+		"descrizione"	: "Variazione della lettera con la modifica della forma interna."
 	},
 
 	{
@@ -238,7 +238,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse move",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Spostando il mouse modifico l'asta della `T"
+		"descrizione"	: "Variazione della lettera tramite la forma geometriche orizzontale."
 	},
 
 	{
@@ -249,7 +249,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse move",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Cliccando ovunque sullo schermo cambierà la visualizzazione"
+		"descrizione"	: "Cambio visualizzazione con i pieni e vuoti delle forme."
 	},
 
 		{
@@ -260,7 +260,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse move",
 		"data"    		: "19.04.2020",
-		"descrizione"	: "Muovendo il mouse modifico e trasformo la lettera"
+		"descrizione"	: "Variazione della lettera tramite le forma geometriche."
 	},
 
 			{
@@ -271,7 +271,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse click",
 		"data"    		: "25.04.2020",
-		"descrizione"	: "Clicca il mouse per bloccare la lettere nella sua forma corretta"
+		"descrizione"	: "Gioco di precisione"
 	},
 
 
