@@ -17,7 +17,7 @@ Gianni Carlotta
 Morcelli Alessia  
 Riva Alessandra  
 Veschetti Desirée  
-Zanda Aminas  
+Zanda Amina  
 
 Docente:  
 Andreas Gysin  
