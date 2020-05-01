@@ -506,7 +506,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Muovendo il mouse varia l'asta centrale orizzontale della lettera E."
+		"descrizione"	: "Attraverso il movimento del mouse si modifica la forma della lettera."
 	},
 	{
 		"nome"  		: "CCR",
