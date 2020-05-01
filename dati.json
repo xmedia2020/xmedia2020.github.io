@@ -314,7 +314,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Lettera elastica"
+		"descrizione"	: "Forma elastica"
 	},
 
 	{
@@ -325,7 +325,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Ad ogni click si genera una variazione random"
+		"descrizione"	: "Lettera raster con variazioni di spessore."
 	},
 
 	{
@@ -336,7 +336,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Elementi in crescita variabili tramite il movimento del mouse"
+		"descrizione"	: "Elementi multipli in crescita, variabili tramite il movimento del mouse."
 	},
 
 	{
@@ -347,7 +347,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "20.04.2020",
-		"descrizione"	: "Forme 3D da allineare a comporre la lettera"
+		"descrizione"	: "Forme 3D da allineare a comporre la lettera."
 	},
 
 	{
@@ -358,7 +358,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "26.04.2020",
-		"descrizione"	: "Intersezione di linee rotanti"
+		"descrizione"	: "Intersezione di linee rotanti."
 	},
 
 	{
