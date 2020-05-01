@@ -116,7 +116,6 @@ function keyPressed(){
     if (key == 's' || key == 'S') {
         saveCanvas('Y', 'png');
     } else if (key == 'x' || key == 'X'){
-    	reset();
         setup();
     }
     return false;
