@@ -9,11 +9,13 @@
     <canvas id="canvas" style="width:512px; height:256px;"></canvas>
     <br>
     <button>PLAY 29</button>
+    <audio src="commento.mp3"></audio>
     <script type="text/javascript">
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext
         const audio_ctx = new AudioContext()
-        const sound = new Audio('commento.mp3')
+        // const sound = new Audio('commento.mp3')
+        const sound = document.querySelector("audio")
         sound.load()
 
         let analyser, buffer
@@ -47,9 +49,11 @@
             if (e.target.dataset.playing == 1) {
                 e.target.dataset.playing = 0
                 sound.pause()
+                console.log("Pause")
             } else {
                 e.target.dataset.playing = 1
-                sound.play()
+                sound.play()¨
+                console.log("Play")
             }
         }
 
