@@ -506,7 +506,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Il movimento del mouse varia l'asta centrale orizzontale della lettera E."
+		"descrizione"	: "Muovendo il mouse varia l'asta centrale orizzontale della lettera E."
 	},
 	{
 		"nome"  		: "CCR",
@@ -516,7 +516,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Il movimento del mouse modifica la forma della lettera S."
+		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera S."
 	},
 	{
 		"nome"  		: "CCR",
@@ -526,7 +526,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "doppio touch",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Con l'utilizzo del doppio touch l'asta orizzontale della T si modifica."
+		"descrizione"	: "Utilizzando il doppio touch l'asta orizzontale della T si modifica."
 	},
 	{
 		"nome"  		: "CCR",
@@ -536,7 +536,7 @@
 		"tecnica" 		: "P5.JS, ML5.JS",
 		"input"   		: "movimento delle braccia",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Il movimento delle braccia modifica la forma della Y."
+		"descrizione"	: "Muovendo le braccia si modifica la forma della Y."
 	},
 	{
 		"nome"  		: "CCR",
@@ -546,7 +546,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Il movimento del mouse modifica la forma della lettera L."
+		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera L."
 	},
 	{
 		"nome"  		: "CCR",
@@ -556,7 +556,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Il click del mouse modifica le forme nella lettera A."
+		"descrizione"	: "Attraverso il click del mouse si modifica le forme nella lettera A."
 	},
 	{
 		"nome"  		: "CCR",
@@ -566,7 +566,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Attraverso il microfono ed il movimento del mouse si modifica la M."
+		"descrizione"	: "Attraverso il microfono e muovendo il mouse si modifica la M."
 	},
 	{
 		"nome"  		: "CCR",
@@ -576,7 +576,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "26.04.2020",
-		"descrizione"	: "Il movimento del mouse modifica la geometria della o."
+		"descrizione"	: "Muovendo il mouse si modifica la geometria della o."
 	},
 	{
 		"nome"  		: "MDE",
