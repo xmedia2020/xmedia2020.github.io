@@ -62,3 +62,31 @@ function windowResized() {
   marginX = windowWidth - int((windowWidth / slotSize)) * slotSize;
   marginY = windowHeight - int((windowHeight / slotSize)) * slotSize;
 }
+
+
+function keyPressed(){
+  if (key == 's' || key == 'S') {
+    saveCanvas('F', 'png');
+  } else if (key == 'x' || key == 'X'){
+    setup()
+  }
+
+  return false;
+
+}
+
+function keyReleased(){
+
+}
+
+function mousePressed(){
+
+}
+
+function mouseReleased(){
+
+}
+
+function mouseMoved(){
+
+}
