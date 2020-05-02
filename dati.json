@@ -97,9 +97,9 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Muovi il mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Particelle random creano un disegno"
+		"descrizione"	: "Sperimentazione con particelle e random walker."
 	},
-	{
+{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
 		"cartella" 		: "06O",
@@ -107,9 +107,9 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click Mouse",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Genera una texture come un tunnel"
+		"descrizione"	: "Generare un'illusione ottica con il movimento del mouse."
 	},
-	{
+{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
 		"cartella" 		: "07G",
@@ -117,7 +117,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Scroll",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Scrolla la pagina per creare la lettera"
+		"descrizione"	: "Esempio di scroll per disegnare il path SVG."
 	},
 
 	{
