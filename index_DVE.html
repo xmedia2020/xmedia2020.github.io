@@ -204,16 +204,23 @@
 
       <div id="menu">
       <h1 id="titolo">Abecedario</h1>
-      <p id="intro">Si tratta di un progetto collettivo, ovvero un abecedario online.
-    Ogni studente contribuisce con caratteri progettati individualmente. È possibile trovare più di una variante per lettera dell’alfabeto.
+      <p id="intro">Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.  <br>
+	  È possibile avere più di una variante per lettera dell’alfabeto.
     </p>
     <p id="regole">Molte le libertà, tre le regole:<br>
       – Bianco e nero<br>
-      – Interattivo<br>
-      – Fullscreen
+      – Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)<br>
+      – Fullscreen<br><br>
+
+      linkrepo https://github.com/xmedia2020/xmedia2020.github.io
+
+      Nota: questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale (a.k.a. Cross-Media o XMedia).
     </p>
     <p id="nomi">Docente: Andrea Gysin (AGY)<br>
              Studenti: Alessia Morcelli (AMO), Alessandra Riva (ARI), Amina Zanda (AZA), Chiara Crivelli (CCR), Carlotta Gianni (CGI), Desirée Veschetti (DVE), Ilaria Dellea (IDE), Lara Ballerini (LBA), Mattia Dellamora (MDE), Olena Corzetto (OCO)
+             Assistenti: Valentina Meldi (VME), Melanie Agresta (MAG)
+
+
     </p>
     </div>
   
@@ -311,7 +318,8 @@
 
                     console.log(visit)
                     if(visit == " "){
-                      document.querySelectorAll("."+dati[i].nome).forEach((e)=>{ 
+                    	el.classList.add("visitato")
+                      document.querySelectorAll(".visitato").forEach((e)=>{ 
                                     e.style.backgroundColor = "rgb(220, 220, 220)"
                                     el.style.backgroundColor = "rgb(220, 220, 220)"
                                 })
