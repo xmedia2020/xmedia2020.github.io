@@ -321,9 +321,18 @@
                     	el.classList.add("visitato")
                       document.querySelectorAll(".visitato").forEach((e)=>{ 
                                     e.style.backgroundColor = "rgb(220, 220, 220)"
-                                    el.style.backgroundColor = "rgb(220, 220, 220)"
+                                    // el.style.backgroundColor = "rgb(220, 220, 220)"
+                                })
+                    } else if(visit == "*"){
+                    	el.classList.add("visitato")
+                      document.querySelectorAll(".visitato").forEach((e)=>{ 
+                                    e.style.backgroundColor = "black"
+                                    // el.style.backgroundColor = "black"
                                 })
                     } 
+
+
+
                 }
             }
 
