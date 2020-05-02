@@ -36,10 +36,11 @@ function draw() {
 
 
 function mousePressed() {
- 
-    save('Alessandra_Riva_M.jpg');
+ background(0)
+    
   
   }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   marginX = windowWidth - int((windowWidth / slotSize)) * slotSize;
