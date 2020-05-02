@@ -22,7 +22,7 @@ let ch = "g"
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	background(180);
-	pixelDensity(1);
+	pixelDensity(2);
 
 	marginX = windowWidth - int((windowWidth / slotSize)) * slotSize;
 	marginY = windowHeight - int((windowHeight / slotSize)) * slotSize;
