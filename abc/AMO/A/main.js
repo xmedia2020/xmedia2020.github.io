@@ -21,17 +21,54 @@ function Particle() { //particelle si muovono random x altezza e larghezza
 Particle.prototype.move = function(stepSize) { //indica il movimento random che deve fare la particella e di quanto
   this.oldX = this.x;
   this.oldY = this.y;
+
   // Questo è quello giusto
   this.x += random(-stepSize, stepSize);
   this.y += random(-stepSize, stepSize);
+  
+  //si siempie senza senso
+  // this.x += random(-alphaMap,alpha);
+  // this.y += random(-betaMap, beta);
+
+  //si siempie senza senso
+  // this.x += random(-mouseX, mouseY);
+  // this.y += random(-mouseY, mouseY);
+
+
+
   if (this.x < 0) this.x = 0;
   if (this.x > w) this.x = w;
   if (this.y < 0) this.y = 0;
   if (this.y > h) this.y = h;
+
+
+
+  // Non fa niente
+  // if (this.x < 0) this.x = 0;
+  // if (this.x > alph) this.x = alpha;
+  // if (this.y < 0) this.y = 0;
+  // if (this.y > beta) this.y = beta;
+
+  //Non molto interattivo
+  // if (this.x < 0) this.x = betaMap;
+  // if (this.x > w) this.x = w;
+  // if (this.y < 0) this.y = alphaMap;
+  // if (this.y > h) this.y = h;
+
+  //Parte dall'angolo non molto interattivo
+  // if (this.x < betaMap) this.x = 0;
+  // if (this.x > w) this.x = w;
+  // if (this.y < alphaMap) this.y = 0;
+  // if (this.y > h) this.y = h;
+
+  //console.log(stepSize)
 };
 
 Particle.prototype.draw = function() { //senza questa non disegna niente
 line(this.oldX, this.oldY, this.x, this.y); //linea che parte da old xy a nuovo xy)
+// line(this.oldX, this.oldY, mouseX, mouseY); //fa effetto lumos
+// line(this.oldX*mouseX, this.oldY*mouseY,this.x*mouseX, this.y*mouseY);
+  //line(betaMap, mouseX, alphaMap, mouseY);  
   };
 
 var particles;
@@ -156,9 +193,12 @@ function mouseMoved(){
     particles = [];
   
   for(var i = 0; i < 250; i++) { //definire questo map rende più piena la creazione
+    
     // px = floor(mouseX);// posizione
     py = floor(mouseY);
+
     particles.push(new Particle());
-    // reset();
+  
+  // reset();
   }
 }
