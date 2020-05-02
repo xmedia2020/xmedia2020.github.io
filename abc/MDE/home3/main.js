@@ -185,7 +185,7 @@ function mouseReleased(){
 function init(){
     document.querySelector("canvas").innerHTML = " "
     let w, h
-    if(windowWidth <= 375){
+    if(windowWidth <= 540){
         w = floor(windowWidth-3);
         h = floor((windowHeight / 100) * 80)
         bMargin = 15
