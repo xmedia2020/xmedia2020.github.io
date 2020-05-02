@@ -2,9 +2,6 @@ const nr = 50
 const r = 200
 let off = 0.0
 const rings = 17
-function preload() {
-    //img = loadImage("assets/k.png")
-}
 
 function setup() {
     createCanvas(windowWidth, windowHeight)
@@ -38,15 +35,9 @@ function draw() {
         noFill()
         endShape(CLOSE)
     }
-
-    //noLoop();
 }
 
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
-}
-
-function mousePressed() {
-
 }

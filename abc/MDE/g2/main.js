@@ -1,33 +1,25 @@
 /**
- * Particelle
- *
+ * Ispirato a:
+ * https://twitter.com/junkiyoshi/status/1242058485740658688 
  */
 
 
-let particelle = [] // inizializziamo un array (vuoto)
-const griglia = 15
+let particelle = [] 
+let griglia, radius
 let values
 let letterW, letterH
 let stepX, stepY;
-let radius = 100
 
 function preload() {
-    //json = loadJSON("g_coord.json")
     img = loadImage("assets/g6.png")
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight)
-    letterW = width/2 
-    letterH = letterW
-    stepX = letterW / griglia
-    stepY = stepX
-    values = getValues()
-    console.log(values)
+    init()
 }
 
 function draw() {
-
     background(0)
 
     push()
@@ -82,6 +74,7 @@ function draw() {
 function windowResized() {
     // importante: il canvas deve essere ridimensionato assieme alla finestra
     resizeCanvas(windowWidth, windowHeight)
+    init()
 }
 
 function mouseMoved() {
@@ -120,6 +113,33 @@ function mouseMoved() {
 	}
 }
 
+function init(){
+    letterW = width/2 
+    letterH = letterW
+
+    if(width >= 1200){
+        //Desktop
+        griglia = 15
+        radius = 100;
+    } else if (width < 1200 && width >= 400){
+        //tablet
+        griglia = 13
+        radius = 90;
+        letterW = height*0.8;
+        letterH = letterW
+    } else {
+        //phone
+        griglia = 12
+        radius = 60;
+        letterW = height*0.6;
+        letterH = letterW
+    }
+
+    stepX = letterW / griglia
+    stepY = stepX
+    values = getValues()
+    return
+}
 
 function getValues() {
     let values = []
