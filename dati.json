@@ -128,7 +128,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Diverse “g” che ruotano ruotanti"
+		"descrizione"	: "Muovendo il mouse si modifica la texture."
 	},
 	{
 		"nome"  		: "ARI",
@@ -138,7 +138,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "“I” che ruotano ruotanti e giocano di scala"
+		"descrizione"	: "Muovendo il mouse si può modificare la texture, cliccando si può modificare la dimensione. "
 	},
 
 	{
@@ -149,7 +149,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse click",
 		"data"    		: "18.03.2020",
-		"descrizione"	: "Sistema di scrittura tramite lettera"
+		"descrizione"	: "Utilizzando il mouse si può scrivere mediante una linea."
 	},
 
 	{
@@ -160,7 +160,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Sistema animato"
+		"descrizione"	: "Cliccando sul canvas copare l'animazione."
 	},
 
 	{
@@ -171,7 +171,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Mandala animato"
+		"descrizione"	: "Cliccando è possibile salvare il mandala auto generato."
 	},
 
 	{
@@ -182,7 +182,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Audio",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "onda sonora animata"
+		"descrizione"	: "Attraverso il microfono, parlando, è possibile visualizzare la proprio onda sonora. "
 	},
 
 	{
@@ -193,7 +193,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Sistema di particelle"
+		"descrizione"	: "Attraverso il click è possibile interagire con un sistema di particelle."
 	},
 
 
