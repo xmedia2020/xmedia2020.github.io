@@ -58,3 +58,8 @@ function windowResized() {
   marginY = windowHeight - int((windowHeight / slotSize)) * slotSize;
 }
 
+function keyPressed(){
+  if (key == 's' || key == 'S') {
+    saveCanvas('ARI_l', 'png');
+  } 
+  }

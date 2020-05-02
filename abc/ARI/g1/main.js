@@ -83,9 +83,7 @@ function windowResized() {
 }
 
 function mousePressed(){
-  if (mouseX < width / 2){
-    save('Ale.jpg');
-  }
+  
   getAudioContext().resume()
 }
 
@@ -111,3 +109,9 @@ function debug(val) {
   function noScroll() {
   window.scrollTo(0, 0);
 }
+
+function keyPressed(){
+	if (key == 's' || key == 'S') {
+    saveCanvas('ARI_g', 'png');
+  } 
+  }

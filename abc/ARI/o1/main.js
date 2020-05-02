@@ -74,6 +74,11 @@ function keyPressed(){
   return false;
 
 }
+function keyPressed(){
+  if (key == 's' || key == 'S') {
+    saveCanvas('ARI_o', 'png');
+  } 
+  }
 
 function keyReleased(){
 

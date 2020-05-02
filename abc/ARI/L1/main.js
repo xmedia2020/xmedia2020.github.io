@@ -50,3 +50,9 @@ function windowResized() {
   marginX = windowWidth - int((windowWidth / slotSize)) * slotSize;
   marginY = windowHeight - int((windowHeight / slotSize)) * slotSize;
 }
+
+function keyPressed(){
+  if (key == 's' || key == 'S') {
+    saveCanvas('ARI_L', 'png');
+  } 
+  }
