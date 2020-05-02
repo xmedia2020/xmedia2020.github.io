@@ -144,7 +144,7 @@
 	{
 		"nome"  		: "ARI",
 		"nomeCompleto" 	: "Alessandra Riva",
-		"cartella" 		: "l1",
+		"cartella" 		: "l",
 		"lettera"  		: "l",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse click",
@@ -155,7 +155,7 @@
 	{
 		"nome"  		: "ARI",
 		"nomeCompleto" 	: "Alessandra Riva",
-		"cartella" 		: "L2",
+		"cartella" 		: "L1",
 		"lettera"  		: "L",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
