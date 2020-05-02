@@ -92,7 +92,7 @@
 	{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "04A",
+		"cartella" 		: "A",
 		"lettera"  		: "A",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Muovi il mouse",
@@ -102,7 +102,7 @@
 {
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "06O",
+		"cartella" 		: "O",
 		"lettera"  		: "O",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click Mouse",
@@ -112,7 +112,7 @@
 {
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "07G",
+		"cartella" 		: "G",
 		"lettera"  		: "G",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Scroll",
