@@ -20,10 +20,13 @@ function preload() {
 
 
 function setup() {
-    let cnv = createCanvas(windowWidth, (windowHeight / 100) * 86)
+    let w = floor(windowWidth);
+    let h = floor((windowHeight / 100) * 86)
+    let cnv = createCanvas(w, h)
     cnv.parent("canvas")
     sim = new Sim()
     sim.gravity.y = 0.0
+    console.log(w, h)
 
     const data = {}
     for (let key in json) {
@@ -34,7 +37,7 @@ function setup() {
     console.log(data)
 
     nodes = []
-    const root = sim.addPoint(0,0,5)
+    const root = sim.addPoint(0,-45,5)
     root.pinned = true
     for(const key in data){
         const p1 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
@@ -61,16 +64,18 @@ function setup() {
     }
 
     console.log(nodes)
+    rectMode(CENTER)
+    ellipseMode(CENTER)
 
 
 }
 
 function draw() {
+    sim.bounds(-width/2+20,-height/2+20,width-20, height-20)
     if(picked != null){
         picked.point.pos.set(mouseX-width/2, mouseY-height/2)
     }
     sim.update(1)
-    // sim.bounds(40, 40, width - 40, height - 40)
 
     const min_radius_sq = 25 * 25 // distanza minima per applicare la forza
     for (let k = 0; k < 5; k++) {
@@ -109,11 +114,13 @@ function draw() {
 
     // punti
     noStroke()
-    textSize(22)
     let asc = textAscent() * 0.8            //calcola ascend
     for (const n of nodes) {
         if(n.type == 1){
             push()
+            fill(0)
+            rect(n.point.pos.x, n.point.pos.y-2, 37, 17)
+            textSize(16)
             let txtW = textWidth(n.nome)
             translate(-txtW/2, asc/2)
             fill(n.fill)
@@ -121,6 +128,9 @@ function draw() {
             pop()
         } else if(n.type == 2){
             push()
+            fill(0)
+            ellipse(n.point.pos.x, n.point.pos.y-6, 32, 32)
+            textSize(26)
             let txtW = textWidth(n.data.lettera)
             translate(-txtW/2, asc/2)
             fill(n.fill)
@@ -139,7 +149,7 @@ function mousePressed(){
     picked = null
     for(const n of nodes){
         const d = dist(mouseX-width/2, mouseY-height/2, n.point.pos.x, n.point.pos.y)
-        if(d < 50){
+        if(d < 25){
             picked = n
             console.log(`you have picked: ${picked}`)
             if(n.type == 1){

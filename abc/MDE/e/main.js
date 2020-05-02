@@ -3,8 +3,8 @@
  * MDE
  * Reference: https://p5js.org/reference/
  *
- * todo:
- * - Interattività: hover occhio sgranato, click = chiudi
+ * Ispirato a:
+ * - Rewind, Pauline Saglio (https://vimeo.com/channels/832315/74715354)
  *
  */
 

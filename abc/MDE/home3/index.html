@@ -1,34 +1,95 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<title>home</title>
-	<meta name="description" 							content="home">
-	<meta name="author"                       			content="Matt">
-	<meta name="viewport" 								content="width=device-width, initial-scale=1">
-	<meta name="mobile-web-app-capable" 				content="yes">
-	<meta name="apple-mobile-web-app-capable" 			content="yes">
-	<meta name="theme-color" 							content="black">
-	<meta name="msapplication-navbutton-color" 			content="black">
-	<meta name="apple-mobile-web-app-status-bar-style" 	content="black">
-	<link rel="apple-touch-icon" href="/icons/icon_192.png">
-	<link rel="shortcut icon"    href="/icons/icon_32.png">
-	<link rel="stylesheet"       href="/css/style.css">
-	<link rel="stylesheet"       href="myStyle.css">
+    <meta charset="utf-8">
+    <title>home</title>
+    <meta name="description" content="home">
+    <meta name="author" content="Matt">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="black">
+    <meta name="msapplication-navbutton-color" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/icons/icon_192.png">
+    <link rel="shortcut icon" href="/icons/icon_32.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="myStyle.css">
 </head>
 
 <body class="disable-select disable-scroll">
-	<div id="info">
-<!-- 		<div id="letter"></div>
+    <div id="info">
+        <!-- 		<div id="letter"></div>
 		<div id="info1"></div>
 		<div id="info2"></div>
 		<div id="play"></div> -->
-	</div>
-	<div id="canvas">
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-	<script src="main.js"></script>
-	<script src="verlet.js"></script>
-	<script src="updateData.js"></script>
+    </div>
+    <div id="canvas"></div>
+    <div id="buttonAbout"><span>?</span></div>
+    <div id="about">
+        <div class="title">
+        	Abecedario interattivo<br>
+        	Lugano, Primavera 2020<br><br><br>
+        </div>
+        <div class="description">
+            Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.
+            È possibile avere più di una variante per lettera dell’alfabeto. <br><br>
+
+            Molte le libertà, tre le regole:<br><ul>
+            <li>Bianco e nero</li>
+            <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
+            <li>Fullscreen</li>
+        	</ul>
+        	<br>
+            Link alla repository:<br>
+            <a href="https://github.com/xmedia2020/xmedia2020.github.io">https://github.com/xmedia2020</a><br><br>
+            Nota:<br> Questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale (a.k.a. Cross-Media o XMedia).
+        </div>
+        <div class="people">
+        	Studenti:<br>
+			Ballerini Lara <br>
+			Corzetto Olena <br>
+			Crivelli Chiara <br>
+			Dellamora Mattia <br>
+			Dellea Ilaria <br>
+			Gianni Carlotta <br>
+			Morcelli Alessia <br>
+			Riva Alessandra <br>
+			Veschetti Desirée <br>
+			Zanda Amina <br>
+			<br>
+			Docente:<br>
+			Andreas Gysin <br>
+			<br>
+			Assistenti:<br>
+			Valentina Meldi<br>
+			Melanie Agresta<br>
+		</div>
+		<div id="buttonClose"><span>CHIUDI</span></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="main.js"></script>
+    <script src="verlet.js"></script>
+    <script src="updateData.js"></script>
+    <script type="text/javascript">
+    const buttonAbout = document.querySelector("#buttonAbout")
+    const about = document.querySelector("#about")
+    const buttonClose = document.querySelector("#buttonClose")
+    buttonAbout.addEventListener("click", showAbout)
+    buttonClose.addEventListener("click", hideAbout)
+
+    function showAbout() {
+        about.classList.add("active")
+        buttonAbout.style.display = "none";
+    }
+
+    function hideAbout() {
+        about.classList.remove("active")
+        buttonAbout.style.display = "block";
+    }
+
+    </script>
 </body>
+
 </html>
