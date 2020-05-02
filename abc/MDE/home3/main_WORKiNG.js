@@ -11,7 +11,6 @@
 
 let json, nodes
 let sim
-let bMargin
 
 let picked = null
 
@@ -21,9 +20,13 @@ function preload() {
 
 
 function setup() {
-    init()
+    let w = floor(windowWidth);
+    let h = floor((windowHeight / 100) * 86)
+    let cnv = createCanvas(w, h)
+    cnv.parent("canvas")
     sim = new Sim()
     sim.gravity.y = 0.0
+    console.log(w, h)
 
     const data = {}
     for (let key in json) {
@@ -31,7 +34,7 @@ function setup() {
         data[nome] = data[nome] || []
         data[nome].push(json[key])
     }
-    // console.log(data)
+    console.log(data)
 
     nodes = []
     const root = sim.addPoint(0,-45,5)
@@ -68,8 +71,7 @@ function setup() {
 }
 
 function draw() {
-    // sim.bounds(-width/2+bMargin,-height/2+bMargin,width-bMargin, height-bMargin)
-    sim.bounds(-width/2+bMargin,-height/2+bMargin,width/2-bMargin, height/2-bMargin)
+    sim.bounds(-width/2+20,-height/2+20,width-20, height-20)
     if(picked != null){
         picked.point.pos.set(mouseX-width/2, mouseY-height/2)
     }
@@ -179,22 +181,4 @@ function mousePressed(){
 
 function mouseReleased(){
     picked = null
-}
-
-
-function init(){
-    document.querySelector("canvas").innerHTML = " "
-    let w, h
-    if(windowWidth <= 375){
-        w = floor(windowWidth-3);
-        h = floor((windowHeight / 100) * 80)
-        bMargin = 15
-    } else {
-        w = floor(windowWidth);
-        h = floor((windowHeight / 100) * 86)
-        bMargin = 20
-    }
-
-    let cnv = createCanvas(w, h)
-    cnv.parent("canvas")
 }

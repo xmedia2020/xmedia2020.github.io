@@ -228,31 +228,120 @@ a {
 /*--MEDIA QUERIES*/
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
     body {
-    	font-size: 16px;
+        font-size: 16px;
+    }
+
+    #info {
+        flex-flow: row wrap;
+        font-size: 0.382em;
+        height: 20vh;
+        padding-right: 15px;
+    }
+
+    #letter {
+        width: 14%;
+        order: 0;
+        padding-left: 5px;
+        height: auto;
+        /*max-height: 50px;*/
+    }
+
+    #play {
+        order: 1;
+        width: 75%;
+        padding-right: 0px;
+        max-height: 50px;
+        height: auto;
+    }
+
+    #info1 {
+        display: block;
+        width: 100%;
+        order: 2;
+        height: 35px;
+        /*non so perchè il div non fitta il content*/
+        font-size: 1.618em;
+    }
+
+    #info1 col:first-child {
+        width: 25%;
+    }
+
+    #info2 {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        order: 3;
+        height: auto;
+        padding-left: 0px;
+        padding-top: 0px;
+        font-size: 1.618em;
+    }
+
+    #info2 td {
+        padding-right: 25px;
     }
 
     #selectLetter {
-        font-size: 4.236em;
+        /*font-size: 4.236em;*/
         line-height: 0.95em;
     }
-    #about{
-    	/*flex-direction: column;*/
+
+    #about {
+        /*flex-direction: column;*/
+        position: absolute;
+        height: calc(100% - 12px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 1.618em;
+        padding: 10px 0px 0px 10px;
+    }
+
+    #about ul {
+        list-style-type: circle !important;
+    }
+
+    #about li:before {
+        content: initial;
+        width: 0px;
+        margin-left: 0px;
     }
 
     #about .title {
-    	width: 100%;
-    	order: 0;
-	}
+        width: 100%;
+        order: 0;
+        margin-top: 75px;
+    }
 
-	#about .description {
-    	width: 100%;
-    	order: 1;
-	}
+    #about .description {
+        width: 100%;
+        order: 1;
+    }
 
-	#about .people {
-    	width: 100%;
-    	order: 2;
-    	margin-left: 120px
-	}
+    #about .people {
+        width: 100%;
+        order: 2;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
 
+    #buttonAbout {
+        bottom: 40px;
+    }
+
+    #buttonAbout span {
+        line-height: 1.5em;
+    }
+
+    #buttonClose {
+    	width: 100%;
+    	height: 45px;
+        z-index: 3;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.618em;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
