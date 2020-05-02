@@ -89,7 +89,7 @@
 		"data"    		: "17.03.2020",
 		"descrizione"	: "Esempio di una “feedback loop” (non tramite shader)."
 	},
-	{
+{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
 		"cartella" 		: "A",
@@ -114,10 +114,20 @@
 		"nomeCompleto" 	: "Alessia Morcelli",
 		"cartella" 		: "G",
 		"lettera"  		: "G",
-		"tecnica" 		: "P5JS",
+		"tecnica" 		: "SVG path lenght",
 		"input"   		: "Scroll",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Esempio di scroll per disegnare il path SVG."
+		"descrizione"	: "Esempio di scroll per disegnare il path del file SVG."
+	},
+{
+		"nome"  		: "AMO",
+		"nomeCompleto" 	: "Alessia Morcelli",
+		"cartella" 		: "R",
+		"lettera"  		: "R",
+		"tecnica" 		: "CSS",
+		"input"   		: "Muovi il mouse sulle lettere",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Animazione con solo CSS per mostrare una sovrapposizione di pesi dello stesso font."
 	},
 
 	{
