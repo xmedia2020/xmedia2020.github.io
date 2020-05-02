@@ -586,7 +586,7 @@
 		"tecnica" 		: "P5JS, cel animation",
 		"input"   		: "Mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Scorrendo con il mouse sopra l'area della lettera o cliccando, centina di occhi si aprono."
+		"descrizione"	: "Utilizzo di una sequenza di frames disegnati manualmente, disposti nello spazio e animati in maniera procedurale e indipendente."
 	},
 	{
 		"nome"  		: "MDE",
@@ -596,7 +596,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "29.03.2020",
-		"descrizione"	: "Passando con il mouse sopra l'area centrale dello schermo, si rivela la lettera che sta sotto."
+		"descrizione"	: "Uso i valori più chiari dei pixel di un'immagine, per rivelare la lettera con delle particelle."
 	},
 	{
 		"nome"  		: "MDE",
@@ -606,7 +606,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Le righe si dilatano e lasciano intravedere la lettera. Il mouse regola lo spessore della linea."
+		"descrizione"	: "Uso i valori di chiarezza dei pixel di un'immagine per alterare il disegno di una linea, il mouse ne modifica l'intensità e il colore di riempimento."
 	},
 	{
 		"nome"  		: "MDE",
