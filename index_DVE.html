@@ -289,11 +289,11 @@
                                 el.dataset.over = "false"
                                 document.querySelectorAll("."+dati[i].nome).forEach((v)=>{
                                   if(visit == " "){
-                                      document.querySelectorAll("."+dati[i].nome).forEach((e)=>{ 
-                                          e.style.backgroundColor = "rgb(220, 220, 220)"
-                                          el.style.backgroundColor = "rgb(220, 220, 220)"
+                    					document.querySelectorAll(".visitato").forEach((e)=>{ 
+                                        e.style.backgroundColor = "rgb(220, 220, 220)"
+                                        el.style.backgroundColor = "rgb(220, 220, 220)"
                                       })
-                                  } else{
+                                  } else if(visit == "*"){
                                       v.style.backgroundColor = "black"
                                       el.style.backgroundColor = "black"
                                   }
