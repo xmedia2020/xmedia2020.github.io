@@ -596,7 +596,7 @@
 		"tecnica" 		: "P5JS, cel animation",
 		"input"   		: "Mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Utilizzo di una sequenza di frames disegnati manualmente, disposti nello spazio e animati in maniera procedurale e indipendente."
+		"descrizione"	: "Uso una serie frames disegnati manualmente, disposti nello spazio e animati in maniera procedurale"
 	},
 	{
 		"nome"  		: "MDE",
@@ -626,7 +626,7 @@
 		"tecnica" 		: "P5JS, ML5",
 		"input"   		: "Faccia",
 		"data"    		: "07.04.2020",
-		"descrizione"	: "Un volto disegnato si arrabbia insieme a te e imita le tue sopracciglia. (Caricamento lento!)"
+		"descrizione"	: "Ricavo la posizione delle sopracciglia dal video della webcam e genero un volto che mima l'espressione. (Caricamento lento!)"
 	},
 	{
 		"nome"  		: "MDE",
@@ -636,7 +636,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "15.04.2020",
-		"descrizione"	: "La lettera o è un'entità viva, che segue il cursore del mouse nello schermo."
+		"descrizione"	: "Una serie di anelli concentrici e in continuo movimento segue il mouse con intensità progressiva."
 	},
 	{
 		"nome"  		: "OCO",
