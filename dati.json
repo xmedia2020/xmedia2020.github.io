@@ -138,7 +138,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Muovendo il mouse si modifica la texture."
+		"descrizione"	: "Muovendo il mouse si modifica la texture, cliccando una lettera della tastiera essa cambia."
 	},
 	{
 		"nome"  		: "ARI",
@@ -148,7 +148,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Muovendo il mouse si può modificare la texture, cliccando si può modificare la dimensione. "
+		"descrizione"	: "Muovendo il mouse si può modificare la texture, cliccando si può modificare la dimensione e cliccando una lettera della tastiera si modifica la lettera. "
 	},
 
 	{
@@ -170,7 +170,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Cliccando sul canvas copare l'animazione."
+		"descrizione"	: "Cliccando sul canvas compare l'animazione."
 	},
 
 	{
@@ -181,7 +181,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Cliccando è possibile salvare il mandala auto generato."
+		"descrizione"	: "Cliccando è possibile modificare il mandala auto generato, aggiornandolo."
 	},
 
 	{
