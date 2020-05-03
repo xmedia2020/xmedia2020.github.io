@@ -21,8 +21,8 @@
 
 
             div.pixel {
-              width: 1vh;
-              height: 1vh;
+              width: 1.5vh;
+              height: 1.5vh;
               position: absolute;
               background-color: black;
               transition: all 500ms ease-in-out;
@@ -31,8 +31,8 @@
           div.pixel:hover {
               border: solid 0.5px rgb(220, 220, 220);
               background-color: white !important;
-              width: 12vh;
-              height: 16vh;
+              width: 14vh;
+              height: 20vh;
               z-index: 1;
               display: block;
 
@@ -51,13 +51,13 @@
           .cartella{
               display:none;
               padding-left: 0.75em;
-              font-size: 0.7rem;
+              font-size: 0.7em;
           }
           .nome{
               padding-left: 0.75em;
               padding-top: 0.5em;
               display:none;
-              font-size: 0.9rem;
+              font-size: 0.9em;
               /*display: block;*/
               font-family: monospace;
           }
@@ -66,14 +66,14 @@
               padding-right: 1.25em;
               padding-top: 1em;
               bottom: 0.5em;
-              font-size: 0.7rem;
+              font-size: 0.7em;
               display:none;
               color: black;
               font-family: monospace;
           }
           .data{
               display:none;
-              font-size: 0.7rem;
+              font-size: 0.7em;
               padding-left: 0.75em;
               padding-top: 1em;
               color: rgb(220, 220, 220);
@@ -81,7 +81,7 @@
           .lettera{
               display:none;
               font-family: "HelveticaNeue Bold", "Helvetica Neue Bold", Helvetica, Arial, sans-serif;
-              font-size: 2.5rem;
+              font-size: 2.5em;
               color: black;
               position: absolute;
               bottom:0.05rem;
@@ -107,8 +107,14 @@
           transition: all 500ms ease-in-out;
          }
 
+          @media only screen and (max-width: 600px){
+          	#menu {
+	          height: 6vh;
+     		 }
+         }
+
           #menu:hover {
-        color: black;
+          color: black;
           background-color: white;
           position: absolute;
           padding-top: 1rem;
@@ -117,12 +123,12 @@
           padding-left: 2vw;
           width: 98vw;
           width: 100vw;
-          height: 16vh;
+          height: 20vh;
           z-index: 1;
          }
 
           #titolo {
-          font-size: 1rem;
+          font-size: 1em;
           position: absolute;
           left:0;
           padding-left: 2vw;
@@ -133,7 +139,7 @@
 
           #menu:hover h1#titolo{
           
-          font-size: 2.5rem;
+          font-size: 2.5em;
           color:red;
           position: absolute;
           padding-top: 0.1rem;
@@ -146,7 +152,7 @@
          }
 
           p#intro {
-          font-size: 0.7rem;
+          font-size: 0.7em;
           position: absolute;
           left:20vw;
           font-family: monospace;
@@ -154,6 +160,7 @@
           width: 15vw;
           height: 4vh;
           display: none;
+          transition: all 500ms ease-in-out;
 
          }
           #menu:hover p#intro {
@@ -163,14 +170,16 @@
           width:15vw;
           padding-left: 2vw;
           display: block;
+          transition-delay: 2s;
          }
           #regole{
-          font-size: 0.7rem;
+          font-size: 0.7em;
           position: absolute;
           left:40vw;
           font-family: monospace;
           padding-left: 2vw;
           display: none;
+          transition: all 500ms ease-in-out;
          }
           #menu:hover #regole {
           padding-top: 0.1rem;
@@ -179,14 +188,16 @@
           padding-left: 2vw;
           width: 20vw;
           display: block;
+          transition-delay: 2s;
          }
          #nomi{
-          font-size: 0.7rem;
+          font-size: 0.7em;
           position: absolute;
           left:65vw;
           font-family: monospace;
           padding-left: 2vw;
           display: none;
+          transition: all 500ms ease-in-out;
          }
           #menu:hover #nomi {
           padding-top: 0.1rem;
@@ -195,6 +206,11 @@
           padding-left: 2vw;
           width: 20vw;
           display: block;
+          transition-delay: 2s;
+         }
+
+         a {
+         	color: black;
          }
 
 
@@ -204,16 +220,23 @@
 
       <div id="menu">
       <h1 id="titolo">Abecedario</h1>
-      <p id="intro">Si tratta di un progetto collettivo, ovvero un abecedario online.
-    Ogni studente contribuisce con caratteri progettati individualmente. È possibile trovare più di una variante per lettera dell’alfabeto.
+      <p id="intro">Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.  <br>
+	  È possibile avere più di una variante per lettera dell’alfabeto.
     </p>
     <p id="regole">Molte le libertà, tre le regole:<br>
       – Bianco e nero<br>
-      – Interattivo<br>
-      – Fullscreen
+      – Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)<br>
+      – Fullscreen<br><br>
+      <a href="https://github.com/xmedia2020/xmedia2020.github.io">github repository</a> <br><br>
+
+      Nota: questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale<br>
+	(a.k.a. Cross-Media o XMedia).
     </p>
     <p id="nomi">Docente: Andrea Gysin (AGY)<br>
-             Studenti: Alessia Morcelli (AMO), Alessandra Riva (ARI), Amina Zanda (AZA), Chiara Crivelli (CCR), Carlotta Gianni (CGI), Desirée Veschetti (DVE), Ilaria Dellea (IDE), Lara Ballerini (LBA), Mattia Dellamora (MDE), Olena Corzetto (OCO)
+             Studenti: Alessia Morcelli (AMO), Alessandra Riva (ARI), Amina Zanda (AZA), Chiara Crivelli (CCR), Carlotta Gianni (CGI), Desirée Veschetti (DVE), Ilaria Dellea (IDE), Lara Ballerini (LBA), Mattia Dellamora (MDE), Olena Corzetto (OCO)<br>
+             Assistenti: Valentina Meldi (VME), Melanie Agresta (MAG)
+
+
     </p>
     </div>
   
@@ -257,7 +280,7 @@
                     el.classList.add("pixel")
                     el.classList.add(dati[i].nome)
                     el.style.left = getRandomInt(10,90) + "vw"
-                    el.style.top = getRandomInt(10,85) + "vh"
+                    el.style.top = getRandomInt(10,80) + "vh"
                     
                     //el.style.backgroundColor = "hsl(0, 0%,"+ getRandomInt(0,85)+ "%)"
                     //el.style.backgroundColor = "hsl("+ getRandomInt(0,360)+", 100%, 50%)"
@@ -278,11 +301,11 @@
                                 el.dataset.over = "false"
                                 document.querySelectorAll("."+dati[i].nome).forEach((v)=>{
                                   if(visit == " "){
-                                      document.querySelectorAll("."+dati[i].nome).forEach((e)=>{ 
-                                          e.style.backgroundColor = "rgb(220, 220, 220)"
-                                          el.style.backgroundColor = "rgb(220, 220, 220)"
+                    					document.querySelectorAll(".visitato").forEach((e)=>{ 
+                                        e.style.backgroundColor = "rgb(220, 220, 220)"
+                                        el.style.backgroundColor = "rgb(220, 220, 220)"
                                       })
-                                  } else{
+                                  } else if(visit == "*"){
                                       v.style.backgroundColor = "black"
                                       el.style.backgroundColor = "black"
                                   }
@@ -311,11 +334,21 @@
 
                     console.log(visit)
                     if(visit == " "){
-                      document.querySelectorAll("."+dati[i].nome).forEach((e)=>{ 
+                    	el.classList.add("visitato")
+                      document.querySelectorAll(".visitato").forEach((e)=>{ 
                                     e.style.backgroundColor = "rgb(220, 220, 220)"
                                     el.style.backgroundColor = "rgb(220, 220, 220)"
                                 })
+                    } else if(visit == "*"){
+                    	
+                      document.querySelectorAll(".pixel").forEach((e)=>{ 
+                                    e.style.backgroundColor = "black"
+                                    el.style.backgroundColor = "black"
+                                })
                     } 
+
+
+
                 }
             }
 

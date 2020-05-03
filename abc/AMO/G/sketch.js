@@ -16,31 +16,34 @@ path.getBoundingClientRect();
 
 // funzione x quando scrollo ndr. disabilito dall'index l altro?
 window.addEventListener("scroll", function(e) {
- 
+
   // trovo percentuale di completmento in base a quanto si scrolla
   //Referenza
   // https://stackoverflow.com/questions/2387136/cross-browser-method-to-determine-vertical-scroll-percentage-in-javascript/2387222#2387222
- 
+
   var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    
+
   // Mostra il tracciato
   var drawLength = pathLength * scrollPercentage;
-  
+
   // disegna rispetto alla trasparenza
- path.style.strokeDashoffset = pathLength - drawLength;
-    
+  path.style.strokeDashoffset = pathLength - drawLength;
+
   //Al termine, rimuovere l'array dash, altrimenti la forma non è abbastanza nitida
-  if (scrollPercentage >= 0.99) { //99% di completamento chiude la forma
+  if (scrollPercentage >= 0.99) { //oltre al 99% di completamento chiude la forma
     path.style.strokeDasharray = "none";
-    
+
   } else {
     path.style.strokeDasharray = pathLength + ' ' + pathLength;
   }
-//posso aggiungere che si riempie di un altro colore quando il path è completo?
-  //else{
-  //path.style.fillDasharray = 255;
-  //}
-  
-  
-});
+  //posso aggiungere che si riempie di un altro colore quando il path è completo? non funziona
+  // else{
+  // path.style.fillDasharray = 255;
+  // }
+  //  else if (!scrollPercentage >= 0.99) {
+  //   path.style.fillDasharray = "blue"
+  // }
 
+
+
+});

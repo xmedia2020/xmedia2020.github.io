@@ -5,7 +5,7 @@
 const divInfo = document.querySelector("#info")
 updateData(null)
 // updateData({
-// 	lettera:         " ", 
+//  lettera:         " ", 
 //     nome:           " ",
 //     nomeCompleto:       " ", 
 //     cartella:           " ",
@@ -20,6 +20,7 @@ function updateData(data = null) {
     divInfo.innerHTML = ""
     if (data) {
         console.log(data)
+        const isVisited = localStorage.getItem(data.nome + "/" + data.cartella) == 1
 
         //--divLetter----------------------------------------------------
         const letterDiv = document.createElement("div")
@@ -33,26 +34,26 @@ function updateData(data = null) {
         info1Div.id = "info1"
         info1Div.innerHTML += `
         <table>
-		    <col width="30%" /> 
-		    <col width="70%" />  
-		    <tr>
-		    	<td>Autore</td>
-		    	<td>${data.nomeCompleto}</td>
-		  	</tr> 
-		  	<tr>
-		    	<td>Data</td>
-		    	<td>${data.data}</td>
-		  	</tr>
-		  	<tr>
-		    	<td>Tecnica</td>
-		    	<td>${data.tecnica}</td>
-		  	</tr>
-		  	<tr>
-		    	<td>input</td>
-		    	<td>${data.input}</td>
-		  	</tr>
-		</table>
-	  	`
+            <col width="30%" /> 
+            <col width="70%" />  
+            <tr>
+                <td>Autore</td>
+                <td>${data.nomeCompleto}</td>
+            </tr> 
+            <tr>
+                <td>Data</td>
+                <td>${data.data}</td>
+            </tr>
+            <tr>
+                <td>Tecnica</td>
+                <td>${data.tecnica}</td>
+            </tr>
+            <tr>
+                <td>input</td>
+                <td>${data.input}</td>
+            </tr>
+        </table>
+        `
         divInfo.appendChild(info1Div)
 
 
@@ -61,14 +62,14 @@ function updateData(data = null) {
         info2Div.id = "info2"
         info2Div.innerHTML += `
         <table>
-		    <col width="25%" /> 
-		    <col width="75%" /> 
-		    <tr>
-		    	<td class="fix">Descrizione</td>
-		    	<td>${data.descrizione}</td>
-		  	</tr> 
-	  	</table>
-	  	`
+            <col width="25%" /> 
+            <col width="75%" /> 
+            <tr>
+                <td class="fix">Descrizione</td>
+                <td>${data.descrizione}</td>
+            </tr> 
+        </table>
+        `
         divInfo.appendChild(info2Div)
 
         //--divPlay----------------------------------------------------
@@ -76,11 +77,16 @@ function updateData(data = null) {
         playDiv.id = "play"
         const button = document.createElement("a")
         button.setAttribute("href", `/abc/${data.nome}/${data.cartella}/index.html`)
-        button.innerHTML = `<p>PLAY</p>`
+        if (!isVisited) {
+            button.innerHTML = `<p>PLAY</p>`
+        } else {
+            button.innerHTML = `<p>PLAY AGAIN</p>`
+        }
+
         playDiv.appendChild(button)
         divInfo.appendChild(playDiv)
     } else {
-        
+
         //--divSelectLetter----------------------------------------------------
         const selectLetterDiv = document.createElement("div")
         selectLetterDiv.id = "selectLetter"

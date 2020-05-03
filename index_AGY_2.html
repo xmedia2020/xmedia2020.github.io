@@ -25,17 +25,60 @@
             body {
                 background-color: white;
                 font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-                padding: 2rem 2rem 8rem 4rem;
+                padding: 3em 2em 4em 2em;
                 margin:0;
             }
 
-            .grid-container {
-                width: 85%;
+            ul {
+                margin:0;
+                padding:0;
+                list-style: none;
+            }
+
+            li:before{
+                content: "-";
+                display: inline-block;
+                width: 0.75em;
+                margin-left: -0.75em;
+            }
+
+            .info-grid-container {
+                border-top: 1px black solid;
+                font-size: 0.75em;
+                max-width: 920px;
                 display: grid;
-                grid-template-columns: 1fr 1fr 4fr 12fr 0.25fr 1fr;
+                grid-template-columns: 2fr 4fr 4fr 2fr 2fr 2fr;
+                grid-gap: 0px;
+                margin-bottom: 1em;
+            }
+
+            .info-grid-row {
+                display: contents;
+            }
+
+            .info-grid-row span{
+                padding: 0 0.5rem 1rem 0.5rem;
+            }
+
+
+
+            .grid-container {
+                max-width: 920px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 11.5fr 0.5fr 2fr;
                 grid-gap: 0px;
             }
 
+            .grid-header {
+                font-size: 0.75em;
+            }
+            .grid-header span{
+                border-top: 1px black solid;
+                padding: 0 0.5rem 1rem 0.5rem;
+                margin: 0 0 0.25rem 0;
+            }
+
+            .grid-header,
             .grid-row {
                 display: contents;
             }
@@ -52,6 +95,13 @@
                 background-color: rgb(0,0,0,0.05);
                 cursor:pointer;
             }
+            .btn-sort{
+                color: blue;
+            }
+            .btn-sort:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
 
             .nome {
             }
@@ -66,11 +116,11 @@
             .data {
                 /*color: rgb(0,0,0,0.2);*/
                 border-right: none !important;
-                font-size: 0.75rem;
+                font-size: 0.75em;
             }
 
             .info{
-                margin:0 0 2rem 0.5rem;
+                margin:0 0 2em 0.5em;
                 padding:0;
                 color: orange;
             }
@@ -87,19 +137,78 @@
                 color:white;
             }
 
+            @media only screen
+            and (max-width : 600px) {
+                 body{
+                    padding: 2em 0.5em 4em 0.5em;
+                }
+                .info-grid-container,
+                .grid-container{
+                    width:100%;
+                }
+
+                .info-grid-container {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+
+            }
+
         </style>
     </head>
     <body>
-        <!--
-        <p class="info">
-            Nota: i tasti 1,2 e 3 riordinano la tabella per nome, lettera o data.<br>
-            Osservate come l’ordine del “sort” cambia il risultato:<br>
-            p.es.<br>
-            data->nome<br>
-            vs.<br>
-            lettera->nome<br>
-        </p>
-        -->
+
+        <div class="info-grid-container">
+            <div class="info-grid-row">
+                <span>
+                    Abecedario<br>
+                 </span>
+                <span>
+                    Questo abecedario interattivo è un progetto collettivo
+                    in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.<br>
+                    È possibile avere più di una variante per lettera dell’alfabeto.<br>
+                    Molte le libertà, tre le regole:<br>
+                    <ul>
+                    <li>Bianco e nero</li>
+                    <li>Interattivo<br>(mouse, tastiera, suono, camera, dati…)</li>
+                    <li>Fullscreen</li>
+                    </ul>
+                </span>
+                <span>
+                    Codice:<br>
+                    <a href="https://github.com/xmedia2020/xmedia2020.github.io">github.com/xmedia2020</a><br>
+                    <br>
+                    Nota: <br>
+                    questo progetto è nato dall’annullamento del corso SUPSI<br>
+                    CV621.02 Scenografia multimediale<br>
+                    (a.k.a. Cross-Media o XMedia).<br>
+                    <br>
+                </span>
+                <span>
+                    Studenti:<br>
+                    Ballerini Lara<br>
+                    Corzetto Olena<br>
+                    Crivelli Chiara<br>
+                    Dellamora Mattia<br>
+                    Dellea Ilaria<br>
+                    Gianni Carlotta<br>
+                    Morcelli Alessia<br>
+                    Riva Alessandra<br>
+                    Veschetti Desirée<br>
+                    Zanda Amina<br>
+                </span>
+                <span>
+                    Docente:<br>
+                    Andreas Gysin<br>
+                    Assistenti:<br>
+                    Valentina Meldi<br>
+                    Melanie Agresta<br>
+                </span>
+                <span>
+                    Lugano,<br>primavera 2020
+                </span>
+            </div>
+        </div>
+
         <div id="output" class="grid-container"></div>
 
         <script type="text/javascript">
@@ -123,8 +232,39 @@
             function render(dati){
                 const parent = document.querySelector("#output")
                 parent.innerHTML = ""
-
                 const BASE_FOLDER = "abc"
+
+
+                const header = document.createElement("div")
+                header.classList.add("grid-header")
+                header.innerHTML += "<span class='btn-sort sort-nome'>nome</span>"
+                header.innerHTML += "<span class='btn-sort sort-lettera'>lettera</span>"
+                // header.innerHTML += "<span></span>"
+                header.innerHTML += "<span></span>"
+                header.innerHTML += "<span class='btn-sort sort-visita'>vis.</span>"
+                header.innerHTML += "<span class='btn-sort sort-data'>data</span>"
+                parent.appendChild(header)
+
+                header.querySelector('.sort-nome').addEventListener('click',    e => {
+                    dati = ordina_per_lettera(dati)
+                    dati = ordina_per_nome(dati)
+                    render(dati)
+                })
+                header.querySelector('.sort-lettera').addEventListener('click', e => {
+                    dati = ordina_per_data(dati)
+                    dati = ordina_per_lettera(dati)
+                    render(dati)
+                })
+                header.querySelector('.sort-data').addEventListener('click',    e => {
+                    dati = ordina_per_nome(dati)
+                    dati = ordina_per_data(dati)
+                    render(dati)
+                })
+                header.querySelector('.sort-visita').addEventListener('click',    e => {
+                    dati = ordina_per_nome(dati)
+                    dati = ordina_per_visita(dati)
+                    render(dati)
+                })
 
                 for (let i=0; i<dati.length; i++) {
                     const el = document.createElement("div")
@@ -139,7 +279,7 @@
 
                     el.innerHTML += "<span class='nome'> " + dati[i].nome + "</span>"
                     el.innerHTML += "<span class='lettera'> " + (dati[i].lettera || "&nbsp;")  + "</span>"
-                    el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
+                    // el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
                     el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
                     el.innerHTML += "<span class='visitato'> " + v + "</span>"
                     el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
@@ -164,7 +304,7 @@
 
             function ordina_per_lettera(dati) {
                 const dati_ordinati = dati.sort(function(a, b){
-                    return a.lettera >= b.lettera
+                    return a.lettera.toUpperCase() >= b.lettera.toUpperCase()
                 })
                 return dati_ordinati
             }
@@ -175,22 +315,15 @@
                 })
                 return dati_ordinati
             }
+            function ordina_per_visita(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    const v1 = localStorage.getItem(a.nome + "/" + a.cartella) == 1 ? 1 : 0
+                    const v2 = localStorage.getItem(b.nome + "/" + b.cartella) == 1 ? 1 : 0
+                    return v1 >= v2
+                })
+                return dati_ordinati
+            }
 
-            // --- Eventi -----------------------------------------------------
-
-            window.addEventListener("keypress", function(e){
-                if (e.key == '1') {
-                    dati = ordina_per_nome(dati)
-                    render(dati)
-                } else if (e.key == '2') {
-                    dati = ordina_per_lettera(dati)
-                    render(dati)
-                } else if (e.key == '3') {
-                    dati = ordina_per_data(dati)
-                    render(dati)
-                }
-                // document.body.removeChild(document.querySelector(".info"))
-            })
         </script>
     </body>
 </html>

@@ -37,7 +37,7 @@
             .grid-container {
                 width: 100%;
                 display: grid;
-                grid-template-columns: 1fr 1fr 3fr 1fr;
+                grid-template-columns: 1fr 1fr 8fr 1fr 1fr;
                 grid-gap: 0px;
                 padding: 0rem 2rem 0rem 1.5rem;                
 
@@ -47,7 +47,7 @@
                 width: 100%;
                 background-color: white;
                 display: grid;
-                grid-template-columns: 1fr 1fr 4fr;
+                grid-template-columns: 1fr 1fr 8fr 1fr 1fr;
                 grid-gap: 0px;
                 color: rgba(0,0,0,0.2);
                 font-size: 0.9rem;
@@ -126,11 +126,21 @@
 
             p#intro {
                 font-size: 1rem;
-                left:0vw;
-                padding-bottom: 1.5rem;
+                padding-bottom: 0rem;
                 padding-left: 1.5rem;
                 line-height: 1.25;
-                border-bottom: solid 1px rgba(0,0,0,0.2);
+                /*border-bottom: solid 1px rgba(0,0,0,0.2);*/
+                margin:none;
+            }
+
+            p#nota {
+                font-size: 1rem;
+                left:0vw;
+                padding-bottom: 0rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                line-height: 1.25;
+                /*border-bottom: solid 1px rgba(0,0,0,0.2);*/
                 margin:none;
             }
             
@@ -175,19 +185,37 @@
                 overflow: auto;
                 /*padding-bottom: 20px;*/
                 padding-left: 5px;
-                z-index: 1;
+                /*z-index: 1;*/
+                /*border-bottom: solid 1px rgba(0,0,0,0.2);*/
             }
 
             .dropdown-content a {
                 color: black;
-                padding: 12px 16px;
+                /*padding: 12px 16px;*/
+                padding: 0px;
                 text-decoration: none;
                 display: block;
             }
 
-            .dropdown a:hover {background-color: white;}
+            .dropdown a:hover {
+                margin:none;
+                padding: 0rem;
+                padding-bottom: 0rem;
+                /*color: red;*/
+            }
 
             .show {display: block;}
+
+            .visitato {
+                border-right: none !important;
+                border-left: none !important;
+                /*text-align: right;*/
+            }
+
+            #left {
+                text-align:right;
+                padding-right:30px;
+            }
 
         </style>
     </head>
@@ -200,32 +228,46 @@
 
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">
-                    Abecedario
+                    Abecedario interattivo
                 </button>
                 <div id="myDropdown" class="dropdown-content">
                 <p id="intro">
-                    Si tratta di un progetto collettivo, ovvero un abecedario online.</br>Ogni studente contribuisce con caratteri progettati individualmente.</br>È possibile avere più di una variante per lettera dell’alfabeto.</br>
+                    Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.</br>
+                    È possibile avere più di una variante per lettera dell’alfabeto.
+                </p>
+                <p id="intro">
                     Molte le libertà, tre le regole:</br>
-                    - Bianco e nero</br>
-                    - Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</br>
-                    - Fullscreen<br>
+                    – Bianco e nero</br>
+                    – Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</br>
+                    – Fullscreen</br>
+                </p>
+                <p id="nota">
+                    <a class="link" href="https://github.com/xmedia2020/xmedia2020.github.io">
+                        <u>github repository</u></a> </br>
+                    Nota: questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale </br>
+                    (a.k.a. Cross-Media o XMedia).
                 </p>
             </div>
         </div>
 
         <div class="grid-containerUp">
-            <div class="grid-item">Autore</div>
-            <div class="grid-item">Lettera</div>
-            <div class="grid-item">Descrizione</div>  
-            <!-- <div class="grid-item">Data</div> -->
+            <div class="grid-item">autore</div>
+            <div class="grid-item">lettera</div>
+            <div class="grid-item">descrizione</div>  
+            <div class="grid-item" >vis.</div>  
+            <div class="grid-item" id="left">data</div>
         </div>
 
         <div id="output" class="grid-container"></div>
 
         <div class="parent">
             <div class="autori">
-                <p>Docente:Andrea Gysin<br>
-                Studenti: Alessia Morcelli, Alessandra Riva, Amina Zanda, Chiara Crivelli, Carlotta Gianni, Desirée Veschetti, Ilaria Dellea, Lara Ballerini, Mattia Dellamora, Olena Corzetto
+                <p>
+                Studenti: Alessia Morcelli, Alessandra Riva, Amina Zanda, Chiara Crivelli, Carlotta Gianni, Desirée Veschetti, Ilaria Dellea, Lara Ballerini, Mattia Dellamora, Olena Corzetto</br>
+                Docente: Andrea Gysin</br>
+                Assistenti: Valentina Meldi, Melanie Agresta</br>
+                SUPSI, primavera 2020
+                
                 </p>
             </div>
         </div>
@@ -236,7 +278,7 @@
                 document.getElementById("myDropdown").classList.toggle("show");
             }
             window.onclick = function(event) {
-                if (!event.target.matches('.')) {
+                if (!event.target.matches('.dropbtn')) {
                     var dropdowns = document.getElementsByClassName("dropdown-content");
                     var i;
                     for (i = 0; i < dropdowns.length; i++) {
@@ -310,6 +352,8 @@
                     }
 
 
+                    const v = localStorage.getItem(dati[i].nome + "/" + dati[i].cartella) == 1 ? " " : "*"
+
                     // per visualizzare i dati 
                     nome = dati[i].nome
                     el.innerHTML += "<span class='nome'> " + nome_out + "</span>"
@@ -317,13 +361,15 @@
                     el.innerHTML += "<span class='lettera'> "+ dati[i].lettera + "</span>"
                     // el.innerHTML += "<span class='cartella'> " + dati[i].cartella + "</span>"
                     el.innerHTML += "<span class='descrizione'> " + dati[i].descrizione + "</span>"
+                    // inserire vis.
+                    el.innerHTML += "<span class='visitato'> " + v + "</span>"
                     el.innerHTML += "<span class='data'> " + dati[i].data + "</span>"
                     parent.appendChild(el)
                 }
             }
 
-            // --- FUNZIONI di SORT -------------------------------------------
-            // per ordinare i dati
+            // --- Funzioni di sort -------------------------------------------
+
             function ordina_per_nome(dati) {
                 // Usiamo questa funzione per ordinare i dati in funzione dell'autore
                 const dati_ordinati = dati.sort(function(a, b){
@@ -338,7 +384,7 @@
 
             function ordina_per_lettera(dati) {
                 const dati_ordinati = dati.sort(function(a, b){
-                    return a.lettera >= b.lettera
+                    return a.lettera.toUpperCase() >= b.lettera.toUpperCase()
                 })
                 return dati_ordinati
             }
@@ -346,6 +392,14 @@
             function ordina_per_data(dati) {
                 const dati_ordinati = dati.sort(function(a, b){
                     return a.data >= b.data
+                })
+                return dati_ordinati
+            }
+            function ordina_per_visita(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    const v1 = localStorage.getItem(a.nome + "/" + a.cartella) == 1 ? 1 : 0
+                    const v2 = localStorage.getItem(b.nome + "/" + b.cartella) == 1 ? 1 : 0
+                    return v1 >= v2
                 })
                 return dati_ordinati
             }

@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>home</title>
+    <meta name="description" content="home">
+    <meta name="author" content="Matt">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="black">
+    <meta name="msapplication-navbutton-color" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/icons/icon_192.png">
+    <link rel="shortcut icon" href="/icons/icon_32.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <style type="text/css">
+    html {
+        ox-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    body {
+        font-family: Helvetica, Sans-Serif;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        background-color: black;
+        /*  padding-top: 5px!important;
+*/
+        /*padding-left: 10px!important;*/
+    }
+
+    li,
+    ul,
+    canvas,
+    body,
+    p,
+    td,
+    tr,
+    table {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    a {
+        color: white;
+    }
+
+    #info {
+        width: 100vw;
+        height: 14vh;
+        color: white;
+        display: flex;
+        padding: 0;
+        font-size: 1em;
+        border-bottom: 1px solid #444;
+        padding: 10px 10px 0px 10px;
+        vertical-align: top;
+        z-index: 3;
+    }
+
+    #info li {
+        list-style-type: none;
+        margin-bottom: 5px;
+    }
+
+    #info table {
+        border: none;
+        /*border: 1px solid white;*/
+        width: 100%;
+        vertical-align: top;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    #info td {
+        vertical-align: top;
+        padding-bottom: 2px;
+    }
+
+    #info tr {}
+
+    #letter {
+        width: 10%;
+        font-size: 6.854em;
+        letter-spacing: -0.03em;
+        padding-left: 10px;
+    }
+
+    #info1 {
+        width: 12%;
+        height: 100%;
+        vertical-align: top;
+        padding-right: 15px;
+        padding-top: 10px;
+    }
+
+    #button {
+        max-width: 100%;
+        font-size: 1.6em;
+        color: white;
+        padding: 2px;
+        margin-bottom: 5px;
+    }
+
+    #info2 {
+        width: 22%;
+        height: 100%;
+        padding-left: 15px;
+        padding-top: 10px;
+        /*border-left: 1px solid white;*/
+    }
+
+    #info1 td .fix {
+        width: 10% !important;
+    }
+
+    #play {
+        width: 52%;
+        height: 100%;
+        padding-left: 0px;
+        padding-right: 40px;
+        text-align: right;
+        font-size: 6.854em;
+    }
+
+    #selectLetter {
+        width: 100%;
+        font-size: 6.854em;
+        color: #444;
+        letter-spacing: -0.04em
+    }
+
+    #canvas {
+        width: 100vw;
+        height: 88vw;
+        max-height: 90vh;
+    }
+
+    #buttonAbout {
+        display: block;
+        z-index: 4;
+        position: absolute;
+        bottom: 65px;
+        right: 50px;
+        font-size: 1.618em;
+    }
+
+
+    #buttonAbout span {
+        height: 35px;
+        width: 35px;
+        position: relative;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+        text-align: center;
+        margin: auto;
+        display: inline-block;
+        line-height: 1.7em;
+    }
+
+    #about {
+        position: absolute;
+        display: none;
+        z-index: 3;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        background-color: white;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 1.618em;
+        padding-top: 25px;
+        padding-left: 25px;
+        line-height: 1.25em;
+    }
+
+    #about ul {
+        list-style-type: none;
+        overflow: visible;
+    }
+
+    #about li {
+        overflow: visible;
+    }
+
+    #about li:before {
+        content: "–";
+        display: inline-block;
+        width: 0.75em;
+        margin-left: -0.75em;
+    }
+
+
+    .active {
+        display: flex !important;
+    }
+
+    #about .title {
+        width: 22%;
+        order: 0;
+        margin-right: 25px;
+    }
+
+    #about .description {
+        width: 30%;
+        order: 1;
+        margin-right: 25px;
+    }
+
+    .description a {
+        color: black;
+        text-decoration: underline;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+
+    #about .people {
+        width: 33%;
+        order: 2;
+        margin-left: 120px
+    }
+
+    #buttonClose {
+        z-index: 3;
+        position: absolute;
+        bottom: 55px;
+        right: 50px;
+        font-size: 1.618em;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+
+    /*--MEDIA QUERIES*/
+    @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+        body {
+            font-size: 16px;
+        }
+
+        #info {
+            flex-flow: row wrap;
+            font-size: 0.382em;
+            height: 20vh;
+            padding-right: 15px;
+        }
+
+        #letter {
+            width: 14%;
+            order: 0;
+            padding-left: 5px;
+            height: auto;
+            /*max-height: 50px;*/
+        }
+
+        #play {
+            order: 1;
+            width: 75%;
+            padding-right: 0px;
+            max-height: 50px;
+            height: auto;
+        }
+
+        #info1 {
+            display: block;
+            width: 100%;
+            order: 2;
+            /*height: 35px;non so perchè il div non fitta il content*/
+            height: auto;
+            font-size: 1.618em;
+        }
+
+        #info1 col:first-child {
+            width: 25%;
+        }
+
+        #info2 {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            order: 3;
+            height: auto;
+            padding-left: 0px;
+            padding-top: 0px;
+            font-size: 1.618em;
+        }
+
+        #info2 td {
+            padding-right: 25px;
+        }
+
+        #selectLetter {
+            /*font-size: 4.236em;*/
+            line-height: 0.95em;
+        }
+
+        #about {
+            /*flex-direction: column;*/
+            position: absolute;
+            height: calc(100% - 12px);
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-size: 1.618em;
+            padding: 10px 0px 0px 10px;
+        }
+
+        #about ul {
+            list-style-type: circle !important;
+        }
+
+        #about li:before {
+            content: initial;
+            width: 0px;
+            margin-left: 0px;
+        }
+
+        #about .title {
+            width: 100%;
+            order: 0;
+            margin-top: 75px;
+        }
+
+        #about .description {
+            width: 100%;
+            order: 1;
+        }
+
+        #about .people {
+            width: 100%;
+            order: 2;
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+
+        #buttonAbout {
+            bottom: 40px;
+        }
+
+        #buttonAbout span {
+            line-height: 1.5em;
+        }
+
+        #buttonClose {
+            width: 100%;
+            height: 45px;
+            z-index: 3;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.618em;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    </style>
+</head>
+
+<body class="disable-select disable-scroll">
+    <div id="info">
+        <!--        <div id="letter"></div>
+        <div id="info1"></div>
+        <div id="info2"></div>
+        <div id="play"></div> -->
+    </div>
+    <div id="canvas"></div>
+    <div id="buttonAbout"><span>?</span></div>
+    <div id="about">
+        <div class="title">
+            Abecedario interattivo<br>
+            Lugano, Primavera 2020<br><br><br>
+        </div>
+        <div class="description">
+            Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.
+            È possibile avere più di una variante per lettera dell’alfabeto. <br><br>
+            Molte le libertà, tre le regole:<br>
+            <ul>
+                <li>Bianco e nero</li>
+                <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
+                <li>Fullscreen</li>
+            </ul>
+            <br>
+            Link alla repository:<br>
+            <a href="https://github.com/xmedia2020/xmedia2020.github.io">https://github.com/xmedia2020</a><br><br>
+            Nota:<br> Questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale (a.k.a. Cross-Media o XMedia).
+        </div>
+        <div class="people">
+            Studenti:<br>
+            Ballerini Lara <br>
+            Corzetto Olena <br>
+            Crivelli Chiara <br>
+            Dellamora Mattia <br>
+            Dellea Ilaria <br>
+            Gianni Carlotta <br>
+            Morcelli Alessia <br>
+            Riva Alessandra <br>
+            Veschetti Desirée <br>
+            Zanda Amina <br>
+            <br>
+            Docente:<br>
+            Andreas Gysin <br>
+            <br>
+            Assistenti:<br>
+            Valentina Meldi<br>
+            Melanie Agresta<br>
+        </div>
+        <div id="buttonClose"><span>CHIUDI</span></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="main.js"></script>
+    <script src="verlet.js"></script>
+    <script src="updateData.js"></script>
+    <script type="text/javascript">
+    // -- p5 main ----------------------------------------------------------
+    let json, nodes
+    let sim
+    let bMargin
+
+    let picked = null
+
+    function preload() {
+        json = loadJSON("dati.json")
+    }
+
+
+    function setup() {
+        init()
+        sim = new Sim()
+        sim.gravity.y = 0.0
+
+        const data = {}
+        for (let key in json) {
+            const nome = json[key].nome
+            data[nome] = data[nome] || []
+            data[nome].push(json[key])
+        }
+        // console.log(data)
+
+        nodes = []
+        const root = sim.addPoint(0, -45, 5)
+        root.pinned = true
+        for (const key in data) {
+            const p1 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
+            const n = {
+                point: p1,
+                type: 1,
+                nome: key,
+                fill: 255,
+            }
+            sim.addLink(root, p1, 175, 0.05)
+            nodes.push(n)
+
+            for (const l of data[key]) {
+                const p2 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
+                const n = {
+                    point: p2,
+                    type: 2,
+                    data: l,
+                    fill: 255,
+                }
+                sim.addLink(p1, p2, 52, 0.05)
+                nodes.push(n)
+            }
+        }
+
+        console.log(nodes)
+        rectMode(CENTER)
+        ellipseMode(CENTER)
+
+
+    }
+
+    function draw() {
+        // sim.bounds(-width/2+bMargin,-height/2+bMargin,width-bMargin, height-bMargin)
+        sim.bounds(-width / 2 + bMargin, -height / 2 + bMargin, width / 2 - bMargin, height / 2 - bMargin)
+        if (picked != null) {
+            picked.point.pos.set(mouseX - width / 2, mouseY - height / 2)
+        }
+        sim.update(1)
+
+        const min_radius_sq = 25 * 25 // distanza minima per applicare la forza
+        for (let k = 0; k < 5; k++) {
+            for (let j = 0; j < sim.points.length; j++) {
+                const a = sim.points[j]
+                for (let i = j + 1; i < sim.points.length; i++) {
+                    const b = sim.points[i]
+                    const v = p5.Vector.sub(a.pos, b.pos)
+                    // const m_sq  = v.magSq()
+                    // const rs = a.radius + b.radius
+                    // if (m_sq < min_radius_sq) {
+                    const m = v.mag() //è la distanza in pixel fra un punto e l'altro
+                    const f = Math.exp(-m * 0.09) * 15.0
+                    v.normalize()
+                    v.mult(f)
+                    a.pos.add(v)
+                    b.pos.sub(v)
+                    // }
+                }
+            }
+        }
+
+        background(0)
+        // noStroke()
+        // fill(0, 30)
+        // rect(0, 0, width, height)
+
+        translate(width / 2, height / 2)
+
+        // linee
+        stroke(255)
+        for (const l of sim.links) {
+            stroke(255, 255, 255, 90)
+            line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
+        }
+
+        // punti
+        noStroke()
+        let asc = textAscent() * 0.8 //calcola ascend
+        for (const n of nodes) {
+            if (n.type == 1) {
+                push()
+                fill(0)
+                rect(n.point.pos.x, n.point.pos.y - 2, 37, 17)
+                textSize(16)
+                let txtW = textWidth(n.nome)
+                translate(-txtW / 2, asc / 2)
+                fill(n.fill)
+                text(n.nome, n.point.pos.x, n.point.pos.y)
+                pop()
+            } else if (n.type == 2) {
+                push()
+                fill(0)
+                ellipse(n.point.pos.x, n.point.pos.y - 6, 32, 32)
+                textSize(26)
+                let txtW = textWidth(n.data.lettera)
+                translate(-txtW / 2, asc / 2)
+                fill(n.fill)
+                text(n.data.lettera, n.point.pos.x, n.point.pos.y)
+                pop()
+            }
+        }
+
+    }
+
+    function windowResized() {
+        resizeCanvas(windowWidth, windowHeight)
+    }
+
+    function mousePressed() {
+        picked = null
+        for (const n of nodes) {
+            const d = dist(mouseX - width / 2, mouseY - height / 2, n.point.pos.x, n.point.pos.y)
+            if (d < 25) {
+                picked = n
+                console.log(`you have picked: ${picked}`)
+                if (n.type == 1) {
+                    //caso parent
+                    for (const n of nodes) {
+                        n.fill = 255
+                    }
+                    updateData(null)
+                } else if (n.type == 2) {
+                    //caso lettera
+                    console.log("passo questo: " + n.data)
+                    updateData(n.data)
+                    for (const o of nodes) {
+                        o.fill = 90
+                    }
+                    n.fill = 255
+                }
+                return
+            }
+        }
+        console.log("background")
+        if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+            for (const n of nodes) {
+                n.fill = 255
+            }
+            updateData(null)
+        }
+    }
+
+    function mouseReleased() {
+        picked = null
+    }
+
+
+    function init() {
+        document.querySelector("canvas").innerHTML = " "
+        let w, h
+        if (windowWidth <= 540) {
+            w = floor(windowWidth - 3);
+            h = floor((windowHeight / 100) * 80)
+            bMargin = 15
+        } else {
+            w = floor(windowWidth);
+            h = floor((windowHeight / 100) * 86)
+            bMargin = 20
+        }
+
+        let cnv = createCanvas(w, h)
+        cnv.parent("canvas")
+    }
+
+    // -- END p5 main ------------------------------------------------------
+    // -- Update Data ------------------------------------------------------
+    const divInfo = document.querySelector("#info")
+    updateData(null)
+    // updateData({
+    //  lettera:         " ", 
+    //     nome:           " ",
+    //     nomeCompleto:       " ", 
+    //     cartella:           " ",
+    //     data:           " ",
+    //     input:          " ", 
+    //     tecnica:      " ",
+    //     descrizione:    " " 
+    // })
+
+
+    function updateData(data = null) {
+        divInfo.innerHTML = ""
+        if (data) {
+            console.log(data)
+            const isVisited = localStorage.getItem(data.nome + "/" + data.cartella) == 1
+
+            //--divLetter----------------------------------------------------
+            const letterDiv = document.createElement("div")
+            letterDiv.id = "letter"
+            letterDiv.innerHTML = `<p>${data.lettera}</p>`
+            divInfo.appendChild(letterDiv)
+
+
+            //--divInfo1----------------------------------------------------
+            const info1Div = document.createElement("div")
+            info1Div.id = "info1"
+            info1Div.innerHTML += `
+        <table>
+            <col width="30%" /> 
+            <col width="70%" />  
+            <tr>
+                <td>Autore</td>
+                <td>${data.nomeCompleto}</td>
+            </tr> 
+            <tr>
+                <td>Data</td>
+                <td>${data.data}</td>
+            </tr>
+            <tr>
+                <td>Tecnica</td>
+                <td>${data.tecnica}</td>
+            </tr>
+            <tr>
+                <td>input</td>
+                <td>${data.input}</td>
+            </tr>
+        </table>
+        `
+            divInfo.appendChild(info1Div)
+
+
+            //--div2----------------------------------------------------
+            const info2Div = document.createElement("div")
+            info2Div.id = "info2"
+            info2Div.innerHTML += `
+        <table>
+            <col width="25%" /> 
+            <col width="75%" /> 
+            <tr>
+                <td class="fix">Descrizione</td>
+                <td>${data.descrizione}</td>
+            </tr> 
+        </table>
+        `
+            divInfo.appendChild(info2Div)
+
+            //--divPlay----------------------------------------------------
+            const playDiv = document.createElement("div")
+            playDiv.id = "play"
+            const button = document.createElement("a")
+            button.setAttribute("href", `/abc/${data.nome}/${data.cartella}/index.html`)
+            if (!isVisited) {
+                button.innerHTML = `<p>PLAY</p>`
+            } else {
+                button.innerHTML = `<p>PLAY AGAIN</p>`
+            }
+
+            playDiv.appendChild(button)
+            divInfo.appendChild(playDiv)
+        } else {
+
+            //--divSelectLetter----------------------------------------------------
+            const selectLetterDiv = document.createElement("div")
+            selectLetterDiv.id = "selectLetter"
+            selectLetterDiv.innerHTML += `<p>Seleziona una lettera</p>`
+            divInfo.appendChild(selectLetterDiv)
+        }
+
+    }
+    // -- END Update Data --------------------------------------------------
+    // -- Verlet -----------------------------------------------------------
+
+    // Classe "punto"
+    class Point {
+        constructor(x, y, r) {
+            this.pos = createVector(x, y)
+            this.pre = createVector(x, y)
+            this.radius = r
+            this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
+            this.pinned = false
+            this.cell_x = 0
+            this.cell_y = 0
+        }
+    }
+
+    // Classe "molla"
+    class Link {
+        constructor(a, b, l, k) {
+            this.a = a
+            this.b = b
+            this.length = l
+            this.k = k
+        }
+    }
+
+    class Sim {
+
+        constructor() {
+            this.points = []
+            this.links = []
+            this.friction = 0.9
+            this.gravity = createVector(0, 0)
+        }
+
+        update(steps) {
+            // Punti
+            for (const p of this.points) {
+                if (p.pinned) continue
+                let v = p5.Vector.sub(p.pos, p.pre)
+                v.add(this.gravity)
+                v.mult(this.friction)
+                p.pre = p.pos.copy()
+                p.pos.add(v)
+            }
+
+            // Molle
+            const sub_step = 1.0 / steps
+            for (let i = 0; i < steps; i++) {
+                for (const l of this.links) {
+                    const v = p5.Vector.sub(l.a.pos, l.b.pos)
+                    const m = v.mag()
+                    v.mult((l.length - m) / m * l.k * sub_step)
+                    if (!l.a.pinned) l.a.pos.add(v)
+                    if (!l.b.pinned) l.b.pos.sub(v)
+                }
+            }
+
+            // Reset dei punti "pinned"
+            for (const p of this.points) {
+                if (p.pinned) p.pos.set(p.pre.x, p.pre.y)
+            }
+        }
+
+        addPoint(x, y, r) {
+            const p = new Point(x, y, r)
+            this.points.push(p)
+            return p
+        }
+
+        addLink(a, b, length = null, k = 0.1) {
+            if (length === null) {
+                length = p5.Vector.sub(a.pos, b.pos).mag()
+            }
+
+            const l = new Link(a, b, length, k)
+            this.links.push(l)
+            return l
+        }
+
+        // Per ora c'è solo il check del piano in fondo
+        bounds(x1, y1, x2, y2) {
+            const damp = 0.8
+            for (const p of this.points) {
+                if (p.pos.x >= x2) {
+                    const d = (p.pos.x - p.pre.x) * damp
+                    p.pre.x = x2 + d
+                    p.pos.x = x2
+                } else if (p.pos.x <= x1) {
+                    const d = (p.pos.x - p.pre.x) * damp
+                    p.pre.x = x1 + d
+                    p.pos.x = x1
+                }
+
+                if (p.pos.y >= y2) {
+                    const d = (p.pos.y - p.pre.y) * damp
+                    p.pre.y = y2 + d
+                    p.pos.y = y2
+                } else if (p.pos.y <= y1) {
+                    const d = (p.pos.y - p.pre.y) * damp
+                    p.pre.y = y1 + d
+                    p.pos.y = y1
+                }
+            }
+        }
+    }
+    // -- END Verlet -------------------------------------------------------
+    // -- about interaction ------------------------------------------------
+    const buttonAbout = document.querySelector("#buttonAbout")
+    const about = document.querySelector("#about")
+    const buttonClose = document.querySelector("#buttonClose")
+    buttonAbout.addEventListener("click", showAbout)
+    buttonClose.addEventListener("click", hideAbout)
+
+    function showAbout() {
+        about.classList.add("active")
+        buttonAbout.style.display = "none";
+    }
+
+    function hideAbout() {
+        about.classList.remove("active")
+        buttonAbout.style.display = "block";
+    }
+    // -- END about interaction ---------------------------------------------
+    </script>
+</body>
+
+</html>

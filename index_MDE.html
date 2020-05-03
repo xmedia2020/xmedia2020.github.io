@@ -15,96 +15,418 @@
     <link rel="apple-touch-icon" href="/icons/icon_192.png">
     <link rel="shortcut icon" href="/icons/icon_32.png">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="myStyle.css">
-    <style>
-        html {
-    ox-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+    <style type="text/css">
+    html {
+        ox-sizing: border-box;
+    }
 
-body {
-	display: flex;
-	flex-direction: column;
-	font-size: 12px;
-	background-color: black;
-	padding-top: 10px!important;
-	padding-left: 10px!important;
-}
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
 
-li, ul, canvas, body {
-	margin: 0;
-	padding: 0;
+    body {
+        font-family: Helvetica, Sans-Serif;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        background-color: black;
+        /*  padding-top: 5px!important;
+*/
+        /*padding-left: 10px!important;*/
+    }
 
-}
+    li,
+    ul,
+    canvas,
+    body,
+    p,
+    td,
+    tr,
+    table {
+        margin: 0;
+        padding: 0;
 
-#info{
-	width: 100vw;
-	height:	10vh;
-	color: white;
-	display: flex;
-	padding: 0;
-	font-size: 1em;
-	/*padding: 10px;*/
+    }
 
-}
+    a {
+        color: white;
+    }
 
-#info li {
-	list-style-type: none;
-	margin-bottom: 5px;
-}
+    #info {
+        width: 100vw;
+        height: 14vh;
+        color: white;
+        display: flex;
+        padding: 0;
+        font-size: 1em;
+        border-bottom: 1px solid #444;
+        padding: 10px 10px 0px 10px;
+        vertical-align: top;
+        z-index: 3;
+    }
 
-#info1{
-	width: 22%;
-	height: 100%;
-	padding-right: 15px;
-}
+    #info li {
+        list-style-type: none;
+        margin-bottom: 5px;
+    }
 
-#button{
-	max-width: 100%;
-	font-size: 1.6em;
-	background-color: white;
-	color: black;
-	padding: 2px;
-	margin-bottom: 5px;
-}
+    #info table {
+        border: none;
+        /*border: 1px solid white;*/
+        width: 100%;
+        vertical-align: top;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
 
-#info2{
-	width: 22%;
-	height: 100%;
-	padding-left: 15px;
-	border-left: 1px solid white;
-}
+    #info td {
+        vertical-align: top;
+        padding-bottom: 2px;
+    }
 
-#info3{
-	height: 100%;
-	padding-left: 15px;
-	border-left: 1px solid white;
-}
+    #info tr {}
 
-#canvas{
-	width: 100vw;
-	height: 90vw;
-	max-height: 90vh;
-}
+    #letter {
+        width: 10%;
+        font-size: 6.854em;
+        letter-spacing: -0.03em;
+        padding-left: 10px;
+    }
+
+    #info1 {
+        width: 12%;
+        height: 100%;
+        vertical-align: top;
+        padding-right: 15px;
+        padding-top: 10px;
+    }
+
+    #button {
+        max-width: 100%;
+        font-size: 1.6em;
+        color: white;
+        padding: 2px;
+        margin-bottom: 5px;
+    }
+
+    #info2 {
+        width: 22%;
+        height: 100%;
+        padding-left: 15px;
+        padding-top: 10px;
+        /*border-left: 1px solid white;*/
+    }
+
+    #info1 td .fix {
+        width: 10% !important;
+    }
+
+    #play {
+        width: 52%;
+        height: 100%;
+        padding-left: 0px;
+        padding-right: 40px;
+        text-align: right;
+        font-size: 6.854em;
+    }
+
+    #selectLetter {
+        width: 100%;
+        font-size: 6.854em;
+        color: #444;
+        letter-spacing: -0.04em
+    }
+
+    #canvas {
+        width: 100vw;
+        height: 88vw;
+        max-height: 90vh;
+    }
+
+    #buttonAbout {
+        display: block;
+        z-index: 4;
+        position: absolute;
+        bottom: 65px;
+        right: 50px;
+        font-size: 1.618em;
+    }
+
+
+    #buttonAbout span {
+        height: 35px;
+        width: 35px;
+        position: relative;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 50%;
+        text-align: center;
+        margin: auto;
+        display: inline-block;
+        line-height: 1.7em;
+    }
+
+    #about {
+        position: absolute;
+        display: none;
+        z-index: 3;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        background-color: white;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 1.618em;
+        padding-top: 25px;
+        padding-left: 25px;
+        line-height: 1.25em;
+    }
+
+    #about ul {
+        list-style-type: none;
+        overflow: visible;
+    }
+
+    #about li {
+        overflow: visible;
+    }
+
+    #about li:before {
+        content: "–";
+        display: inline-block;
+        width: 0.75em;
+        margin-left: -0.75em;
+    }
+
+
+    .active {
+        display: flex !important;
+    }
+
+    #about .title {
+        width: 22%;
+        order: 0;
+        margin-right: 25px;
+    }
+
+    #about .description {
+        width: 30%;
+        order: 1;
+        margin-right: 25px;
+    }
+
+    .description a {
+        color: black;
+        text-decoration: underline;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+
+    #about .people {
+        width: 33%;
+        order: 2;
+        margin-left: 120px
+    }
+
+    #buttonClose {
+        z-index: 3;
+        position: absolute;
+        bottom: 55px;
+        right: 50px;
+        font-size: 1.618em;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+
+    /*--MEDIA QUERIES*/
+    @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+        body {
+            font-size: 16px;
+        }
+
+        #info {
+            flex-flow: row wrap;
+            font-size: 0.382em;
+            height: 20vh;
+            padding-right: 15px;
+        }
+
+        #letter {
+            width: 14%;
+            order: 0;
+            padding-left: 5px;
+            height: auto;
+            /*max-height: 50px;*/
+        }
+
+        #play {
+            order: 1;
+            width: 75%;
+            padding-right: 0px;
+            max-height: 50px;
+            height: auto;
+        }
+
+        #info1 {
+            display: block;
+            width: 100%;
+            order: 2;
+            /*height: 35px;non so perchè il div non fitta il content*/
+            height: auto;
+            font-size: 1.618em;
+        }
+
+        #info1 col:first-child {
+            width: 25%;
+        }
+
+        #info2 {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            order: 3;
+            height: auto;
+            padding-left: 0px;
+            padding-top: 0px;
+            font-size: 1.618em;
+        }
+
+        #info2 td {
+            padding-right: 25px;
+        }
+
+        #selectLetter {
+            /*font-size: 4.236em;*/
+            line-height: 0.95em;
+        }
+
+        #about {
+            /*flex-direction: column;*/
+            position: absolute;
+            height: calc(100% - 12px);
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-size: 1.618em;
+            padding: 10px 0px 0px 10px;
+        }
+
+        #about ul {
+            list-style-type: circle !important;
+        }
+
+        #about li:before {
+            content: initial;
+            width: 0px;
+            margin-left: 0px;
+        }
+
+        #about .title {
+            width: 100%;
+            order: 0;
+            margin-top: 75px;
+        }
+
+        #about .description {
+            width: 100%;
+            order: 1;
+        }
+
+        #about .people {
+            width: 100%;
+            order: 2;
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+
+        #buttonAbout {
+            bottom: 40px;
+        }
+
+        #buttonAbout span {
+            line-height: 1.5em;
+        }
+
+        #buttonClose {
+            width: 100%;
+            height: 45px;
+            z-index: 3;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.618em;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
     </style>
 </head>
 
 <body class="disable-select disable-scroll">
     <div id="info">
+        <!--        <div id="letter"></div>
         <div id="info1"></div>
         <div id="info2"></div>
-        <div id="info3"></div>
+        <div id="play"></div> -->
     </div>
-    <div id="canvas">
+    <div id="canvas"></div>
+    <div id="buttonAbout"><span>?</span></div>
+    <div id="about">
+        <div class="title">
+            Abecedario interattivo<br>
+            Lugano, Primavera 2020<br><br><br>
+        </div>
+        <div class="description">
+            Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.
+            È possibile avere più di una variante per lettera dell’alfabeto. <br><br>
+            Molte le libertà, tre le regole:<br>
+            <ul>
+                <li>Bianco e nero</li>
+                <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
+                <li>Fullscreen</li>
+            </ul>
+            <br>
+            Link alla repository:<br>
+            <a href="https://github.com/xmedia2020/xmedia2020.github.io">https://github.com/xmedia2020</a><br><br>
+            Nota:<br> Questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale (a.k.a. Cross-Media o XMedia).
+        </div>
+        <div class="people">
+            Studenti:<br>
+            Ballerini Lara <br>
+            Corzetto Olena <br>
+            Crivelli Chiara <br>
+            Dellamora Mattia <br>
+            Dellea Ilaria <br>
+            Gianni Carlotta <br>
+            Morcelli Alessia <br>
+            Riva Alessandra <br>
+            Veschetti Desirée <br>
+            Zanda Amina <br>
+            <br>
+            Docente:<br>
+            Andreas Gysin <br>
+            <br>
+            Assistenti:<br>
+            Valentina Meldi<br>
+            Melanie Agresta<br>
+        </div>
+        <div id="buttonClose"><span>CHIUDI</span></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="main.js"></script>
+    <script src="verlet.js"></script>
+    <script src="updateData.js"></script>
     <script type="text/javascript">
-    let json, data
+    // -- p5 main ----------------------------------------------------------
+    let json, nodes
     let sim
-    let currentSelection
-    let smthSelected = false;
+    let bMargin
+
+    let picked = null
 
     function preload() {
         json = loadJSON("dati.json")
@@ -112,383 +434,403 @@ li, ul, canvas, body {
 
 
     function setup() {
-        let cnv = createCanvas(windowWidth, (windowHeight / 100) * 90)
-        cnv.parent("canvas")
+        init()
         sim = new Sim()
         sim.gravity.y = 0.0
-        console.log(json)
-        data = []
+
+        const data = {}
         for (let key in json) {
-            data.push(json[key]);
+            const nome = json[key].nome
+            data[nome] = data[nome] || []
+            data[nome].push(json[key])
         }
-        // Attacco un'oggetto identico, che poi passo nella fuzione
-        // updateData(letter) per poterlo mostrare nelle info.
-        // Probabilmente c'è una via migliore. È per non caricare due volte il json!
-        for (let i = 0; i < data.length; i++) {
-            let current = data[i]
-            current.obj = {
-                letter: current.lettera,
-                name: current.nome,
-                fullName: current.nomeCompleto,
-                path: current.cartella,
-                date: current.data,
-                input: current.input,
-                technique: current.tecnica,
-                description: current.descrizione
+        // console.log(data)
+
+        nodes = []
+        const root = sim.addPoint(0, -45, 5)
+        root.pinned = true
+        for (const key in data) {
+            const p1 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
+            const n = {
+                point: p1,
+                type: 1,
+                nome: key,
+                fill: 255,
             }
-        }
+            sim.addLink(root, p1, 175, 0.05)
+            nodes.push(n)
 
-        // Ricavo gli "owner" dall'array 
-        // e creo gli le istanze di PointOwner e Point sulla base dell array.
-        let ownersList = []
-        for (let i = 0; i < data.length; i++) {
-            let currentOwner = data[i]
-
-            let ownerIsVisited = ownersList.includes(currentOwner.nome)
-
-            if (!ownerIsVisited) {
-                //--Aggiungo i childs----------------
-                let ownerChilds = data.filter((e) => {
-                    return e.nome == currentOwner.nome //ritorna oggetti!
-                })
-                for (let c of ownerChilds) {
-                    sim.addPoint(random(width), random(height), 20, c.lettera, currentOwner.nome, c.lettera, c.obj)
+            for (const l of data[key]) {
+                const p2 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
+                const n = {
+                    point: p2,
+                    type: 2,
+                    data: l,
+                    fill: 255,
                 }
-                //--Aggiungo i childs----------------
-
-                //--Aggiungo gli owners--------------
-                sim.addPointOwner(random(width), random(height), 20, currentOwner.nome, currentOwner.nome) //si possono togliere i childs?
-                ownersList.push(currentOwner.nome)
-                //--Aggiungo gli owners--------------
+                sim.addLink(p1, p2, 52, 0.05)
+                nodes.push(n)
             }
         }
 
-        addLinks(sim.points)
-        console.log(sim.points)
+        console.log(nodes)
+        rectMode(CENTER)
+        ellipseMode(CENTER)
+
+
     }
 
     function draw() {
+        // sim.bounds(-width/2+bMargin,-height/2+bMargin,width-bMargin, height-bMargin)
+        sim.bounds(-width / 2 + bMargin, -height / 2 + bMargin, width / 2 - bMargin, height / 2 - bMargin)
+        if (picked != null) {
+            picked.point.pos.set(mouseX - width / 2, mouseY - height / 2)
+        }
         sim.update(1)
-        sim.bounds(40, 40, width - 40, height - 40)
 
-        if (mouseIsPressed) {
-            for (let p of sim.points) {
-                p.letterFill = 90
-                let d = dist(p.pos.x, p.pos.y, mouseX, mouseY)
-                const treshold = 25
-                if (d <= treshold && mouseIsPressed) {
-                    //se nulla è selezionato allora p lo diventa
-                    //e "accende l'interruttore"
-                    if (smthSelected == false) {
-                        p.isSelected = true;
-                    }
-                    //finchè non rilascio il mouse rimane true... funzione infondo
-                    smthSelected = true;
-
-                    //se l'elemento non è un'owner lo mando nella scheda di info
-                    if (p.owner != undefined) {
-                        updateData(p.obj)
-                    }
-                } else {
-                    //perchè non funziona? se clicco in un punto che è fuori dal treshold allora dovrebbe
-                    //mettere tutto in bianco...
-                    //p.letterFill = 255 
-                }
-                //a questo punto posso anche draggare coontrollando se il punto è selezionato,
-                //senza rimanere nella condizione "d <= treshold"... problematica
-                if (p.isSelected == true) {
-                    p.letterFill = 255
-                    p.pos.x = mouseX
-                    p.pos.y = mouseY
+        const min_radius_sq = 25 * 25 // distanza minima per applicare la forza
+        for (let k = 0; k < 5; k++) {
+            for (let j = 0; j < sim.points.length; j++) {
+                const a = sim.points[j]
+                for (let i = j + 1; i < sim.points.length; i++) {
+                    const b = sim.points[i]
+                    const v = p5.Vector.sub(a.pos, b.pos)
+                    // const m_sq  = v.magSq()
+                    // const rs = a.radius + b.radius
+                    // if (m_sq < min_radius_sq) {
+                    const m = v.mag() //è la distanza in pixel fra un punto e l'altro
+                    const f = Math.exp(-m * 0.09) * 15.0
+                    v.normalize()
+                    v.mult(f)
+                    a.pos.add(v)
+                    b.pos.sub(v)
+                    // }
                 }
             }
         }
 
         background(0)
-        noStroke()
-        fill(255)
+        // noStroke()
+        // fill(0, 30)
+        // rect(0, 0, width, height)
 
-        for (const p of sim.points) {
-            p.attractNodes(sim.points)
-            p.update()
-            p.display()
-            //ellipse(p.pos.x, p.pos.y, 5, 5)
-        }
+        translate(width / 2, height / 2)
+
+        // linee
+        stroke(255)
         for (const l of sim.links) {
-            stroke(255, 255, 255, 40)
+            stroke(255, 255, 255, 90)
             line(l.a.pos.x, l.a.pos.y, l.b.pos.x, l.b.pos.y)
         }
 
-    }
-
-    function addLinks(nodes) {
-        //aggiungo i collegamenti fra lettere e owners,
-        //metto in un array tutti gli owners e li uso dopo
-        let ownersLinks = []
-        for (let n of nodes) {
-            if (n.owner === undefined) {
-                ownersLinks.push(n)
-            } else { //se l'owner esiste
-                let ownerNode = nodes.filter((e) => {
-                    return e.ownerId === n.owner
-                })
-                sim.addLink(ownerNode[0], n, 50, 0.02)
+        // punti
+        noStroke()
+        let asc = textAscent() * 0.8 //calcola ascend
+        for (const n of nodes) {
+            if (n.type == 1) {
+                push()
+                fill(0)
+                rect(n.point.pos.x, n.point.pos.y - 2, 37, 17)
+                textSize(16)
+                let txtW = textWidth(n.nome)
+                translate(-txtW / 2, asc / 2)
+                fill(n.fill)
+                text(n.nome, n.point.pos.x, n.point.pos.y)
+                pop()
+            } else if (n.type == 2) {
+                push()
+                fill(0)
+                ellipse(n.point.pos.x, n.point.pos.y - 6, 32, 32)
+                textSize(26)
+                let txtW = textWidth(n.data.lettera)
+                translate(-txtW / 2, asc / 2)
+                fill(n.fill)
+                text(n.data.lettera, n.point.pos.x, n.point.pos.y)
+                pop()
             }
         }
-        //aggiungo i collegamenti fra owners
-        for (let i = 0; i < ownersLinks.length - 1; i++) {
-            sim.addLink(ownersLinks[i], ownersLinks[i + 1], 500, 0.02)
-        }
+
     }
 
     function windowResized() {
         resizeCanvas(windowWidth, windowHeight)
     }
 
-    function listener(p) {
-        currentSelection = p;
-        console.log("stai premendo su: " + currentSelection)
+    function mousePressed() {
+        picked = null
+        for (const n of nodes) {
+            const d = dist(mouseX - width / 2, mouseY - height / 2, n.point.pos.x, n.point.pos.y)
+            if (d < 25) {
+                picked = n
+                console.log(`you have picked: ${picked}`)
+                if (n.type == 1) {
+                    //caso parent
+                    for (const n of nodes) {
+                        n.fill = 255
+                    }
+                    updateData(null)
+                } else if (n.type == 2) {
+                    //caso lettera
+                    console.log("passo questo: " + n.data)
+                    updateData(n.data)
+                    for (const o of nodes) {
+                        o.fill = 90
+                    }
+                    n.fill = 255
+                }
+                return
+            }
+        }
+        console.log("background")
+        if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+            for (const n of nodes) {
+                n.fill = 255
+            }
+            updateData(null)
+        }
     }
 
     function mouseReleased() {
-        smthSelected = false;
-        for (let p of sim.points) {
-            p.isSelected = false;
-        }
+        picked = null
     }
 
-    // add info to card
 
-    console.log("hellou")
-
-    const divInfo1 = document.querySelector("#info1")
-    const divInfo2 = document.querySelector("#info2")
-    const divInfo3 = document.querySelector("#info3")
-    updateData({
-        letter: " ",
-        name: " ",
-        fullName: " ",
-        path: " ",
-        date: " ",
-        input: " ",
-        technique: " ",
-        description: " "
-    })
-
-    function updateData(letter) {
-        //console.log(letter)
-        divInfo1.innerHTML = ""
-        divInfo2.innerHTML = ""
-        divInfo3.innerHTML = ""
-
-        //--div1----------------------------------------------------
-        const button = document.createElement("a")
-        button.setAttribute("href", `/abc/${letter.name}/${letter.path}/index.html`)
-        button.innerHTML = `<div id="button">PLAY</div>`
-        divInfo1.appendChild(button)
-
-        const el1 = document.createElement("ul")
-        el1.innerHTML += `<li>nome: ${letter.name}</li>`
-        el1.innerHTML += `<li>nome completo: ${letter.fullName}</li>`
-        el1.innerHTML += `<li>realizzato il: ${letter.date}</li>`
-        divInfo1.appendChild(el1)
-
-
-        //--div2----------------------------------------------------
-        const el2 = document.createElement("ul")
-        el2.innerHTML += `<li>percorso: /abc/${letter.name}/${letter.path}</li>`
-        el2.innerHTML += `<li>lettera: ${letter.letter}</li>`
-        el2.innerHTML += `<li>tecnica: ${letter.technique}</li>`
-        el2.innerHTML += `<li>input: ${letter.input}</li>`
-        divInfo2.appendChild(el2)
-
-        //--div3----------------------------------------------------
-        const el3 = document.createElement("ul")
-        el3.innerHTML += `<li>descrizione: ${letter.description}`
-        divInfo3.appendChild(el3)
-    }
-
-    //--Verlet Library--------------
-    
-// Classe "punto"
-class Point{
-    constructor(x, y, r, l, o, txt, obj){
-        this.pos = createVector(x, y)
-        this.pre = createVector(x, y)
-        this.vel = createVector(0, 0)
-        this.maxVel = 0.1;
-        this.radius = r
-        this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
-        this.pinned = false
-        this.cell_x = 0
-        this.cell_y = 0
-        this.displayText = txt
-        this.letter = l
-        this.owner = o
-        this.obj = obj;
-        this.letterFill = 255;
-        this.isSelected = false;
-    }
-
-    display(){
-        fill(0)
-        noStroke()
-       //ellipse(this.pos.x, this.pos.y, 25, 25)
-        push()
-        textSize(22)
-        let asc = textAscent() * 0.8; // Calc ascent
-        let txtW = textWidth(this.displayText);
-        translate(-txtW/2, asc/2)
-        fill(this.letterFill)
-        text(this.displayText, this.pos.x, this.pos.y)
-        pop()
-    }
-
-    update(){
-        this.vel.limit(this.maxVel)
-        this.pos.add(this.vel)
-
-        //this.vel.mult(1 - 0.9);
-
-    }
-
-    attractNodes(nodeArray) {        
-        for(let i = 0; i < nodeArray.length; i++){
-            let otherNode = nodeArray[i]
-            
-            if(otherNode === undefined){            //interrompi se ancora non ci sono nodi
-                break
-            }       
-            if(otherNode === this) {                //salta se i due nodi sono uguali
-                continue
-            }         
-
-            let thisNodePos = this.pos.copy()
-            let otherNodePos = otherNode.pos.copy()
-            let d = thisNodePos.dist(otherNodePos)
-            d = constrain(d, 16, 90)                                    //costringo per non farli sparare ovunque
-            if (d > 0 && d < this.radius){
-                let s = pow(d/ this.radius, 1)                          //la forza di attrazione in base alla distanza?
-                let f = s * 9 * -1 * (1 / (s + 1) + ((s - 3) / 4)) / d  //copiata da ref, non capisco ma funziona
-                let df = thisNodePos.sub(otherNodePos)
-                df.mult(f)
-                //console.log(df)
-                otherNode.vel.add(df)
-            }
-        }
-        
-    }
-
-}
-class PointOwner extends Point {
-    //una classe che distingue i nodi degli owner, al quale saranno agganciati i punti
-    constructor(x, y, r, id, txt){
-        super(x, y, r, undefined, undefined, txt)
-        this.ownerId = id
-    }
-}
-
-// Classe "molla"
-class Link{
-    constructor(a, b, l, k){
-        this.a = a
-        this.b = b
-        this.length = l
-        this.k = k
-    }
-}
-
-class Sim {
-
-    constructor() {
-        this.points = []
-        this.links = []
-        this.friction = 0.9
-        this.gravity = createVector(0, 0)
-    }
-
-    update(steps){
-        // Punti
-        for (const p of this.points) {
-            if (p.pinned) continue
-            let v = p5.Vector.sub(p.pos, p.pre)
-            v.add(this.gravity)
-            v.mult(this.friction)
-            p.pre = p.pos.copy()
-            p.pos.add(v)
+    function init() {
+        document.querySelector("canvas").innerHTML = " "
+        let w, h
+        if (windowWidth <= 540) {
+            w = floor(windowWidth - 3);
+            h = floor((windowHeight / 100) * 80)
+            bMargin = 15
+        } else {
+            w = floor(windowWidth);
+            h = floor((windowHeight / 100) * 86)
+            bMargin = 20
         }
 
-        // Molle
-        const sub_step = 1.0 / steps
-        for (let i=0; i<steps; i++){
-            for (const l of this.links){
-                const v = p5.Vector.sub(l.a.pos, l.b.pos)
-                const m = v.mag()
-                v.mult((l.length - m) / m * l.k * sub_step)
-                if (!l.a.pinned) l.a.pos.add(v)
-                if (!l.b.pinned) l.b.pos.sub(v)
-            }
-        }
-
-        // Reset dei punti "pinned"
-        for (const p of this.points){
-            if (p.pinned) p.pos.set(p.pre.x, p.pre.y)
-        }
+        let cnv = createCanvas(w, h)
+        cnv.parent("canvas")
     }
 
-    addPoint(x, y, r, l, o, txt, obj){
-        const p = new Point(x, y, r, l, o,  txt, obj)
-        this.points.push(p)
-        return p
-    }
+    // -- END p5 main ------------------------------------------------------
+    // -- Update Data ------------------------------------------------------
+    const divInfo = document.querySelector("#info")
+    updateData(null)
+    // updateData({
+    //  lettera:         " ", 
+    //     nome:           " ",
+    //     nomeCompleto:       " ", 
+    //     cartella:           " ",
+    //     data:           " ",
+    //     input:          " ", 
+    //     tecnica:      " ",
+    //     descrizione:    " " 
+    // })
 
-    addPointOwner(x, y, r, id, txt){
-        const p = new PointOwner(x, y, r, id, txt)
-        this.points.push(p)
-        return p
-    }
 
-    addLink(a, b, length = null, k = 0.1){
-        if(length === null){
-            length = p5.Vector.sub(a.pos, b.pos).mag()
-        }
+    function updateData(data = null) {
+        divInfo.innerHTML = ""
+        if (data) {
+            console.log(data)
+            const isVisited = localStorage.getItem(data.nome + "/" + data.cartella) == 1
 
-        const l = new Link(a, b, length, k)
-        this.links.push(l)
-        return l
-    }
+            //--divLetter----------------------------------------------------
+            const letterDiv = document.createElement("div")
+            letterDiv.id = "letter"
+            letterDiv.innerHTML = `<p>${data.lettera}</p>`
+            divInfo.appendChild(letterDiv)
 
-    // Per ora c'è solo il check del piano in fondo
-    bounds(x1, y1, x2, y2){
-        const damp = 0.8
-        for (const p of this.points){
-            if (p.pos.x >= x2){
-                 const d = (p.pos.x - p.pre.x) * damp
-                 p.pre.x = x2 + d
-                 p.pos.x = x2
-            } else if (p.pos.x <= x1) {
-                 const d = (p.pos.x - p.pre.x) * damp
-                 p.pre.x = x1 + d
-                 p.pos.x = x1
+
+            //--divInfo1----------------------------------------------------
+            const info1Div = document.createElement("div")
+            info1Div.id = "info1"
+            info1Div.innerHTML += `
+        <table>
+            <col width="30%" /> 
+            <col width="70%" />  
+            <tr>
+                <td>Autore</td>
+                <td>${data.nomeCompleto}</td>
+            </tr> 
+            <tr>
+                <td>Data</td>
+                <td>${data.data}</td>
+            </tr>
+            <tr>
+                <td>Tecnica</td>
+                <td>${data.tecnica}</td>
+            </tr>
+            <tr>
+                <td>input</td>
+                <td>${data.input}</td>
+            </tr>
+        </table>
+        `
+            divInfo.appendChild(info1Div)
+
+
+            //--div2----------------------------------------------------
+            const info2Div = document.createElement("div")
+            info2Div.id = "info2"
+            info2Div.innerHTML += `
+        <table>
+            <col width="25%" /> 
+            <col width="75%" /> 
+            <tr>
+                <td class="fix">Descrizione</td>
+                <td>${data.descrizione}</td>
+            </tr> 
+        </table>
+        `
+            divInfo.appendChild(info2Div)
+
+            //--divPlay----------------------------------------------------
+            const playDiv = document.createElement("div")
+            playDiv.id = "play"
+            const button = document.createElement("a")
+            button.setAttribute("href", `/abc/${data.nome}/${data.cartella}/index.html`)
+            if (!isVisited) {
+                button.innerHTML = `<p>PLAY</p>`
+            } else {
+                button.innerHTML = `<p>PLAY AGAIN</p>`
             }
 
-            if (p.pos.y >= y2){
-                 const d = (p.pos.y - p.pre.y) * damp
-                 p.pre.y = y2 + d
-                 p.pos.y = y2
-            } else if (p.pos.y <= y1) {
-                 const d = (p.pos.y - p.pre.y) * damp
-                 p.pre.y = y1 + d
-                 p.pos.y = y1
+            playDiv.appendChild(button)
+            divInfo.appendChild(playDiv)
+        } else {
+
+            //--divSelectLetter----------------------------------------------------
+            const selectLetterDiv = document.createElement("div")
+            selectLetterDiv.id = "selectLetter"
+            selectLetterDiv.innerHTML += `<p>Seleziona una lettera</p>`
+            divInfo.appendChild(selectLetterDiv)
+        }
+
+    }
+    // -- END Update Data --------------------------------------------------
+    // -- Verlet -----------------------------------------------------------
+
+    // Classe "punto"
+    class Point {
+        constructor(x, y, r) {
+            this.pos = createVector(x, y)
+            this.pre = createVector(x, y)
+            this.radius = r
+            this.radius_squared = r * r // Controlliamo il raggio al quadrato, più rapido senza radice
+            this.pinned = false
+            this.cell_x = 0
+            this.cell_y = 0
+        }
+    }
+
+    // Classe "molla"
+    class Link {
+        constructor(a, b, l, k) {
+            this.a = a
+            this.b = b
+            this.length = l
+            this.k = k
+        }
+    }
+
+    class Sim {
+
+        constructor() {
+            this.points = []
+            this.links = []
+            this.friction = 0.9
+            this.gravity = createVector(0, 0)
+        }
+
+        update(steps) {
+            // Punti
+            for (const p of this.points) {
+                if (p.pinned) continue
+                let v = p5.Vector.sub(p.pos, p.pre)
+                v.add(this.gravity)
+                v.mult(this.friction)
+                p.pre = p.pos.copy()
+                p.pos.add(v)
+            }
+
+            // Molle
+            const sub_step = 1.0 / steps
+            for (let i = 0; i < steps; i++) {
+                for (const l of this.links) {
+                    const v = p5.Vector.sub(l.a.pos, l.b.pos)
+                    const m = v.mag()
+                    v.mult((l.length - m) / m * l.k * sub_step)
+                    if (!l.a.pinned) l.a.pos.add(v)
+                    if (!l.b.pinned) l.b.pos.sub(v)
+                }
+            }
+
+            // Reset dei punti "pinned"
+            for (const p of this.points) {
+                if (p.pinned) p.pos.set(p.pre.x, p.pre.y)
+            }
+        }
+
+        addPoint(x, y, r) {
+            const p = new Point(x, y, r)
+            this.points.push(p)
+            return p
+        }
+
+        addLink(a, b, length = null, k = 0.1) {
+            if (length === null) {
+                length = p5.Vector.sub(a.pos, b.pos).mag()
+            }
+
+            const l = new Link(a, b, length, k)
+            this.links.push(l)
+            return l
+        }
+
+        // Per ora c'è solo il check del piano in fondo
+        bounds(x1, y1, x2, y2) {
+            const damp = 0.8
+            for (const p of this.points) {
+                if (p.pos.x >= x2) {
+                    const d = (p.pos.x - p.pre.x) * damp
+                    p.pre.x = x2 + d
+                    p.pos.x = x2
+                } else if (p.pos.x <= x1) {
+                    const d = (p.pos.x - p.pre.x) * damp
+                    p.pre.x = x1 + d
+                    p.pos.x = x1
+                }
+
+                if (p.pos.y >= y2) {
+                    const d = (p.pos.y - p.pre.y) * damp
+                    p.pre.y = y2 + d
+                    p.pos.y = y2
+                } else if (p.pos.y <= y1) {
+                    const d = (p.pos.y - p.pre.y) * damp
+                    p.pre.y = y1 + d
+                    p.pos.y = y1
+                }
             }
         }
     }
-}
+    // -- END Verlet -------------------------------------------------------
+    // -- about interaction ------------------------------------------------
+    const buttonAbout = document.querySelector("#buttonAbout")
+    const about = document.querySelector("#about")
+    const buttonClose = document.querySelector("#buttonClose")
+    buttonAbout.addEventListener("click", showAbout)
+    buttonClose.addEventListener("click", hideAbout)
 
+    function showAbout() {
+        about.classList.add("active")
+        buttonAbout.style.display = "none";
+    }
 
-
-
-    
+    function hideAbout() {
+        about.classList.remove("active")
+        buttonAbout.style.display = "block";
+    }
+    // -- END about interaction ---------------------------------------------
     </script>
 </body>
 

@@ -89,35 +89,45 @@
 		"data"    		: "17.03.2020",
 		"descrizione"	: "Esempio di una “feedback loop” (non tramite shader)."
 	},
-	{
+{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "04A",
+		"cartella" 		: "A",
 		"lettera"  		: "A",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Muovi il mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Particelle random creano un disegno"
+		"descrizione"	: "Sperimentazione con particelle e random walker."
 	},
-	{
+{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "06O",
+		"cartella" 		: "O",
 		"lettera"  		: "O",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click Mouse",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Genera una texture come un tunnel"
+		"descrizione"	: "Generare un'illusione ottica con il movimento del mouse."
 	},
-	{
+{
 		"nome"  		: "AMO",
 		"nomeCompleto" 	: "Alessia Morcelli",
-		"cartella" 		: "07G",
+		"cartella" 		: "G",
 		"lettera"  		: "G",
-		"tecnica" 		: "P5JS",
+		"tecnica" 		: "SVG path lenght",
 		"input"   		: "Scroll",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Scrolla la pagina per creare la lettera"
+		"descrizione"	: "Esempio di scroll per disegnare il path del file SVG."
+	},
+{
+		"nome"  		: "AMO",
+		"nomeCompleto" 	: "Alessia Morcelli",
+		"cartella" 		: "R",
+		"lettera"  		: "R",
+		"tecnica" 		: "CSS",
+		"input"   		: "Muovi il mouse sulle lettere",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Animazione con solo CSS per mostrare una sovrapposizione di pesi dello stesso font."
 	},
 
 	{
@@ -128,7 +138,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Diverse “g” che ruotano ruotanti"
+		"descrizione"	: "Muovendo il mouse si modifica la texture, cliccando una lettera della tastiera essa cambia."
 	},
 	{
 		"nome"  		: "ARI",
@@ -138,29 +148,29 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "“I” che ruotano ruotanti e giocano di scala"
+		"descrizione"	: "Muovendo il mouse si può modificare la texture, cliccando si può modificare la dimensione e cliccando una lettera della tastiera si modifica la lettera. "
 	},
 
 	{
 		"nome"  		: "ARI",
 		"nomeCompleto" 	: "Alessandra Riva",
-		"cartella" 		: "l1",
+		"cartella" 		: "l",
 		"lettera"  		: "l",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse click",
 		"data"    		: "18.03.2020",
-		"descrizione"	: "Sistema di scrittura tramite lettera"
+		"descrizione"	: "Utilizzando il mouse si può scrivere mediante una linea."
 	},
 
 	{
 		"nome"  		: "ARI",
 		"nomeCompleto" 	: "Alessandra Riva",
-		"cartella" 		: "L2",
+		"cartella" 		: "L1",
 		"lettera"  		: "L",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Sistema animato"
+		"descrizione"	: "Cliccando sul canvas compare l'animazione."
 	},
 
 	{
@@ -171,7 +181,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Mandala animato"
+		"descrizione"	: "Cliccando è possibile modificare il mandala auto generato, aggiornandolo."
 	},
 
 	{
@@ -182,7 +192,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Audio",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "onda sonora animata"
+		"descrizione"	: "Attraverso il microfono, parlando, è possibile visualizzare la proprio onda sonora. "
 	},
 
 	{
@@ -193,7 +203,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Sistema di particelle"
+		"descrizione"	: "Attraverso il click è possibile interagire con un sistema di particelle."
 	},
 
 
@@ -314,7 +324,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Lettera elastica"
+		"descrizione"	: "Forma elastica"
 	},
 
 	{
@@ -325,7 +335,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Click",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Ad ogni click si genera una variazione random"
+		"descrizione"	: "Lettera raster con variazioni di spessore."
 	},
 
 	{
@@ -336,7 +346,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "17.03.2020",
-		"descrizione"	: "Elementi in crescita variabili tramite il movimento del mouse"
+		"descrizione"	: "Elementi multipli in crescita, variabili tramite il movimento del mouse."
 	},
 
 	{
@@ -347,7 +357,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "20.04.2020",
-		"descrizione"	: "Forme 3D da allineare a comporre la lettera"
+		"descrizione"	: "Forme 3D da allineare a comporre la lettera."
 	},
 
 	{
@@ -358,7 +368,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "26.04.2020",
-		"descrizione"	: "Intersezione di linee rotanti"
+		"descrizione"	: "Intersezione di linee rotanti."
 	},
 
 	{
@@ -431,7 +441,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostando il mouse cambia il numero di raggi e la dimensione della lettera “D”"
+		"descrizione"	: "Spostando il mouse cambia il numero di raggi e dimensione."
 	},
 
 	{
@@ -442,7 +452,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Muovendo il cursore cambia la prospettiva della lettera “E”"
+		"descrizione"	: "Muovendo il cursore cambia la prospettiva."
 	},
 
 	{
@@ -453,7 +463,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "suono",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Creando suoni le linee si allungano formando la lettera “F”"
+		"descrizione"	: "Creando suoni le linee si allungano formando la lettera."
 	},
 
 	{
@@ -464,7 +474,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Muovendo il mouse si crea una composizione che forma la lettera H"
+		"descrizione"	: "Muovendo il mouse si crea una composizione che forma la lettera."
 	},
 
 	{
@@ -475,7 +485,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostando il mouse si aggiungono o si rimuovono i raggi"
+		"descrizione"	: "Spostando il mouse si aggiungono o si rimuovono i raggi."
 	},
 
 	{
@@ -486,7 +496,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "21.03.2020",
-		"descrizione"	: "Muovendo il cursore si muove il tunnel"
+		"descrizione"	: "Muovendo il cursore si muove il tunnel."
 	},
 	{
 		"nome"  		: "LBA",
@@ -496,7 +506,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Spostando il mouse si cambia dimensione e si ruota la lettera “Z”"
+		"descrizione"	: "Spostando il mouse si cambia dimensione e rotazione."
 	},
 	{
 		"nome"  		: "CCR",
@@ -506,7 +516,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Attraverso il movimento del mouse si modifica la forma della lettera."
+		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -516,7 +526,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera S."
+		"descrizione"	: "Muovendo il mouse varia il disegno."
 	},
 	{
 		"nome"  		: "CCR",
@@ -526,7 +536,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "doppio touch",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Utilizzando il doppio touch l'asta orizzontale della T si modifica."
+		"descrizione"	: "Utilizzando il doppio touch si modifica la forma della lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -536,7 +546,7 @@
 		"tecnica" 		: "P5.JS, ML5.JS",
 		"input"   		: "movimento delle braccia",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Muovendo le braccia si modifica la forma della Y."
+		"descrizione"	: "Muovendo le braccia si modificano le aste della lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -546,7 +556,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera L."
+		"descrizione"	: "Muovendo il mouse si moltiplica la lettera e se ne varia lo spessore."
 	},
 	{
 		"nome"  		: "CCR",
@@ -556,7 +566,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Attraverso il click del mouse si modifica le forme nella lettera A."
+		"descrizione"	: "Cliccando sugli elementi della lettera varia la forma."
 	},
 	{
 		"nome"  		: "CCR",
@@ -566,7 +576,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Attraverso il microfono e muovendo il mouse si modifica la M."
+		"descrizione"	: "Muovendo il microfono ed utilizzando il microfono si modifica la forma."
 	},
 	{
 		"nome"  		: "CCR",
@@ -576,7 +586,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "26.04.2020",
-		"descrizione"	: "Muovendo il mouse si modifica la geometria della o."
+		"descrizione"	: "Muovendo il mouse ruotano gli elementi della lettera."
 	},
 	{
 		"nome"  		: "MDE",
@@ -586,7 +596,7 @@
 		"tecnica" 		: "P5JS, cel animation",
 		"input"   		: "Mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Scorrendo con il mouse sopra l'area della lettera o cliccando, centina di occhi si aprono."
+		"descrizione"	: "Uso una serie frames disegnati manualmente, disposti nello spazio e animati in maniera procedurale"
 	},
 	{
 		"nome"  		: "MDE",
@@ -596,7 +606,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "29.03.2020",
-		"descrizione"	: "Passando con il mouse sopra l'area centrale dello schermo, si rivela la lettera che sta sotto."
+		"descrizione"	: "Uso i valori più chiari dei pixel di un'immagine, per rivelare la lettera con delle particelle."
 	},
 	{
 		"nome"  		: "MDE",
@@ -606,7 +616,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Le righe si dilatano e lasciano intravedere la lettera. Il mouse regola lo spessore della linea."
+		"descrizione"	: "Uso i valori di chiarezza dei pixel di un'immagine per alterare il disegno di una linea, il mouse ne modifica l'intensità e il colore di riempimento."
 	},
 	{
 		"nome"  		: "MDE",
@@ -616,7 +626,7 @@
 		"tecnica" 		: "P5JS, ML5",
 		"input"   		: "Faccia",
 		"data"    		: "07.04.2020",
-		"descrizione"	: "Un volto disegnato si arrabbia insieme a te e imita le tue sopracciglia. (Caricamento lento!)"
+		"descrizione"	: "Ricavo la posizione delle sopracciglia dal video della webcam e genero un volto che mima l'espressione. (Caricamento lento!)"
 	},
 	{
 		"nome"  		: "MDE",
@@ -626,7 +636,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "15.04.2020",
-		"descrizione"	: "La lettera o è un'entità viva, che segue il cursore del mouse nello schermo."
+		"descrizione"	: "Una serie di anelli concentrici e in continuo movimento segue il mouse con intensità progressiva."
 	},
 	{
 		"nome"  		: "OCO",

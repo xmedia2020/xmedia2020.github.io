@@ -1,13 +1,10 @@
-const nr = 50
-const r = 200
+let nr
+let r, rings
 let off = 0.0
-const rings = 17
-function preload() {
-    //img = loadImage("assets/k.png")
-}
 
 function setup() {
     createCanvas(windowWidth, windowHeight)
+    init()
 }
 
 function draw() {
@@ -23,12 +20,15 @@ function draw() {
             const offset = noise(x, y + j*0.03, off) * (_r*0.5)
 
             push()
-            translate(((mouseX-width/2) * 0.0001 * j), ((mouseY-height/2) * 0.0001 * j))
             x *= _r + offset 
-            y *= _r + offset
+            y *= _r + offset 
+
+            x+= ((mouseX-width/2) * 0.04 * j)
+            y+=((mouseY-height/2) * 0.04 * j)
 
             vertex(x, y)
             off += 0.00007
+
         }
         pop()
         const startValue = 15
@@ -38,15 +38,32 @@ function draw() {
         noFill()
         endShape(CLOSE)
     }
-
-    //noLoop();
 }
 
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
+    init()
 }
 
-function mousePressed() {
+function init(){
+    background(0)
+    if(width >= 1200){
+        //Desktop
+        nr = 50
+        r = 300
+        rings = 16
+    } else if (width < 1200 && width >= 400){
+        //tablet
+        nr = 50
+        r = 260
+        rings = 16
+    } else {
+        //phone
+        nr = 47
+        r = 180
+        rings = 13
+    }
+
 
 }
