@@ -43,21 +43,19 @@ h1{
  
 }
 
-/*
-Questo serve a visualizzare sia lettera dx che sx*/
-.specimen:before,
-.specimen:after{
-  content:attr(data-text);
-}
-
 .specimen:after{ 
  /* qui visualizzo la lettera a DX*/
   font-weight: 700;
-/*  stroke: 1px rgba(255,100,100,1);*/
 }
 
 .specimen:before{
  /* qui visualizzo la lettera a SX*/
  font-weight: 300;
- /* stroke: 1px rgba(100,100,255,1);*/
 }
+
+/*Questo serve a visualizzare sia lettera dx che sx*/
+.specimen:before,
+.specimen:after{
+  content:attr(data-text);
+}
+
