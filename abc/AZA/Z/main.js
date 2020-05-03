@@ -21,11 +21,7 @@ let punti = [
 	0.00,	3.375,
 ]
 
-//console.log (punti)
-
-// funzione d’inizio
 function setup(){
-	// creiamo un'applicazione della dimensione della finestra
 	createCanvas(windowWidth, windowHeight)
 	mic = new p5.AudioIn();
     mic.start();
@@ -64,9 +60,6 @@ function draw(){
 	stroke(255)
 	strokeWeight(3)
 
-
-
-
     let minVal = 0;
     let maxVal = 50;
 
@@ -76,10 +69,7 @@ function draw(){
 	for(let j=0; j<20; j++){
 		push()
 		
-			//rotate(mouseX * 0.001 * j )
-			//scale(mouseY * 0.001 * j)
 		    let m = map(vol, minVal, maxVal, 0 ,20);
-
 			
 		beginShape()
 			for(let i=0; i<punti.length; i=i+2){
@@ -90,7 +80,6 @@ function draw(){
 		endShape(CLOSE)
 		pop()
 	}
-
 }
 
 // -- EVENTI ----------------------------------
@@ -103,12 +92,10 @@ function touchStarted() {
     getAudioContext().resume()
 }
 
-
 function windowResized(){
 	// importante: il canvas deve essere ridimensionato assieme alla finestra
 	resizeCanvas(windowWidth, windowHeight)
 }
-
 
 
 function keyPressed(){
