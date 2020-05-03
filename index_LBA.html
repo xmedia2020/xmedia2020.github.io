@@ -535,10 +535,14 @@
   }
   
   function renderComponent(props) {
-      console.log(props)
+
+    const v = localStorage.getItem(props.nome + "/" + props.cartella) == 1 ? " " : "  &#x2713;"
+
+
+
       return (
           `
-          <li class="list-group-item"><a href="abc/${props.nome}/${props.cartella}/index.html">${props.nomeCompleto } <span style="color: grey;">| ${props.descrizione}</span></a></li>`
+          <li class="list-group-item"><a href="abc/${props.nome}/${props.cartella}/index.html">${props.nomeCompleto } ${v}| <span style="color: grey;"> ${props.descrizione}</span></a></li>`
       )
   }
   
