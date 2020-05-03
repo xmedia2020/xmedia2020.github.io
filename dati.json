@@ -511,7 +511,7 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "E1",
+		"cartella" 		: "E",
 		"lettera"  		: "E",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
@@ -521,7 +521,7 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "S2",
+		"cartella" 		: "S",
 		"lettera"  		: "S",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
@@ -551,7 +551,7 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "L2",
+		"cartella" 		: "L",
 		"lettera"  		: "L",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
@@ -571,7 +571,7 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "M2",
+		"cartella" 		: "M",
 		"lettera"  		: "M",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
@@ -581,7 +581,7 @@
 	{
 		"nome"  		: "CCR",
 		"nomeCompleto" 	: "Chiara Crivelli",
-		"cartella" 		: "o6",
+		"cartella" 		: "o",
 		"lettera"  		: "o",
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
