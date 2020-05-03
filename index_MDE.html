@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>home</title>
+    <title>abcdefghijklmnopqrstuvwxyz.fun</title>
     <meta name="description" content="home">
     <meta name="author" content="Matt">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,11 +55,22 @@
         color: white;
     }
 
+    #abecedario {
+        order: 0;
+        width: 100vw;
+        height: 3vh;
+        color: white;
+        font-size: 1.618em;
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+
     #info {
         width: 100vw;
         height: 14vh;
         color: white;
         display: flex;
+        order: 1;
         padding: 0;
         font-size: 1em;
         border-bottom: 1px solid #444;
@@ -140,17 +151,22 @@
         letter-spacing: -0.04em
     }
 
+    #selectLetter p {
+        padding-left: 5px;
+    }
+
     #canvas {
         width: 100vw;
         height: 88vw;
         max-height: 90vh;
+        order: 2;
     }
 
     #buttonAbout {
         display: block;
         z-index: 4;
         position: absolute;
-        bottom: 65px;
+        bottom: 105px;
         right: 50px;
         font-size: 1.618em;
     }
@@ -249,6 +265,11 @@
             font-size: 16px;
         }
 
+        #abecedario {
+            margin-bottom: 5px;
+            padding-left: 10px;
+        }
+
         #info {
             flex-flow: row wrap;
             font-size: 0.382em;
@@ -303,6 +324,11 @@
         #selectLetter {
             /*font-size: 4.236em;*/
             line-height: 0.95em;
+            padding-left: 0px;
+        }
+
+        #selectLetter p {
+            padding-left: 0px !important;
         }
 
         #about {
@@ -367,6 +393,7 @@
 </head>
 
 <body class="disable-select disable-scroll">
+    <div id = "abecedario">abecedario</div>
     <div id="info">
         <!--        <div id="letter"></div>
         <div id="info1"></div>
@@ -383,11 +410,11 @@
         <div class="description">
             Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.
             È possibile avere più di una variante per lettera dell’alfabeto. <br><br>
-            Molte le libertà, tre le regole:<br>
-            <ul>
-                <li>Bianco e nero</li>
-                <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
-                <li>Fullscreen</li>
+
+            Molte le libertà, tre le regole:<br><ul>
+            <li>Bianco e nero</li>
+            <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
+            <li>Fullscreen</li>
             </ul>
             <br>
             Link alla repository:<br>
@@ -422,9 +449,20 @@
     <script src="updateData.js"></script>
     <script type="text/javascript">
     // -- p5 main ----------------------------------------------------------
+    /**
+     * home
+     * MDE
+     * Reference: http://www.generative-gestaltung.de/2/sketches/?02_M/M_6_1_03
+     *
+     * todo:
+     * - Portare fuori da p5 l'elemento cliccato?
+     * - Rendere univoco il clic per il point... non che "raccoglie" anche gli altri
+     *
+     */
+
     let json, nodes
     let sim
-    let bMargin
+    let bMargin, oriY
 
     let picked = null
 
@@ -447,7 +485,7 @@
         // console.log(data)
 
         nodes = []
-        const root = sim.addPoint(0, -45, 5)
+        const root = sim.addPoint(0, oriY, 5)
         root.pinned = true
         for (const key in data) {
             const p1 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
@@ -600,12 +638,14 @@
         let w, h
         if (windowWidth <= 540) {
             w = floor(windowWidth - 3);
-            h = floor((windowHeight / 100) * 80)
+            h = floor((windowHeight / 100) * 73)
             bMargin = 15
+            oriY = -35
         } else {
             w = floor(windowWidth);
-            h = floor((windowHeight / 100) * 86)
+            h = floor((windowHeight / 100) * 81)
             bMargin = 20
+            oriY = 0
         }
 
         let cnv = createCanvas(w, h)

@@ -36,12 +36,21 @@ table {
 a {
     color: white;
 }
-
+#abecedario{
+    order: 0;
+    width: 100vw;
+    height: 3vh;
+    color: white;
+    font-size: 1.618em;
+    padding-left: 20px;
+    padding-top: 15px;
+}
 #info {
     width: 100vw;
     height: 14vh;
     color: white;
     display: flex;
+    order: 1;
     padding: 0;
     font-size: 1em;
     border-bottom: 1px solid #444;
@@ -121,18 +130,22 @@ a {
     color: #444;
     letter-spacing: -0.04em
 }
+#selectLetter p{
+    padding-left: 5px;
+}
 
 #canvas {
     width: 100vw;
     height: 88vw;
     max-height: 90vh;
+    order:2;
 }
 
 #buttonAbout {
     display: block;
     z-index: 4;
     position: absolute;
-    bottom: 65px;
+    bottom: 105px;
     right: 50px;
     font-size: 1.618em;
 }
@@ -231,6 +244,11 @@ a {
         font-size: 16px;
     }
 
+    #abecedario{
+        margin-bottom: 5px;
+        padding-left: 10px;
+    }
+
     #info {
         flex-flow: row wrap;
         font-size: 0.382em;
@@ -285,6 +303,11 @@ a {
     #selectLetter {
         /*font-size: 4.236em;*/
         line-height: 0.95em;
+        padding-left: 0px;
+    }
+
+    #selectLetter p{
+        padding-left: 0px!important;
     }
 
     #about {
