@@ -1,8 +1,6 @@
-/**
- * Template per P5JS
- * Reference: https://p5js.org/reference/
- */
+// https://p5js.org/reference/
 
+// punti array
 let puntiE = [
 	-1.117, -1.518,
  	 1.086, -1.518,
@@ -36,9 +34,9 @@ function draw(){
 	fill(255);
 	noStroke();
 
+	// trovo dimensione minima del canvas
 	const scale = min(width, height) / 100;
 	const d = scale * 15.0;
-
 	let dx = puntiO[0] * d;
 	let dy = (puntiO[7] - puntiO[1]) * d;
 
@@ -57,6 +55,7 @@ function draw(){
 		rect( xR, my, mx, dy);
 	}
 	
+	// desegno serie di punti
 	push();
 	translate(width/2, height/2);
 	beginShape();
@@ -76,12 +75,10 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
 }
 
+// funzione salva
 function keyPressed(){
 	if (key == 's' || key == 'S') {
 		saveCanvas('E', 'png');
-	} else if (key == 'x' || key == 'X'){
-		setup()
 	}
-
 	return false;
 }

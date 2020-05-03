@@ -1,8 +1,7 @@
-/**
- * Template per P5JS
- * Reference: https://p5js.org/reference/
- */
+// https://p5js.org/reference/
+// https://www.instagram.com/p/B9wSRiDq0Wl/
 
+// punti array
 let puntiL = [
 	-0.967, -1.518,
 	-0.556, -1.518,
@@ -37,6 +36,7 @@ function draw(){
 
 	let mx = map(mouseX, width/2+puntiL[0]*d, (puntiL[9]*d)/2+width/2, 0, 12*n, true);
 
+	// disegno punti array
 	if(mouseX<width/2+puntiL[0]*d){
 		beginShape(LINES);
 		vertex(puntiL[0]*d, puntiL[1]*d);
@@ -44,8 +44,9 @@ function draw(){
 		vertex(puntiL[10]*d, puntiL[11]*d);
 		vertex(puntiL[8]*d, puntiL[9]*d);
 		endShape();
-	 }
+	}
 
+	// disegno punti array
 	for( i=1; i < mx; i = i+n){
 		beginShape(LINES);
 		vertex(puntiL[0]*d + i, puntiL[1]*d);
@@ -64,12 +65,10 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
 }
 
+// funzione salva
 function keyPressed(){
 	if (key == 's' || key == 'S') {
 		saveCanvas('L', 'png');
-	} else if (key == 'x' || key == 'X'){
-		setup()
 	}
-
 	return false;
 }

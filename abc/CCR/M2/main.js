@@ -1,3 +1,5 @@
+// https://p5js.org/reference/
+
 let mic
 let micLevelSmooth = 0;
 let posX = 0;
@@ -6,8 +8,10 @@ let x;
 let x1;
 let pt = 0
 
+// funzione setup 
 function setup(){
 	createCanvas(windowWidth, windowHeight)
+	// per audio
   	mic = new p5.AudioIn()
   	mic.start();
 }
@@ -16,10 +20,12 @@ function draw(){
 	background(0)
 	fill(255)
 	noStroke()
+	// disegno M
 	drawM();
 }
 
 function drawM(){
+	// valore mic
 	let micLevel = mic.getLevel() * 100;
     micLevelSmooth = micLevelSmooth + (micLevel - micLevelSmooth) * 0.05;
 	const scale = min(width, height) / 50
@@ -115,12 +121,10 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
 }
 
+// funzione salva
 function keyPressed(){
 	if (key == 's' || key == 'S') {
 		saveCanvas('M', 'png');
-	} else if (key == 'x' || key == 'X'){
-		setup()
 	}
-
 	return false;
 }
