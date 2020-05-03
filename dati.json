@@ -441,7 +441,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostando il mouse cambia il numero di raggi e la dimensione della lettera “D”"
+		"descrizione"	: "Spostando il mouse cambia il numero di raggi e dimensione."
 	},
 
 	{
@@ -452,7 +452,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Muovendo il cursore cambia la prospettiva della lettera “E”"
+		"descrizione"	: "Muovendo il cursore cambia la prospettiva."
 	},
 
 	{
@@ -463,7 +463,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "suono",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Creando suoni le linee si allungano formando la lettera “F”"
+		"descrizione"	: "Creando suoni le linee si allungano formando la lettera."
 	},
 
 	{
@@ -474,7 +474,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "30.03.2020",
-		"descrizione"	: "Muovendo il mouse si crea una composizione che forma la lettera H"
+		"descrizione"	: "Muovendo il mouse si crea una composizione che forma la lettera."
 	},
 
 	{
@@ -485,7 +485,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Spostando il mouse si aggiungono o si rimuovono i raggi"
+		"descrizione"	: "Spostando il mouse si aggiungono o si rimuovono i raggi."
 	},
 
 	{
@@ -496,7 +496,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "21.03.2020",
-		"descrizione"	: "Muovendo il cursore si muove il tunnel"
+		"descrizione"	: "Muovendo il cursore si muove il tunnel."
 	},
 	{
 		"nome"  		: "LBA",
@@ -506,7 +506,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Spostando il mouse si cambia dimensione e si ruota la lettera “Z”"
+		"descrizione"	: "Spostando il mouse si cambia dimensione e rotazione."
 	},
 	{
 		"nome"  		: "CCR",
