@@ -1,9 +1,7 @@
 
 function setup(){
-	// creiamo un'applicazione della dimensione della finestra
 	createCanvas(windowWidth, windowHeight)
 }
-
 
 
 // funzione di loop
@@ -35,11 +33,7 @@ function draw(){
 		else{
 			rect(0 , mouseRelativeY, abs(mouseRelativeX)*2, rectWidth)
 		}
-
-		
-	pop()
-
-
+		pop()
 }
 
 

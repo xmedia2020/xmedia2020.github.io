@@ -1,24 +1,17 @@
 
-
 var a = 0;
 var isRotate = true;
 
 
 function setup(){
-	// creiamo un'applicazione della dimensione della finestra
 	createCanvas(windowWidth, windowHeight)
-	textSize(250);
-   	// textSize(width / 18);
+	textSize(350);
 } 
 
 function draw() { 	
-	//push();
 	background (0);
  	rectMode(CENTER);
  	translate(width/2, height/2);
-
- 	//translate(100, 100);
-
 
 	fill(0);
  	stroke(255)
@@ -26,15 +19,9 @@ function draw() {
 
 	text('J', 0, 0);
 
-
 	rotate(PI);
 
  	text('J', 0, 0);
-
-
-
-
-
 
  	if(isRotate == true){
  		a = a + 0.05
@@ -42,27 +29,20 @@ function draw() {
 
  	rotate(a);	
 
-
-
-
 	fill(255);
-	text('J', 0, 0);
- 
-	
-	//pop();
-  
+	text('J', 0, 0);  
 }
 
 
 function mouseClicked() {
-	isRotate = !isRotate 		//il negato l'opposto (il punto esclamativo davanti variante true/false)
+//il negato, l'opposto (il punto esclamativo davanti variante di true/false)
+	isRotate = !isRotate 		
 }
 
 
 // -- EVENTI ----------------------------------
 
 function windowResized(){
-	// importante: il canvas deve essere ridimensionato assieme alla finestra
 	resizeCanvas(windowWidth, windowHeight)
 }
 
