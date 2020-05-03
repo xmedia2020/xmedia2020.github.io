@@ -646,7 +646,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "25.04.2020",
-		"descrizione"	: "Lettera V creata da due coni rotanti"
+		"descrizione"	: "Muovendo il mouse si modifica la lettera creata da due coni rotanti"
 	},
 	{
 		"nome"  		: "OCO",
@@ -656,7 +656,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "25.04.2020",
-		"descrizione"	: "M su forma geometrica ruotante"
+		"descrizione"	: "Spostandoci con il mouse ruotiamo il cubo"
 	},
 	{
 		"nome"  		: "OCO",
@@ -666,7 +666,17 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "25.04.2020",
-		"descrizione"	: "Si muove l'ombra della lettera a"
+		"descrizione"	: "Muovendo il mouse si muove l'ombra della lettera"
+	},
+	{
+		"nome"  		: "OCO",
+		"nomeCompleto" 	: "Olena Corzetto",
+		"cartella" 		: "O",
+		"lettera"  		: "O",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Il perimetro della lettera cambia muovendo il cursore"
 	}
 
 ]
