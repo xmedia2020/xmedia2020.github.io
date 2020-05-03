@@ -1,0 +1,672 @@
+[
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "k1",
+		"lettera"  		: "k",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "18.03.2020",
+		"descrizione"	: "Esempio di un sistema di particelle reattive al mouse e disposte nello spazio tramite un bitmap."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "k2",
+		"lettera"  		: "k",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "18.03.2020",
+		"descrizione"	: "Esempio di una figura vettoriale e calcolo della “bounding box”."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "k3_a",
+		"lettera"  		: "k",
+		"tecnica" 		: "P5JS",
+		"input"   		: "",
+		"data"    		: "18.03.2020",
+		"descrizione"	: "Dimostrazione di interpolazione dei punti di un tracciato complesso."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "k3_b",
+		"lettera"  		: "k",
+		"tecnica" 		: "P5JS, WebGL",
+		"input"   		: "Mouse",
+		"data"    		: "18.03.2020",
+		"descrizione"	: "Dimostrazione di interpolazione dei punti di un tracciato complesso."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "o2",
+		"lettera"  		: "o",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Semplice esempio dell’utilizzo del ciclo “for” per duplicare una forma."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "particelle",
+		"lettera"  		: "o",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "25.03.2020",
+		"descrizione"	: "Sistema di particelle vincolate ad una griglia ortogonale."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "shader_4_displacement",
+		"lettera"  		: "M",
+		"tecnica" 		: "GLSL",
+		"input"   		: "Mouse",
+		"data"    		: "21.03.2020",
+		"descrizione"	: "Dimostrazione di utilizzo di un fragment shader e SDF in vanilla JS."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "verlet_2",
+		"lettera"  		: "k",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "28.03.2020",
+		"descrizione"	: "Dimostrazione di una semplice ma efficace simulazione “Verlet”."
+	},
+	{
+		"nome"  		: "AGY",
+		"nomeCompleto" 	: "Andreas Gysin",
+		"cartella" 		: "feedback",
+		"lettera"  		: "M",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Esempio di una “feedback loop” (non tramite shader)."
+	},
+{
+		"nome"  		: "AMO",
+		"nomeCompleto" 	: "Alessia Morcelli",
+		"cartella" 		: "A",
+		"lettera"  		: "A",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Muovi il mouse",
+		"data"    		: "24.03.2020",
+		"descrizione"	: "Sperimentazione con particelle e random walker."
+	},
+{
+		"nome"  		: "AMO",
+		"nomeCompleto" 	: "Alessia Morcelli",
+		"cartella" 		: "O",
+		"lettera"  		: "O",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Click Mouse",
+		"data"    		: "31.03.2020",
+		"descrizione"	: "Generare un'illusione ottica con il movimento del mouse."
+	},
+{
+		"nome"  		: "AMO",
+		"nomeCompleto" 	: "Alessia Morcelli",
+		"cartella" 		: "G",
+		"lettera"  		: "G",
+		"tecnica" 		: "SVG path lenght",
+		"input"   		: "Scroll",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Esempio di scroll per disegnare il path del file SVG."
+	},
+{
+		"nome"  		: "AMO",
+		"nomeCompleto" 	: "Alessia Morcelli",
+		"cartella" 		: "R",
+		"lettera"  		: "R",
+		"tecnica" 		: "CSS",
+		"input"   		: "Muovi il mouse sulle lettere",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Animazione con solo CSS per mostrare una sovrapposizione di pesi dello stesso font."
+	},
+
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "g1",
+		"lettera"  		: "g",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Muovendo il mouse si modifica la texture, cliccando una lettera della tastiera essa cambia."
+	},
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "I1",
+		"lettera"  		: "I",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Muovendo il mouse si può modificare la texture, cliccando si può modificare la dimensione e cliccando una lettera della tastiera si modifica la lettera. "
+	},
+
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "l",
+		"lettera"  		: "l",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse click",
+		"data"    		: "18.03.2020",
+		"descrizione"	: "Utilizzando il mouse si può scrivere mediante una linea."
+	},
+
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "L1",
+		"lettera"  		: "L",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "24.03.2020",
+		"descrizione"	: "Cliccando sul canvas compare l'animazione."
+	},
+
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "M1",
+		"lettera"  		: "M",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "30.03.2020",
+		"descrizione"	: "Cliccando è possibile modificare il mandala auto generato, aggiornandolo."
+	},
+
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "o1",
+		"lettera"  		: "o",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Audio",
+		"data"    		: "24.03.2020",
+		"descrizione"	: "Attraverso il microfono, parlando, è possibile visualizzare la propria onda sonora. "
+	},
+
+	{
+		"nome"  		: "ARI",
+		"nomeCompleto" 	: "Alessandra Riva",
+		"cartella" 		: "P1",
+		"lettera"  		: "P",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "24.03.2020",
+		"descrizione"	: "Attraverso il click è possibile interagire con un sistema di particelle."
+	},
+
+
+	{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "Z",
+		"lettera"  		: "Z",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Voice",
+		"data"    		: "30.03.2020",
+		"descrizione"	: "Alterazione del disegno tramite l'audio (parla o fa partire una canzone)."
+	},
+
+	{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "b",
+		"lettera"  		: "b",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse move",
+		"data"    		: "21.03.2020",
+		"descrizione"	: "Variazione della lettera tramite forme geometriche."
+	},
+
+	{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "O",
+		"lettera"  		: "O",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse move",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Variazione della lettera con la modifica della forma interna."
+	},
+
+	{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "t",
+		"lettera"  		: "t",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse move",
+		"data"    		: "05.04.2020",
+		"descrizione"	: "Variazione della lettera tramite la forma geometriche orizzontale."
+	},
+
+	{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "F",
+		"lettera"  		: "F",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse move",
+		"data"    		: "05.04.2020",
+		"descrizione"	: "Cambio visualizzazione con i pieni e vuoti delle forme."
+	},
+
+		{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "H",
+		"lettera"  		: "H",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse move",
+		"data"    		: "19.04.2020",
+		"descrizione"	: "Variazione della lettera tramite le forma geometriche."
+	},
+
+			{
+		"nome"  		: "AZA",
+		"nomeCompleto" 	: "Amina Zanda",
+		"cartella" 		: "J",
+		"lettera"  		: "J",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse click",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Gioco di precisione"
+	},
+
+
+	{
+		"nome"  		: "CGI",
+		"nomeCompleto" 	: "Carlotta Gianni",
+		"cartella" 		: "A1",
+		"lettera"  		: "A",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Composizione e scomposizione"
+	},
+	{
+		"nome"  		: "CGI",
+		"nomeCompleto" 	: "Carlotta Gianni",
+		"cartella" 		: "O1",
+		"lettera"  		: "O",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Movimento fantasma"
+	},
+	{
+		"nome"  		: "CGI",
+		"nomeCompleto" 	: "Carlotta Gianni",
+		"cartella" 		: "U1",
+		"lettera"  		: "U",
+		"tecnica" 		: "P5JS",
+		"input"   		: "None",
+		"data"    		: "27.03.2020",
+		"descrizione"	: "Doppio pendolo"
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "P",
+		"lettera"  		: "P",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Forma elastica"
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "W",
+		"lettera"  		: "W",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Click",
+		"data"    		: "30.03.2020",
+		"descrizione"	: "Lettera raster con variazioni di spessore."
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "C",
+		"lettera"  		: "C",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Elementi multipli in crescita, variabili tramite il movimento del mouse."
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "i",
+		"lettera"  		: "i",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "20.04.2020",
+		"descrizione"	: "Forme 3D da allineare a comporre la lettera."
+	},
+
+	{
+		"nome"  		: "IDE",
+		"nomeCompleto" 	: "Ilaria Dellea",
+		"cartella" 		: "Q",
+		"lettera"  		: "Q",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "26.04.2020",
+		"descrizione"	: "Intersezione di linee rotanti."
+	},
+
+	{
+		"nome"  		: "DVE",
+		"nomeCompleto" 	: "Desirée Veschetti",
+		"cartella" 		: "B+",
+		"lettera"  		: "B+",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse, Keyboard",
+		"data"    		: "25.03.2020",
+		"descrizione"	: "Cliccando sul canvas cambia la lettera, muovendo il cursore sulla lettera si spostano le letterine."
+	},
+	{
+		"nome"  		: "DVE",
+		"nomeCompleto" 	: "Desirée Veschetti",
+		"cartella" 		: "c1",
+		"lettera"  		: "c",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Cliccando sul canvas e muovendo il cursore sull'asse X si interagisce con il movimento degli archi."
+	},
+	{
+		"nome"  		: "DVE",
+		"nomeCompleto" 	: "Desirée Veschetti",
+		"cartella" 		: "n3",
+		"lettera"  		: "n",
+		"tecnica" 		: "Shader",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Muovendo il cursore si modifica il pattern e crea nuove lettere distorte."
+	},
+	{
+		"nome"  		: "DVE",
+		"nomeCompleto" 	: "Desirée Veschetti",
+		"cartella" 		: "N2",
+		"lettera"  		: "N",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Muovendo il cursore si modificano i raggi, tenendo premuto cambia la dimensione del pattern."
+	},
+	{
+		"nome"  		: "DVE",
+		"nomeCompleto" 	: "Desirée Veschetti",
+		"cartella" 		: "R3",
+		"lettera"  		: "r",
+		"tecnica" 		: "P5JS",
+		"input"   		: "MousePressed",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Cliccando le forme cambiano singolarmente, cliccando sul canvas cambia tutto il disegno."
+	},
+	{
+		"nome"  		: "DVE",
+		"nomeCompleto" 	: "Desirée Veschetti",
+		"cartella" 		: "x2",
+		"lettera"  		: "x",
+		"tecnica" 		: "jQuery, css",
+		"input"   		: "Scroll",
+		"data"    		: "17.03.2020",
+		"descrizione"	: "Scrollando la pagina si ricostruiscono o si disfano le lettere composte da quadratini."
+	},
+
+
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "D1",
+		"lettera"  		: "D",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "24.03.2020",
+		"descrizione"	: "Spostando il mouse cambia il numero di raggi e dimensione."
+	},
+
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "E3",
+		"lettera"  		: "E",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Muovendo il cursore cambia la prospettiva."
+	},
+
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "F1",
+		"lettera"  		: "F",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "suono",
+		"data"    		: "30.03.2020",
+		"descrizione"	: "Creando suoni le linee si allungano formando la lettera."
+	},
+
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "H1",
+		"lettera"  		: "H",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "30.03.2020",
+		"descrizione"	: "Muovendo il mouse si crea una composizione che forma la lettera."
+	},
+
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "N1",
+		"lettera"  		: "N",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "24.03.2020",
+		"descrizione"	: "Spostando il mouse si aggiungono o si rimuovono i raggi."
+	},
+
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "O9",
+		"lettera"  		: "O",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "21.03.2020",
+		"descrizione"	: "Muovendo il cursore si muove il tunnel."
+	},
+	{
+		"nome"  		: "LBA",
+		"nomeCompleto" 	: "Lara Ballerini",
+		"cartella" 		: "Z2",
+		"lettera"  		: "Z",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "20.03.2020",
+		"descrizione"	: "Spostando il mouse si cambia dimensione e rotazione."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "E",
+		"lettera"  		: "E",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "20.03.2020",
+		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "S",
+		"lettera"  		: "S",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "28.03.2020",
+		"descrizione"	: "Muovendo il mouse varia il disegno."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "T",
+		"lettera"  		: "T",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "doppio touch",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Utilizzando il doppio touch si modifica la forma della lettera."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "Y",
+		"lettera"  		: "Y",
+		"tecnica" 		: "P5.JS, ML5.JS",
+		"input"   		: "movimento delle braccia",
+		"data"    		: "31.03.2020",
+		"descrizione"	: "Muovendo le braccia si modificano le aste della lettera."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "L",
+		"lettera"  		: "L",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Muovendo il mouse si moltiplica la lettera e se ne varia lo spessore."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "A",
+		"lettera"  		: "A",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "sound+mouse",
+		"data"    		: "20.03.2020",
+		"descrizione"	: "Cliccando sugli elementi della lettera varia la forma."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "M",
+		"lettera"  		: "M",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "sound+mouse",
+		"data"    		: "05.04.2020",
+		"descrizione"	: "Muovendo il microfono ed utilizzando il microfono si modifica la forma."
+	},
+	{
+		"nome"  		: "CCR",
+		"nomeCompleto" 	: "Chiara Crivelli",
+		"cartella" 		: "o",
+		"lettera"  		: "o",
+		"tecnica" 		: "P5.JS",
+		"input"   		: "mouse",
+		"data"    		: "26.04.2020",
+		"descrizione"	: "Muovendo il mouse ruotano gli elementi della lettera."
+	},
+	{
+		"nome"  		: "MDE",
+		"nomeCompleto" 	: "Mattia Dellamora",
+		"cartella" 		: "e",
+		"lettera"  		: "e",
+		"tecnica" 		: "P5JS, cel animation",
+		"input"   		: "Mouse",
+		"data"    		: "23.03.2020",
+		"descrizione"	: "Uso una serie frames disegnati manualmente, disposti nello spazio e animati in maniera procedurale"
+	},
+	{
+		"nome"  		: "MDE",
+		"nomeCompleto" 	: "Mattia Dellamora",
+		"cartella" 		: "g2",
+		"lettera"  		: "g",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "29.03.2020",
+		"descrizione"	: "Uso i valori più chiari dei pixel di un'immagine, per rivelare la lettera con delle particelle."
+	},
+	{
+		"nome"  		: "MDE",
+		"nomeCompleto" 	: "Mattia Dellamora",
+		"cartella" 		: "m",
+		"lettera"  		: "m",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "20.03.2020",
+		"descrizione"	: "Uso i valori di chiarezza dei pixel di un'immagine per alterare il disegno di una linea, il mouse ne modifica l'intensità e il colore di riempimento."
+	},
+	{
+		"nome"  		: "MDE",
+		"nomeCompleto" 	: "Mattia Dellamora",
+		"cartella" 		: "Y",
+		"lettera"  		: "Y",
+		"tecnica" 		: "P5JS, ML5",
+		"input"   		: "Faccia",
+		"data"    		: "07.04.2020",
+		"descrizione"	: "Ricavo la posizione delle sopracciglia dal video della webcam e genero un volto che mima l'espressione. (Caricamento lento!)"
+	},
+	{
+		"nome"  		: "MDE",
+		"nomeCompleto" 	: "Mattia Dellamora",
+		"cartella" 		: "o",
+		"lettera"  		: "o",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "15.04.2020",
+		"descrizione"	: "Una serie di anelli concentrici e in continuo movimento segue il mouse con intensità progressiva."
+	},
+	{
+		"nome"  		: "OCO",
+		"nomeCompleto" 	: "Olena Corzetto",
+		"cartella" 		: "V",
+		"lettera"  		: "V",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Lettera V creata da due coni rotanti"
+	},
+	{
+		"nome"  		: "OCO",
+		"nomeCompleto" 	: "Olena Corzetto",
+		"cartella" 		: "M",
+		"lettera"  		: "M",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "M su forma geometrica ruotante"
+	},
+	{
+		"nome"  		: "OCO",
+		"nomeCompleto" 	: "Olena Corzetto",
+		"cartella" 		: "a",
+		"lettera"  		: "a",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Si muove l'ombra della lettera a"
+	}
+
+]
