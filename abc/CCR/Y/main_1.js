@@ -1,3 +1,6 @@
+// https://p5js.org/reference/
+// https://learn.ml5js.org/docs/#/reference/posenet
+
 let video;
 let poses = [];
 let skeletons = [];
@@ -18,12 +21,12 @@ let rightWristX;
 let rightWristY;
 let pRightWristX;
 
-// let a;
 let dimY = 0;
 
 function setup() {
     background (255);
     createCanvas(windowWidth, windowHeight); 
+    // carico webcam
     video = createCapture(VIDEO);
     video.size (windowWidth, 0.75*windowWidth);
     video.hide();
@@ -31,6 +34,7 @@ function setup() {
     pixelDensity(1);
     pg = createGraphics(windowWidth, windowHeight);
 
+    // funzione posnet
     poseNet = ml5.poseNet(video, modelReady);
     poseNet.on('pose', function(results) {
     poses = results;
@@ -40,6 +44,7 @@ function setup() {
 function modelReady() {
 }
 
+// funzione draw
 function draw() {
     background (0);
     const s = min(width, height)/100;
@@ -52,6 +57,7 @@ function draw() {
     pop();
     drawKeypoints();
 
+    // disegno punti
     fill(255);
     noStroke();
     ellipse(width-leftWristX, leftWristY, 50, 50);
@@ -67,6 +73,7 @@ function draw() {
     pop();
 }
 
+// posnet
 function drawKeypoints() {
   for (let i = 0; i < min(poses.length,1); i++) {
     for (let j = 0; j < poses[i].pose.keypoints.length; j++) {
@@ -107,20 +114,22 @@ function gotPoses(results) {
     poses = results;
 }
 
+// -- EVENTI ----------------------------------
+
+function windowResized(){
+    resizeCanvas(windowWidth, windowHeight);
+}
+
+// al mouse refresh
 function mousePressed() {
     background(255);
     pg.clear();
 }
 
+// funzione salva
 function keyPressed(){
     if (key == 's' || key == 'S') {
         saveCanvas('Y', 'png');
-    } else if (key == 'x' || key == 'X'){
-        setup();
     }
     return false;
-}
-
-function windowResized(){
-    resizeCanvas(windowWidth, windowHeight);
 }

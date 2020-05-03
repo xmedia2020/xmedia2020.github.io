@@ -1,23 +1,23 @@
-let img;
+// https://www.youtube.com/watch?v=fBqaA7zRO58
+// https://www.youtube.com/watch?v=TaN5At5RWH8
+// https://www.youtube.com/watch?v=tA_ZgruFF9k
+// 
 
+let img;
 let circles = [];
 let spots = [];
-
 let nc = 0;
-
 let click = false;
 
+// carico inizialmente l'immagine
 function preload() {
     img = loadImage("assets/A.png");
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    // noFill();
-    // stroke(255);
-
+    // calcolo la misura min del canvas
     let p = min(width, height) / 50;
-
     let maxWidth = p * img.width;
     let maxHeight = p * img.height;
 
@@ -51,7 +51,6 @@ function draw() {
         if (c.growing) {
             // l'aumento dei cerchi
             c.grow();
-
             for (let j = 0; j < circles.length; j++) {
                 let other = circles[j];
                 // si fermano quando si toccano
@@ -70,7 +69,6 @@ function draw() {
             c.clicked();
         }
     }
-
     let target = 1 + constrain(floor(frameCount / 120), 0, 20);
     let count = 0;
     for (let i = 0; i < spots.length; i++) {
@@ -84,6 +82,7 @@ function draw() {
     }
 }  
 
+// funzione che per disegnare bolle
 class Circle {
     constructor(x, y, r, g) {
         this.growing = true;
@@ -100,14 +99,8 @@ class Circle {
         this.r += this.g;
     }
 
+    // disegno bolle e rettangoli
     show() {
-        // push();
-        // stroke(this.brightnessT);
-        // noFill();
-        // translate(width / 2, height / 2);
-        // triangle(this.x-this.r, this.y+this.r, this.x+this.r, this.y+this.r, this.x, this.y-this.r);
-        // pop() 
-
         push();
         stroke(this.brightnessR);
         noFill();
@@ -123,45 +116,28 @@ class Circle {
         pop() 
     }
 
+    // funzione al click
     clicked() {
         let dis = dist(mouseX, mouseY, width/2 + this.x, height/2 + this.y);
         if(dis < this.r){
             if(click=true){
-                //if (nc == 0){
-                    click=false;
-                    this.brightnessE = 0;
-                    this.brightnessR = 255;
-                    //this.brightnessT = 0;
-                    // console.log("CLICKED ON circles");
-                //}
+                click=false;
+                this.brightnessE = 0;
+                this.brightnessR = 255;
             } else if(click=false){
                 click=true;
                 this.brightnessE = 255;
                 this.brightnessR = 0;
             }
-
-            //else if (nc == 1){
-            //}
-            //     this.brightnessE = 0;
-            //     this.brightnessR = 0;
-            //     this.brightnessT = 255;
-            
-            // } else if (nc == 2){
-            //     this.brightnessE = 255;
-            //     this.brightnessR = 0;
-            //     this.brightnessT = 0;
-
-            // }
         }
         console.log(click);
     }
 
 }
 
-
+// funzione aggiungi cerchi e ferma la crescita
 function addCircle(spotx, spoty) {
     let newCircle = new Circle(spotx, spoty, 1, random(0.15, 0.9));
-
     for (let i = 0; i < circles.length; i++) {
         let other = circles[i];
         let d = dist(newCircle.x, newCircle.y, other.x, other.y);
@@ -178,13 +154,15 @@ function addCircle(spotx, spoty) {
     }
 }
 
+// -- EVENTI ----------------------------------
+
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
     background(0)
 }
 
+// funzione mouse click
 function mousePressed(){
-    //circle.clicked();
     if(click){
         click=true;
     } else {
@@ -192,12 +170,10 @@ function mousePressed(){
     }
 }
 
+// funzione dalva immagine
 function keyPressed(){
     if (key == 's' || key == 'S') {
         saveCanvas('A', 'png');
-    } else if (key == 'x' || key == 'X'){
-        setup()
     }
-
     return false;
 }

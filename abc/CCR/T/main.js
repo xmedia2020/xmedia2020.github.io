@@ -1,7 +1,4 @@
-/**
- * Template per P5JS
- * Reference: https://p5js.org/reference/
- */
+// https://p5js.org/reference/
 
 let px = 0
 let py = 0
@@ -38,6 +35,7 @@ function setup(){
   	textSize(20);
   	text ('Doppio touch', 20, 40);
 
+  	// disegno punti array
 	push();
 	translate(width/2, height/2);
 	const scale = min(width, height) / 100;
@@ -51,6 +49,7 @@ function setup(){
 	endShape(CLOSE);
 	pop();
 
+	// elemento di modifica
 	push()
 	translate(width/2, height/2);
 	for(let j=0; j<10; j++){
@@ -81,7 +80,7 @@ function draw(){
 	// console.log(yO);
 	pop();
 
-
+	// se touch
 	if (hasTouch) {
 		if (touches.length >= 2) {
 			background(0);
@@ -105,7 +104,6 @@ function draw(){
 			rect(0, 0 - yO/2, deltaX, deltaY);
 			pop();
 		}
-
 		push()
 		translate(width/2, height/2);
 		for(let j=0; j<10; j++){
@@ -129,12 +127,10 @@ function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
 }
 
+// funzione salva
 function keyPressed(){
 	if (key == 's' || key == 'S') {
 		saveCanvas('T', 'png');
-	} else if (key == 'x' || key == 'X'){
-		setup()
 	}
-
 	return false;
 }

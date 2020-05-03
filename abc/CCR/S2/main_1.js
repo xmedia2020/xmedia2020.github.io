@@ -1,8 +1,6 @@
-/**
- * Template per P5JS
- * Reference: https://p5js.org/reference/
- */
- 
+// https://p5js.org/reference/
+// https://www.instagram.com/p/B9yfmshB9CI/
+
 // funzione d’inizio
 function setup(){
 	createCanvas(windowWidth, windowHeight)
@@ -14,6 +12,7 @@ function draw(){
 
 	let minVal = 0;
   let maxVal = 200;
+  // trovo dimensione min del canvas
 	const scale = min(width, height) / 100;
 	const d= scale * 20;
 
@@ -150,19 +149,16 @@ function draw(){
 }
 
 // -- EVENTI ----------------------------------
-// l'interazione tra il browser e il file funziona attraverso eventi 
 
 function windowResized(){
 	// importante: il canvas deve essere ridimensionato assieme alla finestra
 	resizeCanvas(windowWidth, windowHeight)
 }
 
+// funzione salva
 function keyPressed(){
   if (key == 's' || key == 'S') {
     saveCanvas('S', 'png');
-  } else if (key == 'x' || key == 'X'){
-    setup()
   }
-
   return false;
 }

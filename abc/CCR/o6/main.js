@@ -1,3 +1,6 @@
+// https://p5js.org/reference/
+// https://www.instagram.com/p/BwS4TcxHtk8/
+
 function setup(){
 	createCanvas(windowWidth, windowHeight);
 }
@@ -8,12 +11,14 @@ function draw(){
 	stroke(255);
 	strokeWeight(1);
 
+	// trovo il centro
 	const centro_x = width / 2
 	const centro_y = height / 2
 
 	let s = min(width, height)/ 80;
 	// console.log(s)
 
+	// disegno raggi
 	for (let i=0; i<TAU*7; i++){
 		const raggio =  s + 10 * s/2
 		const raggio1 = raggio + s*5
@@ -57,17 +62,15 @@ function draw(){
 	}
 }
 
+// -- EVENTI ----------------------------------
+
 function windowResized(){
 	resizeCanvas(windowWidth, windowHeight)
-
 }
 
+// funzione salva
 function keyPressed(){
 	if (key == 's' || key == 'S') {
 		saveCanvas('o', 'png');
-	} else if (key == 'x' || key == 'X'){
-		setup()
 	}
-
-	return false;
 }
