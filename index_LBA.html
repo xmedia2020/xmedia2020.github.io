@@ -316,6 +316,26 @@
 
 
 
+          .info-grid-container {
+                border-top: 1px black solid;
+                font-size: 0.75em;
+                max-width: 920px;
+                display: grid;
+                grid-template-columns: 2fr 4fr 4fr 2fr 2fr 2fr;
+                grid-gap: 0px;
+                margin-bottom: 1em;
+            }
+
+            .info-grid-row {
+                display: contents;
+            }
+
+            .info-grid-row span{
+                padding: 0 0.5rem 1rem 0.5rem;
+            }
+
+
+
 
           
 
@@ -328,10 +348,63 @@
     
         <h1 onmouseover="mouseOver()" onmouseout="mouseOut()">Abecedario</h1>
       </div>
+        <div class="info-grid-container" id="abc" style="display: none; ">
+            <div class="info-grid-row">
+                <span>
+                    Abecedario<br>
+                 </span>
+                <span>
+                    Questo abecedario interattivo è un progetto collettivo
+                    in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.<br>
+                    È possibile avere più di una variante per lettera dell’alfabeto.<br>
+                    Molte le libertà, tre le regole:<br>
+                    <ul>
+                    <li>Bianco e nero</li>
+                    <li>Interattivo<br>(mouse, tastiera, suono, camera, dati…)</li>
+                    <li>Fullscreen</li>
+                    </ul>
+                </span>
+                <span>
+                    Codice:<br>
+                    <a href="https://github.com/xmedia2020/xmedia2020.github.io">github.com/xmedia2020</a><br>
+                    <br>
+                    Nota: <br>
+                    questo progetto è nato dall’annullamento del corso SUPSI<br>
+                    CV621.02 Scenografia multimediale<br>
+                    (a.k.a. Cross-Media o XMedia).<br>
+                    <br>
+                </span>
+                <span>
+                    Studenti:<br>
+                    Ballerini Lara<br>
+                    Corzetto Olena<br>
+                    Crivelli Chiara<br>
+                    Dellamora Mattia<br>
+                    Dellea Ilaria<br>
+                    Gianni Carlotta<br>
+                    Morcelli Alessia<br>
+                    Riva Alessandra<br>
+                    Veschetti Desirée<br>
+                    Zanda Amina<br>
+                </span>
+                <span>
+                    Docente:<br>
+                    Andreas Gysin<br>
+                    Assistenti:<br>
+                    Valentina Meldi<br>
+                    Melanie Agresta<br>
+                </span>
+                <span>
+                    Lugano,<br>primavera 2020
+                </span>
+            </div>
+        </div>
+
      
-      
+      <!--
         <p id="abc" style="font-size: 13px; width: 35%; line-height: 1.2; color: grey; display: none; ">Si tratta di un progetto collettivo, ovvero un abecedario online. Ogni studente contribuisce con caratteri progettati individualmente. È possibile trovare più di una variante per lettera dell’alfabeto.<br>
         Per navigare nella pagina si può usare le lettere della tastiera o fare swipe.</p>
+      -->
       
     
   </div>
