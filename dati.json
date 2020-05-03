@@ -668,5 +668,16 @@
 		"data"    		: "25.04.2020",
 		"descrizione"	: "Si muove l'ombra della lettera a"
 	}
+	{
+		"nome"  		: "OCO",
+		"nomeCompleto" 	: "Olena Corzetto",
+		"cartella" 		: "O",
+		"lettera"  		: "O",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "25.04.2020",
+		"descrizione"	: "Il perimetro della lettera O cambia forma"
+	}
+
 
 ]
