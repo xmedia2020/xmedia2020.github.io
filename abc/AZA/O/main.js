@@ -5,7 +5,6 @@
 
 
 function setup(){
-	// creiamo un'applicazione della dimensione della finestra
 	createCanvas(windowWidth, windowHeight)
 }
 
@@ -14,12 +13,10 @@ function draw(){
 	background(0)
 	translate(width/2, height/2)
 
-
 	fill(255)
 	noStroke()
 	rectMode(CENTER)
 	ellipse(0,0,500,500)
-
 
 	fill(0)
 	noStroke()
@@ -27,10 +24,10 @@ function draw(){
 	ellipse(0, 0, (mouseX-width/2)*2, (mouseY-height/2)*2, 50, 50)
 }
 
+
 // -- EVENTI ----------------------------------
 
 function windowResized(){
-	// importante: il canvas deve essere ridimensionato assieme alla finestra
 	resizeCanvas(windowWidth, windowHeight)
 }
 
