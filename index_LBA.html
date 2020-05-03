@@ -536,13 +536,13 @@
   
   function renderComponent(props) {
 
-    const v = localStorage.getItem(props.nome + "/" + props.cartella) == 1 ? " " : "  &#x2713;"
+    const v = localStorage.getItem(props.nome + "/" + props.cartella) == 1 ? "&#9675;" : "&#9679;"
 
 
 
       return (
           `
-          <li class="list-group-item"><a href="abc/${props.nome}/${props.cartella}/index.html">${props.nomeCompleto } ${v}| <span style="color: grey;"> ${props.descrizione}</span></a></li>`
+          <li class="list-group-item"><a href="abc/${props.nome}/${props.cartella}/index.html">${v} ${props.nomeCompleto } | <span style="color: grey;"> ${props.descrizione}</span></a></li>`
       )
   }
   
