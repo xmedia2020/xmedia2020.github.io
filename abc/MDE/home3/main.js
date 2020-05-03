@@ -11,7 +11,7 @@
 
 let json, nodes
 let sim
-let bMargin
+let bMargin, oriY
 
 let picked = null
 
@@ -34,7 +34,7 @@ function setup() {
     // console.log(data)
 
     nodes = []
-    const root = sim.addPoint(0,-45,5)
+    const root = sim.addPoint(0,oriY,5)
     root.pinned = true
     for(const key in data){
         const p1 = sim.addPoint(random(-20, 20), random(-20, 20), 5)
@@ -187,12 +187,14 @@ function init(){
     let w, h
     if(windowWidth <= 540){
         w = floor(windowWidth-3);
-        h = floor((windowHeight / 100) * 80)
+        h = floor((windowHeight / 100) * 73)
         bMargin = 15
+        oriY = -35
     } else {
         w = floor(windowWidth);
-        h = floor((windowHeight / 100) * 86)
+        h = floor((windowHeight / 100) * 81)
         bMargin = 20
+        oriY = 0
     }
 
     let cnv = createCanvas(w, h)
