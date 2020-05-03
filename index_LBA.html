@@ -319,9 +319,9 @@
           .info-grid-container {
                 border-top: 1px black solid;
                 font-size: 0.75em;
-                max-width: 920px;
+                
                 display: grid;
-                grid-template-columns: 2fr 4fr 4fr 2fr 2fr 2fr;
+                grid-template-columns: 4fr 4fr 2fr 2fr 2fr 2fr;
                 grid-gap: 0px;
                 margin-bottom: 1em;
             }
@@ -348,11 +348,9 @@
     
         <h1 onmouseover="mouseOver()" onmouseout="mouseOut()">Abecedario</h1>
       </div>
-        <div class="info-grid-container" id="abc" style="display: none; ">
+        <div class="info-grid-container" id="abc" style="display: none; width: 100%;">
             <div class="info-grid-row">
-                <span>
-                    Abecedario<br>
-                 </span>
+                
                 <span>
                     Questo abecedario interattivo è un progetto collettivo
                     in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.<br>
@@ -563,7 +561,7 @@
 
 <script type="text/javascript">
   function mouseOver() {
-    document.getElementById("abc").style.display = "inline-block";
+    document.getElementById("abc").style.display = "";
   }
   
   function mouseOut() {
@@ -587,7 +585,7 @@
               renderData(jsonData,"a");
           }
       };
-      xhttp.open("GET", "dati.json", true);
+      xhttp.open("GET", "https://xmedia2020.github.io/dati.json", true);
       xhttp.send();
   }
   
