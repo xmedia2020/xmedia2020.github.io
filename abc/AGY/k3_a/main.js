@@ -53,7 +53,10 @@ function draw(){
 
 	fill(255)
 	noStroke();
-	const p = getP(punti, len, frameCount / 500.0)
+
+	const t = max(0, mouseX / width + frameCount * 0.0005);
+
+	const p = getP(punti, len, t)
 	ellipse(p.x * s, p.y * s, 7, 7)
 
 	// disegno della BB
