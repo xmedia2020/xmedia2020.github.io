@@ -159,7 +159,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse click",
 		"data"    		: "18.03.2020",
-		"descrizione"	: "Utilizzando il mouse si può scrivere mediante una linea."
+		"descrizione"	: "Utilizzando il mouse si può scrivere mediante una linea, creata con l'insieme di diverse lettere."
 	},
 
 	{
@@ -170,7 +170,7 @@
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
 		"data"    		: "24.03.2020",
-		"descrizione"	: "Cliccando sul canvas compare l'animazione."
+		"descrizione"	: "Cliccando sul canvas compare l'animazione, creata dalla composizione e scomposizione della lettera."
 	},
 
 	{
