@@ -24,43 +24,60 @@
 
             body {
                 background-color: white;
-                font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-family: Helvetica, Arial, sans-serif;
                 padding: 0;
-                margin: 2em;
+                margin: 1em 2em 4em 2em;
             }
-            ul {
+
+            a{
+                text-decoration: none;
+                color:blue;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+
+            #output {
                 margin:0;
                 padding:0;
-                display: block;
+                display: inline-block;
+                width: 64rem;
             }
-            li {
+            #output li {
                 position: relative;
+                display: block;
+                float:left;
                 list-style-type: none;
                 border: solid 1px rgb(220, 220, 220);
                 color: rgb(180, 180, 180);
-                margin: 0 0 -1px -1px;
-                width:8rem;
+                margin: 0;
+                width: calc(8rem + 1px);
+                margin: -1px -1px 0 0;
                 height:10rem;
-                display:block;
-                float: left;
-                padding: 0.25rem 2rem 0 0.5rem;
+                /*display:block;*/
+                /*float: left;*/
+                padding: 0.25rem 0.5rem 0 0.5rem;
             }
 
-            .data {
-                font-size: 0.6rem;
-                display:block;
-                float: right;
-                position: absolute;
-            }
+
             .lettera {
-                font-family: Helvetica, Arial, sans-serif;
+                /*position: relative;*/
                 font-weight: 600;
                 display:block;
                 font-size: 3rem;
                 color: black;
-                bottom:0.25rem;
+                bottom:0.2rem;
                 position: absolute;
                 pointer-events: none;
+            }
+            .visitato {
+                font-size: 0.6rem;
+                position: absolute;
+                right: 0.5rem;
+            }
+            .data {
+                display:block;
+                font-size: 0.6rem;
             }
             .descrizione {
                 display:block;
@@ -86,27 +103,128 @@
                 background-color: rgb(0,0,0,0.05);
             }
 
-            .info{
-                margin:0 0 2rem 0rem;
+            .info-grid-container ul {
+                margin:0;
                 padding:0;
-                color: orange;
+                list-style: none;
             }
+
+            .info-grid-container li:before{
+                content: "-";
+                display: inline-block;
+                width: 0.5rem;
+                margin-left: -0.5rem;
+            }
+
+            .info-grid-container {
+                font-size: 0.75em;
+                display: grid;
+                grid-template-columns: 8rem 16rem 16rem 8rem 8rem 8rem;
+                grid-gap: 0px;
+                margin:0 0 4rem 0;
+                padding:0;
+                position: relative;
+                width: 64rem;
+            }
+
+            .info-grid-row {
+                display: contents;
+            }
+
+            .info-grid-row span{
+                padding: 0 0.5rem 0 0.5rem;
+            }
+
+            .sort{
+                position: absolute;
+                bottom:0;
+                right:0;
+                width:8rem;
+                padding-left: 0.5rem;
+            }
+            .btn-sort {
+                display: block;
+                cursor: pointer;
+                color: blue;
+            }
+
+            .btn-sort:hover{
+                text-decoration: underline;
+            }
+
+            a{
+                text-decoration: none;
+                color:blue;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+
+
 
         </style>
         <base target="_parent">
     </head>
     <body>
 
-        <!--
-        <p class="info">
-            Nota: i tasti 1,2 e 3 riordinano la tabella per nome, lettera o data.<br>
-            Osservate come l’ordine del “sort” cambia il risultato:<br>
-            p.es.<br>
-            data->nome<br>
-            vs.<br>
-            lettera->nome
-        </p>
-        -->
+        <div class="info-grid-container">
+            <div class="info-grid-row">
+                <span>
+                    Abecedario<br>
+                 </span>
+                <span>
+                    Questo abecedario interattivo è un progetto collettivo
+                    in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.<br>
+                    È possibile avere più di una variante per lettera dell’alfabeto.<br>
+                    Molte le libertà, tre le regole:<br>
+                    <ul>
+                    <li>Bianco e nero</li>
+                    <li>Interattivo<br>(mouse, tastiera, suono, camera, dati…)</li>
+                    <li>Fullscreen</li>
+                    </ul>
+                </span>
+                <span>
+                    Codice:<br>
+                    <a href="https://github.com/xmedia2020/xmedia2020.github.io">github.com/xmedia2020</a><br>
+                    <br>
+                    Nota: <br>
+                    questo progetto è nato dall’annullamento del corso SUPSI<br>
+                    CV621.02 Scenografia multimediale<br>
+                    (a.k.a. Cross-Media o XMedia).<br>
+                    <br>
+                </span>
+                <span>
+                    Studenti:<br>
+                    Ballerini Lara<br>
+                    Corzetto Olena<br>
+                    Crivelli Chiara<br>
+                    Dellamora Mattia<br>
+                    Dellea Ilaria<br>
+                    Gianni Carlotta<br>
+                    Morcelli Alessia<br>
+                    Riva Alessandra<br>
+                    Veschetti Desirée<br>
+                    Zanda Amina<br>
+                </span>
+                <span>
+                    Docente:<br>
+                    Andreas Gysin<br>
+                    Assistenti:<br>
+                    Valentina Meldi<br>
+                    Melanie Agresta<br>
+                </span>
+                <span>
+                    Lugano,<br>primavera 2020
+                </span>
+            </div>
+            <div class="sort">
+                Ordina per:<br>
+                <span class='btn-sort sort-nome'>nome</span>
+                <span class='btn-sort sort-data'>data</span>
+                <span class='btn-sort sort-lettera'>lettera</span>
+                <span class='btn-sort sort-visita'>visita</span>
+            </div>
+        </div>
 
         <ul id="output"></ul>
 
@@ -134,9 +252,13 @@
 
                 const BASE_FOLDER = "abc"
                 for (let i=0; i<dati.length; i++) {
+
                     const el = document.createElement("li")
+                    const v = localStorage.getItem(dati[i].nome + "/" + dati[i].cartella) == 1 ? " " : "*"
+
                     const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                     el.innerHTML += "<a href=" + url + "><span class='link'></span></a>"
+                    el.innerHTML += "<span class='visitato'>" + v + "</visitato>"
                     el.innerHTML += "<span class='data'>" + dati[i].data + "</span>"
                     el.innerHTML += "<span class='nome'>" + dati[i].nome + "</span>"
                     // el.innerHTML += "<span class='cartella'>" + dati[i].cartella + "</span>"
@@ -145,6 +267,32 @@
                     parent.appendChild(el)
                 }
             }
+
+            // --- Eventi -----------------------------------------------------
+
+            document.querySelector('.sort-nome').addEventListener('click',    e => {
+                dati = ordina_per_lettera(dati)
+                dati = ordina_per_nome(dati)
+                render(dati)
+            })
+
+            document.querySelector('.sort-lettera').addEventListener('click', e => {
+                dati = ordina_per_data(dati)
+                dati = ordina_per_lettera(dati)
+                render(dati)
+            })
+
+            document.querySelector('.sort-data').addEventListener('click',    e => {
+                dati = ordina_per_nome(dati)
+                dati = ordina_per_data(dati)
+                render(dati)
+            })
+
+            document.querySelector('.sort-visita').addEventListener('click',    e => {
+                dati = ordina_per_nome(dati)
+                dati = ordina_per_visita(dati)
+                render(dati)
+            })
 
             // --- Funzioni di sort -------------------------------------------
 
@@ -162,7 +310,7 @@
 
             function ordina_per_lettera(dati) {
                 const dati_ordinati = dati.sort(function(a, b){
-                    return a.lettera >= b.lettera
+                    return a.lettera.toUpperCase() >= b.lettera.toUpperCase()
                 })
                 return dati_ordinati
             }
@@ -174,21 +322,15 @@
                 return dati_ordinati
             }
 
-            // --- Eventi -----------------------------------------------------
+            function ordina_per_visita(dati) {
+                const dati_ordinati = dati.sort(function(a, b){
+                    const v1 = localStorage.getItem(a.nome + "/" + a.cartella) == 1 ? 1 : 0
+                    const v2 = localStorage.getItem(b.nome + "/" + b.cartella) == 1 ? 1 : 0
+                    return v1 >= v2
+                })
+                return dati_ordinati
+            }
 
-            window.addEventListener("keypress", function(e){
-                if (e.key == '1') {
-                    dati = ordina_per_nome(dati)
-                    render(dati)
-                } else if (e.key == '2') {
-                    dati = ordina_per_lettera(dati)
-                    render(dati)
-                } else if (e.key == '3') {
-                    dati = ordina_per_data(dati)
-                    render(dati)
-                }
-                // document.body.removeChild(document.querySelector(".info"))
-            })
 
         </script>
     </body>

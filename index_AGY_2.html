@@ -25,8 +25,16 @@
             body {
                 background-color: white;
                 font-family: Helvetica, Arial, sans-serif;
-                padding: 3em 2em 4em 2em;
-                margin:0;
+                padding:0;
+                margin: 1em 2em 4em 2em;
+            }
+
+            a{
+                text-decoration: none;
+                color:blue;
+            }
+            a:hover{
+                text-decoration: underline;
             }
 
             ul {
@@ -43,13 +51,13 @@
             }
 
             .info-grid-container {
-                border-top: 1px black solid;
+                /*border-top: 1px black solid;*/
                 font-size: 0.75em;
                 max-width: 920px;
                 display: grid;
                 grid-template-columns: 2fr 4fr 4fr 2fr 2fr 2fr;
                 grid-gap: 0px;
-                margin-bottom: 1em;
+                margin-bottom: 3em;
             }
 
             .info-grid-row {
@@ -59,8 +67,6 @@
             .info-grid-row span{
                 padding: 0 0.5rem 1rem 0.5rem;
             }
-
-
 
             .grid-container {
                 max-width: 920px;
@@ -72,6 +78,7 @@
             .grid-header {
                 font-size: 0.75em;
             }
+
             .grid-header span{
                 border-top: 1px black solid;
                 padding: 0 0.5rem 1rem 0.5rem;
@@ -82,6 +89,7 @@
             .grid-row {
                 display: contents;
             }
+
             .grid-row span {
                 border-top: solid 1px rgb(0,0,0);
                 border-right: solid 1px rgb(0,0,0);
@@ -232,9 +240,10 @@
             // Il parametro sono i dati stessi (possono essere ordinati prima...s)
             function render(dati){
                 const parent = document.querySelector("#output")
-                parent.innerHTML = ""
-                const BASE_FOLDER = "abc"
 
+                parent.innerHTML = ""
+
+                const BASE_FOLDER = "abc"
 
                 const header = document.createElement("div")
                 header.classList.add("grid-header")
@@ -251,16 +260,19 @@
                     dati = ordina_per_nome(dati)
                     render(dati)
                 })
+
                 header.querySelector('.sort-lettera').addEventListener('click', e => {
                     dati = ordina_per_data(dati)
                     dati = ordina_per_lettera(dati)
                     render(dati)
                 })
+
                 header.querySelector('.sort-data').addEventListener('click',    e => {
                     dati = ordina_per_nome(dati)
                     dati = ordina_per_data(dati)
                     render(dati)
                 })
+
                 header.querySelector('.sort-visita').addEventListener('click',    e => {
                     dati = ordina_per_nome(dati)
                     dati = ordina_per_visita(dati)
@@ -316,6 +328,7 @@
                 })
                 return dati_ordinati
             }
+
             function ordina_per_visita(dati) {
                 const dati_ordinati = dati.sort(function(a, b){
                     const v1 = localStorage.getItem(a.nome + "/" + a.cartella) == 1 ? 1 : 0
