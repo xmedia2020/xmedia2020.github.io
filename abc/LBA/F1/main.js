@@ -153,13 +153,7 @@ function keyReleased(){
 
 }
 
-function mousePressed() {
-    getAudioContext().resume()
-}
 
-function touchStarted() {
-    getAudioContext().resume()
-}
 
 function mouseReleased(){
 
