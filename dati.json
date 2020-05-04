@@ -283,8 +283,6 @@
 		"data"    		: "25.04.2020",
 		"descrizione"	: "Gioco di precisione"
 	},
-
-
 	{
 		"nome"  		: "CGI",
 		"nomeCompleto" 	: "Carlotta Gianni",
@@ -292,18 +290,18 @@
 		"lettera"  		: "A",
 		"tecnica" 		: "P5JS",
 		"input"   		: "Mouse",
-		"data"    		: "23.03.2020",
-		"descrizione"	: "Composizione e scomposizione"
+		"data"    		: "27.03.2020",
+		"descrizione"	: "Composizione e scomposizione dei veicoli con forze opposte."
 	},
 	{
 		"nome"  		: "CGI",
 		"nomeCompleto" 	: "Carlotta Gianni",
-		"cartella" 		: "O1",
-		"lettera"  		: "O",
-		"tecnica" 		: "P5JS",
-		"input"   		: "Mouse",
-		"data"    		: "23.03.2020",
-		"descrizione"	: "Movimento fantasma"
+		"cartella" 		: "W1",
+		"lettera"  		: "W",
+		"tecnica" 		: "CSS",
+		"input"   		: "Mouse Hover",
+		"data"    		: "10.04.2020",
+		"descrizione"	: "Illusione ottica creata dalla dimensione della linea rispetto allo sfondo."
 	},
 	{
 		"nome"  		: "CGI",
@@ -312,10 +310,39 @@
 		"lettera"  		: "U",
 		"tecnica" 		: "P5JS",
 		"input"   		: "None",
-		"data"    		: "27.03.2020",
-		"descrizione"	: "Doppio pendolo"
+		"data"    		: "29.03.2020",
+		"descrizione"	: "Reinterpretazione del doppio pendolo a scopo meno dinamico e più lineare."
 	},
-
+	{
+		"nome"  		: "CGI",
+		"nomeCompleto" 	: "Carlotta Gianni",
+		"cartella" 		: "Q1",
+		"lettera"  		: "Q",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "14.04.2020",
+		"descrizione"	: "Rotazione su coordinata circolare."
+	},
+	{
+		"nome"  		: "CGI",
+		"nomeCompleto" 	: "Carlotta Gianni",
+		"cartella" 		: "X1",
+		"lettera"  		: "X",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "16.04.2020",
+		"descrizione"	: "Movimenti specchiati opposti di due rettangolo."
+	},
+	{
+		"nome"  		: "CGI",
+		"nomeCompleto" 	: "Carlotta Gianni",
+		"cartella" 		: "C1",
+		"lettera"  		: "C",
+		"tecnica" 		: "P5JS",
+		"input"   		: "Mouse",
+		"data"    		: "20.04.2020",
+		"descrizione"	: "Rivisitazione del Times Tables Cardioid con composizione semicircolare."
+	},
 	{
 		"nome"  		: "IDE",
 		"nomeCompleto" 	: "Ilaria Dellea",
@@ -326,7 +353,6 @@
 		"data"    		: "23.03.2020",
 		"descrizione"	: "Forma elastica"
 	},
-
 	{
 		"nome"  		: "IDE",
 		"nomeCompleto" 	: "Ilaria Dellea",
