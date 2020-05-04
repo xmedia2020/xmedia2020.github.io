@@ -516,7 +516,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Muovendo il mouse si modifica la forma della lettera."
+		"descrizione"	: "I punti cardinali della lettera vengono modificati con il movimento del cursore."
 	},
 	{
 		"nome"  		: "CCR",
@@ -526,7 +526,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "28.03.2020",
-		"descrizione"	: "Muovendo il mouse varia il disegno."
+		"descrizione"	: "Sistema di linee costruite mediante cicli for. Con il movimento del cursore possiamo variare la posizione delle linee."
 	},
 	{
 		"nome"  		: "CCR",
@@ -536,7 +536,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "doppio touch",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Utilizzando il doppio touch si modifica la forma della lettera."
+		"descrizione"	: "Sistema costruito sull'interazione del doppio tuch."
 	},
 	{
 		"nome"  		: "CCR",
@@ -546,7 +546,7 @@
 		"tecnica" 		: "P5.JS, ML5.JS",
 		"input"   		: "movimento delle braccia",
 		"data"    		: "31.03.2020",
-		"descrizione"	: "Muovendo le braccia si modificano le aste della lettera."
+		"descrizione"	: "Sistema costruito sulla libreria di ml5.js. Con il movimento delle braccia si modifica la forma della lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -556,7 +556,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "23.03.2020",
-		"descrizione"	: "Muovendo il mouse si moltiplica la lettera e se ne varia lo spessore."
+		"descrizione"	: "Sistema di costruzione mediante il ciclo for. Con lo spostamento del cursore varia il numero di forme disegnate."
 	},
 	{
 		"nome"  		: "CCR",
@@ -566,7 +566,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "20.03.2020",
-		"descrizione"	: "Cliccando sugli elementi della lettera varia la forma."
+		"descrizione"	: "Sistema di rilevamento dei pixel più chiari di un'immagine per costruire le forme che vanno a creare la lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -576,7 +576,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "sound+mouse",
 		"data"    		: "05.04.2020",
-		"descrizione"	: "Muovendo il microfono ed utilizzando il microfono si modifica la forma."
+		"descrizione"	: "Utilizzo del microfono per variare la spaziatura tra le parti della lettera."
 	},
 	{
 		"nome"  		: "CCR",
@@ -586,7 +586,7 @@
 		"tecnica" 		: "P5.JS",
 		"input"   		: "mouse",
 		"data"    		: "26.04.2020",
-		"descrizione"	: "Muovendo il mouse ruotano gli elementi della lettera."
+		"descrizione"	: "Sistema di linee costruite mediante le funzioni sin cos e cicli for."
 	},
 	{
 		"nome"  		: "MDE",
