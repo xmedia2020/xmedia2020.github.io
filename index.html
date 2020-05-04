@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>abc</title>
-        <meta name="description"                           content="abc">
+        <meta name="description"                           content="Abecedario interattivo">
         <meta name="author"                                content="SUPSI CV 2020">
         <meta name="viewport"                              content="width=device-width, initial-scale=1">
         <meta name="mobile-web-app-capable"                content="yes">
@@ -54,14 +54,11 @@
             "index_MDE.html",
         ]
 
-        const idx = 0//Math.floor((new Date()).getMinutes() / 60 * indici.length)
-
-
-
+        const idx   = Math.floor((new Date()).getMinutes() / 60 * indici.length)
         const label = indici[idx].substring(6, 9)
 
         document.querySelector("iframe").src = indici[idx]
-        document.querySelector("#label").innerHTML = `Indice <sup>${idx+1}</sup>/<sub>${indici.length}</sub> ${label}`;
+        document.querySelector("#label").innerHTML = `Index <sup>${idx+1}</sup>/<sub>${indici.length}</sub> ${label}`;
 
     </script>
 </html>

@@ -1,7 +1,5 @@
-# xmedia2020.github.io
+# Abecedario interattivo  
 
-**Abecedario interattivo**  
- 
 Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.  
 È possibile avere più di una variante per lettera dell’alfabeto.  
 Molte le libertà, tre le regole:
@@ -9,7 +7,9 @@ Molte le libertà, tre le regole:
 - Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)
 - Fullscreen  
 
-[xmedia2020.github.io](https://xmedia2020.github.io)
+[http://abcdefghijklmnopqrstuvwxyz.fun](https://abcdefghijklmnopqrstuvwxyz.fun)
+
+Alcuni studenti hanno anche progettato l’indice della pagina. L’indice viene ruotato in funzione dell’ora locale.  
 
 Nota: questo progetto è nato dall’annullamento del corso SUPSI di CV621.02 Scenografia multimediale (a.k.a. Cross-Media o XMedia). 
 
