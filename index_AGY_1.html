@@ -25,37 +25,38 @@
             body {
                 background-color: white;
                 font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 1rem;
-                padding:2rem;
-                margin:0;
+                padding: 0;
+                margin: 2em;
             }
             ul {
                 margin:0;
                 padding:0;
+                display: block;
             }
             li {
                 position: relative;
                 list-style-type: none;
                 border: solid 1px rgb(220, 220, 220);
-                color: rgb(220, 220, 220);
+                color: rgb(180, 180, 180);
                 margin: 0 0 -1px -1px;
-                width:9rem;
-                height:11rem;
+                width:8rem;
+                height:10rem;
                 display:block;
                 float: left;
                 padding: 0.25rem 2rem 0 0.5rem;
             }
 
             .data {
-                font-size: 0.5rem;
+                font-size: 0.6rem;
                 display:block;
-                /*float: right;*/
+                float: right;
+                position: absolute;
             }
             .lettera {
-                font-family: "HelveticaNeue Bold", "Helvetica Neue Bold", Helvetica, Arial, sans-serif;
-                /*font-family: serif;*/
+                font-family: Helvetica, Arial, sans-serif;
+                font-weight: 600;
                 display:block;
-                font-size: 5rem;
+                font-size: 3rem;
                 color: black;
                 bottom:0.25rem;
                 position: absolute;
@@ -63,15 +64,15 @@
             }
             .descrizione {
                 display:block;
-                font-size: 0.5rem;
+                font-size: 0.6rem;
             }
             .cartella {
                 display:block;
-                font-size: 0.5rem;
+                font-size: 0.6rem;
             }
             .nome {
                 display:block;
-                font-size: 0.5rem;
+                font-size: 0.6rem;
             }
             .link {
                 position: absolute;
@@ -92,6 +93,7 @@
             }
 
         </style>
+        <base target="_parent">
     </head>
     <body>
 
@@ -135,9 +137,9 @@
                     const el = document.createElement("li")
                     const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                     el.innerHTML += "<a href=" + url + "><span class='link'></span></a>"
-                    el.innerHTML += "<span class='nome'>" + dati[i].nome + "</span>"
                     el.innerHTML += "<span class='data'>" + dati[i].data + "</span>"
-                    el.innerHTML += "<span class='cartella'>" + dati[i].cartella + "</span>"
+                    el.innerHTML += "<span class='nome'>" + dati[i].nome + "</span>"
+                    // el.innerHTML += "<span class='cartella'>" + dati[i].cartella + "</span>"
                     el.innerHTML += "<span class='descrizione'>" + dati[i].descrizione + "</span>"
                     el.innerHTML += "<span class='lettera'>" + (dati[i].lettera || "&nbsp;")  + "</span>"
                     parent.appendChild(el)

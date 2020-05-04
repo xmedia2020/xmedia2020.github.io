@@ -18,7 +18,7 @@
           *,*::before,*::after {
             box-sizing: border-box;
           }
-  
+
           body {
             padding: 0;
             color: white;
@@ -45,7 +45,7 @@
               }
             }
           }
-  
+
           .section-title {
             top: 0;
             left: 0;
@@ -56,12 +56,12 @@
             padding-top: 14px;
             position: absolute;
           }
-          
+
           header {
             z-index: 1;
             margin: 30px 60px;
             position: relative;
-            
+
             .header-top {
               &::after {
                 content: '';
@@ -69,7 +69,7 @@
                 display: table;
               }
             }
-          
+
             h1 {
               float: left;
               line-height: 1;
@@ -84,7 +84,7 @@
                 }
               }
             }
-            
+
             p.instructions {
               margin: 0;
               float: right;
@@ -93,7 +93,7 @@
               font-style: italic;
             }
           }
-          
+
           .controls {
             margin-top: 20px;
             padding-top: 10px;
@@ -103,27 +103,27 @@
               clear: both;
               display: table;
             }
-            
+
             > div {
               float: right;
               p {
                 display: inline-block;
               }
             }
-            
+
             .section-title {
               top: auto;
               float: left;
               padding-top: 6px;
               position: relative;
             }
-            
+
             p {
               margin: 0;
               line-height: 2;
               font-size: 14px;
             }
-            
+
             p.styles {
               float: left;
               .bold {
@@ -142,7 +142,7 @@
                 }
               }
             }
-            
+
             p.color-mode {
               float: left;
               margin-left: 30px;
@@ -156,7 +156,7 @@
                 }
               }
             }
-            
+
             .show-lines {
               cursor: pointer;
               margin-left: 30px;
@@ -178,7 +178,7 @@
               }
             }
           }
-          
+
           .carousel {
             height: 400px;
             overflow: hidden;
@@ -187,11 +187,11 @@
               outline: none;
             }
           }
-          
+
           .flickity-slider {
             min-height: 400px;
           }
-          
+
           .carousel-cell {
             width: 50%;
             height: 100%;
@@ -199,17 +199,17 @@
             display: flex;
             text-align: center;
             background-size: cover;
-            
+
             transition: filter .5s ease-out, opacity .5s ease-out;
           }
-            
+
             .inner {
               opacity: 1;
               margin: auto;
               transition: opacity 1s ease-out .5s;
-          
+
             }
-            
+
             p {
               margin: 0;
               font-size: 23vw;
@@ -253,7 +253,7 @@
                 }
               }
             }
-            
+
             &:not(.is-selected) {
               opacity: .25;
               filter: blur(5px);
@@ -262,20 +262,20 @@
               }
             }
           }
-          
+
           .type-tester {
-          
+
             padding: 50px 0;
             margin: 30px 60px;
             position: relative;
             border-top: 1px solid;
-            
+
             > *:focus,
             > *:hover {
               outline: none;
               background: rgba(0,0,0,.05);
             }
-            
+
             h2 {
               margin-top: 0;
               font-size: 34px;
@@ -287,39 +287,39 @@
               line-height: 1.25;
             }
           }
-          
+
           .list-group{
             padding-left: 0;
-          
+
             list-style-type: none;
-            
-          
+
+
           }
-          
+
           .list-group-item{
             /*border-bottom: 1px solid grey;*/
             padding-top: 10px;
-          
+
           }
-          
-          
-          
-          
-          
+
+
+
+
+
           a {
             color: white;
             text-decoration: none;
-          } 
+          }
           h1:hover .abc{
             visibility:visible;
-          } 
+          }
 
 
 
           .info-grid-container {
                 border-top: 1px black solid;
                 font-size: 0.75em;
-                
+
                 display: grid;
                 grid-template-columns: 4fr 4fr 2fr 2fr 2fr 2fr;
                 grid-gap: 0px;
@@ -337,20 +337,20 @@
 
 
 
-          
+
 
         </style>
-       
+        <base target="_parent">
 </head>
 <body>
   <header>
   <div class="header-top">
-    
+
         <h1 onmouseover="mouseOver()" onmouseout="mouseOut()">Abecedario</h1>
       </div>
         <div class="info-grid-container" id="abc" style="display: none; width: 100%;">
             <div class="info-grid-row">
-                
+
                 <span>
                     Questo abecedario interattivo è un progetto collettivo
                     in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.<br>
@@ -398,15 +398,15 @@
             </div>
         </div>
 
-     
+
       <!--
         <p id="abc" style="font-size: 13px; width: 35%; line-height: 1.2; color: grey; display: none; ">Si tratta di un progetto collettivo, ovvero un abecedario online. Ogni studente contribuisce con caratteri progettati individualmente. È possibile trovare più di una variante per lettera dell’alfabeto.<br>
         Per navigare nella pagina si può usare le lettere della tastiera o fare swipe.</p>
       -->
-      
-    
+
+
   </div>
-  
+
 
 </header>
 <div class="controls"></div>
@@ -544,14 +544,14 @@
 </div>
 <div class="controls"></div>
 <div class="type-tester" style=" margin-left:60px; margin-right: 60px;">
-  
-  
-  
+
+
+
   <ul class="list-group list-group-flush">
-  
-  
+
+
 </ul>
-  
+
 </div>
 
 
@@ -563,7 +563,7 @@
   function mouseOver() {
     document.getElementById("abc").style.display = "";
   }
-  
+
   function mouseOut() {
     document.getElementById("abc").style.display = "none";
   }
@@ -573,10 +573,10 @@
 
 
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  
+
   let jsonData;
   loadData()
-  
+
   function loadData() {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -588,13 +588,13 @@
       xhttp.open("GET", "https://xmedia2020.github.io/dati.json", true);
       xhttp.send();
   }
-  
+
   function renderData(data, lettera) {
       //console.log(data)
-  
+
       const el = document.querySelector(".list-group")
-  
-  
+
+
       el.innerHTML = ""
       let render = ""
       for (let i = 0; i < data.length; i++) {
@@ -604,7 +604,7 @@
       }
       el.innerHTML += render
   }
-  
+
   function renderComponent(props) {
 
     const v = localStorage.getItem(props.nome + "/" + props.cartella) == 1 ? "&#9675;" : "&#9679;"
@@ -616,12 +616,12 @@
           <li class="list-group-item"><a href="abc/${props.nome}/${props.cartella}/index.html">${v} ${props.nomeCompleto } | <span style="color: grey;"> ${props.descrizione}</span></a></li>`
       )
   }
-  
-  
-  
-  
+
+
+
+
   //----------------------
-  
+
   // Initiate the flickity carousel
   var $carousel = $('.carousel').flickity({
       percentPosition: false,
@@ -629,7 +629,7 @@
       pageDots: false,
       wrapAround: true,
   });
-  
+
   $carousel.on( 'settle.flickity', function( event, index ) {
     renderData(jsonData,alfabeto[index])
   });
@@ -653,10 +653,10 @@
   function jumpToLetter(index) {
       renderData(jsonData,alfabeto[index])
       $carousel.flickity('select', index);
-  
-  
+
+
   }
-  
+
   // Toggling style states
   $('.styles span').on('click', function() {
       if ($(this).is('.bold')) {
@@ -668,7 +668,7 @@
               $('.carousel, .type-tester').css('font-weight', '400');
           }
       }
-  
+
       if ($(this).is('.italic')) {
           if (!$(this).is('.-active')) {
               $(this).addClass('-active');
@@ -679,7 +679,7 @@
           }
       }
   });
-  
+
   $('.color-mode span').on('click', function() {
       if ($(this).is('.dark')) {
           $('.light').removeClass('-active');
@@ -691,7 +691,7 @@
           $('body').removeClass('dark-mode');
       }
   });
-  
+
   $('.show-lines').on('click', function() {
       $(this).toggleClass('-active');
       $('.carousel p').toggleClass('lines-shown');

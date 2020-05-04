@@ -39,7 +39,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 8fr 1fr 1fr;
                 grid-gap: 0px;
-                padding: 0rem 2rem 0rem 1.5rem;                
+                padding: 0rem 2rem 0rem 1.5rem;
 
             }
 
@@ -53,7 +53,7 @@
                 font-size: 0.9rem;
                 /*padding-bottom: 10px;*/
                 /*padding-top: 1rem;*/
-                padding: 0.5rem 2rem 0.5rem 1.5rem;                
+                padding: 0.5rem 2rem 0.5rem 1.5rem;
                 /*text-align: center;*/
             }
 
@@ -143,7 +143,7 @@
                 /*border-bottom: solid 1px rgba(0,0,0,0.2);*/
                 margin:none;
             }
-            
+
             .autori {
                 font-size: 0.9rem;
                 left:0vw;
@@ -175,7 +175,7 @@
             .dropdown {
                 margin: none;
                 position: relative;
-                display: inline-block;        
+                display: inline-block;
             }
 
             .dropdown-content {
@@ -218,6 +218,7 @@
             }
 
         </style>
+        <base target="_parent">
     </head>
     <body>
         <div id="menu">
@@ -253,8 +254,8 @@
         <div class="grid-containerUp">
             <div class="grid-item">autore</div>
             <div class="grid-item">lettera</div>
-            <div class="grid-item">descrizione</div>  
-            <div class="grid-item" >vis.</div>  
+            <div class="grid-item">descrizione</div>
+            <div class="grid-item" >vis.</div>
             <div class="grid-item" id="left">data</div>
         </div>
 
@@ -267,7 +268,7 @@
                 Docente: Andrea Gysin</br>
                 Assistenti: Valentina Meldi, Melanie Agresta</br>
                 SUPSI, primavera 2020
-                
+
                 </p>
             </div>
         </div>
@@ -322,7 +323,7 @@
                     el.addEventListener("click", (e)=> {
                         const url = BASE_FOLDER + "/" + dati[i].nome + "/" + dati[i].cartella + "/index.html"
                         window.location = url
-                    }) 
+                    })
 
                     let nome_out
 
@@ -341,7 +342,7 @@
                                 el.dataset.collapsed = "true"
                                 document.querySelectorAll("."+dati[i].nome).forEach((r)=>{
                                     if (r != el) r.classList.add("hidden")
-                                })                              
+                                })
                             }else{
                                 el.dataset.collapsed = "false"
                                 document.querySelectorAll("."+dati[i].nome).forEach((r)=>{
@@ -354,7 +355,7 @@
 
                     const v = localStorage.getItem(dati[i].nome + "/" + dati[i].cartella) == 1 ? " " : "*"
 
-                    // per visualizzare i dati 
+                    // per visualizzare i dati
                     nome = dati[i].nome
                     el.innerHTML += "<span class='nome'> " + nome_out + "</span>"
                     // el.innerHTML += "<span class='lettera'> "+ lettera_out + "</span>"

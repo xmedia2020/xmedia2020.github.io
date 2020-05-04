@@ -390,6 +390,7 @@
         }
     }
     </style>
+    <base target="_parent">
 </head>
 
 <body class="disable-select disable-scroll">
@@ -657,14 +658,14 @@
     const divInfo = document.querySelector("#info")
     updateData(null)
     // updateData({
-    //  lettera:         " ", 
+    //  lettera:         " ",
     //     nome:           " ",
-    //     nomeCompleto:       " ", 
+    //     nomeCompleto:       " ",
     //     cartella:           " ",
     //     data:           " ",
-    //     input:          " ", 
+    //     input:          " ",
     //     tecnica:      " ",
-    //     descrizione:    " " 
+    //     descrizione:    " "
     // })
 
 
@@ -686,12 +687,12 @@
             info1Div.id = "info1"
             info1Div.innerHTML += `
         <table>
-            <col width="30%" /> 
-            <col width="70%" />  
+            <col width="30%" />
+            <col width="70%" />
             <tr>
                 <td>Autore</td>
                 <td>${data.nomeCompleto}</td>
-            </tr> 
+            </tr>
             <tr>
                 <td>Data</td>
                 <td>${data.data}</td>
@@ -714,12 +715,12 @@
             info2Div.id = "info2"
             info2Div.innerHTML += `
         <table>
-            <col width="25%" /> 
-            <col width="75%" /> 
+            <col width="25%" />
+            <col width="75%" />
             <tr>
                 <td class="fix">Descrizione</td>
                 <td>${data.descrizione}</td>
-            </tr> 
+            </tr>
         </table>
         `
             divInfo.appendChild(info2Div)
