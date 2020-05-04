@@ -43,14 +43,14 @@ function draw(){
 	xR = dx - 2 + width/2;
 	yR = (puntiE[9] - puntiE[1])*d - dy*4.5;
 	// yR = puntiE[8] - puntiE[6];
-	let mx = map(mouseX, xR, width, 0, width/2+dy, true);
+	let mx = map(mouseX, xR, width, 0, width/2-dx, true);
 	let my = map(mouseY, 0, height, -dy/2, height-dy, true);
 	// if(mouseX > xR && mouseY < height/2+puntiE[11]*d+dy/2 && mouseY > height/2+puntiE[1]*d+dy){
 	if(mouseX > xR){
-		if(mouseY+dy > height/2 + puntiE [11] *d){
-			my = height/2+puntiE[11]*d-dy;
-		} else if (mouseY-dy/2 < height/2+puntiE[1]*d +dy){
-			my = height/2+puntiE[1]*d+dy;
+		if(mouseY-dy/2 > height/2 + puntiE [11] *d -dy){
+			my = height/2 + puntiE[11] * d - dy;
+		} else if (mouseY-dy/2 < height/2 + puntiE[5]*d ){
+			my = height/2+puntiE[1]*d + dy;
 		}
 		rect( xR, my, mx, dy);
 	}
