@@ -37,6 +37,7 @@ function setup(){
 	background(0)
 
 	mic = new p5.AudioIn()
+  	userStartAudio()
   	mic.start();
 }
 
