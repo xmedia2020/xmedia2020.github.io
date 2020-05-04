@@ -31,6 +31,7 @@ let count = 100
 const s = 10
 
 
+
 function setup(){
 	// creiamo un'applicazione della dimensione della finestra
 	createCanvas(windowWidth, windowHeight)
@@ -103,14 +104,6 @@ function draw(){
 		pop()
 
 		
-
-
-
-	
-
-
-
-	
 }
 
 function calcBBox(p){
@@ -160,8 +153,12 @@ function keyReleased(){
 
 }
 
-function mousePressed(){
+function mousePressed() {
+    getAudioContext().resume()
+}
 
+function touchStarted() {
+    getAudioContext().resume()
 }
 
 function mouseReleased(){
