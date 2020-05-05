@@ -237,8 +237,8 @@
             fetch("dati.json").then(function(res){
                 return res.json()               // Una volta caricato viene "parsato" (trasformato in JSON)
             }).then(function(json){
-                dati = ordina_per_lettera(json) // ordiniamo per data...
-                dati = ordina_per_nome(dati)    // ... e poi per autore!
+                dati = ordina_per_nome(dati)    // ordiniamo poi per autore
+                dati = ordina_per_lettera(json) // poi per data
                 render(dati)                    // Chiamiamo la funzione "render(dati)"
                                                 // con parametro i nostri dati ordinati...
             })
