@@ -227,12 +227,12 @@
             // Carichiamo il file esterno "dati.json"
             // tramite la funzione "fetch(URL)"
             fetch("dati.json").then(function(res){
-                return res.json()               // Una volta caricato viene "parsato" (trasformato in JSON)
+                return res.json()                // Una volta caricato viene "parsato" (trasformato in JSON)
             }).then(function(json){
-                dati = ordina_per_nome(dati)    // ordiniamo poi per autore
-                dati = ordina_per_lettera(json) // poi per data
-                render(dati)                    // Chiamiamo la funzione "render(dati)"
-                                                // con parametro i nostri dati ordinati...
+                let dati = ordina_per_nome(json) // ordiniamo poi per autore
+                dati = ordina_per_lettera(dati)  // poi per data
+                render(dati)                     // Chiamiamo la funzione "render(dati)"
+                                                 // con parametro i nostri dati ordinati...
             })
 
             // Questa funzione viene chiamata (vedi sopra)
