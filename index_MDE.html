@@ -162,27 +162,44 @@
         order: 2;
     }
 
-    #buttonAbout {
+    #buttonAbout1 {
         display: block;
         z-index: 4;
-        position: absolute;
-        bottom: 105px;
-        right: 50px;
+        /*position: absolute;*/
+        /*top: 20px;*/
+        /*right: 50px;*/
         font-size: 1.618em;
     }
 
 
-    #buttonAbout span {
-        height: 35px;
-        width: 35px;
-        position: relative;
+    #buttonAbout {
+        height: 21px;
+        width: 21px;
+        max-width: 21px;
         cursor: pointer;
+        margin: 0px 0px 0px 12px;
         background-color: white;
         border-radius: 50%;
         text-align: center;
-        margin: auto;
         display: inline-block;
-        line-height: 1.7em;
+        color: black;
+        /*font-size: 0.618em;*/
+        line-height: 1.1em;
+    }
+
+    #buttonX {
+        height: 21px;
+        width: 21px;
+        max-width: 21px;
+        cursor: pointer;
+        margin: 0px 0px 0px 12px;
+        background-color: black;
+        border-radius: 50%;
+        text-align: center;
+        display: inline-block;
+        color: white;
+        /*font-size: 0.618em;*/
+        line-height: 1.1em;
     }
 
     #about {
@@ -196,9 +213,10 @@
         flex-direction: row;
         flex-wrap: wrap;
         font-size: 1.618em;
-        padding-top: 25px;
-        padding-left: 25px;
+        padding-top: 15px;
+        padding-left: 20px;
         line-height: 1.25em;
+        justify-content: flex-start;
     }
 
     #about ul {
@@ -226,12 +244,14 @@
         width: 22%;
         order: 0;
         margin-right: 25px;
+        height: 88vh;
     }
 
     #about .description {
         width: 30%;
         order: 1;
         margin-right: 25px;
+        height: 88vh;
     }
 
     .description a {
@@ -245,15 +265,17 @@
     #about .people {
         width: 33%;
         order: 2;
-        margin-left: 120px
+        margin-left: 120px height: 88vh;
+
     }
 
     #buttonClose {
         z-index: 3;
-        position: absolute;
+        width: 100vw;
+        height: 12vh;
         bottom: 55px;
         right: 50px;
-        font-size: 1.618em;
+        font-size: 1em;
         text-decoration: underline;
         cursor: pointer;
     }
@@ -356,11 +378,13 @@
             width: 100%;
             order: 0;
             margin-top: 75px;
+            height: auto;
         }
 
         #about .description {
             width: 100%;
             order: 1;
+            height: auto;
         }
 
         #about .people {
@@ -368,10 +392,22 @@
             order: 2;
             margin-left: 0px;
             margin-top: 20px;
+            height: auto;
         }
 
         #buttonAbout {
+            width: 26px;
+            max-width: 26px;
+            height: 26px;
             bottom: 40px;
+            font-size: 1em;
+            line-height: 1.6em;
+        }
+
+        #buttonX {
+            width: 26px;
+            max-width: 26px;
+            height: 26px;
         }
 
         #buttonAbout span {
@@ -385,7 +421,7 @@
             position: absolute;
             top: 15px;
             left: 15px;
-            font-size: 1.618em;
+            font-size: 1em;
             text-decoration: underline;
             cursor: pointer;
         }
@@ -395,7 +431,9 @@
 </head>
 
 <body class="disable-select disable-scroll">
-    <div id = "abecedario">abecedario</div>
+    <div id="abecedario">
+        <p>abecedario<span id="buttonAbout">?</span></p>
+    </div>
     <div id="info">
         <!--        <div id="letter"></div>
         <div id="info1"></div>
@@ -403,8 +441,9 @@
         <div id="play"></div> -->
     </div>
     <div id="canvas"></div>
-    <div id="buttonAbout"><span>?</span></div>
+    <!-- <div id="buttonAbout"><span>?</span></div> -->
     <div id="about">
+        <div id="buttonClose">Chiudi<span id="buttonX"> &#215;</span></div>
         <div class="title">
             Abecedario interattivo<br>
             Lugano, Primavera 2020<br><br><br>
@@ -412,11 +451,11 @@
         <div class="description">
             Questo abecedario interattivo è un progetto collettivo in cui gli studenti hanno contribuito con singoli caratteri progettati individualmente.
             È possibile avere più di una variante per lettera dell’alfabeto. <br><br>
-
-            Molte le libertà, tre le regole:<br><ul>
-            <li>Bianco e nero</li>
-            <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
-            <li>Fullscreen</li>
+            Molte le libertà, tre le regole:<br>
+            <ul>
+                <li>Bianco e nero</li>
+                <li>Interattivo (mouse, touch, tastiera, suono, camera, dati, ecc.)</li>
+                <li>Fullscreen</li>
             </ul>
             <br>
             Link alla repository:<br>
@@ -443,7 +482,6 @@
             Valentina Meldi<br>
             Melanie Agresta<br>
         </div>
-        <div id="buttonClose"><span>CHIUDI</span></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <script type="text/javascript">
@@ -855,9 +893,11 @@
     // -- END Verlet -------------------------------------------------------
     // -- about interaction ------------------------------------------------
     const buttonAbout = document.querySelector("#buttonAbout")
+    const buttonAbecedario = document.querySelector("#abecedario")
     const about = document.querySelector("#about")
     const buttonClose = document.querySelector("#buttonClose")
     buttonAbout.addEventListener("click", showAbout)
+    abecedario.addEventListener("click", showAbout)
     buttonClose.addEventListener("click", hideAbout)
 
     function showAbout() {
@@ -867,7 +907,7 @@
 
     function hideAbout() {
         about.classList.remove("active")
-        buttonAbout.style.display = "block";
+        buttonAbout.style.display = "inline-block";
     }
     // -- END about interaction ---------------------------------------------
     </script>

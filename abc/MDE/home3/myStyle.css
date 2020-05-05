@@ -141,27 +141,44 @@ a {
     order:2;
 }
 
-#buttonAbout {
+#buttonAbout1 {
     display: block;
     z-index: 4;
-    position: absolute;
-    bottom: 105px;
-    right: 50px;
+    /*position: absolute;*/
+    /*top: 20px;*/
+    /*right: 50px;*/
     font-size: 1.618em;
 }
 
 
-#buttonAbout span {
-    height: 35px;
-    width: 35px;
-    position: relative;
+#buttonAbout {
+    height: 21px;
+    width: 21px;
+    max-width: 21px;
     cursor: pointer;
+    margin: 0px 0px 0px 12px;
     background-color: white;
     border-radius: 50%;
     text-align: center;
-    margin: auto;
     display: inline-block;
-    line-height: 1.7em;
+    color: black;
+    /*font-size: 0.618em;*/
+    line-height: 1.1em;
+}
+
+#buttonX {
+    height: 21px;
+    width: 21px;
+    max-width: 21px;
+    cursor: pointer;
+    margin: 0px 0px 0px 12px;
+    background-color: black;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    /*font-size: 0.618em;*/
+    line-height: 1.1em;
 }
 
 #about {
@@ -175,9 +192,10 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 1.618em;
-    padding-top: 25px;
-    padding-left: 25px;
+    padding-top: 15px;
+    padding-left: 20px;
     line-height: 1.25em;
+    justify-content: flex-start;
 }
 
 #about ul {
@@ -205,12 +223,14 @@ a {
     width: 22%;
     order: 0;
     margin-right: 25px;
+    height: 88vh;
 }
 
 #about .description {
     width: 30%;
     order: 1;
     margin-right: 25px;
+    height: 88vh;
 }
 
 .description a {
@@ -225,14 +245,17 @@ a {
     width: 33%;
     order: 2;
     margin-left: 120px
+    height: 88vh;
+
 }
 
 #buttonClose {
     z-index: 3;
-    position: absolute;
+    width: 100vw;
+    height: 12vh;
     bottom: 55px;
     right: 50px;
-    font-size: 1.618em;
+    font-size: 1em;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -335,11 +358,13 @@ a {
         width: 100%;
         order: 0;
         margin-top: 75px;
+        height:auto;
     }
 
     #about .description {
         width: 100%;
         order: 1;
+        height: auto;
     }
 
     #about .people {
@@ -347,10 +372,22 @@ a {
         order: 2;
         margin-left: 0px;
         margin-top: 20px;
+        height: auto;
     }
 
     #buttonAbout {
+        width: 26px;
+        max-width: 26px;
+        height: 26px;
         bottom: 40px;
+        font-size: 1em;
+        line-height: 1.6em;
+    }
+
+    #buttonX{
+        width: 26px;
+        max-width: 26px;
+        height: 26px;
     }
 
     #buttonAbout span {
@@ -364,7 +401,7 @@ a {
         position: absolute;
         top: 15px;
         left: 15px;
-        font-size: 1.618em;
+        font-size: 1em;
         text-decoration: underline;
         cursor: pointer;
     }

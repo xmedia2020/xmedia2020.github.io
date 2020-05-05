@@ -19,7 +19,7 @@
 </head>
 
 <body class="disable-select disable-scroll">
-    <div id = "abecedario">abecedario</div>
+    <div id = "abecedario"><p>abecedario<span id="buttonAbout">?</span></p></div>
     <div id="info">
         <!-- 		<div id="letter"></div>
 		<div id="info1"></div>
@@ -27,8 +27,9 @@
 		<div id="play"></div> -->
     </div>
     <div id="canvas"></div>
-    <div id="buttonAbout"><span>?</span></div>
+    <!-- <div id="buttonAbout"><span>?</span></div> -->
     <div id="about">
+        <div id="buttonClose">Chiudi<span id="buttonX"> &#215;</span></div>
         <div class="title">
         	Abecedario interattivo<br>
         	Lugano, Primavera 2020<br><br><br>
@@ -67,7 +68,6 @@
 			Valentina Meldi<br>
 			Melanie Agresta<br>
 		</div>
-		<div id="buttonClose"><span>CHIUDI</span></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <script src="main.js"></script>
@@ -75,9 +75,11 @@
     <script src="updateData.js"></script>
     <script type="text/javascript">
     const buttonAbout = document.querySelector("#buttonAbout")
+    const buttonAbecedario = document.querySelector("#abecedario")
     const about = document.querySelector("#about")
     const buttonClose = document.querySelector("#buttonClose")
     buttonAbout.addEventListener("click", showAbout)
+    abecedario.addEventListener("click", showAbout)
     buttonClose.addEventListener("click", hideAbout)
 
     function showAbout() {
@@ -87,7 +89,7 @@
 
     function hideAbout() {
         about.classList.remove("active")
-        buttonAbout.style.display = "block";
+        buttonAbout.style.display = "inline-block";
     }
 
     </script>
