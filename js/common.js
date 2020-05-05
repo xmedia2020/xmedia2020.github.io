@@ -7,11 +7,15 @@
  *  3. inserisce bottone al commento audio
  */
 
-// 1. Disabilita "bounce" -----------------------------------------------.--
+// 1. Usciamo dal iframe, in caso ---------------------------------------------
+if (top.location != document.location) {
+    top.location.href = document.location.href
+}
+
+// 2. Disabilita "bounce" -----------------------------------------------------
 document.ontouchmove = function(e){
     e.preventDefault()
 }
-
 
 window.addEventListener("load", run)
 
@@ -35,7 +39,7 @@ function run() {
         init_menu(dati, current_index)
     })
 
-    // --- Funzioni di sort -------------------------------------------
+    // --- Funzioni di sort ---------------------------------------------------
     function ordina_per_nome(dati) {
         // Usiamo questa funzione per ordinare i dati in funzione dell'autore
         const dati_ordinati = dati.sort(function(a, b){
@@ -65,7 +69,7 @@ function run() {
 
     function init_menu(dati, current_index) {
 
-        // --- Output -------------------------------------------
+        // --- Output ---------------------------------------------------------
 
         const menu = document.createElement("div")
         menu.classList.add("minimenu")
@@ -89,7 +93,7 @@ function run() {
         `;
         menu.innerHTML = html
 
-         // --- Sound -------------------------------------------
+         // --- Sound ---------------------------------------------------------
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext // WebKit 2020 ?
 
@@ -136,7 +140,7 @@ function run() {
             }
         })
 
-        // --- Canvas -------------------------------------------
+        // --- Canvas ---------------------------------------------------------
 
         const canvas = menu.querySelector("canvas")
         const ctx = canvas.getContext('2d')
