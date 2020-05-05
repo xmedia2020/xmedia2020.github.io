@@ -172,9 +172,9 @@ function run() {
             }
             ctx.stroke()
 
-            const rad = 2
+            const rad = 2.5
             const idx = Math.floor(sound.currentTime / sound.duration * (w-1)) || 0
-            const y = (buffer_data[idx]-128) / 128.0 * h*2 + h/2
+            const y = (buffer_data[idx]-128) / 128.0 * h*2 + h/2 + 0.5
             ctx.beginPath()
             ctx.ellipse(idx+rad, y, rad, rad, 0, 0, Math.PI * 2, false)
             ctx.fill()
