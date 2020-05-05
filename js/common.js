@@ -3,7 +3,7 @@
  *  Questo frammento di codice è inserito in tutte le pagine del progetto.
  *  Assume diverse funzioni:
  *  1. sovrascrive alcuni eventi di default (touchmove)
- *  2. inietta la micro navigazione per tornare all'indice
+ *  2. inietta la micro navigazione per tornare all'indice e per navigare
  *  3. inserisce bottone al commento audio
  */
 
@@ -17,6 +17,7 @@ document.ontouchmove = function(e){
     e.preventDefault()
 }
 
+// 3. Boot baby ---------------------------------------------------------------
 window.addEventListener("load", run)
 
 function run() {
@@ -99,7 +100,7 @@ function run() {
 
         const audio_ctx = new AudioContext()
         const sound = new Audio('commento.mp3')
-        sound.load() // Must be called (Safari, See QUIRK note below)
+        sound.load() // load() deve essere eseguito (Safari, vedi anche nota QUIRK, sotto)
 
         // sound.addEventListener("loadedmetadata", e => console.log("1. loadedmetadata"))
         // sound.addEventListener("loadeddata",     e => console.log("2. loadeddata"))
@@ -117,10 +118,10 @@ function run() {
 
         let __run_once__ = false
         play_btn.addEventListener('click', e => {
-            // QUIRK: analyser MUST be created after .load() for Safari (Version 13.1)
-            //             and MUST be created after "canplay" event (???)
-            //             and MUST be created after "canplaythrough" event (???)
-            //             if it's sevred from GitHub.io (it works locally...)
+            // QUIRK: analyser DEVE essere creato dopo .load() su Safari (Versione 13.1)
+            //             and DEVE essere creato dopo "canplay" event (???)
+            //             and DEVE essere creato dopo "canplaythrough" event (???)
+            //             (funziona in locale, ma non dal server)
             if(!__run_once__) {
                 __run_once__ = true
                 analyser = audio_ctx.createAnalyser()
@@ -166,7 +167,7 @@ function run() {
             ctx.clearRect(0, 0, w, h)
             ctx.beginPath()
             for (let i=0; i<=buffer_data.length; i++){
-                const y = (buffer_data[i]-128) / 128.0 * h*2 + h/2 + 0.5 // per avere la linea nitida spostiamo di 0.5px
+                const y = (buffer_data[i]-128) / 128.0 * h*2 + h/2 + 0.5 // Per avere la linea nitida spostiamo di 0.5px
                 ctx.lineTo(i, y)
             }
             ctx.stroke()
