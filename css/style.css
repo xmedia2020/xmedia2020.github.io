@@ -94,6 +94,7 @@ canvas{
     /*background-color: green;*/
     background-position: center center;
     background-size: 24px 24px;
+    cursor: pointer;
 }
 
 .btn_next{
