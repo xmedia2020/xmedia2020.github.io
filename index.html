@@ -20,6 +20,43 @@
                 overflow: hidden;
                 font-family: Helvetica;
             }
+            #index_list {
+                font-size: 0.5rem;
+                background-color: red;
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.5rem 2.5rem 1rem 1.5rem;
+            }
+            #index_list ul {
+                margin:0;
+                padding:0;
+                list-style: none;
+            }
+            #index_list li{
+                cursor:pointer;
+                margin-left:-0.5rem;
+            }
+            #index_list li:hover{
+                text-decoration: underline;
+            }
+            #index_list li:before{
+                display:inline-block;
+                content:"– ";
+                width:0.5rem;
+            }
+            #index_list .close{
+                position: absolute;
+                right:0.5rem;
+                top:0.5rem;
+                display: block;
+                cursor:pointer;
+            }
+            #index_list .close:hover{
+                opacity:0.2;
+            }
+
+
             iframe {
                 position: absolute;
                 left: 0;
@@ -29,36 +66,47 @@
                 display: block;
                 border: none;
             }
-            #label {
-                font-size: 0.75rem;
-                background-color: red;
-                position: absolute;
-                bottom: 1em;
-                left: 1em;
-                padding: 0.5rem;
-            }
         </style>
     </head>
     <body>
         <iframe></iframe>
-        <div id="label"></div>
+        <div id="index_list">
+            <span>Indice alt.:</span>
+            <span class="close">✕</span>
+            <ul>
+            </ul>
+        </div>
     </body>
     <script>
 
         const indici = [
             "index_AGY_1.html",
             "index_AGY_2.html",
+            "index_ARI.html",
             "index_CCR.html",
             "index_DVE.html",
             "index_LBA.html",
             "index_MDE.html",
         ]
 
-        const idx   = Math.floor((new Date()).getMinutes() / 60 * indici.length)
-        const label = indici[idx].substring(6, 9)
+        const current_index = localStorage.getItem("selected_index") || 0
 
-        document.querySelector("iframe").src = indici[idx]
-        document.querySelector("#label").innerHTML = `Index <sup>${idx+1}</sup>/<sub>${indici.length}</sub> ${label}`;
+        const target = document.querySelector("#index_list ul")
+        indici.forEach((e, idx) => {
+            const label = e.substring(6).replace(/\.[^/.]+$/, "")
+            const li = document.createElement("li")
+            li.innerHTML = label
+            target.appendChild(li)
+            li.addEventListener('click', e => {
+                localStorage.setItem("selected_index", idx)
+                window.location.reload()
+            })
+        })
 
+        document.querySelector(".close").addEventListener("click", e => {
+            document.querySelector("#index_list").style.display = "none"
+        })
+
+        document.querySelector("iframe").src = indici[current_index]
     </script>
 </html>
